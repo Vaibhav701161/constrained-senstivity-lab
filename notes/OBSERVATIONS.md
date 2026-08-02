@@ -29,3 +29,13 @@ Observed JSON failure modes:
 - Markdown fenced JSON followed by another fenced block.
 - Valid-looking JSON followed by extra prose.
 - Multiple JSON objects in one response.
+
+## Day 2 baseline observations
+
+- The RTX 4050 works with the pinned CUDA 12.4 PyTorch wheel.
+- Prompted reasoning-first JSON scored 4/20; answer-first scored 1/20.
+- Outlines reasoning-first scored 3/20 versus 4/20 for its matched prompted condition.
+- Outlines improved schema validity from 55% to 95%, but validity did not imply semantic correctness.
+- One Outlines output was deterministically invalid on rerun despite not hitting the token cap.
+- The free condition hit its token cap on 8/20 items and needed a last-number fallback on 13/20.
+- These results are suggestive only; see `notes/DAY2.md` for the controlled comparisons and limitations.

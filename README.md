@@ -1,35 +1,62 @@
 # Constrained Decoding Lab
 
-Practical Day 0 repo for touching the basic constrained-decoding workflow:
-tokenization, local generation, prompted JSON, toy logits masking, and JSONL
-logging.
+Local experiments for measuring how JSON prompting and constrained decoding
+affect output validity, semantic accuracy, latency, and token use.
 
 ## Setup
 
 ```bash
 cd /home/vaibhav/constrained-decoding-lab
+uv venv .venv --python 3.12
+uv pip install --python .venv/bin/python -r requirements.txt
 source .venv/bin/activate
-python -c "import torch, transformers, datasets, jsonschema; print('ok')"
+python scripts/00_env_probe.py
 ```
 
-The current environment runs on CPU. `torch.cuda.is_available()` is false on
-this machine because the installed NVIDIA driver is older than the CUDA runtime
-bundled with the installed torch wheel.
+The verified local stack uses PyTorch 2.6.0+cu124 on an RTX 4050 Laptop GPU.
+See `notes/SETUP_NOTES.md` for exact versions and troubleshooting details.
 
-## Day 0 Commands
+## Day 2 local baseline
+
+Prepare the deterministic GSM8K subset:
 
 ```bash
-python scripts/01_tokenizer_probe.py | tee results/day0/tokenizer_probe.txt
-python scripts/02_generate_once.py | tee results/day0/generation_once.txt
-python scripts/03_prompted_json_validate.py
-python scripts/04_ban_digit_logits_processor.py
-python scripts/05_run_smoke_eval.py --condition free
-python scripts/05_run_smoke_eval.py --condition json
+python scripts/06_prepare_datasets.py \
+  --count 50 \
+  --seed 0 \
+  --out data/gsm8k_50_seed0.jsonl
 ```
 
-The smoke eval writes:
+Run a condition:
 
-```text
-results/day0/smoke_eval_free.jsonl
-results/day0/smoke_eval_json.jsonl
+```bash
+python scripts/07_run_baseline.py \
+  --model Qwen/Qwen2.5-0.5B-Instruct \
+  --dataset data/gsm8k_50_seed0.jsonl \
+  --condition prompted_json_reasoning_first \
+  --limit 20 \
+  --seed 0 \
+  --resume \
+  --out results/day2/gsm8k_qwen05_prompted_json_reasoning_first_seed0.jsonl
 ```
+
+Supported conditions:
+
+- `free`
+- `prompted_json_reasoning_first`
+- `prompted_json_answer_first`
+- `outlines_json_reasoning_first`
+- `outlines_json_answer_first`
+
+The runner applies the model chat template, writes and flushes one JSONL row per
+item, validates resume signatures, and keeps structural and semantic metrics
+separate.
+
+Results and interpretation are in `results/day2/summary.md` and
+`notes/DAY2.md`.
+
+## Day 0 scripts
+
+The original tokenizer, generation, prompted-JSON, logit-masking, and three-item
+smoke scripts remain under `scripts/01_*` through `scripts/05_*`; their outputs
+are under `results/day0/`.

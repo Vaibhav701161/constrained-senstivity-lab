@@ -1,0 +1,96 @@
+{
+  "input_files": [
+    "results/day2/gsm8k_qwen05_free_seed0.jsonl",
+    "results/day2/gsm8k_qwen05_prompted_json_reasoning_first_seed0.jsonl",
+    "results/day2/gsm8k_qwen05_prompted_json_answer_first_seed0.jsonl"
+  ],
+  "total_rows": 60,
+  "groups": [
+    {
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "condition": "free",
+      "examples": 20,
+      "correct_exact": 5,
+      "accuracy": 0.25,
+      "whole_response_valid_json": null,
+      "first_object_recoverable": null,
+      "schema_valid": null,
+      "field_order_matches": null,
+      "final_answer_marker_at_end": 0.3,
+      "hit_max_new_tokens": 0.4,
+      "avg_latency_ms": 10225.27765,
+      "median_latency_ms": 10762.6155,
+      "avg_generated_tokens": 217.35,
+      "errors": 0,
+      "source_files": [
+        "results/day2/gsm8k_qwen05_free_seed0.jsonl"
+      ]
+    },
+    {
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "condition": "prompted_json_answer_first",
+      "examples": 20,
+      "correct_exact": 1,
+      "accuracy": 0.05,
+      "whole_response_valid_json": 0.85,
+      "first_object_recoverable": 0.95,
+      "schema_valid": 0.95,
+      "field_order_matches": 0.95,
+      "final_answer_marker_at_end": null,
+      "hit_max_new_tokens": 0.0,
+      "avg_latency_ms": 5311.76995,
+      "median_latency_ms": 5039.2595,
+      "avg_generated_tokens": 111.05,
+      "errors": 0,
+      "source_files": [
+        "results/day2/gsm8k_qwen05_prompted_json_answer_first_seed0.jsonl"
+      ]
+    },
+    {
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "condition": "prompted_json_reasoning_first",
+      "examples": 20,
+      "correct_exact": 2,
+      "accuracy": 0.1,
+      "whole_response_valid_json": 0.65,
+      "first_object_recoverable": 0.8,
+      "schema_valid": 0.8,
+      "field_order_matches": 0.8,
+      "final_answer_marker_at_end": null,
+      "hit_max_new_tokens": 0.05,
+      "avg_latency_ms": 4612.9856,
+      "median_latency_ms": 3599.08,
+      "avg_generated_tokens": 96.05,
+      "errors": 0,
+      "source_files": [
+        "results/day2/gsm8k_qwen05_prompted_json_reasoning_first_seed0.jsonl"
+      ]
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "comparison": "json_prompt_cost",
+      "treatment": "prompted_json_reasoning_first",
+      "control": "free",
+      "paired_examples": 20,
+      "accuracy_delta": -0.15,
+      "treatment_only_correct": 1,
+      "control_only_correct": 4,
+      "both_correct": 1,
+      "both_wrong": 14
+    },
+    {
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "comparison": "prompted_field_order_effect",
+      "treatment": "prompted_json_answer_first",
+      "control": "prompted_json_reasoning_first",
+      "paired_examples": 20,
+      "accuracy_delta": -0.05,
+      "treatment_only_correct": 1,
+      "control_only_correct": 2,
+      "both_correct": 0,
+      "both_wrong": 17
+    }
+  ]
+}

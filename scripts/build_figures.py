@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build deterministic README figures from accepted experiment summaries."""
+"""Generate publication-style figures from accepted experiment artifacts."""
 
 from __future__ import annotations
 
@@ -7,31 +7,37 @@ import argparse
 import json
 from pathlib import Path
 from typing import Any
-from xml.sax.saxutils import escape
+
+import matplotlib
+
+matplotlib.use("Agg")
+
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.figure import Figure
+from matplotlib.ticker import PercentFormatter
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SUMMARY = ROOT / "results/qwen2.5-7b/primary/combined/summary_clean.json"
 DEFAULT_OUTPUT = ROOT / "assets/figures"
 
 COLORS = {
-    "ink": "#172033",
-    "muted": "#5E6B82",
-    "grid": "#D9DFE8",
-    "panel": "#F7F9FC",
-    "recoverable": "#2563EB",
-    "strict": "#0F766E",
-    "schema": "#D97706",
-    "negative": "#B42318",
-    "positive": "#2563EB",
+    "recoverable": "#0072B2",
+    "strict": "#009E73",
+    "schema": "#D55E00",
+    "negative": "#B2182B",
+    "positive": "#2166AC",
+    "neutral": "#4D4D4D",
+    "grid": "#D9D9D9",
 }
 
 LABELS = {
     "free": "Free response",
-    "prompted_json_reasoning_first": "Prompted JSON: reasoning first",
-    "outlines_json_reasoning_first": "Outlines: reasoning first",
-    "xgrammar_json_reasoning_first": "XGrammar: reasoning first",
-    "prompted_json_answer_first": "Prompted JSON: answer first",
-    "outlines_json_answer_first": "Outlines: answer first",
+    "prompted_json_reasoning_first": "Prompted JSON\nreasoning first",
+    "outlines_json_reasoning_first": "Outlines\nreasoning first",
+    "xgrammar_json_reasoning_first": "XGrammar\nreasoning first",
+    "prompted_json_answer_first": "Prompted JSON\nanswer first",
+    "outlines_json_answer_first": "Outlines\nanswer first",
 }
 
 ORDER = (
@@ -44,11 +50,11 @@ ORDER = (
 )
 
 EFFECT_LABELS = {
-    "json_prompt_cost": "Prompted RF − Free",
-    "outlines_constraint_effect": "Outlines RF − Prompted RF",
-    "xgrammar_constraint_effect": "XGrammar RF − Prompted RF",
-    "prompted_field_order_effect": "Prompted AF − Prompted RF",
-    "outlines_field_order_effect": "Outlines AF − Outlines RF",
+    "json_prompt_cost": "Prompted RF vs free",
+    "outlines_constraint_effect": "Outlines RF vs prompted RF",
+    "xgrammar_constraint_effect": "XGrammar RF vs prompted RF",
+    "prompted_field_order_effect": "Prompted AF vs prompted RF",
+    "outlines_field_order_effect": "Outlines AF vs Outlines RF",
 }
 
 EFFECT_ORDER = tuple(EFFECT_LABELS)
@@ -61,344 +67,311 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def text(
-    x: float,
-    y: float,
-    value: str,
-    *,
-    size: int = 16,
-    weight: int = 400,
-    fill: str | None = None,
-    anchor: str = "start",
-) -> str:
-    return (
-        f'<text x="{x:.1f}" y="{y:.1f}" font-family="Inter, ui-sans-serif, '
-        f'Segoe UI, sans-serif" font-size="{size}" font-weight="{weight}" '
-        f'fill="{fill or COLORS["ink"]}" text-anchor="{anchor}">'
-        f"{escape(value)}</text>"
+def configure_plotting() -> None:
+    plt.rcParams.update(
+        {
+            "font.family": "DejaVu Sans",
+            "font.size": 9,
+            "axes.titlesize": 11,
+            "axes.labelsize": 9,
+            "axes.spines.top": False,
+            "axes.spines.right": False,
+            "axes.linewidth": 0.8,
+            "xtick.labelsize": 8,
+            "ytick.labelsize": 8,
+            "legend.fontsize": 8,
+            "figure.titlesize": 13,
+            "svg.hashsalt": "constrained-decoding-lab",
+        }
     )
 
 
-def svg_document(width: int, height: int, body: list[str], title: str) -> str:
-    return "\n".join(
-        [
-            '<?xml version="1.0" encoding="UTF-8"?>',
-            (
-                f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" '
-                f'height="{height}" viewBox="0 0 {width} {height}" role="img" '
-                f'aria-labelledby="title desc">'
-            ),
-            f'<title id="title">{escape(title)}</title>',
-            (
-                '<desc id="desc">Generated directly from checked-in experiment '
-                "summary data.</desc>"
-            ),
-            f'<rect width="{width}" height="{height}" fill="#FFFFFF"/>',
-            *body,
-            "</svg>",
-            "",
-        ]
+def save_figure(figure: Figure, output_dir: Path, stem: str) -> None:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    svg_path = output_dir / f"{stem}.svg"
+    figure.savefig(
+        svg_path,
+        bbox_inches="tight",
+        metadata={"Creator": "Matplotlib", "Date": None},
     )
-
-
-def percent(value: float | None) -> str:
-    return "n/a" if value is None else f"{100 * value:.1f}%"
-
-
-def build_tradeoff(summary: dict[str, Any]) -> str:
-    width, height = 1200, 700
-    left, right, top = 340, 1140, 175
-    chart_width = right - left
-    row_height = 76
-    body = [
-        text(60, 54, "Accuracy and contract compliance", size=28, weight=700),
-        text(
-            60,
-            84,
-            "Qwen2.5-7B · audited GSM8K subset · n = 49 per condition",
-            size=15,
-            fill=COLORS["muted"],
-        ),
-    ]
-
-    legend = (
-        ("Recoverable math accuracy", COLORS["recoverable"]),
-        ("Strict correct + compliant", COLORS["strict"]),
-        ("Schema compliance", COLORS["schema"]),
+    svg_lines = svg_path.read_text(encoding="utf-8").splitlines()
+    svg_path.write_text(
+        "\n".join(line.rstrip() for line in svg_lines) + "\n",
+        encoding="utf-8",
     )
-    legend_x = 60
-    for label, color in legend:
-        body.append(
-            f'<rect x="{legend_x}" y="108" width="14" height="14" rx="2" fill="{color}"/>'
-        )
-        body.append(text(legend_x + 22, 120, label, size=14))
-        legend_x += 245
+    figure.savefig(
+        output_dir / f"{stem}.png",
+        bbox_inches="tight",
+        dpi=180,
+        metadata={"Software": "Matplotlib"},
+    )
+    plt.close(figure)
 
-    for tick in range(0, 101, 25):
-        x = left + chart_width * tick / 100
-        body.append(
-            f'<line x1="{x:.1f}" y1="{top - 14}" x2="{x:.1f}" '
-            f'y2="{top + row_height * len(ORDER) - 15}" '
-            f'stroke="{COLORS["grid"]}" stroke-width="1"/>'
-        )
-        body.append(
-            text(x, top - 24, str(tick), size=13, fill=COLORS["muted"], anchor="middle")
-        )
 
+def build_tradeoff(summary: dict[str, Any], output_dir: Path) -> None:
     groups = {group["condition"]: group for group in summary["groups"]}
+    y = np.arange(len(ORDER))
+    bar_height = 0.23
     metrics = (
-        ("accuracy", COLORS["recoverable"]),
-        ("strict_accuracy", COLORS["strict"]),
-        ("schema_valid", COLORS["schema"]),
+        ("accuracy", "Recoverable accuracy", COLORS["recoverable"]),
+        ("strict_accuracy", "Strict accuracy", COLORS["strict"]),
+        ("schema_valid", "Schema compliance", COLORS["schema"]),
     )
-    for row, condition in enumerate(ORDER):
-        group = groups[condition]
-        y = top + row * row_height
-        body.append(
-            text(
-                left - 18, y + 29, LABELS[condition], size=15, weight=550, anchor="end"
-            )
-        )
-        if row % 2 == 1:
-            body.append(
-                f'<rect x="{left}" y="{y - 4}" width="{chart_width}" height="62" '
-                f'fill="{COLORS["panel"]}"/>'
-            )
-        for offset, (field, color) in enumerate(metrics):
-            value = group[field]
-            bar_y = y + offset * 18
-            if value is None:
-                body.append(
-                    text(left + 6, bar_y + 11, "n/a", size=11, fill=COLORS["muted"])
-                )
-                continue
-            bar_width = chart_width * float(value)
-            body.append(
-                f'<rect x="{left}" y="{bar_y}" width="{max(bar_width, 2):.1f}" '
-                f'height="11" rx="2" fill="{color}"/>'
-            )
-            label_x = min(left + bar_width + 8, right - 2)
-            anchor = "start"
-            if bar_width > chart_width - 55:
-                label_x = left + bar_width - 6
-                anchor = "end"
-            body.append(
-                text(
-                    label_x,
-                    bar_y + 10,
-                    percent(value),
-                    size=11,
-                    weight=650,
-                    anchor=anchor,
-                )
-            )
 
-    body.extend(
-        [
-            text(
-                left, height - 38, "Percentage of evaluated items", size=14, weight=600
-            ),
-            text(
-                right,
-                height - 38,
-                "One contradictory benchmark row excluded by the predeclared audit rule.",
-                size=12,
-                fill=COLORS["muted"],
-                anchor="end",
-            ),
-        ]
+    figure, axis = plt.subplots(figsize=(10, 5.8))
+    for offset, (field, label, color) in zip((-1, 0, 1), metrics, strict=True):
+        values = [groups[condition][field] for condition in ORDER]
+        plotted = [np.nan if value is None else 100 * float(value) for value in values]
+        bars = axis.barh(
+            y + offset * bar_height,
+            plotted,
+            height=bar_height,
+            label=label,
+            color=color,
+            alpha=0.9,
+        )
+        axis.bar_label(bars, fmt="%.1f", padding=3, fontsize=7)
+
+    axis.set_yticks(y, [LABELS[condition] for condition in ORDER])
+    axis.invert_yaxis()
+    axis.set_xlim(0, 108)
+    axis.set_xlabel("Rate (%)")
+    axis.grid(axis="x", color=COLORS["grid"], linewidth=0.7)
+    axis.set_axisbelow(True)
+    figure.suptitle(
+        "Qwen2.5-7B accuracy and contract compliance",
+        x=0.19,
+        y=0.97,
+        ha="left",
     )
-    return svg_document(width, height, body, "Accuracy and schema-compliance trade-off")
+    axis.legend(frameon=False, ncol=3, loc="upper left", bbox_to_anchor=(0, 1.08))
+    figure.subplots_adjust(left=0.19, right=0.98, top=0.84, bottom=0.1)
+    save_figure(figure, output_dir, "accuracy-compliance-tradeoff")
 
 
-def build_effects(summary: dict[str, Any]) -> str:
-    width, height = 1200, 590
-    left, right, top = 360, 1030, 145
-    domain_min, domain_max = -80.0, 30.0
-    chart_width = right - left
-    row_height = 72
-    body = [
-        text(
-            60, 54, "Paired effects on recoverable math accuracy", size=28, weight=700
-        ),
-        text(
-            60,
-            84,
-            "Percentage-point differences with paired-bootstrap 95% intervals",
-            size=15,
-            fill=COLORS["muted"],
-        ),
-    ]
-
-    def scale(value: float) -> float:
-        return left + (value - domain_min) / (domain_max - domain_min) * chart_width
-
-    for tick in (-80, -60, -40, -20, 0, 20):
-        x = scale(float(tick))
-        body.append(
-            f'<line x1="{x:.1f}" y1="{top - 28}" x2="{x:.1f}" '
-            f'y2="{top + row_height * len(EFFECT_ORDER) - 18}" '
-            f'stroke="{COLORS["ink"] if tick == 0 else COLORS["grid"]}" '
-            f'stroke-width="{2 if tick == 0 else 1}"/>'
-        )
-        body.append(
-            text(
-                x,
-                top - 38,
-                f"{tick:+d}",
-                size=13,
-                fill=COLORS["muted"],
-                anchor="middle",
-            )
-        )
-
+def build_effects(summary: dict[str, Any], output_dir: Path) -> None:
     comparisons = {row["comparison"]: row for row in summary["paired_comparisons"]}
-    for index, name in enumerate(EFFECT_ORDER):
-        row = comparisons[name]
-        estimate = 100 * float(row["accuracy_delta"])
-        low, high = (100 * float(value) for value in row["accuracy_delta_ci95"])
-        y = top + index * row_height
+    rows = [comparisons[name] for name in EFFECT_ORDER]
+    estimates = np.array([100 * float(row["accuracy_delta"]) for row in rows])
+    intervals = np.array(
+        [[100 * float(value) for value in row["accuracy_delta_ci95"]] for row in rows]
+    )
+    errors = np.vstack((estimates - intervals[:, 0], intervals[:, 1] - estimates))
+    y = np.arange(len(rows))
+
+    figure, axis = plt.subplots(figsize=(9, 4.4), constrained_layout=True)
+    for index, (estimate, p_value) in enumerate(
+        zip(estimates, [row["mcnemar_p_exact"] for row in rows], strict=True)
+    ):
         color = COLORS["negative"] if estimate < 0 else COLORS["positive"]
-        body.append(
-            text(
-                left - 22, y + 6, EFFECT_LABELS[name], size=15, weight=550, anchor="end"
-            )
+        axis.errorbar(
+            estimate,
+            index,
+            xerr=errors[:, index : index + 1],
+            fmt="o",
+            color=color,
+            capsize=4,
+            linewidth=1.4,
+            markersize=5,
         )
-        body.append(
-            f'<line x1="{scale(low):.1f}" y1="{y:.1f}" x2="{scale(high):.1f}" '
-            f'y2="{y:.1f}" stroke="{color}" stroke-width="4" stroke-linecap="round"/>'
-        )
-        for bound in (low, high):
-            body.append(
-                f'<line x1="{scale(bound):.1f}" y1="{y - 8:.1f}" '
-                f'x2="{scale(bound):.1f}" y2="{y + 8:.1f}" '
-                f'stroke="{color}" stroke-width="2"/>'
-            )
-        body.append(
-            f'<circle cx="{scale(estimate):.1f}" cy="{y:.1f}" r="7" fill="{color}"/>'
-        )
-        body.append(text(right + 10, y + 5, f"{estimate:+.1f} pp", size=14, weight=600))
-        body.append(
-            text(
-                width - 15,
-                y + 5,
-                f"p={row['mcnemar_p_exact']:.4g}",
-                size=13,
-                weight=600,
-                anchor="end",
-            )
-        )
+        axis.text(27, index, f"p = {p_value:.4g}", va="center", ha="right", fontsize=8)
 
-    body.extend(
-        [
-            text(left, height - 40, "Favors control", size=13, fill=COLORS["muted"]),
-            text(
-                right,
-                height - 40,
-                "Favors treatment",
-                size=13,
-                fill=COLORS["muted"],
-                anchor="end",
-            ),
-            text(
-                1140,
-                84,
-                "Two-sided exact McNemar p-values",
-                size=12,
-                fill=COLORS["muted"],
-                anchor="end",
-            ),
-        ]
-    )
-    return svg_document(
-        width, height, body, "Paired effects on recoverable math accuracy"
-    )
+    axis.axvline(0, color="black", linewidth=0.9)
+    axis.set_yticks(y, [EFFECT_LABELS[name] for name in EFFECT_ORDER])
+    axis.invert_yaxis()
+    axis.set_xlim(-80, 30)
+    axis.set_xlabel("Paired difference in recoverable accuracy (percentage points)")
+    axis.set_title("Paired effects with bootstrap 95% confidence intervals", loc="left")
+    axis.grid(axis="x", color=COLORS["grid"], linewidth=0.7)
+    axis.set_axisbelow(True)
+    save_figure(figure, output_dir, "paired-effects")
 
 
-def build_design() -> str:
-    width, height = 1200, 420
-    body = [
-        text(60, 48, "Controlled evaluation design", size=28, weight=700),
-        text(
-            60,
-            76,
-            "Matched items, prompts, precision and decoding settings across conditions",
-            size=15,
-            fill=COLORS["muted"],
+def build_transitions(summary: dict[str, Any], output_dir: Path) -> None:
+    comparisons = {row["comparison"]: row for row in summary["paired_comparisons"]}
+    panels = (
+        (
+            "outlines_constraint_effect",
+            "Prompted RF vs Outlines RF",
+            "Prompted RF",
+            "Outlines RF",
         ),
-    ]
+        (
+            "xgrammar_constraint_effect",
+            "Prompted RF vs XGrammar RF",
+            "Prompted RF",
+            "XGrammar RF",
+        ),
+        (
+            "xgrammar_vs_outlines",
+            "Outlines RF vs XGrammar RF",
+            "Outlines RF",
+            "XGrammar RF",
+        ),
+    )
+    figure, axes = plt.subplots(1, 3, figsize=(10.5, 3.7), constrained_layout=True)
 
-    def box(x: int, y: int, w: int, h: int, title: str, subtitle: str) -> None:
-        body.append(
-            f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="8" '
-            f'fill="#FFFFFF" stroke="{COLORS["grid"]}" stroke-width="2"/>'
+    for axis, (name, title, control, treatment) in zip(axes, panels, strict=True):
+        row = comparisons[name]
+        matrix = np.array(
+            [
+                [row["both_correct"], row["control_only_correct"]],
+                [row["treatment_only_correct"], row["both_wrong"]],
+            ]
         )
-        body.append(text(x + 18, y + 31, title, size=16, weight=650))
-        body.append(text(x + 18, y + 55, subtitle, size=12, fill=COLORS["muted"]))
+        axis.imshow(matrix, cmap="Blues", vmin=0, vmax=49)
+        for row_index in range(2):
+            for column_index in range(2):
+                value = int(matrix[row_index, column_index])
+                color = "white" if value >= 25 else "black"
+                axis.text(
+                    column_index,
+                    row_index,
+                    str(value),
+                    ha="center",
+                    va="center",
+                    fontsize=16,
+                    color=color,
+                )
+        axis.set_xticks((0, 1), ("Correct", "Wrong"))
+        axis.set_yticks((0, 1), ("Correct", "Wrong"))
+        axis.set_xlabel(f"Treatment: {treatment}")
+        axis.set_ylabel(f"Control: {control}")
+        axis.set_title(title)
+        delta = 100 * float(row["accuracy_delta"])
+        axis.text(
+            0.5,
+            -0.34,
+            f"Δ = {delta:+.1f} pp; exact p = {row['mcnemar_p_exact']:.4g}",
+            transform=axis.transAxes,
+            ha="center",
+            fontsize=8,
+        )
+        for spine in axis.spines.values():
+            spine.set_visible(True)
+            spine.set_linewidth(0.8)
 
-    def arrow(x1: int, y1: int, x2: int, y2: int) -> None:
-        body.append(
-            f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" '
-            f'stroke="{COLORS["muted"]}" stroke-width="2" marker-end="url(#arrow)"/>'
-        )
+    figure.suptitle("Paired correctness contingency tables", x=0.02, ha="left")
+    save_figure(figure, output_dir, "paired-transitions")
 
-    body.append(
-        '<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" '
-        'refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" '
-        f'fill="{COLORS["muted"]}"/></marker></defs>'
+
+def build_field_order(summary: dict[str, Any], output_dir: Path) -> None:
+    groups = {group["condition"]: group for group in summary["groups"]}
+    panel_specs = (
+        (
+            "Prompt-only JSON",
+            groups["prompted_json_reasoning_first"],
+            groups["prompted_json_answer_first"],
+            (
+                ("Recoverable", "accuracy", COLORS["recoverable"], "o", "-"),
+                ("Strict", "strict_accuracy", COLORS["strict"], "s", "--"),
+                ("Schema", "schema_valid", COLORS["schema"], "^", ":"),
+            ),
+        ),
+        (
+            "Outlines JSON",
+            groups["outlines_json_reasoning_first"],
+            groups["outlines_json_answer_first"],
+            (
+                (
+                    "Recoverable = strict",
+                    "accuracy",
+                    COLORS["recoverable"],
+                    "o",
+                    "-",
+                ),
+                ("Schema", "schema_valid", COLORS["schema"], "^", ":"),
+            ),
+        ),
     )
-    box(50, 150, 190, 80, "Deterministic subset", "GSM8K test · seed 0 · n=50")
-    box(285, 150, 180, 80, "Audit rule", "49 retained · 1 defect excluded")
-    box(510, 150, 180, 80, "Matched prompting", "Chat template · greedy · FP32")
-    box(735, 105, 190, 68, "Free response", "Final-answer extraction")
-    box(735, 183, 190, 68, "Prompt-only JSON", "No token constraints")
-    box(735, 261, 190, 68, "Grammar JSON", "Outlines / XGrammar")
-    box(970, 150, 180, 80, "Two-axis scoring", "Recoverable + strict")
-    arrow(240, 190, 285, 190)
-    arrow(465, 190, 510, 190)
-    arrow(690, 190, 730, 139)
-    arrow(690, 190, 730, 217)
-    arrow(690, 190, 730, 295)
-    arrow(925, 139, 970, 175)
-    arrow(925, 217, 970, 190)
-    arrow(925, 295, 970, 205)
-    body.append(
-        f'<rect x="285" y="285" width="405" height="62" rx="8" '
-        f'fill="{COLORS["panel"]}" stroke="{COLORS["grid"]}"/>'
+    figure, axes = plt.subplots(1, 2, figsize=(9.5, 4.2), sharey=True, constrained_layout=True)
+    x = np.array((0, 1))
+
+    for axis, (title, reasoning_first, answer_first, metrics) in zip(
+        axes, panel_specs, strict=True
+    ):
+        for label, field, color, marker, linestyle in metrics:
+            values = np.array(
+                [100 * float(reasoning_first[field]), 100 * float(answer_first[field])]
+            )
+            axis.plot(
+                x,
+                values,
+                label=label,
+                color=color,
+                marker=marker,
+                linestyle=linestyle,
+                linewidth=1.8,
+                markersize=6,
+            )
+        axis.set_xticks(x, ("Reasoning first", "Answer first"))
+        axis.set_xlim(-0.15, 1.15)
+        axis.set_ylim(0, 105)
+        axis.set_title(title)
+        axis.yaxis.set_major_formatter(PercentFormatter(xmax=100))
+        axis.grid(axis="y", color=COLORS["grid"], linewidth=0.7)
+        axis.set_axisbelow(True)
+        axis.legend(frameon=False, loc="best")
+
+    axes[0].set_ylabel("Rate")
+    figure.suptitle("Sensitivity to JSON field order", x=0.02, ha="left")
+    save_figure(figure, output_dir, "field-order-sensitivity")
+
+
+def build_design(output_dir: Path) -> None:
+    figure, axis = plt.subplots(figsize=(10.5, 2.5), constrained_layout=True)
+    axis.set_xlim(0, 10)
+    axis.set_ylim(0, 3)
+    axis.axis("off")
+
+    stages = (
+        (0.2, "Frozen data", "GSM8K test\nseed 0; n = 50"),
+        (2.2, "Data audit", "49 retained\n1 excluded"),
+        (4.2, "Matched generation", "Chat template\ngreedy; FP32"),
+        (6.2, "Six conditions", "Free, prompted,\nOutlines, XGrammar"),
+        (8.2, "Paired analysis", "Strict + recoverable\nCIs + McNemar"),
     )
-    body.append(text(305, 311, "Models", size=13, weight=650))
-    body.append(
-        text(
-            305, 334, "Qwen2.5-0.5B locally · Qwen2.5-7B on two Tesla T4 GPUs", size=13
+    for index, (x_position, title, detail) in enumerate(stages):
+        rectangle = plt.Rectangle(
+            (x_position, 1.0),
+            1.55,
+            1.05,
+            fill=False,
+            linewidth=1.0,
+            edgecolor="black",
         )
-    )
-    body.append(text(970, 286, "Paired analysis", size=13, weight=650))
-    body.append(
-        text(
-            970, 310, "Wilson CIs · paired bootstrap CIs", size=12, fill=COLORS["muted"]
-        )
-    )
-    body.append(
-        text(970, 331, "two-sided exact McNemar tests", size=12, fill=COLORS["muted"])
-    )
-    return svg_document(
-        width, height, body, "Controlled constrained-decoding evaluation design"
-    )
+        axis.add_patch(rectangle)
+        axis.text(x_position + 0.775, 1.72, title, ha="center", va="center", weight="bold")
+        axis.text(x_position + 0.775, 1.33, detail, ha="center", va="center", fontsize=8)
+        if index < len(stages) - 1:
+            axis.annotate(
+                "",
+                xy=(x_position + 2.0, 1.52),
+                xytext=(x_position + 1.57, 1.52),
+                arrowprops={"arrowstyle": "->", "linewidth": 1.0, "color": "black"},
+            )
+
+    axis.set_title("Controlled evaluation and validation flow", loc="left")
+    save_figure(figure, output_dir, "evaluation-design")
 
 
 def main() -> None:
     args = parse_args()
     summary = json.loads(args.summary.read_text(encoding="utf-8"))
-    args.output_dir.mkdir(parents=True, exist_ok=True)
-    figures = {
-        "accuracy-compliance-tradeoff.svg": build_tradeoff(summary),
-        "paired-effects.svg": build_effects(summary),
-        "evaluation-design.svg": build_design(),
-    }
-    for name, content in figures.items():
-        path = args.output_dir / name
-        path.write_text(content, encoding="utf-8")
-        print(f"wrote {path.relative_to(ROOT)}")
+    configure_plotting()
+    build_tradeoff(summary, args.output_dir)
+    build_effects(summary, args.output_dir)
+    build_transitions(summary, args.output_dir)
+    build_field_order(summary, args.output_dir)
+    build_design(args.output_dir)
+    for stem in (
+        "accuracy-compliance-tradeoff",
+        "paired-effects",
+        "paired-transitions",
+        "field-order-sensitivity",
+        "evaluation-design",
+    ):
+        print(f"wrote assets/figures/{stem}.svg and .png")
 
 
 if __name__ == "__main__":

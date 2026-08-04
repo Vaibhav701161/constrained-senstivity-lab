@@ -3,7 +3,8 @@
 A controlled, artifact-validated study of how JSON prompting, grammar-constrained
 decoding, and output-field order affect mathematical accuracy and schema compliance.
 
-[Results](#principal-results) | [Study design](#study-design) |
+[Results](#principal-results) | [Paired evidence](#item-level-and-mechanism-evidence) |
+[Study design](#study-design) |
 [Reproduction](#reproduce-the-evaluation) | [Evidence](#evidence-map) |
 [Public Kaggle artifacts](#public-kaggle-artifacts) |
 [Limitations](#scope-and-limitations)
@@ -22,7 +23,7 @@ controlled reproduction showing that contract compliance and semantic correctnes
 are separate outcomes, and that a decoder can improve the first while reducing the
 second under a specific, matched setup.
 
-![Accuracy and contract compliance across the six Qwen2.5-7B conditions](assets/figures/accuracy-compliance-tradeoff.svg)
+![Accuracy and contract compliance across the six Qwen2.5-7B conditions](assets/figures/accuracy-compliance-tradeoff.png)
 
 ## Principal results
 
@@ -51,7 +52,7 @@ improved usable correctness because the prompt-only model emitted every answer a
 unquoted JSON number instead of the required numeric string. The recoverable view
 isolates semantic correctness and reveals the constraint-associated loss.
 
-![Paired effects on recoverable mathematical accuracy](assets/figures/paired-effects.svg)
+![Paired effects on recoverable mathematical accuracy](assets/figures/paired-effects.png)
 
 ### Findings supported by the completed matrix
 
@@ -76,9 +77,54 @@ The full statistical interpretation, prompt-development history, failure analysi
 and relationship to prior work are documented in the
 [research report](docs/research-report.md).
 
+## Item-level and mechanism evidence
+
+Aggregate percentages can hide whether a treatment changes the same items. The
+paired matrices below classify every audited item by its control and treatment
+outcomes. A loss is an item answered correctly by the control and incorrectly by the
+treatment; a gain is the reverse.
+
+![Paired item transitions for both grammar backends](assets/figures/paired-transitions.png)
+
+| Paired comparison | Both correct | Lost | Gained | Both wrong | Exact McNemar p |
+|---|---:|---:|---:|---:|---:|
+| Prompted RF → Outlines RF | 30 | 9 | 0 | 10 | 0.003906 |
+| Prompted RF → XGrammar RF | 30 | 9 | 0 | 10 | 0.003906 |
+| Outlines RF ↔ XGrammar RF | 29 | 1 | 1 | 18 | 1.000000 |
+
+The two grammar backends therefore have the same aggregate constrained effect
+against prompting, but they are not behaviorally identical. Their direct comparison
+contains two discordant items, one uniquely correct for each backend. Against the
+prompted control, however, both show nine losses and no gains on recoverable
+mathematical correctness.
+
+### Output-field order as a causal variable
+
+The answer-first conditions changed only the order of the required JSON fields. The
+model, items, prompt content, schema, precision, decoding policy, and token budget
+remained fixed within each paired comparison.
+
+![Recoverable accuracy and schema compliance by output-field order](assets/figures/field-order-sensitivity.png)
+
+| System | Reasoning-first recoverable | Answer-first recoverable | Paired change (95% CI) | Exact p | Schema: RF → AF |
+|---|---:|---:|---:|---:|---:|
+| Prompt-only JSON | 79.6% | 22.4% | -57.1 pp (-71.4, -40.8) | 5.77e-8 | 0.0% → 65.3% |
+| Outlines JSON | 61.2% | 16.3% | -44.9 pp (-59.2, -30.6) | 2.98e-6 | 100% → 100% |
+
+This separates two effects that would otherwise be conflated. Answer-first prompting
+improved schema compliance and strict accuracy, yet sharply reduced recoverable
+mathematical accuracy. Under Outlines, schema compliance stayed fixed at 100%, so the
+44.9-point decline cannot be explained by improved formatting. It is evidence that
+generation order itself changed task behavior in this setup.
+
+Both figures in this section are deterministic Matplotlib plots generated directly from
+[`summary_clean.json`](results/qwen2.5-7b/primary/combined/summary_clean.json) by
+[`scripts/build_figures.py`](scripts/build_figures.py). The plotted counts, rates,
+paired effects, intervals, and p-values are not manually entered into the artwork.
+
 ## Study design
 
-![Controlled evaluation design](assets/figures/evaluation-design.svg)
+![Controlled evaluation design](assets/figures/evaluation-design.png)
 
 The comparison holds the dataset items, JSON prompt text, chat template, model,
 precision, greedy decoding, token budget, and scoring code constant wherever a paired

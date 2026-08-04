@@ -5,6 +5,7 @@ decoding, and output-field order affect mathematical accuracy and schema complia
 
 [Results](#principal-results) | [Study design](#study-design) |
 [Reproduction](#reproduce-the-evaluation) | [Evidence](#evidence-map) |
+[Public Kaggle artifacts](#public-kaggle-artifacts) |
 [Limitations](#scope-and-limitations)
 
 ## Central result
@@ -195,6 +196,20 @@ The checked-in 7B artifacts should be validated against the frozen deployment
 snapshot, not the subsequently extended reporting script. Exact commands are listed
 in the [7B run ledger](docs/run-ledgers/qwen2.5-7b.md).
 
+## Public Kaggle artifacts
+
+The cloud execution surface and its frozen source input are publicly accessible:
+
+- [Qwen2.5-7B evaluation notebook](https://www.kaggle.com/code/vaibhav7011/constrained-decoding-qwen7b-evaluation)
+- [Accepted reasoning-first run, version 22](https://www.kaggle.com/code/vaibhav7011/constrained-decoding-qwen7b-evaluation?scriptVersionId=339899508)
+- [Accepted answer-first run, version 23](https://www.kaggle.com/code/vaibhav7011/constrained-decoding-qwen7b-evaluation?scriptVersionId=339962138)
+- [Frozen evaluation source dataset](https://www.kaggle.com/datasets/vaibhav7011/constrained-decoding-day3-source)
+
+The notebook version history preserves the cloud execution record. The accepted
+reasoning-first and answer-first bundles are also checked into this repository and
+validated independently, so the reported conclusions do not depend on Kaggle UI
+availability.
+
 ## Evidence map
 
 | Evidence | Location |
@@ -210,6 +225,9 @@ in the [7B run ledger](docs/run-ledgers/qwen2.5-7b.md).
 | 0.5B accepted aggregate results | [`summary_clean.md`](results/qwen2.5-0.5b/primary/summary_clean.md) |
 | Machine-readable data audit | [`gsm8k_item_audit.json`](data/gsm8k_item_audit.json) |
 | Exact accepted cloud source | [`deployment/kaggle/source-snapshot/`](deployment/kaggle/source-snapshot/) |
+| Public reasoning-first execution | [Kaggle version 22](https://www.kaggle.com/code/vaibhav7011/constrained-decoding-qwen7b-evaluation?scriptVersionId=339899508) |
+| Public answer-first execution | [Kaggle version 23](https://www.kaggle.com/code/vaibhav7011/constrained-decoding-qwen7b-evaluation?scriptVersionId=339962138) |
+| Public frozen cloud input | [Kaggle dataset](https://www.kaggle.com/datasets/vaibhav7011/constrained-decoding-day3-source) |
 
 ## Is more cloud compute required?
 

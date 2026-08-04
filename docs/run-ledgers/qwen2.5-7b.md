@@ -1,7 +1,7 @@
 # Qwen2.5-7B Kaggle Run Ledger
 
-Status (4 Aug 2026): **versions 1–23 documented; final v8 matrix complete and
-validated; no follow-up worker running.**
+Status (4 Aug 2026): **experimental versions 1–23 documented; final v8 matrix
+complete and validated; public artifacts available; no worker running.**
 
 This file records each Kaggle run separately. A completed worker is not automatically
 a valid experiment: runs affected by missing hardware, dependency failures, token
@@ -11,8 +11,8 @@ excluded from accuracy conclusions.
 ## Fixed experimental context
 
 - Kaggle account: `vaibhav7011`
-- Kernel: `vaibhav7011/constrained-decoding-qwen7b-smoke` (private)
-- Source dataset: `vaibhav7011/constrained-decoding-day3-source` (private)
+- Kernel: [Constrained Decoding Qwen7B Evaluation](https://www.kaggle.com/code/vaibhav7011/constrained-decoding-qwen7b-evaluation) (public)
+- Source dataset: [Constrained Decoding Evaluation Source](https://www.kaggle.com/datasets/vaibhav7011/constrained-decoding-day3-source) (public)
 - Model: `Qwen/Qwen2.5-7B-Instruct`
 - Evaluation data: deterministic `gsm8k_50_seed0.jsonl`
 - Seed: `0`
@@ -26,6 +26,35 @@ excluded from accuracy conclusions.
   - `outlines_json_answer_first`
 - Trust rule: inspect raw outputs and environment provenance before using summary
   accuracy.
+
+## Public release event: publication-only version 24
+
+### Action
+
+- Changed the notebook from private to public and renamed its visible title from
+  `Constrained Decoding Qwen7B Smoke` to
+  `Constrained Decoding Qwen7B Evaluation`.
+- Kaggle consequently changed the canonical kernel slug from
+  `vaibhav7011/constrained-decoding-qwen7b-smoke` to
+  `vaibhav7011/constrained-decoding-qwen7b-evaluation`.
+- Changed the source dataset from private to public and renamed its visible title
+  from `Constrained Decoding Day 3 Source` to
+  `Constrained Decoding Evaluation Source`. The historical dataset slug is immutable
+  and remains unchanged.
+
+### Observation and classification
+
+- Kaggle's publication save unexpectedly allocated a worker for version 24.
+- The worker was cancelled immediately. Kaggle records 6.26 seconds of runtime. It
+  did not produce experimental evidence and is not included in any result table or
+  conclusion.
+- No replacement model run was launched. Accepted experimental evidence remains in
+  [version 22](https://www.kaggle.com/code/vaibhav7011/constrained-decoding-qwen7b-evaluation?scriptVersionId=339899508),
+  [version 23](https://www.kaggle.com/code/vaibhav7011/constrained-decoding-qwen7b-evaluation?scriptVersionId=339962138),
+  and the independently validated repository artifacts.
+- Anonymous access checks returned HTTP 200 for both canonical public pages after the
+  visibility change.
+- **Publication event only; excluded from the experimental version sequence.**
 
 ## Version 1: optional diagnostic caused immediate failure
 

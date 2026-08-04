@@ -1,10 +1,10 @@
 {
-  "id": "vaibhav7011/constrained-decoding-qwen7b-smoke",
-  "title": "Constrained Decoding Qwen7B Smoke",
+  "id": "vaibhav7011/constrained-decoding-qwen7b-evaluation",
+  "title": "Constrained Decoding Qwen7B Evaluation",
   "code_file": "run_kaggle.py",
   "language": "python",
   "kernel_type": "script",
-  "is_private": "true",
+  "is_private": "false",
   "enable_gpu": "true",
   "enable_internet": "true",
   "machine_shape": "NvidiaTeslaT4",

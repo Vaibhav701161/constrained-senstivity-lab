@@ -143,6 +143,8 @@ Policy:
 ### Qwen2.5-7B-Instruct
 
 - Kaggle model artifact `qwen-lm/qwen2.5/transformers/7b-instruct/1`.
+- Public execution records: [reasoning-first version 22](https://www.kaggle.com/code/vaibhav7011/constrained-decoding-qwen7b-evaluation?scriptVersionId=339899508) and [answer-first version 23](https://www.kaggle.com/code/vaibhav7011/constrained-decoding-qwen7b-evaluation?scriptVersionId=339962138).
+- Public frozen source: [Constrained Decoding Evaluation Source](https://www.kaggle.com/datasets/vaibhav7011/constrained-decoding-day3-source).
 - Two Tesla T4 GPUs, automatic device placement.
 - Python 3.12.13, PyTorch 2.6.0+cu124, CUDA 12.4, Transformers 4.51.3,
   Accelerate 1.6.0, Datasets 3.6.0, Jsonschema 4.23.0, Outlines 1.3.2.
@@ -306,7 +308,7 @@ two-size Qwen setup.
 
 ## Reproducibility safeguards
 
-- Kaggle private source files are downloaded and hash-checked before a kernel push.
+- Kaggle source files are downloaded and hash-checked before a kernel push.
 - Run manifests record source hashes, model artifact, environment, precision, GPUs,
   packages, conditions, item limit, seed, and cap.
 - `scripts/validate_artifacts.py` machine-checks manifest invariants, dataset
@@ -314,7 +316,7 @@ two-size Qwen setup.
   decoding settings, duplicate IDs, errors, and cap hits before a run is accepted.
 - Output files are append-only/resumable locally and refuse mismatched signatures.
 - Every failed/diagnostic run remains in its own evidence directory.
-- No commits were created during the requested working session.
+- Accepted evidence and reporting changes are committed only after validation.
 
 ## Current limitations
 

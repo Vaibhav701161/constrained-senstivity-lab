@@ -1,0 +1,13 @@
+{
+  "snapshot": "representation-alignment-targeted-v1",
+  "purpose": "immutable Kaggle input for the targeted FP32 Qwen2.5-7B representation-alignment gate",
+  "files": {
+    "gsm8k_50_seed0.jsonl": "3639f2f6def0f50e02086bc91e6f4a45567c85aa9b0f498224cb9421400d812a",
+    "run_evaluation.py": "26e12fbbe54a798d801209e581aed202eb3e5e46cbdc6d5bd8b444501a73fcc7",
+    "run_representation_alignment.py": "8d497b4635fea86bf5363c615a17915903712b52d3912af6ef94c5e6f923b59c",
+    "project-a-runtime.zip": "0552af67c56397dfe304dbe390b2c8141136a470fd528a3cd8bff45956d00754",
+    "summarize_alignment_gate.py": "032af35a1346f092134f890ce4098f2b6e694dd18b0dfb77714aff7074778ab7",
+    "targeted-items.jsonl": "48139da094713211893696aa5c2a968f760efdc84da285ebba714f668023727c",
+    "targeted-suite-manifest.json": "33ea0790e4a54b159405876ee78b84a27f280a23e60dceba8972030641926f30"
+  }
+}

@@ -7,6 +7,7 @@ decoding, and output-field order affect mathematical accuracy and schema complia
 [Study design](#study-design) |
 [Reproduction](#reproduce-the-evaluation) | [Evidence](#evidence-map) |
 [Public Kaggle artifacts](#public-kaggle-artifacts) |
+[Technical article](#technical-article) |
 [Limitations](#scope-and-limitations)
 
 ## Central result
@@ -76,6 +77,17 @@ isolates semantic correctness and reveals the constraint-associated loss.
 The full statistical interpretation, prompt-development history, failure analysis,
 and relationship to prior work are documented in the
 [research report](docs/research-report.md).
+
+## Technical article
+
+A concise, reader-facing account of the study is published on DEV Community:
+
+[Structured Output Fixed My JSON and Cut Math Accuracy by 18 Points](https://dev.to/vaibhav_mittal_ac22a2c5d6/structured-output-fixed-my-json-and-cut-math-accuracy-by-18-points-jm5)
+
+The source submitted to DEV is retained in
+[`articles/devto-structured-output-study.md`](articles/devto-structured-output-study.md).
+The repository remains the canonical record for the complete methodology, raw
+artifacts, validation reports, and reproducible analysis.
 
 ## Item-level and mechanism evidence
 
@@ -261,6 +273,8 @@ availability.
 | Evidence | Location |
 |---|---|
 | Complete results and interpretation | [`docs/research-report.md`](docs/research-report.md) |
+| Published technical article | [DEV Community article](https://dev.to/vaibhav_mittal_ac22a2c5d6/structured-output-fixed-my-json-and-cut-math-accuracy-by-18-points-jm5) |
+| DEV article source | [`articles/devto-structured-output-study.md`](articles/devto-structured-output-study.md) |
 | Frozen analysis protocol | [`docs/methodology.md`](docs/methodology.md) |
 | 7B execution and failure ledger | [`docs/run-ledgers/qwen2.5-7b.md`](docs/run-ledgers/qwen2.5-7b.md) |
 | 0.5B execution ledger | [`docs/run-ledgers/qwen2.5-0.5b.md`](docs/run-ledgers/qwen2.5-0.5b.md) |

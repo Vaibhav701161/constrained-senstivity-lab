@@ -1,0 +1,42 @@
+{
+  "selection_rule_version": "representation-alignment-targeted-v1",
+  "dataset_sha256": "3639f2f6def0f50e02086bc91e6f4a45567c85aa9b0f498224cb9421400d812a",
+  "excluded_item_ids": [
+    "gsm8k_test_454"
+  ],
+  "source_hashes": {
+    "prompted": "c13da158e0080b94d57430e752510714d52656e22b3080231d701d39111996fe",
+    "outlines": "4aeb56ce5f2dba5495b2a84f272dbf2882699ce177797cb542d819856319b297",
+    "xgrammar": "ce3fffa0213a1fb88d15b649ce5853298812dcbe9296a382a44aa6be2f9e8789",
+    "prompted_answer_first": "ebe28ae7db25d2478a6fd51de0a99454b0f22489c7a9b209e9753225990e3119",
+    "outlines_answer_first": "03bb9e17f400a27d1e07f70f4b5afc80461ee5404f291729618466af0d3af85f"
+  },
+  "loss_counts": {
+    "outlines": 9,
+    "xgrammar": 9,
+    "shared": 8,
+    "union": 10
+  },
+  "targeted_examples": 18,
+  "targeted_item_ids": [
+    "gsm8k_test_12",
+    "gsm8k_test_173",
+    "gsm8k_test_183",
+    "gsm8k_test_209",
+    "gsm8k_test_244",
+    "gsm8k_test_264",
+    "gsm8k_test_482",
+    "gsm8k_test_506",
+    "gsm8k_test_586",
+    "gsm8k_test_629",
+    "gsm8k_test_689",
+    "gsm8k_test_694",
+    "gsm8k_test_712",
+    "gsm8k_test_725",
+    "gsm8k_test_739",
+    "gsm8k_test_996",
+    "gsm8k_test_1010",
+    "gsm8k_test_1216"
+  ],
+  "catalog_records": 108
+}

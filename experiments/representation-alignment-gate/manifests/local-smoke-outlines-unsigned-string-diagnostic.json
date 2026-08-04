@@ -1,0 +1,41 @@
+{
+  "run_config": {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "condition": "outlines_json_unsigned_numeric_string_reasoning_first",
+    "backend": "outlines",
+    "answer_representation": "unsigned_numeric_string_diagnostic",
+    "diagnostic_only": true,
+    "field_order": [
+      "reasoning",
+      "answer"
+    ],
+    "prompt_version": "representation-alignment-v1",
+    "dataset_sha256": "3639f2f6def0f50e02086bc91e6f4a45567c85aa9b0f498224cb9421400d812a",
+    "seed": 0,
+    "max_new_tokens": 256,
+    "device_map_auto": false,
+    "dtype": "float16",
+    "xgrammar_any_whitespace": null,
+    "internal_schema_sha256": "79b929f42121f2181c475a4c6e224e046a80052cc5fe3aeb89de3aa303de1c2d",
+    "external_schema_sha256": "fbccdf1753bf682cf52ea7a8278c76852ab793d2ca25fce74bdffb1b5670bbff",
+    "transducer_version": "integer-string-v1",
+    "plan_id": "integer-string-representation-v1",
+    "runner_sha256": "f1ce9368379c401363dcb352ed4660c4bbb11bcce04b33dd1b70da25ea8acba5"
+  },
+  "started_at": "2026-08-04T15:04:22.863487+00:00",
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "torch": "2.6.0+cu124",
+  "cuda_runtime": "12.4",
+  "cuda_available": true,
+  "gpu_count": 1,
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "packages": {
+    "transformers": "4.51.3",
+    "accelerate": "1.6.0",
+    "jsonschema": "4.23.0",
+    "outlines": "1.3.2",
+    "xgrammar": "0.2.3"
+  }
+}

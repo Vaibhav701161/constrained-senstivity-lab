@@ -1,0 +1,229 @@
+{
+  "input_files": [
+    "experiments/representation-alignment-gate/results/local-smoke/prompted-integer.jsonl",
+    "experiments/representation-alignment-gate/results/local-smoke/outlines-integer.jsonl",
+    "experiments/representation-alignment-gate/results/local-smoke/xgrammar-integer.jsonl",
+    "experiments/representation-alignment-gate/results/local-smoke/outlines-unsigned-string-diagnostic.jsonl",
+    "experiments/representation-alignment-gate/results/local-smoke/xgrammar-unsigned-string-diagnostic.jsonl"
+  ],
+  "excluded_item_ids": [],
+  "total_rows": 25,
+  "groups": [
+    {
+      "condition": "outlines_json_integer_reasoning_first",
+      "examples": 5,
+      "semantic": {
+        "count": 0,
+        "rate": 0.0,
+        "ci95": [
+          0.0,
+          0.43448246478317476
+        ]
+      },
+      "external_valid": {
+        "count": 5,
+        "rate": 1.0,
+        "ci95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "contract_valid": {
+        "count": 0,
+        "rate": 0.0,
+        "ci95": [
+          0.0,
+          0.43448246478317476
+        ]
+      },
+      "internal_valid": {
+        "count": 5,
+        "rate": 1.0,
+        "ci95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "negative_answers": 0,
+      "negative_answer_rate": 0.0,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 2917.6585999999998,
+      "median_latency_ms": 1890.997,
+      "average_generated_tokens": 31.8
+    },
+    {
+      "condition": "outlines_json_unsigned_numeric_string_reasoning_first",
+      "examples": 5,
+      "semantic": {
+        "count": 0,
+        "rate": 0.0,
+        "ci95": [
+          0.0,
+          0.43448246478317476
+        ]
+      },
+      "external_valid": {
+        "count": 5,
+        "rate": 1.0,
+        "ci95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "contract_valid": {
+        "count": 0,
+        "rate": 0.0,
+        "ci95": [
+          0.0,
+          0.43448246478317476
+        ]
+      },
+      "internal_valid": {
+        "count": 5,
+        "rate": 1.0,
+        "ci95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "negative_answers": 0,
+      "negative_answer_rate": 0.0,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 1863.3455999999999,
+      "median_latency_ms": 1485.169,
+      "average_generated_tokens": 28.6
+    },
+    {
+      "condition": "prompted_json_integer_reasoning_first",
+      "examples": 5,
+      "semantic": {
+        "count": 0,
+        "rate": 0.0,
+        "ci95": [
+          0.0,
+          0.43448246478317476
+        ]
+      },
+      "external_valid": {
+        "count": 5,
+        "rate": 1.0,
+        "ci95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "contract_valid": {
+        "count": 0,
+        "rate": 0.0,
+        "ci95": [
+          0.0,
+          0.43448246478317476
+        ]
+      },
+      "internal_valid": {
+        "count": 5,
+        "rate": 1.0,
+        "ci95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "negative_answers": 0,
+      "negative_answer_rate": 0.0,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 1536.7334,
+      "median_latency_ms": 1363.289,
+      "average_generated_tokens": 28.6
+    },
+    {
+      "condition": "xgrammar_json_integer_reasoning_first",
+      "examples": 5,
+      "semantic": {
+        "count": 0,
+        "rate": 0.0,
+        "ci95": [
+          0.0,
+          0.43448246478317476
+        ]
+      },
+      "external_valid": {
+        "count": 5,
+        "rate": 1.0,
+        "ci95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "contract_valid": {
+        "count": 0,
+        "rate": 0.0,
+        "ci95": [
+          0.0,
+          0.43448246478317476
+        ]
+      },
+      "internal_valid": {
+        "count": 5,
+        "rate": 1.0,
+        "ci95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "negative_answers": 0,
+      "negative_answer_rate": 0.0,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 1545.7146,
+      "median_latency_ms": 1351.69,
+      "average_generated_tokens": 28.6
+    },
+    {
+      "condition": "xgrammar_json_unsigned_numeric_string_reasoning_first",
+      "examples": 5,
+      "semantic": {
+        "count": 1,
+        "rate": 0.2,
+        "ci95": [
+          0.03622410863243014,
+          0.6244653702374747
+        ]
+      },
+      "external_valid": {
+        "count": 5,
+        "rate": 1.0,
+        "ci95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "contract_valid": {
+        "count": 1,
+        "rate": 0.2,
+        "ci95": [
+          0.03622410863243014,
+          0.6244653702374747
+        ]
+      },
+      "internal_valid": {
+        "count": 5,
+        "rate": 1.0,
+        "ci95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "negative_answers": 0,
+      "negative_answer_rate": 0.0,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 1157.8806,
+      "median_latency_ms": 1087.984,
+      "average_generated_tokens": 25.2
+    }
+  ],
+  "paired_comparisons": []
+}

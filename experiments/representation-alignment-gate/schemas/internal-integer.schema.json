@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "reasoning": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "reasoning",
+    "answer"
+  ],
+  "additionalProperties": false
+}

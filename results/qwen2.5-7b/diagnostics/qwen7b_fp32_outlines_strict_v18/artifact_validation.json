@@ -1,0 +1,28 @@
+{
+  "valid": true,
+  "run_dir": "results/kaggle/qwen7b_fp32_outlines_strict_v18/results/qwen2.5-7b-smoke",
+  "dataset": "data/gsm8k_50_seed0.jsonl",
+  "dataset_sha256": "3639f2f6def0f50e02086bc91e6f4a45567c85aa9b0f498224cb9421400d812a",
+  "expected_limit": 20,
+  "expected_conditions": [
+    "outlines_json_reasoning_first"
+  ],
+  "expected_prompt_versions": {
+    "outlines_json_reasoning_first": "day3-v6-strict-numeric-answer"
+  },
+  "failures": [],
+  "warnings": [],
+  "conditions": {
+    "outlines_json_reasoning_first": {
+      "path": "results/kaggle/qwen7b_fp32_outlines_strict_v18/results/qwen2.5-7b-smoke/outlines_json_reasoning_first.jsonl",
+      "sha256": "8fa8476504c34886341c8c675b93ddfccc3aee102d529f0908ec0dc183c16d1e",
+      "rows": 20,
+      "unique_item_ids": 20,
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "prompt_versions": [
+        "day3-v6-strict-numeric-answer"
+      ]
+    }
+  }
+}

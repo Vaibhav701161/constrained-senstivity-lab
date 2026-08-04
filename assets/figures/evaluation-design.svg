@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+<title id="title">Controlled constrained-decoding evaluation design</title>
+<desc id="desc">Generated directly from checked-in experiment summary data.</desc>
+<rect width="1200" height="420" fill="#FFFFFF"/>
+<text x="60.0" y="48.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="28" font-weight="700" fill="#172033" text-anchor="start">Controlled evaluation design</text>
+<text x="60.0" y="76.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="15" font-weight="400" fill="#5E6B82" text-anchor="start">Matched items, prompts, precision and decoding settings across conditions</text>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#5E6B82"/></marker></defs>
+<rect x="50" y="150" width="190" height="80" rx="8" fill="#FFFFFF" stroke="#D9DFE8" stroke-width="2"/>
+<text x="68.0" y="181.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="16" font-weight="650" fill="#172033" text-anchor="start">Deterministic subset</text>
+<text x="68.0" y="205.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="12" font-weight="400" fill="#5E6B82" text-anchor="start">GSM8K test · seed 0 · n=50</text>
+<rect x="285" y="150" width="180" height="80" rx="8" fill="#FFFFFF" stroke="#D9DFE8" stroke-width="2"/>
+<text x="303.0" y="181.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="16" font-weight="650" fill="#172033" text-anchor="start">Audit rule</text>
+<text x="303.0" y="205.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="12" font-weight="400" fill="#5E6B82" text-anchor="start">49 retained · 1 defect excluded</text>
+<rect x="510" y="150" width="180" height="80" rx="8" fill="#FFFFFF" stroke="#D9DFE8" stroke-width="2"/>
+<text x="528.0" y="181.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="16" font-weight="650" fill="#172033" text-anchor="start">Matched prompting</text>
+<text x="528.0" y="205.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="12" font-weight="400" fill="#5E6B82" text-anchor="start">Chat template · greedy · FP32</text>
+<rect x="735" y="105" width="190" height="68" rx="8" fill="#FFFFFF" stroke="#D9DFE8" stroke-width="2"/>
+<text x="753.0" y="136.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="16" font-weight="650" fill="#172033" text-anchor="start">Free response</text>
+<text x="753.0" y="160.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="12" font-weight="400" fill="#5E6B82" text-anchor="start">Final-answer extraction</text>
+<rect x="735" y="183" width="190" height="68" rx="8" fill="#FFFFFF" stroke="#D9DFE8" stroke-width="2"/>
+<text x="753.0" y="214.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="16" font-weight="650" fill="#172033" text-anchor="start">Prompt-only JSON</text>
+<text x="753.0" y="238.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="12" font-weight="400" fill="#5E6B82" text-anchor="start">No token constraints</text>
+<rect x="735" y="261" width="190" height="68" rx="8" fill="#FFFFFF" stroke="#D9DFE8" stroke-width="2"/>
+<text x="753.0" y="292.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="16" font-weight="650" fill="#172033" text-anchor="start">Grammar JSON</text>
+<text x="753.0" y="316.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="12" font-weight="400" fill="#5E6B82" text-anchor="start">Outlines / XGrammar</text>
+<rect x="970" y="150" width="180" height="80" rx="8" fill="#FFFFFF" stroke="#D9DFE8" stroke-width="2"/>
+<text x="988.0" y="181.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="16" font-weight="650" fill="#172033" text-anchor="start">Two-axis scoring</text>
+<text x="988.0" y="205.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="12" font-weight="400" fill="#5E6B82" text-anchor="start">Recoverable + strict</text>
+<line x1="240" y1="190" x2="285" y2="190" stroke="#5E6B82" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="465" y1="190" x2="510" y2="190" stroke="#5E6B82" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="690" y1="190" x2="730" y2="139" stroke="#5E6B82" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="690" y1="190" x2="730" y2="217" stroke="#5E6B82" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="690" y1="190" x2="730" y2="295" stroke="#5E6B82" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="925" y1="139" x2="970" y2="175" stroke="#5E6B82" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="925" y1="217" x2="970" y2="190" stroke="#5E6B82" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="925" y1="295" x2="970" y2="205" stroke="#5E6B82" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="285" y="285" width="405" height="62" rx="8" fill="#F7F9FC" stroke="#D9DFE8"/>
+<text x="305.0" y="311.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="650" fill="#172033" text-anchor="start">Models</text>
+<text x="305.0" y="334.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#172033" text-anchor="start">Qwen2.5-0.5B locally · Qwen2.5-7B on two Tesla T4 GPUs</text>
+<text x="970.0" y="286.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="650" fill="#172033" text-anchor="start">Paired analysis</text>
+<text x="970.0" y="310.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="12" font-weight="400" fill="#5E6B82" text-anchor="start">Wilson CIs · paired bootstrap CIs</text>
+<text x="970.0" y="331.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="12" font-weight="400" fill="#5E6B82" text-anchor="start">two-sided exact McNemar tests</text>
+</svg>

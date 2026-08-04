@@ -1,0 +1,42 @@
+{
+  "valid": true,
+  "run_dir": "results/qwen2.5-7b/primary/answer-first/results/qwen2.5-7b-smoke",
+  "dataset": "data/gsm8k_50_seed0.jsonl",
+  "dataset_sha256": "3639f2f6def0f50e02086bc91e6f4a45567c85aa9b0f498224cb9421400d812a",
+  "expected_limit": 50,
+  "expected_conditions": [
+    "prompted_json_answer_first",
+    "outlines_json_answer_first"
+  ],
+  "expected_prompt_versions": {
+    "prompted_json_answer_first": "day3-v8-symbolic-json-template",
+    "outlines_json_answer_first": "day3-v8-symbolic-json-template"
+  },
+  "expected_xgrammar_any_whitespace": null,
+  "failures": [],
+  "warnings": [],
+  "conditions": {
+    "prompted_json_answer_first": {
+      "path": "results/qwen2.5-7b/primary/answer-first/results/qwen2.5-7b-smoke/prompted_json_answer_first.jsonl",
+      "sha256": "ebe28ae7db25d2478a6fd51de0a99454b0f22489c7a9b209e9753225990e3119",
+      "rows": 50,
+      "unique_item_ids": 50,
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "prompt_versions": [
+        "day3-v8-symbolic-json-template"
+      ]
+    },
+    "outlines_json_answer_first": {
+      "path": "results/qwen2.5-7b/primary/answer-first/results/qwen2.5-7b-smoke/outlines_json_answer_first.jsonl",
+      "sha256": "03bb9e17f400a27d1e07f70f4b5afc80461ee5404f291729618466af0d3af85f",
+      "rows": 50,
+      "unique_item_ids": 50,
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "prompt_versions": [
+        "day3-v8-symbolic-json-template"
+      ]
+    }
+  }
+}

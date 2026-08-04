@@ -1,0 +1,76 @@
+{
+  "input_files": [
+    "results/qwen2.5-7b/primary/answer-first/results/qwen2.5-7b-smoke/prompted_json_answer_first.jsonl",
+    "results/qwen2.5-7b/primary/answer-first/results/qwen2.5-7b-smoke/outlines_json_answer_first.jsonl"
+  ],
+  "excluded_item_ids": [
+    "gsm8k_test_454"
+  ],
+  "excluded_rows": 2,
+  "total_rows": 98,
+  "groups": [
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "condition": "outlines_json_answer_first",
+      "examples": 49,
+      "correct_exact": 8,
+      "accuracy": 0.16326530612244897,
+      "accuracy_ci95": [
+        0.08512698370728837,
+        0.2903633843391683
+      ],
+      "strict_accuracy": 0.16326530612244897,
+      "strict_accuracy_ci95": [
+        0.08512698370728837,
+        0.2903633843391683
+      ],
+      "answer_field_strict_numeric": 1.0,
+      "whole_response_valid_json": 1.0,
+      "first_object_recoverable": 1.0,
+      "schema_valid": 1.0,
+      "field_order_matches": 1.0,
+      "final_answer_marker_at_end": null,
+      "hit_max_new_tokens": 0.0,
+      "avg_latency_ms": 68507.98104081633,
+      "median_latency_ms": 65590.119,
+      "avg_generated_tokens": 45.204081632653065,
+      "avg_latency_per_token_ms": 1526.2934457574133,
+      "errors": 0,
+      "source_files": [
+        "results/qwen2.5-7b/primary/answer-first/results/qwen2.5-7b-smoke/outlines_json_answer_first.jsonl"
+      ]
+    },
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "condition": "prompted_json_answer_first",
+      "examples": 49,
+      "correct_exact": 11,
+      "accuracy": 0.22448979591836735,
+      "accuracy_ci95": [
+        0.13024970149659185,
+        0.35878787235959997
+      ],
+      "strict_accuracy": 0.16326530612244897,
+      "strict_accuracy_ci95": [
+        0.08512698370728837,
+        0.2903633843391683
+      ],
+      "answer_field_strict_numeric": 0.6530612244897959,
+      "whole_response_valid_json": 0.9795918367346939,
+      "first_object_recoverable": 0.9795918367346939,
+      "schema_valid": 0.6530612244897959,
+      "field_order_matches": 0.9795918367346939,
+      "final_answer_marker_at_end": null,
+      "hit_max_new_tokens": 0.0,
+      "avg_latency_ms": 72200.71969387756,
+      "median_latency_ms": 69928.782,
+      "avg_generated_tokens": 49.673469387755105,
+      "avg_latency_per_token_ms": 1456.2836375707984,
+      "errors": 0,
+      "source_files": [
+        "results/qwen2.5-7b/primary/answer-first/results/qwen2.5-7b-smoke/prompted_json_answer_first.jsonl"
+      ]
+    }
+  ],
+  "paired_comparisons": []
+}

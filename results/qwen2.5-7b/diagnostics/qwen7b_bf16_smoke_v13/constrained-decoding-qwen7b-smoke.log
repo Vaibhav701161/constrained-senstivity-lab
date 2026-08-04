@@ -1,0 +1,491 @@
+[{"stream_name":"stdout","time":0.716025044,"data":"\n"}
+,{"stream_name":"stdout","time":0.716079549,"data":"$ /opt/bin/nvidia-smi\n"}
+,{"stream_name":"stdout","time":0.767502995,"data":"Mon Aug  3 05:30:35 2026       \n"}
+,{"stream_name":"stdout","time":0.767533608,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":0.767559961,"data":"| NVIDIA-SMI 580.159.04             Driver Version: 580.159.04     CUDA Version: 13.0     |\n"}
+,{"stream_name":"stdout","time":0.767564901,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":0.767569472,"data":"| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n"}
+,{"stream_name":"stdout","time":0.767573975,"data":"| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n"}
+,{"stream_name":"stdout","time":0.767579104,"data":"|                                         |                        |               MIG M. |\n"}
+,{"stream_name":"stdout","time":0.767584289,"data":"|=========================================+========================+======================|\n"}
+,{"stream_name":"stdout","time":0.819478964,"data":"|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":0.819510628,"data":"| N/A   41C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":0.819516404,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":0.819521467,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":0.819525827,"data":"|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":0.81953002,"data":"| N/A   40C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":0.81953481,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":0.819539002,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":0.821117696,"data":"\n"}
+,{"stream_name":"stdout","time":0.821153663,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":0.821159635,"data":"| Processes:                                                                              |\n"}
+,{"stream_name":"stdout","time":0.821164335,"data":"|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n"}
+,{"stream_name":"stdout","time":0.821168572,"data":"|        ID   ID                                                               Usage      |\n"}
+,{"stream_name":"stdout","time":0.821173254,"data":"|=========================================================================================|\n"}
+,{"stream_name":"stdout","time":0.827843574,"data":"|  No running processes found                                                             |\n"}
+,{"stream_name":"stdout","time":0.827872626,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":6.483516809,"data":"{\n"}
+,{"stream_name":"stdout","time":6.483558383,"data":"  \"preinstall_torch\": \"2.10.0+cu128\",\n"}
+,{"stream_name":"stdout","time":6.483564117,"data":"  \"preinstall_cuda_runtime\": \"12.8\",\n"}
+,{"stream_name":"stdout","time":6.483624341,"data":"  \"preinstall_cuda_available\": true,\n"}
+,{"stream_name":"stdout","time":6.48363413,"data":"  \"preinstall_packages\": {\n"}
+,{"stream_name":"stdout","time":6.483637215,"data":"    \"transformers\": \"5.0.0\",\n"}
+,{"stream_name":"stdout","time":6.483639679,"data":"    \"accelerate\": \"1.13.0\",\n"}
+,{"stream_name":"stdout","time":6.483642099,"data":"    \"datasets\": \"5.0.0\",\n"}
+,{"stream_name":"stdout","time":6.483644565,"data":"    \"jsonschema\": \"4.26.0\",\n"}
+,{"stream_name":"stdout","time":6.483647041,"data":"    \"outlines\": null,\n"}
+,{"stream_name":"stdout","time":6.483649363,"data":"    \"bitsandbytes\": null\n"}
+,{"stream_name":"stdout","time":6.483651864,"data":"  }\n"}
+,{"stream_name":"stdout","time":6.483654239,"data":"}\n"}
+,{"stream_name":"stdout","time":6.483656459,"data":"\n"}
+,{"stream_name":"stdout","time":6.483658839,"data":"$ /usr/bin/python3 -m pip install --disable-pip-version-check --no-input --force-reinstall torch==2.6.0 --index-url https://download.pytorch.org/whl/cu124\n"}
+,{"stream_name":"stdout","time":8.413962633,"data":"Looking in indexes: https://download.pytorch.org/whl/cu124\n"}
+,{"stream_name":"stdout","time":8.62374983,"data":"Collecting torch==2.6.0\n"}
+,{"stream_name":"stdout","time":8.696715759,"data":"  Downloading https://download-r2.pytorch.org/whl/cu124/torch-2.6.0%2Bcu124-cp312-cp312-linux_x86_64.whl.metadata (28 kB)\n"}
+,{"stream_name":"stdout","time":8.800565972,"data":"Collecting filelock (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":8.854651442,"data":"  Downloading filelock-3.29.0-py3-none-any.whl.metadata (2.0 kB)\n"}
+,{"stream_name":"stdout","time":9.021844333,"data":"Collecting typing-extensions\u003e=4.10.0 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":9.036571653,"data":"  Downloading https://download.pytorch.org/whl/typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)\n"}
+,{"stream_name":"stdout","time":9.129349134,"data":"Collecting networkx (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":9.14330518,"data":"  Downloading networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)\n"}
+,{"stream_name":"stdout","time":9.195167391,"data":"Collecting jinja2 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":9.209469475,"data":"  Downloading https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)\n"}
+,{"stream_name":"stdout","time":9.297273332,"data":"Collecting fsspec (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":9.312939044,"data":"  Downloading fsspec-2026.4.0-py3-none-any.whl.metadata (10 kB)\n"}
+,{"stream_name":"stdout","time":9.518021359,"data":"Collecting nvidia-cuda-nvrtc-cu12==12.4.127 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":9.533113877,"data":"  Downloading https://download.pytorch.org/whl/cu124/nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (24.6 MB)\n"}
+,{"stream_name":"stdout","time":9.782377328,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 24.6/24.6 MB 73.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":10.035829836,"data":"Collecting nvidia-cuda-runtime-cu12==12.4.127 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":10.050741942,"data":"  Downloading https://download.pytorch.org/whl/cu124/nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (883 kB)\n"}
+,{"stream_name":"stdout","time":10.073091042,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 883.7/883.7 kB 45.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":10.234574771,"data":"Collecting nvidia-cuda-cupti-cu12==12.4.127 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":10.248999389,"data":"  Downloading https://download.pytorch.org/whl/cu124/nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (13.8 MB)\n"}
+,{"stream_name":"stdout","time":10.373520062,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.8/13.8 MB 97.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":10.57709644,"data":"Collecting nvidia-cudnn-cu12==9.1.0.70 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":10.59175445,"data":"  Downloading https://download.pytorch.org/whl/cu124/nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl (664.8 MB)\n"}
+,{"stream_name":"stdout","time":18.031051799,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 664.8/664.8 MB 2.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":20.376446012,"data":"Collecting nvidia-cublas-cu12==12.4.5.8 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":20.391745372,"data":"  Downloading https://download.pytorch.org/whl/cu124/nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl (363.4 MB)\n"}
+,{"stream_name":"stdout","time":24.511559214000002,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 363.4/363.4 MB 4.9 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":25.871851833,"data":"Collecting nvidia-cufft-cu12==11.2.1.3 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":25.886866116,"data":"  Downloading https://download.pytorch.org/whl/cu124/nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl (211.5 MB)\n"}
+,{"stream_name":"stdout","time":28.220542274,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 211.5/211.5 MB 7.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":29.069655,"data":"Collecting nvidia-curand-cu12==10.3.5.147 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":29.084846536,"data":"  Downloading https://download.pytorch.org/whl/cu124/nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl (56.3 MB)\n"}
+,{"stream_name":"stdout","time":29.592778758,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.3/56.3 MB 33.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":29.858985327,"data":"Collecting nvidia-cusolver-cu12==11.6.1.9 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":29.873884868,"data":"  Downloading https://download.pytorch.org/whl/cu124/nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl (127.9 MB)\n"}
+,{"stream_name":"stdout","time":31.116398712,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 127.9/127.9 MB 14.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":31.713690737,"data":"Collecting nvidia-cusparse-cu12==12.3.1.170 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":31.728980692,"data":"  Downloading https://download.pytorch.org/whl/cu124/nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl (207.5 MB)\n"}
+,{"stream_name":"stdout","time":34.596600017,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 207.5/207.5 MB 5.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":35.425110623,"data":"Collecting nvidia-cusparselt-cu12==0.6.2 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":35.439951355,"data":"  Downloading https://download.pytorch.org/whl/cu124/nvidia_cusparselt_cu12-0.6.2-py3-none-manylinux2014_x86_64.whl.metadata (6.8 kB)\n"}
+,{"stream_name":"stdout","time":35.6059861,"data":"Collecting nvidia-nccl-cu12==2.21.5 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":35.620962853,"data":"  Downloading https://download.pytorch.org/whl/nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl (188.7 MB)\n"}
+,{"stream_name":"stdout","time":37.487639124,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 188.7/188.7 MB 9.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":38.257016723,"data":"Collecting nvidia-nvtx-cu12==12.4.127 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":38.272302572,"data":"  Downloading https://download.pytorch.org/whl/cu124/nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (99 kB)\n"}
+,{"stream_name":"stdout","time":38.453348547,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 99.1/99.1 kB 502.1 kB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":38.607451845,"data":"Collecting nvidia-nvjitlink-cu12==12.4.127 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":38.622714676,"data":"  Downloading https://download.pytorch.org/whl/cu124/nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (21.1 MB)\n"}
+,{"stream_name":"stdout","time":38.799184138,"data":"     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 21.1/21.1 MB 83.7 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":38.955147826,"data":"Collecting triton==3.2.0 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":38.975019746,"data":"  Downloading https://download-r2.pytorch.org/whl/triton-3.2.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.4 kB)\n"}
+,{"stream_name":"stdout","time":39.044398708,"data":"Collecting setuptools (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":39.059090335,"data":"  Downloading https://download.pytorch.org/whl/setuptools-78.1.0-py3-none-any.whl.metadata (6.6 kB)\n"}
+,{"stream_name":"stdout","time":39.137095292,"data":"Collecting sympy==1.13.1 (from torch==2.6.0)\n"}
+,{"stream_name":"stdout","time":39.152827354,"data":"  Downloading sympy-1.13.1-py3-none-any.whl.metadata (12 kB)\n"}
+,{"stream_name":"stdout","time":39.223733922,"data":"Collecting mpmath\u003c1.4,\u003e=1.1.0 (from sympy==1.13.1-\u003etorch==2.6.0)\n"}
+,{"stream_name":"stdout","time":39.237778042,"data":"  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)\n"}
+,{"stream_name":"stdout","time":39.314627883,"data":"Collecting MarkupSafe\u003e=2.0 (from jinja2-\u003etorch==2.6.0)\n"}
+,{"stream_name":"stdout","time":39.329286668,"data":"  Downloading https://download.pytorch.org/whl/markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)\n"}
+,{"stream_name":"stdout","time":39.373483259,"data":"Downloading https://download-r2.pytorch.org/whl/cu124/torch-2.6.0%2Bcu124-cp312-cp312-linux_x86_64.whl (768.4 MB)\n"}
+,{"stream_name":"stdout","time":52.547331503,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 768.4/768.4 MB 1.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":52.56330639,"data":"Downloading https://download.pytorch.org/whl/cu124/nvidia_cusparselt_cu12-0.6.2-py3-none-manylinux2014_x86_64.whl (150.1 MB)\n"}
+,{"stream_name":"stdout","time":55.450773349,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 150.1/150.1 MB 5.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":55.465164088,"data":"Downloading sympy-1.13.1-py3-none-any.whl (6.2 MB)\n"}
+,{"stream_name":"stdout","time":55.579606454,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 55.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":55.600581,"data":"Downloading https://download-r2.pytorch.org/whl/triton-3.2.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (166.7 MB)\n"}
+,{"stream_name":"stdout","time":57.278141523,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 166.7/166.7 MB 11.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":57.293499524,"data":"Downloading https://download.pytorch.org/whl/typing_extensions-4.15.0-py3-none-any.whl (44 kB)\n"}
+,{"stream_name":"stdout","time":57.304513247,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.6/44.6 kB 3.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":57.317668853,"data":"Downloading filelock-3.29.0-py3-none-any.whl (39 kB)\n"}
+,{"stream_name":"stdout","time":57.339919773,"data":"Downloading fsspec-2026.4.0-py3-none-any.whl (203 kB)\n"}
+,{"stream_name":"stdout","time":57.353832435,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 203.4/203.4 kB 17.2 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":57.371291235,"data":"Downloading https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl (134 kB)\n"}
+,{"stream_name":"stdout","time":57.38483268,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 11.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":57.398522054,"data":"Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)\n"}
+,{"stream_name":"stdout","time":57.433739975,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 63.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":57.449848913,"data":"Downloading https://download.pytorch.org/whl/setuptools-78.1.0-py3-none-any.whl (1.3 MB)\n"}
+,{"stream_name":"stdout","time":57.473111476,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 61.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":57.488330655,"data":"Downloading https://download.pytorch.org/whl/markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)\n"}
+,{"stream_name":"stdout","time":57.511252268,"data":"Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)\n"}
+,{"stream_name":"stdout","time":57.529061154,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 34.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":63.772934163,"data":"Installing collected packages: triton, nvidia-cusparselt-cu12, mpmath, typing-extensions, sympy, setuptools, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, networkx, MarkupSafe, fsspec, filelock, nvidia-cusparse-cu12, nvidia-cudnn-cu12, jinja2, nvidia-cusolver-cu12, torch\n"}
+,{"stream_name":"stdout","time":63.773320492,"data":"  Attempting uninstall: triton\n"}
+,{"stream_name":"stdout","time":64.03896578,"data":"    Found existing installation: triton 3.6.0\n"}
+,{"stream_name":"stdout","time":64.080067043,"data":"    Uninstalling triton-3.6.0:\n"}
+,{"stream_name":"stdout","time":66.775266272,"data":"      Successfully uninstalled triton-3.6.0\n"}
+,{"stream_name":"stdout","time":71.135343004,"data":"  Attempting uninstall: nvidia-cusparselt-cu12\n"}
+,{"stream_name":"stdout","time":71.272031474,"data":"    Found existing installation: nvidia-cusparselt-cu12 0.7.1\n"}
+,{"stream_name":"stdout","time":71.277403705,"data":"    Uninstalling nvidia-cusparselt-cu12-0.7.1:\n"}
+,{"stream_name":"stdout","time":72.86626875,"data":"      Successfully uninstalled nvidia-cusparselt-cu12-0.7.1\n"}
+,{"stream_name":"stdout","time":75.206667654,"data":"  Attempting uninstall: mpmath\n"}
+,{"stream_name":"stdout","time":75.411695491,"data":"    Found existing installation: mpmath 1.3.0\n"}
+,{"stream_name":"stdout","time":75.424545505,"data":"    Uninstalling mpmath-1.3.0:\n"}
+,{"stream_name":"stdout","time":75.491161827,"data":"      Successfully uninstalled mpmath-1.3.0\n"}
+,{"stream_name":"stdout","time":75.928295313,"data":"  Attempting uninstall: typing-extensions\n"}
+,{"stream_name":"stdout","time":75.942329492,"data":"    Found existing installation: typing_extensions 4.15.0\n"}
+,{"stream_name":"stdout","time":75.946505619,"data":"    Uninstalling typing_extensions-4.15.0:\n"}
+,{"stream_name":"stdout","time":87.025214873,"data":"      Successfully uninstalled typing_extensions-4.15.0\n"}
+,{"stream_name":"stdout","time":87.067287361,"data":"  Attempting uninstall: sympy\n"}
+,{"stream_name":"stdout","time":87.45013997,"data":"    Found existing installation: sympy 1.14.0\n"}
+,{"stream_name":"stdout","time":87.587726994,"data":"    Uninstalling sympy-1.14.0:\n"}
+,{"stream_name":"stdout","time":90.209172899,"data":"      Successfully uninstalled sympy-1.14.0\n"}
+,{"stream_name":"stdout","time":97.067468111,"data":"  Attempting uninstall: setuptools\n"}
+,{"stream_name":"stdout","time":97.083583976,"data":"    Found existing installation: setuptools 81.0.0\n"}
+,{"stream_name":"stdout","time":97.119741612,"data":"    Uninstalling setuptools-81.0.0:\n"}
+,{"stream_name":"stdout","time":98.72564031900001,"data":"      Successfully uninstalled setuptools-81.0.0\n"}
+,{"stream_name":"stdout","time":99.692244236,"data":"  Attempting uninstall: nvidia-nvtx-cu12\n"}
+,{"stream_name":"stdout","time":99.959358973,"data":"    Found existing installation: nvidia-nvtx-cu12 12.8.90\n"}
+,{"stream_name":"stdout","time":99.964288076,"data":"    Uninstalling nvidia-nvtx-cu12-12.8.90:\n"}
+,{"stream_name":"stdout","time":99.997699127,"data":"      Successfully uninstalled nvidia-nvtx-cu12-12.8.90\n"}
+,{"stream_name":"stdout","time":100.023376778,"data":"  Attempting uninstall: nvidia-nvjitlink-cu12\n"}
+,{"stream_name":"stdout","time":100.41634699,"data":"    Found existing installation: nvidia-nvjitlink-cu12 12.8.93\n"}
+,{"stream_name":"stdout","time":100.42047491,"data":"    Uninstalling nvidia-nvjitlink-cu12-12.8.93:\n"}
+,{"stream_name":"stdout","time":100.725777018,"data":"      Successfully uninstalled nvidia-nvjitlink-cu12-12.8.93\n"}
+,{"stream_name":"stdout","time":101.128282741,"data":"  Attempting uninstall: nvidia-nccl-cu12\n"}
+,{"stream_name":"stdout","time":101.503859371,"data":"    Found existing installation: nvidia-nccl-cu12 2.27.5\n"}
+,{"stream_name":"stdout","time":101.507497565,"data":"    Uninstalling nvidia-nccl-cu12-2.27.5:\n"}
+,{"stream_name":"stdout","time":103.174568237,"data":"      Successfully uninstalled nvidia-nccl-cu12-2.27.5\n"}
+,{"stream_name":"stdout","time":105.755321205,"data":"  Attempting uninstall: nvidia-curand-cu12\n"}
+,{"stream_name":"stdout","time":106.154398548,"data":"    Found existing installation: nvidia-curand-cu12 10.3.9.90\n"}
+,{"stream_name":"stdout","time":106.159019983,"data":"    Uninstalling nvidia-curand-cu12-10.3.9.90:\n"}
+,{"stream_name":"stdout","time":106.654918362,"data":"      Successfully uninstalled nvidia-curand-cu12-10.3.9.90\n"}
+,{"stream_name":"stdout","time":107.173479457,"data":"  Attempting uninstall: nvidia-cufft-cu12\n"}
+,{"stream_name":"stdout","time":107.5437462,"data":"    Found existing installation: nvidia-cufft-cu12 11.3.3.83\n"}
+,{"stream_name":"stdout","time":107.548001602,"data":"    Uninstalling nvidia-cufft-cu12-11.3.3.83:\n"}
+,{"stream_name":"stdout","time":108.588988927,"data":"      Successfully uninstalled nvidia-cufft-cu12-11.3.3.83\n"}
+,{"stream_name":"stdout","time":111.055080806,"data":"  Attempting uninstall: nvidia-cuda-runtime-cu12\n"}
+,{"stream_name":"stdout","time":111.179180939,"data":"    Found existing installation: nvidia-cuda-runtime-cu12 12.8.90\n"}
+,{"stream_name":"stdout","time":111.186092569,"data":"    Uninstalling nvidia-cuda-runtime-cu12-12.8.90:\n"}
+,{"stream_name":"stdout","time":111.279871304,"data":"      Successfully uninstalled nvidia-cuda-runtime-cu12-12.8.90\n"}
+,{"stream_name":"stdout","time":111.356265774,"data":"  Attempting uninstall: nvidia-cuda-nvrtc-cu12\n"}
+,{"stream_name":"stdout","time":111.706429734,"data":"    Found existing installation: nvidia-cuda-nvrtc-cu12 12.8.93\n"}
+,{"stream_name":"stdout","time":111.710585145,"data":"    Uninstalling nvidia-cuda-nvrtc-cu12-12.8.93:\n"}
+,{"stream_name":"stdout","time":112.410668559,"data":"      Successfully uninstalled nvidia-cuda-nvrtc-cu12-12.8.93\n"}
+,{"stream_name":"stdout","time":112.90630259,"data":"  Attempting uninstall: nvidia-cuda-cupti-cu12\n"}
+,{"stream_name":"stdout","time":113.049923932,"data":"    Found existing installation: nvidia-cuda-cupti-cu12 12.8.90\n"}
+,{"stream_name":"stdout","time":113.05901848,"data":"    Uninstalling nvidia-cuda-cupti-cu12-12.8.90:\n"}
+,{"stream_name":"stdout","time":113.244677775,"data":"      Successfully uninstalled nvidia-cuda-cupti-cu12-12.8.90\n"}
+,{"stream_name":"stdout","time":113.848953245,"data":"  Attempting uninstall: nvidia-cublas-cu12\n"}
+,{"stream_name":"stdout","time":114.059277041,"data":"    Found existing installation: nvidia-cublas-cu12 12.8.4.1\n"}
+,{"stream_name":"stdout","time":114.0634641,"data":"    Uninstalling nvidia-cublas-cu12-12.8.4.1:\n"}
+,{"stream_name":"stdout","time":117.452412729,"data":"      Successfully uninstalled nvidia-cublas-cu12-12.8.4.1\n"}
+,{"stream_name":"stdout","time":122.303816747,"data":"  Attempting uninstall: networkx\n"}
+,{"stream_name":"stdout","time":122.574184882,"data":"    Found existing installation: networkx 3.6.1\n"}
+,{"stream_name":"stdout","time":122.621030372,"data":"    Uninstalling networkx-3.6.1:\n"}
+,{"stream_name":"stdout","time":122.995293488,"data":"      Successfully uninstalled networkx-3.6.1\n"}
+,{"stream_name":"stdout","time":124.821373374,"data":"  Attempting uninstall: MarkupSafe\n"}
+,{"stream_name":"stdout","time":125.232952902,"data":"    Found existing installation: MarkupSafe 3.0.3\n"}
+,{"stream_name":"stdout","time":125.236869438,"data":"    Uninstalling MarkupSafe-3.0.3:\n"}
+,{"stream_name":"stdout","time":125.245993033,"data":"      Successfully uninstalled MarkupSafe-3.0.3\n"}
+,{"stream_name":"stdout","time":125.267246939,"data":"  Attempting uninstall: fsspec\n"}
+,{"stream_name":"stdout","time":125.502771492,"data":"    Found existing installation: fsspec 2025.3.0\n"}
+,{"stream_name":"stdout","time":125.510873164,"data":"    Uninstalling fsspec-2025.3.0:\n"}
+,{"stream_name":"stdout","time":125.550670294,"data":"      Successfully uninstalled fsspec-2025.3.0\n"}
+,{"stream_name":"stdout","time":125.738672332,"data":"  Attempting uninstall: filelock\n"}
+,{"stream_name":"stdout","time":126.116014061,"data":"    Found existing installation: filelock 3.29.0\n"}
+,{"stream_name":"stdout","time":126.120319797,"data":"    Uninstalling filelock-3.29.0:\n"}
+,{"stream_name":"stdout","time":126.134581103,"data":"      Successfully uninstalled filelock-3.29.0\n"}
+,{"stream_name":"stdout","time":126.178038748,"data":"  Attempting uninstall: nvidia-cusparse-cu12\n"}
+,{"stream_name":"stdout","time":126.382257047,"data":"    Found existing installation: nvidia-cusparse-cu12 12.5.8.93\n"}
+,{"stream_name":"stdout","time":126.386352229,"data":"    Uninstalling nvidia-cusparse-cu12-12.5.8.93:\n"}
+,{"stream_name":"stdout","time":127.858322909,"data":"      Successfully uninstalled nvidia-cusparse-cu12-12.5.8.93\n"}
+,{"stream_name":"stdout","time":130.967392716,"data":"  Attempting uninstall: nvidia-cudnn-cu12\n"}
+,{"stream_name":"stdout","time":131.3578721,"data":"    Found existing installation: nvidia-cudnn-cu12 9.10.2.21\n"}
+,{"stream_name":"stdout","time":131.363091508,"data":"    Uninstalling nvidia-cudnn-cu12-9.10.2.21:\n"}
+,{"stream_name":"stdout","time":135.485044421,"data":"      Successfully uninstalled nvidia-cudnn-cu12-9.10.2.21\n"}
+,{"stream_name":"stdout","time":149.162156393,"data":"  Attempting uninstall: jinja2\n"}
+,{"stream_name":"stdout","time":149.524987541,"data":"    Found existing installation: Jinja2 3.1.6\n"}
+,{"stream_name":"stdout","time":149.530564537,"data":"    Uninstalling Jinja2-3.1.6:\n"}
+,{"stream_name":"stdout","time":149.56594981,"data":"      Successfully uninstalled Jinja2-3.1.6\n"}
+,{"stream_name":"stdout","time":149.689251683,"data":"  Attempting uninstall: nvidia-cusolver-cu12\n"}
+,{"stream_name":"stdout","time":149.841172299,"data":"    Found existing installation: nvidia-cusolver-cu12 11.7.3.90\n"}
+,{"stream_name":"stdout","time":149.845255931,"data":"    Uninstalling nvidia-cusolver-cu12-11.7.3.90:\n"}
+,{"stream_name":"stdout","time":151.389959898,"data":"      Successfully uninstalled nvidia-cusolver-cu12-11.7.3.90\n"}
+,{"stream_name":"stdout","time":155.35403294,"data":"  Attempting uninstall: torch\n"}
+,{"stream_name":"stdout","time":155.739878144,"data":"    Found existing installation: torch 2.10.0+cu128\n"}
+,{"stream_name":"stdout","time":156.218288952,"data":"    Uninstalling torch-2.10.0+cu128:\n"}
+,{"stream_name":"stdout","time":170.933076703,"data":"      Successfully uninstalled torch-2.10.0+cu128\n"}
+,{"stream_name":"stderr","time":193.536098704,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":193.53615585,"data":"bigframes 2.39.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":193.536165133,"data":"google-adk 1.29.0 requires google-cloud-bigquery-storage\u003e=2.0.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":193.536172214,"data":"google-colab 1.0.0 requires jupyter-server==2.14.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":193.536178474,"data":"google-colab 1.0.0 requires pandas==2.2.2, but you have pandas 2.3.3 which is incompatible.\n"}
+,{"stream_name":"stderr","time":193.536184089,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":193.536190097,"data":"torchaudio 2.10.0+cu128 requires torch==2.10.0, but you have torch 2.6.0+cu124 which is incompatible.\n"}
+,{"stream_name":"stderr","time":193.536243454,"data":"torchvision 0.25.0+cu128 requires torch==2.10.0, but you have torch 2.6.0+cu124 which is incompatible.\n"}
+,{"stream_name":"stderr","time":193.536252001,"data":"gcsfs 2025.3.0 requires fsspec==2025.3.0, but you have fsspec 2026.4.0 which is incompatible.\n"}
+,{"stream_name":"stdout","time":193.536501654,"data":"Successfully installed MarkupSafe-3.0.3 filelock-3.29.0 fsspec-2026.4.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.6.1 nvidia-cublas-cu12-12.4.5.8 nvidia-cuda-cupti-cu12-12.4.127 nvidia-cuda-nvrtc-cu12-12.4.127 nvidia-cuda-runtime-cu12-12.4.127 nvidia-cudnn-cu12-9.1.0.70 nvidia-cufft-cu12-11.2.1.3 nvidia-curand-cu12-10.3.5.147 nvidia-cusolver-cu12-11.6.1.9 nvidia-cusparse-cu12-12.3.1.170 nvidia-cusparselt-cu12-0.6.2 nvidia-nccl-cu12-2.21.5 nvidia-nvjitlink-cu12-12.4.127 nvidia-nvtx-cu12-12.4.127 setuptools-78.1.0 sympy-1.13.1 torch-2.6.0+cu124 triton-3.2.0 typing-extensions-4.15.0\n"}
+,{"stream_name":"stdout","time":194.330797747,"data":"\n"}
+,{"stream_name":"stdout","time":194.330868632,"data":"$ /usr/bin/python3 -m pip uninstall --yes torchvision torchaudio torchcodec\n"}
+,{"stream_name":"stdout","time":195.501439845,"data":"Found existing installation: torchvision 0.25.0+cu128\n"}
+,{"stream_name":"stdout","time":195.518698699,"data":"Uninstalling torchvision-0.25.0+cu128:\n"}
+,{"stream_name":"stdout","time":195.698908446,"data":"  Successfully uninstalled torchvision-0.25.0+cu128\n"}
+,{"stream_name":"stdout","time":195.956692907,"data":"Found existing installation: torchaudio 2.10.0+cu128\n"}
+,{"stream_name":"stdout","time":195.967412361,"data":"Uninstalling torchaudio-2.10.0+cu128:\n"}
+,{"stream_name":"stdout","time":196.057450055,"data":"  Successfully uninstalled torchaudio-2.10.0+cu128\n"}
+,{"stream_name":"stdout","time":196.30233851,"data":"Found existing installation: torchcodec 0.10.0+cu128\n"}
+,{"stream_name":"stdout","time":196.309824885,"data":"Uninstalling torchcodec-0.10.0+cu128:\n"}
+,{"stream_name":"stdout","time":196.397284523,"data":"  Successfully uninstalled torchcodec-0.10.0+cu128\n"}
+,{"stream_name":"stdout","time":196.468436075,"data":"\n"}
+,{"stream_name":"stdout","time":196.468482562,"data":"$ /usr/bin/python3 -m pip install --disable-pip-version-check --no-input transformers==4.51.3 accelerate==1.6.0 datasets==3.6.0 jsonschema==4.23.0 outlines==1.3.2 bitsandbytes==0.45.5\n"}
+,{"stream_name":"stdout","time":197.886442324,"data":"Collecting transformers==4.51.3\n"}
+,{"stream_name":"stdout","time":197.941667877,"data":"  Downloading transformers-4.51.3-py3-none-any.whl.metadata (38 kB)\n"}
+,{"stream_name":"stdout","time":198.121996378,"data":"Collecting accelerate==1.6.0\n"}
+,{"stream_name":"stdout","time":198.136913507,"data":"  Downloading accelerate-1.6.0-py3-none-any.whl.metadata (19 kB)\n"}
+,{"stream_name":"stdout","time":198.241690661,"data":"Collecting datasets==3.6.0\n"}
+,{"stream_name":"stdout","time":198.256714765,"data":"  Downloading datasets-3.6.0-py3-none-any.whl.metadata (19 kB)\n"}
+,{"stream_name":"stdout","time":198.372867483,"data":"Collecting jsonschema==4.23.0\n"}
+,{"stream_name":"stdout","time":198.386713281,"data":"  Downloading jsonschema-4.23.0-py3-none-any.whl.metadata (7.9 kB)\n"}
+,{"stream_name":"stdout","time":198.472805686,"data":"Collecting outlines==1.3.2\n"}
+,{"stream_name":"stdout","time":198.487821949,"data":"  Downloading outlines-1.3.2-py3-none-any.whl.metadata (29 kB)\n"}
+,{"stream_name":"stdout","time":198.572527115,"data":"Collecting bitsandbytes==0.45.5\n"}
+,{"stream_name":"stdout","time":198.588856791,"data":"  Downloading bitsandbytes-0.45.5-py3-none-manylinux_2_24_x86_64.whl.metadata (5.0 kB)\n"}
+,{"stream_name":"stdout","time":198.642936045,"data":"Requirement already satisfied: filelock in /usr/local/lib/python3.12/dist-packages (from transformers==4.51.3) (3.29.0)\n"}
+,{"stream_name":"stdout","time":198.818294167,"data":"Collecting huggingface-hub\u003c1.0,\u003e=0.30.0 (from transformers==4.51.3)\n"}
+,{"stream_name":"stdout","time":198.832493032,"data":"  Downloading huggingface_hub-0.36.2-py3-none-any.whl.metadata (15 kB)\n"}
+,{"stream_name":"stdout","time":198.883148141,"data":"Requirement already satisfied: numpy\u003e=1.17 in /usr/local/lib/python3.12/dist-packages (from transformers==4.51.3) (2.0.2)\n"}
+,{"stream_name":"stdout","time":198.884623494,"data":"Requirement already satisfied: packaging\u003e=20.0 in /usr/local/lib/python3.12/dist-packages (from transformers==4.51.3) (26.1)\n"}
+,{"stream_name":"stdout","time":198.886018532,"data":"Requirement already satisfied: pyyaml\u003e=5.1 in /usr/local/lib/python3.12/dist-packages (from transformers==4.51.3) (6.0.3)\n"}
+,{"stream_name":"stdout","time":198.888571817,"data":"Requirement already satisfied: regex!=2019.12.17 in /usr/local/lib/python3.12/dist-packages (from transformers==4.51.3) (2025.11.3)\n"}
+,{"stream_name":"stdout","time":198.889943525,"data":"Requirement already satisfied: requests in /usr/local/lib/python3.12/dist-packages (from transformers==4.51.3) (2.32.4)\n"}
+,{"stream_name":"stdout","time":199.270732206,"data":"Collecting tokenizers\u003c0.22,\u003e=0.21 (from transformers==4.51.3)\n"}
+,{"stream_name":"stdout","time":199.285770612,"data":"  Downloading tokenizers-0.21.4-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)\n"}
+,{"stream_name":"stdout","time":199.302937707,"data":"Requirement already satisfied: safetensors\u003e=0.4.3 in /usr/local/lib/python3.12/dist-packages (from transformers==4.51.3) (0.7.0)\n"}
+,{"stream_name":"stdout","time":199.306824419,"data":"Requirement already satisfied: tqdm\u003e=4.27 in /usr/local/lib/python3.12/dist-packages (from transformers==4.51.3) (4.67.3)\n"}
+,{"stream_name":"stdout","time":199.31955285,"data":"Requirement already satisfied: psutil in /usr/local/lib/python3.12/dist-packages (from accelerate==1.6.0) (5.9.5)\n"}
+,{"stream_name":"stdout","time":199.322254059,"data":"Requirement already satisfied: torch\u003e=2.0.0 in /usr/local/lib/python3.12/dist-packages (from accelerate==1.6.0) (2.6.0+cu124)\n"}
+,{"stream_name":"stdout","time":199.36364535,"data":"Requirement already satisfied: pyarrow\u003e=15.0.0 in /usr/local/lib/python3.12/dist-packages (from datasets==3.6.0) (24.0.0)\n"}
+,{"stream_name":"stdout","time":199.406274114,"data":"Collecting dill\u003c0.3.9,\u003e=0.3.0 (from datasets==3.6.0)\n"}
+,{"stream_name":"stdout","time":199.421665749,"data":"  Downloading dill-0.3.8-py3-none-any.whl.metadata (10 kB)\n"}
+,{"stream_name":"stdout","time":199.445453382,"data":"Requirement already satisfied: pandas in /usr/local/lib/python3.12/dist-packages (from datasets==3.6.0) (2.3.3)\n"}
+,{"stream_name":"stdout","time":199.449435661,"data":"Requirement already satisfied: xxhash in /usr/local/lib/python3.12/dist-packages (from datasets==3.6.0) (3.6.0)\n"}
+,{"stream_name":"stdout","time":199.450902017,"data":"Requirement already satisfied: multiprocess\u003c0.70.17 in /usr/local/lib/python3.12/dist-packages (from datasets==3.6.0) (0.70.16)\n"}
+,{"stream_name":"stdout","time":199.52640911700001,"data":"Collecting fsspec\u003c=2025.3.0,\u003e=2023.1.0 (from fsspec[http]\u003c=2025.3.0,\u003e=2023.1.0-\u003edatasets==3.6.0)\n"}
+,{"stream_name":"stdout","time":199.542068245,"data":"  Downloading fsspec-2025.3.0-py3-none-any.whl.metadata (11 kB)\n"}
+,{"stream_name":"stdout","time":199.611782901,"data":"Requirement already satisfied: attrs\u003e=22.2.0 in /usr/local/lib/python3.12/dist-packages (from jsonschema==4.23.0) (26.1.0)\n"}
+,{"stream_name":"stdout","time":199.613121752,"data":"Requirement already satisfied: jsonschema-specifications\u003e=2023.03.6 in /usr/local/lib/python3.12/dist-packages (from jsonschema==4.23.0) (2025.9.1)\n"}
+,{"stream_name":"stdout","time":199.614332458,"data":"Requirement already satisfied: referencing\u003e=0.28.4 in /usr/local/lib/python3.12/dist-packages (from jsonschema==4.23.0) (0.37.0)\n"}
+,{"stream_name":"stdout","time":199.61567691,"data":"Requirement already satisfied: rpds-py\u003e=0.7.1 in /usr/local/lib/python3.12/dist-packages (from jsonschema==4.23.0) (0.30.0)\n"}
+,{"stream_name":"stdout","time":199.623304697,"data":"Requirement already satisfied: jinja2 in /usr/local/lib/python3.12/dist-packages (from outlines==1.3.2) (3.1.6)\n"}
+,{"stream_name":"stdout","time":199.624600879,"data":"Requirement already satisfied: cloudpickle in /usr/local/lib/python3.12/dist-packages (from outlines==1.3.2) (3.1.2)\n"}
+,{"stream_name":"stdout","time":199.681616737,"data":"Collecting diskcache (from outlines==1.3.2)\n"}
+,{"stream_name":"stdout","time":199.695513505,"data":"  Downloading diskcache-5.6.3-py3-none-any.whl.metadata (20 kB)\n"}
+,{"stream_name":"stdout","time":199.713323658,"data":"Requirement already satisfied: pydantic\u003e=2.0 in /usr/local/lib/python3.12/dist-packages (from outlines==1.3.2) (2.12.3)\n"}
+,{"stream_name":"stdout","time":199.7155103,"data":"Requirement already satisfied: pillow in /usr/local/lib/python3.12/dist-packages (from outlines==1.3.2) (11.3.0)\n"}
+,{"stream_name":"stdout","time":199.716826055,"data":"Requirement already satisfied: typing_extensions in /usr/local/lib/python3.12/dist-packages (from outlines==1.3.2) (4.15.0)\n"}
+,{"stream_name":"stdout","time":199.812006549,"data":"Collecting outlines_core==0.2.14 (from outlines==1.3.2)\n"}
+,{"stream_name":"stdout","time":199.827343037,"data":"  Downloading outlines_core-0.2.14-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.6 kB)\n"}
+,{"stream_name":"stdout","time":199.876413868,"data":"Collecting genson (from outlines==1.3.2)\n"}
+,{"stream_name":"stdout","time":199.892010129,"data":"  Downloading genson-1.4.0-py3-none-any.whl.metadata (34 kB)\n"}
+,{"stream_name":"stdout","time":199.943520471,"data":"Collecting jsonpath_ng (from outlines==1.3.2)\n"}
+,{"stream_name":"stdout","time":199.957549207,"data":"  Downloading jsonpath_ng-1.8.0-py3-none-any.whl.metadata (18 kB)\n"}
+,{"stream_name":"stdout","time":199.999907771,"data":"Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /usr/local/lib/python3.12/dist-packages (from fsspec[http]\u003c=2025.3.0,\u003e=2023.1.0-\u003edatasets==3.6.0) (3.13.5)\n"}
+,{"stream_name":"stdout","time":200.013488083,"data":"Requirement already satisfied: hf-xet\u003c2.0.0,\u003e=1.1.3 in /usr/local/lib/python3.12/dist-packages (from huggingface-hub\u003c1.0,\u003e=0.30.0-\u003etransformers==4.51.3) (1.4.3)\n"}
+,{"stream_name":"stdout","time":200.036784025,"data":"Requirement already satisfied: annotated-types\u003e=0.6.0 in /usr/local/lib/python3.12/dist-packages (from pydantic\u003e=2.0-\u003eoutlines==1.3.2) (0.7.0)\n"}
+,{"stream_name":"stdout","time":200.038357153,"data":"Requirement already satisfied: pydantic-core==2.41.4 in /usr/local/lib/python3.12/dist-packages (from pydantic\u003e=2.0-\u003eoutlines==1.3.2) (2.41.4)\n"}
+,{"stream_name":"stdout","time":200.040088832,"data":"Requirement already satisfied: typing-inspection\u003e=0.4.2 in /usr/local/lib/python3.12/dist-packages (from pydantic\u003e=2.0-\u003eoutlines==1.3.2) (0.4.2)\n"}
+,{"stream_name":"stdout","time":200.054307454,"data":"Requirement already satisfied: charset_normalizer\u003c4,\u003e=2 in /usr/local/lib/python3.12/dist-packages (from requests-\u003etransformers==4.51.3) (3.4.7)\n"}
+,{"stream_name":"stdout","time":200.055894962,"data":"Requirement already satisfied: idna\u003c4,\u003e=2.5 in /usr/local/lib/python3.12/dist-packages (from requests-\u003etransformers==4.51.3) (3.13)\n"}
+,{"stream_name":"stdout","time":200.057349484,"data":"Requirement already satisfied: urllib3\u003c3,\u003e=1.21.1 in /usr/local/lib/python3.12/dist-packages (from requests-\u003etransformers==4.51.3) (2.5.0)\n"}
+,{"stream_name":"stdout","time":200.058597889,"data":"Requirement already satisfied: certifi\u003e=2017.4.17 in /usr/local/lib/python3.12/dist-packages (from requests-\u003etransformers==4.51.3) (2026.4.22)\n"}
+,{"stream_name":"stdout","time":200.136850085,"data":"Requirement already satisfied: networkx in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (3.6.1)\n"}
+,{"stream_name":"stdout","time":200.138672729,"data":"Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (12.4.127)\n"}
+,{"stream_name":"stdout","time":200.140120696,"data":"Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (12.4.127)\n"}
+,{"stream_name":"stdout","time":200.141595469,"data":"Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (12.4.127)\n"}
+,{"stream_name":"stdout","time":200.143062319,"data":"Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (9.1.0.70)\n"}
+,{"stream_name":"stdout","time":200.144509246,"data":"Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (12.4.5.8)\n"}
+,{"stream_name":"stdout","time":200.145959861,"data":"Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (11.2.1.3)\n"}
+,{"stream_name":"stdout","time":200.1475538,"data":"Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (10.3.5.147)\n"}
+,{"stream_name":"stdout","time":200.148904483,"data":"Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (11.6.1.9)\n"}
+,{"stream_name":"stdout","time":200.150240988,"data":"Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (12.3.1.170)\n"}
+,{"stream_name":"stdout","time":200.151564022,"data":"Requirement already satisfied: nvidia-cusparselt-cu12==0.6.2 in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (0.6.2)\n"}
+,{"stream_name":"stdout","time":200.152975714,"data":"Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (2.21.5)\n"}
+,{"stream_name":"stdout","time":200.154407221,"data":"Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (12.4.127)\n"}
+,{"stream_name":"stdout","time":200.155867798,"data":"Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (12.4.127)\n"}
+,{"stream_name":"stdout","time":200.157335895,"data":"Requirement already satisfied: triton==3.2.0 in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (3.2.0)\n"}
+,{"stream_name":"stdout","time":200.159078795,"data":"Requirement already satisfied: setuptools in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (78.1.0)\n"}
+,{"stream_name":"stdout","time":200.161005125,"data":"Requirement already satisfied: sympy==1.13.1 in /usr/local/lib/python3.12/dist-packages (from torch\u003e=2.0.0-\u003eaccelerate==1.6.0) (1.13.1)\n"}
+,{"stream_name":"stdout","time":200.187534845,"data":"Requirement already satisfied: mpmath\u003c1.4,\u003e=1.1.0 in /usr/local/lib/python3.12/dist-packages (from sympy==1.13.1-\u003etorch\u003e=2.0.0-\u003eaccelerate==1.6.0) (1.3.0)\n"}
+,{"stream_name":"stdout","time":200.210419055,"data":"Requirement already satisfied: MarkupSafe\u003e=2.0 in /usr/local/lib/python3.12/dist-packages (from jinja2-\u003eoutlines==1.3.2) (3.0.3)\n"}
+,{"stream_name":"stdout","time":200.231027587,"data":"Requirement already satisfied: python-dateutil\u003e=2.8.2 in /usr/local/lib/python3.12/dist-packages (from pandas-\u003edatasets==3.6.0) (2.9.0.post0)\n"}
+,{"stream_name":"stdout","time":200.232999969,"data":"Requirement already satisfied: pytz\u003e=2020.1 in /usr/local/lib/python3.12/dist-packages (from pandas-\u003edatasets==3.6.0) (2025.2)\n"}
+,{"stream_name":"stdout","time":200.234019456,"data":"Requirement already satisfied: tzdata\u003e=2022.7 in /usr/local/lib/python3.12/dist-packages (from pandas-\u003edatasets==3.6.0) (2026.1)\n"}
+,{"stream_name":"stdout","time":200.252751637,"data":"Requirement already satisfied: aiohappyeyeballs\u003e=2.5.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-\u003efsspec[http]\u003c=2025.3.0,\u003e=2023.1.0-\u003edatasets==3.6.0) (2.6.1)\n"}
+,{"stream_name":"stdout","time":200.254013052,"data":"Requirement already satisfied: aiosignal\u003e=1.4.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-\u003efsspec[http]\u003c=2025.3.0,\u003e=2023.1.0-\u003edatasets==3.6.0) (1.4.0)\n"}
+,{"stream_name":"stdout","time":200.256817518,"data":"Requirement already satisfied: frozenlist\u003e=1.1.1 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-\u003efsspec[http]\u003c=2025.3.0,\u003e=2023.1.0-\u003edatasets==3.6.0) (1.8.0)\n"}
+,{"stream_name":"stdout","time":200.258271105,"data":"Requirement already satisfied: multidict\u003c7.0,\u003e=4.5 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-\u003efsspec[http]\u003c=2025.3.0,\u003e=2023.1.0-\u003edatasets==3.6.0) (6.7.1)\n"}
+,{"stream_name":"stdout","time":200.260102248,"data":"Requirement already satisfied: propcache\u003e=0.2.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-\u003efsspec[http]\u003c=2025.3.0,\u003e=2023.1.0-\u003edatasets==3.6.0) (0.4.1)\n"}
+,{"stream_name":"stdout","time":200.264649569,"data":"Requirement already satisfied: yarl\u003c2.0,\u003e=1.17.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-\u003efsspec[http]\u003c=2025.3.0,\u003e=2023.1.0-\u003edatasets==3.6.0) (1.23.0)\n"}
+,{"stream_name":"stdout","time":200.282165312,"data":"Requirement already satisfied: six\u003e=1.5 in /usr/local/lib/python3.12/dist-packages (from python-dateutil\u003e=2.8.2-\u003epandas-\u003edatasets==3.6.0) (1.17.0)\n"}
+,{"stream_name":"stdout","time":200.355397671,"data":"Downloading transformers-4.51.3-py3-none-any.whl (10.4 MB)\n"}
+,{"stream_name":"stdout","time":200.510164465,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.4/10.4 MB 73.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":200.525764297,"data":"Downloading accelerate-1.6.0-py3-none-any.whl (354 kB)\n"}
+,{"stream_name":"stdout","time":200.542335135,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 354.7/354.7 kB 26.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":200.558603507,"data":"Downloading datasets-3.6.0-py3-none-any.whl (491 kB)\n"}
+,{"stream_name":"stdout","time":200.574686576,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 491.5/491.5 kB 36.5 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":200.588158736,"data":"Downloading jsonschema-4.23.0-py3-none-any.whl (88 kB)\n"}
+,{"stream_name":"stdout","time":200.600624351,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 88.5/88.5 kB 8.0 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":200.615668421,"data":"Downloading outlines-1.3.2-py3-none-any.whl (113 kB)\n"}
+,{"stream_name":"stdout","time":200.629674383,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 113.6/113.6 kB 9.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":200.644419278,"data":"Downloading bitsandbytes-0.45.5-py3-none-manylinux_2_24_x86_64.whl (76.1 MB)\n"}
+,{"stream_name":"stdout","time":201.411467284,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 76.1/76.1 MB 25.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":201.4277366,"data":"Downloading outlines_core-0.2.14-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.3 MB)\n"}
+,{"stream_name":"stdout","time":201.462356661,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 73.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":201.477226476,"data":"Downloading dill-0.3.8-py3-none-any.whl (116 kB)\n"}
+,{"stream_name":"stdout","time":201.490947977,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 116.3/116.3 kB 9.8 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":201.505626832,"data":"Downloading fsspec-2025.3.0-py3-none-any.whl (193 kB)\n"}
+,{"stream_name":"stdout","time":201.519515859,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 193.6/193.6 kB 16.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":201.533007249,"data":"Downloading huggingface_hub-0.36.2-py3-none-any.whl (566 kB)\n"}
+,{"stream_name":"stdout","time":201.55036299,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 566.4/566.4 kB 40.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":201.567578171,"data":"Downloading tokenizers-0.21.4-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)\n"}
+,{"stream_name":"stdout","time":201.606159399,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 89.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":201.620015524,"data":"Downloading diskcache-5.6.3-py3-none-any.whl (45 kB)\n"}
+,{"stream_name":"stdout","time":201.632441482,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.5/45.5 kB 3.6 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":201.646741441,"data":"Downloading genson-1.4.0-py3-none-any.whl (24 kB)\n"}
+,{"stream_name":"stdout","time":201.669958792,"data":"Downloading jsonpath_ng-1.8.0-py3-none-any.whl (67 kB)\n"}
+,{"stream_name":"stdout","time":201.684006328,"data":"   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.8/67.8 kB 5.1 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":204.399710064,"data":"Installing collected packages: jsonpath_ng, outlines_core, genson, fsspec, diskcache, dill, huggingface-hub, tokenizers, jsonschema, transformers, outlines, datasets, bitsandbytes, accelerate\n"}
+,{"stream_name":"stdout","time":204.551791097,"data":"  Attempting uninstall: fsspec\n"}
+,{"stream_name":"stdout","time":204.567887339,"data":"    Found existing installation: fsspec 2026.4.0\n"}
+,{"stream_name":"stdout","time":204.576066401,"data":"    Uninstalling fsspec-2026.4.0:\n"}
+,{"stream_name":"stdout","time":204.578120958,"data":"      Successfully uninstalled fsspec-2026.4.0\n"}
+,{"stream_name":"stdout","time":204.82442863,"data":"  Attempting uninstall: dill\n"}
+,{"stream_name":"stdout","time":204.950809822,"data":"    Found existing installation: dill 0.4.1\n"}
+,{"stream_name":"stdout","time":204.957594452,"data":"    Uninstalling dill-0.4.1:\n"}
+,{"stream_name":"stdout","time":205.028461873,"data":"      Successfully uninstalled dill-0.4.1\n"}
+,{"stream_name":"stdout","time":205.14517084,"data":"  Attempting uninstall: huggingface-hub\n"}
+,{"stream_name":"stdout","time":205.373089843,"data":"    Found existing installation: huggingface_hub 1.11.0\n"}
+,{"stream_name":"stdout","time":205.392518356,"data":"    Uninstalling huggingface_hub-1.11.0:\n"}
+,{"stream_name":"stdout","time":205.525181545,"data":"      Successfully uninstalled huggingface_hub-1.11.0\n"}
+,{"stream_name":"stdout","time":205.905532074,"data":"  Attempting uninstall: tokenizers\n"}
+,{"stream_name":"stdout","time":206.190966025,"data":"    Found existing installation: tokenizers 0.22.2\n"}
+,{"stream_name":"stdout","time":206.197002254,"data":"    Uninstalling tokenizers-0.22.2:\n"}
+,{"stream_name":"stdout","time":206.250565226,"data":"      Successfully uninstalled tokenizers-0.22.2\n"}
+,{"stream_name":"stdout","time":206.35100582,"data":"  Attempting uninstall: jsonschema\n"}
+,{"stream_name":"stdout","time":206.483207592,"data":"    Found existing installation: jsonschema 4.26.0\n"}
+,{"stream_name":"stdout","time":206.490859567,"data":"    Uninstalling jsonschema-4.26.0:\n"}
+,{"stream_name":"stdout","time":206.531933244,"data":"      Successfully uninstalled jsonschema-4.26.0\n"}
+,{"stream_name":"stdout","time":206.634530365,"data":"  Attempting uninstall: transformers\n"}
+,{"stream_name":"stdout","time":206.958417228,"data":"    Found existing installation: transformers 5.0.0\n"}
+,{"stream_name":"stdout","time":207.152343475,"data":"    Uninstalling transformers-5.0.0:\n"}
+,{"stream_name":"stdout","time":208.529335768,"data":"      Successfully uninstalled transformers-5.0.0\n"}
+,{"stream_name":"stdout","time":217.168628515,"data":"  Attempting uninstall: datasets\n"}
+,{"stream_name":"stdout","time":217.213720483,"data":"    Found existing installation: datasets 5.0.0\n"}
+,{"stream_name":"stdout","time":217.232919958,"data":"    Uninstalling datasets-5.0.0:\n"}
+,{"stream_name":"stdout","time":217.333492253,"data":"      Successfully uninstalled datasets-5.0.0\n"}
+,{"stream_name":"stdout","time":219.32728197,"data":"  Attempting uninstall: accelerate\n"}
+,{"stream_name":"stdout","time":219.500470799,"data":"    Found existing installation: accelerate 1.13.0\n"}
+,{"stream_name":"stdout","time":219.51278936,"data":"    Uninstalling accelerate-1.13.0:\n"}
+,{"stream_name":"stdout","time":219.594041924,"data":"      Successfully uninstalled accelerate-1.13.0\n"}
+,{"stream_name":"stderr","time":220.03936068,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":220.039426503,"data":"easyocr 1.7.2 requires torchvision\u003e=0.5, which is not installed.\n"}
+,{"stream_name":"stderr","time":220.039432012,"data":"bigframes 2.39.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":220.039435166,"data":"timm 1.0.26 requires torchvision, which is not installed.\n"}
+,{"stream_name":"stderr","time":220.039437866,"data":"fastai 2.8.7 requires torchvision\u003e=0.11, which is not installed.\n"}
+,{"stream_name":"stderr","time":220.039440662,"data":"google-adk 1.29.0 requires google-cloud-bigquery-storage\u003e=2.0.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":220.039443515,"data":"tpot 1.1.0 requires dill\u003e=0.3.9, but you have dill 0.3.8 which is incompatible.\n"}
+,{"stream_name":"stdout","time":220.039717076,"data":"Successfully installed accelerate-1.6.0 bitsandbytes-0.45.5 datasets-3.6.0 dill-0.3.8 diskcache-5.6.3 fsspec-2025.3.0 genson-1.4.0 huggingface-hub-0.36.2 jsonpath_ng-1.8.0 jsonschema-4.23.0 outlines-1.3.2 outlines_core-0.2.14 tokenizers-0.21.4 transformers-4.51.3\n"}
+,{"stream_name":"stdout","time":223.069098413,"data":"{\n"}
+,{"stream_name":"stdout","time":223.069138066,"data":"  \"started_at\": \"2026-08-03T05:34:17.490584+00:00\",\n"}
+,{"stream_name":"stdout","time":223.069146074,"data":"  \"model\": \"Qwen/Qwen2.5-7B-Instruct\",\n"}
+,{"stream_name":"stdout","time":223.069152259,"data":"  \"model_path\": \"/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1\",\n"}
+,{"stream_name":"stdout","time":223.069157913,"data":"  \"limit\": 5,\n"}
+,{"stream_name":"stdout","time":223.069162959,"data":"  \"conditions\": [\n"}
+,{"stream_name":"stdout","time":223.069168043,"data":"    \"free\",\n"}
+,{"stream_name":"stdout","time":223.069176998,"data":"    \"prompted_json_reasoning_first\",\n"}
+,{"stream_name":"stdout","time":223.069180938,"data":"    \"outlines_json_reasoning_first\"\n"}
+,{"stream_name":"stdout","time":223.06918447,"data":"  ],\n"}
+,{"stream_name":"stdout","time":223.069187898,"data":"  \"max_new_tokens\": 256,\n"}
+,{"stream_name":"stdout","time":223.069191397,"data":"  \"seed\": 0,\n"}
+,{"stream_name":"stdout","time":223.069194858,"data":"  \"load_in_4bit\": false,\n"}
+,{"stream_name":"stdout","time":223.069198654,"data":"  \"device_map_auto\": true,\n"}
+,{"stream_name":"stdout","time":223.069202077,"data":"  \"dtype\": \"auto\",\n"}
+,{"stream_name":"stdout","time":223.069205421,"data":"  \"python\": \"3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]\",\n"}
+,{"stream_name":"stdout","time":223.069209119,"data":"  \"platform\": \"Linux-6.12.90+-x86_64-with-glibc2.35\",\n"}
+,{"stream_name":"stdout","time":223.069264685,"data":"  \"torch\": \"2.6.0+cu124\",\n"}
+,{"stream_name":"stdout","time":223.06927537,"data":"  \"cuda_runtime\": \"12.4\",\n"}
+,{"stream_name":"stdout","time":223.069281438,"data":"  \"gpu_count\": 2,\n"}
+,{"stream_name":"stdout","time":223.069286458,"data":"  \"gpu\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":223.069291661,"data":"  \"gpu_total_memory_bytes\": 15636037632,\n"}
+,{"stream_name":"stdout","time":223.069296788,"data":"  \"packages\": {\n"}
+,{"stream_name":"stdout","time":223.06930207,"data":"    \"transformers\": \"4.51.3\",\n"}
+,{"stream_name":"stdout","time":223.069310699,"data":"    \"accelerate\": \"1.6.0\",\n"}
+,{"stream_name":"stdout","time":223.069314395,"data":"    \"datasets\": \"3.6.0\",\n"}
+,{"stream_name":"stdout","time":223.069317963,"data":"    \"jsonschema\": \"4.23.0\",\n"}
+,{"stream_name":"stdout","time":223.069333565,"data":"    \"outlines\": \"1.3.2\",\n"}
+,{"stream_name":"stdout","time":223.069336569,"data":"    \"bitsandbytes\": \"0.45.5\"\n"}
+,{"stream_name":"stdout","time":223.069339223,"data":"  },\n"}
+,{"stream_name":"stdout","time":223.069342738,"data":"  \"runner\": \"/kaggle/input/datasets/vaibhav7011/constrained-decoding-day3-source/07_run_baseline.py\",\n"}
+,{"stream_name":"stdout","time":223.069359652,"data":"  \"dataset\": \"/kaggle/input/datasets/vaibhav7011/constrained-decoding-day3-source/gsm8k_50_seed0.jsonl\"\n"}
+,{"stream_name":"stdout","time":223.069364723,"data":"}\n"}
+,{"stream_name":"stdout","time":223.069369171,"data":"\n"}
+,{"stream_name":"stdout","time":223.069373693,"data":"$ /usr/bin/python3 /kaggle/input/datasets/vaibhav7011/constrained-decoding-day3-source/07_run_baseline.py --model /kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1 --dataset /kaggle/input/datasets/vaibhav7011/constrained-decoding-day3-source/gsm8k_50_seed0.jsonl --condition free --out /kaggle/working/results/qwen2.5-7b-smoke/free.jsonl --limit 5 --seed 0 --max-new-tokens 256 --device-map-auto --dtype auto\n"}
+,{"stream_name":"stderr","time":408.012589668,"data":"\rLoading checkpoint shards:   0%|          | 0/4 [00:00\u003c?, ?it/s]\rLoading checkpoint shards:  25%|██▌       | 1/4 [00:42\u003c02:08, 42.73s/it]\rLoading checkpoint shards:  50%|█████     | 2/4 [01:22\u003c01:22, 41.12s/it]\rLoading checkpoint shards:  75%|███████▌  | 3/4 [01:56\u003c00:37, 37.88s/it]\rLoading checkpoint shards: 100%|██████████| 4/4 [02:40\u003c00:00, 40.04s/it]\rLoading checkpoint shards: 100%|██████████| 4/4 [02:40\u003c00:00, 40.02s/it]\n"}
+,{"stream_name":"stdout","time":413.055809329,"data":"[1/5] gsm8k_test_264 pred='148' gold='400' correct=False error=None\n"}
+,{"stream_name":"stdout","time":418.310993534,"data":"[2/5] gsm8k_test_725 pred='2.5' gold='25' correct=False error=None\n"}
+,{"stream_name":"stdout","time":426.476363661,"data":"[3/5] gsm8k_test_996 pred='4' gold='3' correct=False error=None\n"}
+,{"stream_name":"stdout","time":433.928951025,"data":"[4/5] gsm8k_test_586 pred='89451' gold='800' correct=False error=None\n"}
+,{"stream_name":"stdout","time":439.230749947,"data":"[5/5] gsm8k_test_1010 pred='0.5' gold='5' correct=False error=None\n"}
+,{"stream_name":"stdout","time":439.230888894,"data":"wrote 5 rows to /kaggle/working/results/qwen2.5-7b-smoke/free.jsonl\n"}
+,{"stream_name":"stdout","time":442.23487803,"data":"\n"}
+,{"stream_name":"stdout","time":442.234921845,"data":"$ /usr/bin/python3 /kaggle/input/datasets/vaibhav7011/constrained-decoding-day3-source/07_run_baseline.py --model /kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1 --dataset /kaggle/input/datasets/vaibhav7011/constrained-decoding-day3-source/gsm8k_50_seed0.jsonl --condition prompted_json_reasoning_first --out /kaggle/working/results/qwen2.5-7b-smoke/prompted_json_reasoning_first.jsonl --limit 5 --seed 0 --max-new-tokens 256 --device-map-auto --dtype auto\n"}
+,{"stream_name":"stderr","time":459.333942599,"data":"\rLoading checkpoint shards:   0%|          | 0/4 [00:00\u003c?, ?it/s]\rLoading checkpoint shards:  25%|██▌       | 1/4 [00:01\u003c00:05,  1.76s/it]\rLoading checkpoint shards:  50%|█████     | 2/4 [00:03\u003c00:02,  1.46s/it]\rLoading checkpoint shards:  75%|███████▌  | 3/4 [00:04\u003c00:01,  1.37s/it]\rLoading checkpoint shards: 100%|██████████| 4/4 [00:05\u003c00:00,  1.27s/it]\rLoading checkpoint shards: 100%|██████████| 4/4 [00:05\u003c00:00,  1.35s/it]\n"}
+,{"stream_name":"stdout","time":466.073818297,"data":"[1/5] gsm8k_test_264 pred='108' gold='400' correct=False error=None\n"}
+,{"stream_name":"stdout","time":471.364977502,"data":"[2/5] gsm8k_test_725 pred='2.5' gold='25' correct=False error=None\n"}
+,{"stream_name":"stdout","time":477.911982175,"data":"[3/5] gsm8k_test_996 pred='4' gold='3' correct=False error=None\n"}
+,{"stream_name":"stdout","time":485.283376389,"data":"[4/5] gsm8k_test_586 pred='882' gold='800' correct=False error=None\n"}
+,{"stream_name":"stdout","time":492.05681286,"data":"[5/5] gsm8k_test_1010 pred='1' gold='5' correct=False error=None\n"}
+,{"stream_name":"stdout","time":492.056872897,"data":"wrote 5 rows to /kaggle/working/results/qwen2.5-7b-smoke/prompted_json_reasoning_first.jsonl\n"}
+,{"stream_name":"stdout","time":494.434816392,"data":"\n"}
+,{"stream_name":"stdout","time":494.434859684,"data":"$ /usr/bin/python3 /kaggle/input/datasets/vaibhav7011/constrained-decoding-day3-source/07_run_baseline.py --model /kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1 --dataset /kaggle/input/datasets/vaibhav7011/constrained-decoding-day3-source/gsm8k_50_seed0.jsonl --condition outlines_json_reasoning_first --out /kaggle/working/results/qwen2.5-7b-smoke/outlines_json_reasoning_first.jsonl --limit 5 --seed 0 --max-new-tokens 256 --device-map-auto --dtype auto\n"}
+,{"stream_name":"stderr","time":510.658045926,"data":"\rLoading checkpoint shards:   0%|          | 0/4 [00:00\u003c?, ?it/s]\rLoading checkpoint shards:  25%|██▌       | 1/4 [00:01\u003c00:04,  1.64s/it]\rLoading checkpoint shards:  50%|█████     | 2/4 [00:02\u003c00:02,  1.35s/it]\rLoading checkpoint shards:  75%|███████▌  | 3/4 [00:03\u003c00:01,  1.28s/it]\rLoading checkpoint shards: 100%|██████████| 4/4 [00:05\u003c00:00,  1.19s/it]\rLoading checkpoint shards: 100%|██████████| 4/4 [00:05\u003c00:00,  1.26s/it]\n"}
+,{"stream_name":"stdout","time":525.472241874,"data":"[1/5] gsm8k_test_264 pred='58' gold='400' correct=False error=None\n"}
+,{"stream_name":"stdout","time":530.792788614,"data":"[2/5] gsm8k_test_725 pred='2.5' gold='25' correct=False error=None\n"}
+,{"stream_name":"stdout","time":538.154963646,"data":"[3/5] gsm8k_test_996 pred='4' gold='3' correct=False error=None\n"}
+,{"stream_name":"stdout","time":545.817928089,"data":"[4/5] gsm8k_test_586 pred='882' gold='800' correct=False error=None\n"}
+,{"stream_name":"stdout","time":552.078164885,"data":"[5/5] gsm8k_test_1010 pred='1' gold='5' correct=False error=None\n"}
+,{"stream_name":"stdout","time":552.078263914,"data":"wrote 5 rows to /kaggle/working/results/qwen2.5-7b-smoke/outlines_json_reasoning_first.jsonl\n"}
+,{"stream_name":"stdout","time":554.787161252,"data":"\n"}
+,{"stream_name":"stdout","time":554.787236913,"data":"$ /usr/bin/python3 /kaggle/input/datasets/vaibhav7011/constrained-decoding-day3-source/08_summarize_results.py /kaggle/working/results/qwen2.5-7b-smoke/free.jsonl /kaggle/working/results/qwen2.5-7b-smoke/prompted_json_reasoning_first.jsonl /kaggle/working/results/qwen2.5-7b-smoke/outlines_json_reasoning_first.jsonl --out-json /kaggle/working/results/qwen2.5-7b-smoke/summary.json --out-md /kaggle/working/results/qwen2.5-7b-smoke/summary.md\n"}
+,{"stream_name":"stdout","time":554.900366381,"data":"wrote /kaggle/working/results/qwen2.5-7b-smoke/summary.json\n"}
+,{"stream_name":"stdout","time":554.900401408,"data":"wrote /kaggle/working/results/qwen2.5-7b-smoke/summary.md\n"}
+,{"stream_name":"stdout","time":554.917740271,"data":"# Day 2 baseline summary\n"}
+,{"stream_name":"stdout","time":554.917776175,"data":"\n"}
+,{"stream_name":"stdout","time":554.917781611,"data":"All accuracy denominators include generation errors. JSON validity metrics are not applicable to the free condition.\n"}
+,{"stream_name":"stdout","time":554.917786555,"data":"\n"}
+,{"stream_name":"stdout","time":554.917791198,"data":"| Model | Condition | n | Accuracy | Whole JSON | Recoverable | Schema | Order | Final marker | Hit cap | Avg ms | Median ms | Avg tokens | Errors |\n"}
+,{"stream_name":"stdout","time":554.917812719,"data":"|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n"}
+,{"stream_name":"stdout","time":554.917816785,"data":"| /kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1 | free | 5 | 0.0% | n/a | n/a | n/a | n/a | 100.0% | 0.0% | 5933.6 | 5299.7 | 78.8 | 0 |\n"}
+,{"stream_name":"stdout","time":554.917820715,"data":"| /kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1 | outlines_json_reasoning_first | 5 | 0.0% | 100.0% | 100.0% | 100.0% | 100.0% | n/a | 0.0% | 7289.0 | 7358.7 | 75.8 | 0 |\n"}
+,{"stream_name":"stdout","time":554.917825557,"data":"| /kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1 | prompted_json_reasoning_first | 5 | 0.0% | 100.0% | 100.0% | 60.0% | 100.0% | n/a | 0.0% | 6196.0 | 6541.8 | 80.6 | 0 |\n"}
+,{"stream_name":"stdout","time":554.917829987,"data":"\n"}
+,{"stream_name":"stdout","time":554.917834062,"data":"## Paired comparisons\n"}
+,{"stream_name":"stdout","time":554.917838201,"data":"\n"}
+,{"stream_name":"stdout","time":554.917842101,"data":"Positive delta favors treatment; negative delta favors control.\n"}
+,{"stream_name":"stdout","time":554.917846355,"data":"\n"}
+,{"stream_name":"stdout","time":554.91785018,"data":"| Model | Comparison | Paired n | Delta | Treatment-only correct | Control-only correct | Both correct | Both wrong |\n"}
+,{"stream_name":"stdout","time":554.917854915,"data":"|---|---|---:|---:|---:|---:|---:|---:|\n"}
+,{"stream_name":"stdout","time":554.917859173,"data":"| /kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1 | json_prompt_cost | 5 | 0.0% | 0 | 0 | 0 | 5 |\n"}
+,{"stream_name":"stdout","time":554.917863064,"data":"| /kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1 | outlines_constraint_effect | 5 | 0.0% | 0 | 0 | 0 | 5 |\n"}
+,{"stream_name":"stdout","time":554.917867097,"data":"\n"}
+,{"stream_name":"stderr","time":557.260570481,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":557.260613731,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":557.511143165,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":557.511180198,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":558.272025074,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":559.181608812,"data":"[NbConvertApp] Writing 301161 bytes to __results__.html\n"}
+]

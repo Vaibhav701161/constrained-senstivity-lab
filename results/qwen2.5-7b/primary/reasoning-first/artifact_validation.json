@@ -1,0 +1,68 @@
+{
+  "valid": true,
+  "run_dir": "results/qwen2.5-7b/primary/reasoning-first/results/qwen2.5-7b-smoke",
+  "dataset": "data/gsm8k_50_seed0.jsonl",
+  "dataset_sha256": "3639f2f6def0f50e02086bc91e6f4a45567c85aa9b0f498224cb9421400d812a",
+  "expected_limit": 50,
+  "expected_conditions": [
+    "free",
+    "prompted_json_reasoning_first",
+    "outlines_json_reasoning_first",
+    "xgrammar_json_reasoning_first"
+  ],
+  "expected_prompt_versions": {
+    "free": "day2-v4-reasoning-before-answer",
+    "prompted_json_reasoning_first": "day3-v8-symbolic-json-template",
+    "outlines_json_reasoning_first": "day3-v8-symbolic-json-template",
+    "xgrammar_json_reasoning_first": "day3-v8-symbolic-json-template"
+  },
+  "expected_xgrammar_any_whitespace": false,
+  "failures": [],
+  "warnings": [],
+  "conditions": {
+    "free": {
+      "path": "results/qwen2.5-7b/primary/reasoning-first/results/qwen2.5-7b-smoke/free.jsonl",
+      "sha256": "84809fd375d9b8c0190b1b9c251c417a82ca15b6e09eced977b0a21f4604bee4",
+      "rows": 50,
+      "unique_item_ids": 50,
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "prompt_versions": [
+        "day2-v4-reasoning-before-answer"
+      ]
+    },
+    "prompted_json_reasoning_first": {
+      "path": "results/qwen2.5-7b/primary/reasoning-first/results/qwen2.5-7b-smoke/prompted_json_reasoning_first.jsonl",
+      "sha256": "c13da158e0080b94d57430e752510714d52656e22b3080231d701d39111996fe",
+      "rows": 50,
+      "unique_item_ids": 50,
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "prompt_versions": [
+        "day3-v8-symbolic-json-template"
+      ]
+    },
+    "outlines_json_reasoning_first": {
+      "path": "results/qwen2.5-7b/primary/reasoning-first/results/qwen2.5-7b-smoke/outlines_json_reasoning_first.jsonl",
+      "sha256": "4aeb56ce5f2dba5495b2a84f272dbf2882699ce177797cb542d819856319b297",
+      "rows": 50,
+      "unique_item_ids": 50,
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "prompt_versions": [
+        "day3-v8-symbolic-json-template"
+      ]
+    },
+    "xgrammar_json_reasoning_first": {
+      "path": "results/qwen2.5-7b/primary/reasoning-first/results/qwen2.5-7b-smoke/xgrammar_json_reasoning_first.jsonl",
+      "sha256": "ce3fffa0213a1fb88d15b649ce5853298812dcbe9296a382a44aa6be2f9e8789",
+      "rows": 50,
+      "unique_item_ids": 50,
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "prompt_versions": [
+        "day3-v8-symbolic-json-template"
+      ]
+    }
+  }
+}

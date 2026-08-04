@@ -1,0 +1,31 @@
+{
+  "input_files": [
+    "/kaggle/working/results/qwen2.5-7b-smoke/outlines_json_reasoning_first.jsonl"
+  ],
+  "total_rows": 5,
+  "groups": [
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "condition": "outlines_json_reasoning_first",
+      "examples": 5,
+      "correct_exact": 5,
+      "accuracy": 1.0,
+      "strict_accuracy": 1.0,
+      "answer_field_strict_numeric": 1.0,
+      "whole_response_valid_json": 1.0,
+      "first_object_recoverable": 1.0,
+      "schema_valid": 1.0,
+      "field_order_matches": 1.0,
+      "final_answer_marker_at_end": null,
+      "hit_max_new_tokens": 0.0,
+      "avg_latency_ms": 95839.6404,
+      "median_latency_ms": 100526.053,
+      "avg_generated_tokens": 61.6,
+      "errors": 0,
+      "source_files": [
+        "/kaggle/working/results/qwen2.5-7b-smoke/outlines_json_reasoning_first.jsonl"
+      ]
+    }
+  ],
+  "paired_comparisons": []
+}

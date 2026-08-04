@@ -1,0 +1,29 @@
+{
+  "valid": true,
+  "run_dir": "results/kaggle/qwen7b_fp32_v8_xgrammar_debug_v21/results/qwen2.5-7b-smoke",
+  "dataset": "data/gsm8k_50_seed0.jsonl",
+  "dataset_sha256": "3639f2f6def0f50e02086bc91e6f4a45567c85aa9b0f498224cb9421400d812a",
+  "expected_limit": 5,
+  "expected_conditions": [
+    "xgrammar_json_reasoning_first"
+  ],
+  "expected_prompt_versions": {
+    "xgrammar_json_reasoning_first": "day3-v8-symbolic-json-template"
+  },
+  "expected_xgrammar_any_whitespace": false,
+  "failures": [],
+  "warnings": [],
+  "conditions": {
+    "xgrammar_json_reasoning_first": {
+      "path": "results/kaggle/qwen7b_fp32_v8_xgrammar_debug_v21/results/qwen2.5-7b-smoke/xgrammar_json_reasoning_first.jsonl",
+      "sha256": "1c5cad90801258e22b1d4d543b97f9b6264a82fcc72eaac192c6b8ed1282b763",
+      "rows": 5,
+      "unique_item_ids": 5,
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "prompt_versions": [
+        "day3-v8-symbolic-json-template"
+      ]
+    }
+  }
+}

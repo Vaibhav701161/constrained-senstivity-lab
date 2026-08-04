@@ -1,0 +1,96 @@
+{
+  "input_files": [
+    "/kaggle/working/results/qwen2.5-7b-smoke/free.jsonl",
+    "/kaggle/working/results/qwen2.5-7b-smoke/prompted_json_reasoning_first.jsonl",
+    "/kaggle/working/results/qwen2.5-7b-smoke/outlines_json_reasoning_first.jsonl"
+  ],
+  "total_rows": 15,
+  "groups": [
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "condition": "free",
+      "examples": 5,
+      "correct_exact": 4,
+      "accuracy": 0.8,
+      "whole_response_valid_json": null,
+      "first_object_recoverable": null,
+      "schema_valid": null,
+      "field_order_matches": null,
+      "final_answer_marker_at_end": 1.0,
+      "hit_max_new_tokens": 0.0,
+      "avg_latency_ms": 124254.937,
+      "median_latency_ms": 111326.76,
+      "avg_generated_tokens": 84.0,
+      "errors": 0,
+      "source_files": [
+        "/kaggle/working/results/qwen2.5-7b-smoke/free.jsonl"
+      ]
+    },
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "condition": "outlines_json_reasoning_first",
+      "examples": 5,
+      "correct_exact": 3,
+      "accuracy": 0.6,
+      "whole_response_valid_json": 1.0,
+      "first_object_recoverable": 1.0,
+      "schema_valid": 1.0,
+      "field_order_matches": 1.0,
+      "final_answer_marker_at_end": null,
+      "hit_max_new_tokens": 0.0,
+      "avg_latency_ms": 94523.11240000001,
+      "median_latency_ms": 98182.009,
+      "avg_generated_tokens": 62.2,
+      "errors": 0,
+      "source_files": [
+        "/kaggle/working/results/qwen2.5-7b-smoke/outlines_json_reasoning_first.jsonl"
+      ]
+    },
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "condition": "prompted_json_reasoning_first",
+      "examples": 5,
+      "correct_exact": 4,
+      "accuracy": 0.8,
+      "whole_response_valid_json": 1.0,
+      "first_object_recoverable": 1.0,
+      "schema_valid": 1.0,
+      "field_order_matches": 1.0,
+      "final_answer_marker_at_end": null,
+      "hit_max_new_tokens": 0.0,
+      "avg_latency_ms": 112423.1308,
+      "median_latency_ms": 103686.594,
+      "avg_generated_tokens": 74.2,
+      "errors": 0,
+      "source_files": [
+        "/kaggle/working/results/qwen2.5-7b-smoke/prompted_json_reasoning_first.jsonl"
+      ]
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "comparison": "json_prompt_cost",
+      "treatment": "prompted_json_reasoning_first",
+      "control": "free",
+      "paired_examples": 5,
+      "accuracy_delta": 0.0,
+      "treatment_only_correct": 0,
+      "control_only_correct": 0,
+      "both_correct": 4,
+      "both_wrong": 1
+    },
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "comparison": "outlines_constraint_effect",
+      "treatment": "outlines_json_reasoning_first",
+      "control": "prompted_json_reasoning_first",
+      "paired_examples": 5,
+      "accuracy_delta": -0.2,
+      "treatment_only_correct": 1,
+      "control_only_correct": 2,
+      "both_correct": 2,
+      "both_wrong": 0
+    }
+  ]
+}

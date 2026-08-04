@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+<title id="title">Accuracy and schema-compliance trade-off</title>
+<desc id="desc">Generated directly from checked-in experiment summary data.</desc>
+<rect width="1200" height="700" fill="#FFFFFF"/>
+<text x="60.0" y="54.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="28" font-weight="700" fill="#172033" text-anchor="start">Accuracy and contract compliance</text>
+<text x="60.0" y="84.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="15" font-weight="400" fill="#5E6B82" text-anchor="start">Qwen2.5-7B · audited GSM8K subset · n = 49 per condition</text>
+<rect x="60" y="108" width="14" height="14" rx="2" fill="#2563EB"/>
+<text x="82.0" y="120.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="14" font-weight="400" fill="#172033" text-anchor="start">Recoverable math accuracy</text>
+<rect x="305" y="108" width="14" height="14" rx="2" fill="#0F766E"/>
+<text x="327.0" y="120.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="14" font-weight="400" fill="#172033" text-anchor="start">Strict correct + compliant</text>
+<rect x="550" y="108" width="14" height="14" rx="2" fill="#D97706"/>
+<text x="572.0" y="120.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="14" font-weight="400" fill="#172033" text-anchor="start">Schema compliance</text>
+<line x1="340.0" y1="161" x2="340.0" y2="616" stroke="#D9DFE8" stroke-width="1"/>
+<text x="340.0" y="151.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#5E6B82" text-anchor="middle">0</text>
+<line x1="540.0" y1="161" x2="540.0" y2="616" stroke="#D9DFE8" stroke-width="1"/>
+<text x="540.0" y="151.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#5E6B82" text-anchor="middle">25</text>
+<line x1="740.0" y1="161" x2="740.0" y2="616" stroke="#D9DFE8" stroke-width="1"/>
+<text x="740.0" y="151.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#5E6B82" text-anchor="middle">50</text>
+<line x1="940.0" y1="161" x2="940.0" y2="616" stroke="#D9DFE8" stroke-width="1"/>
+<text x="940.0" y="151.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#5E6B82" text-anchor="middle">75</text>
+<line x1="1140.0" y1="161" x2="1140.0" y2="616" stroke="#D9DFE8" stroke-width="1"/>
+<text x="1140.0" y="151.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#5E6B82" text-anchor="middle">100</text>
+<text x="322.0" y="204.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="15" font-weight="550" fill="#172033" text-anchor="end">Free response</text>
+<rect x="340" y="175" width="587.8" height="11" rx="2" fill="#2563EB"/>
+<text x="935.8" y="185.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="650" fill="#172033" text-anchor="start">73.5%</text>
+<text x="346.0" y="204.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="400" fill="#5E6B82" text-anchor="start">n/a</text>
+<text x="346.0" y="222.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="400" fill="#5E6B82" text-anchor="start">n/a</text>
+<text x="322.0" y="280.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="15" font-weight="550" fill="#172033" text-anchor="end">Prompted JSON: reasoning first</text>
+<rect x="340" y="247" width="800" height="62" fill="#F7F9FC"/>
+<rect x="340" y="251" width="636.7" height="11" rx="2" fill="#2563EB"/>
+<text x="984.7" y="261.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="650" fill="#172033" text-anchor="start">79.6%</text>
+<rect x="340" y="269" width="2.0" height="11" rx="2" fill="#0F766E"/>
+<text x="348.0" y="279.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="650" fill="#172033" text-anchor="start">0.0%</text>
+<rect x="340" y="287" width="2.0" height="11" rx="2" fill="#D97706"/>
+<text x="348.0" y="297.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="650" fill="#172033" text-anchor="start">0.0%</text>
+<text x="322.0" y="356.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="15" font-weight="550" fill="#172033" text-anchor="end">Outlines: reasoning first</text>
+<rect x="340" y="327" width="489.8" height="11" rx="2" fill="#2563EB"/>
+<text x="837.8" y="337.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="650" fill="#172033" text-anchor="start">61.2%</text>
+<rect x="340" y="345" width="489.8" height="11" rx="2" fill="#0F766E"/>
+<text x="837.8" y="355.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="650" fill="#172033" text-anchor="start">61.2%</text>
+<rect x="340" y="363" width="800.0" height="11" rx="2" fill="#D97706"/>
+<text x="1134.0" y="373.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="650" fill="#172033" text-anchor="end">100.0%</text>
+<text x="322.0" y="432.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="15" font-weight="550" fill="#172033" text-anchor="end">XGrammar: reasoning first</text>
+<rect x="340" y="399" width="800" height="62" fill="#F7F9FC"/>
+<rect x="340" y="403" width="489.8" height="11" rx="2" fill="#2563EB"/>
+<text x="837.8" y="413.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="650" fill="#172033" text-anchor="start">61.2%</text>
+<rect x="340" y="421" width="489.8" height="11" rx="2" fill="#0F766E"/>
+<text x="837.8" y="431.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="650" fill="#172033" text-anchor="start">61.2%</text>
+<rect x="340" y="439" width="800.0" height="11" rx="2" fill="#D97706"/>
+<text x="1134.0" y="449.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="650" fill="#172033" text-anchor="end">100.0%</text>
+<text x="322.0" y="508.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="15" font-weight="550" fill="#172033" text-anchor="end">Prompted JSON: answer first</text>
+<rect x="340" y="479" width="179.6" height="11" rx="2" fill="#2563EB"/>
+<text x="527.6" y="489.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="650" fill="#172033" text-anchor="start">22.4%</text>
+<rect x="340" y="497" width="130.6" height="11" rx="2" fill="#0F766E"/>
+<text x="478.6" y="507.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="650" fill="#172033" text-anchor="start">16.3%</text>
+<rect x="340" y="515" width="522.4" height="11" rx="2" fill="#D97706"/>
+<text x="870.4" y="525.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="650" fill="#172033" text-anchor="start">65.3%</text>
+<text x="322.0" y="584.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="15" font-weight="550" fill="#172033" text-anchor="end">Outlines: answer first</text>
+<rect x="340" y="551" width="800" height="62" fill="#F7F9FC"/>
+<rect x="340" y="555" width="130.6" height="11" rx="2" fill="#2563EB"/>
+<text x="478.6" y="565.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="650" fill="#172033" text-anchor="start">16.3%</text>
+<rect x="340" y="573" width="130.6" height="11" rx="2" fill="#0F766E"/>
+<text x="478.6" y="583.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="650" fill="#172033" text-anchor="start">16.3%</text>
+<rect x="340" y="591" width="800.0" height="11" rx="2" fill="#D97706"/>
+<text x="1134.0" y="601.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="11" font-weight="650" fill="#172033" text-anchor="end">100.0%</text>
+<text x="340.0" y="662.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="14" font-weight="600" fill="#172033" text-anchor="start">Percentage of evaluated items</text>
+<text x="1140.0" y="662.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="12" font-weight="400" fill="#5E6B82" text-anchor="end">One contradictory benchmark row excluded by the predeclared audit rule.</text>
+</svg>

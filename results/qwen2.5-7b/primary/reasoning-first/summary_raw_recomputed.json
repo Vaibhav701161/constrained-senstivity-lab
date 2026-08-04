@@ -1,0 +1,244 @@
+{
+  "input_files": [
+    "results/qwen2.5-7b/primary/reasoning-first/results/qwen2.5-7b-smoke/free.jsonl",
+    "results/qwen2.5-7b/primary/reasoning-first/results/qwen2.5-7b-smoke/prompted_json_reasoning_first.jsonl",
+    "results/qwen2.5-7b/primary/reasoning-first/results/qwen2.5-7b-smoke/outlines_json_reasoning_first.jsonl",
+    "results/qwen2.5-7b/primary/reasoning-first/results/qwen2.5-7b-smoke/xgrammar_json_reasoning_first.jsonl"
+  ],
+  "excluded_item_ids": [],
+  "excluded_rows": 0,
+  "total_rows": 200,
+  "groups": [
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "condition": "free",
+      "examples": 50,
+      "correct_exact": 36,
+      "accuracy": 0.72,
+      "accuracy_ci95": [
+        0.5833487630404344,
+        0.8252582933408878
+      ],
+      "strict_accuracy": null,
+      "strict_accuracy_ci95": null,
+      "answer_field_strict_numeric": null,
+      "whole_response_valid_json": null,
+      "first_object_recoverable": null,
+      "schema_valid": null,
+      "field_order_matches": null,
+      "final_answer_marker_at_end": 1.0,
+      "hit_max_new_tokens": 0.0,
+      "avg_latency_ms": 126831.46412,
+      "median_latency_ms": 119551.44649999999,
+      "avg_generated_tokens": 80.88,
+      "avg_latency_per_token_ms": 1567.4093244146413,
+      "errors": 0,
+      "source_files": [
+        "results/qwen2.5-7b/primary/reasoning-first/results/qwen2.5-7b-smoke/free.jsonl"
+      ]
+    },
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "condition": "outlines_json_reasoning_first",
+      "examples": 50,
+      "correct_exact": 30,
+      "accuracy": 0.6,
+      "accuracy_ci95": [
+        0.4618143774758936,
+        0.7239161026974346
+      ],
+      "strict_accuracy": 0.6,
+      "strict_accuracy_ci95": [
+        0.4618143774758936,
+        0.7239161026974346
+      ],
+      "answer_field_strict_numeric": 1.0,
+      "whole_response_valid_json": 1.0,
+      "first_object_recoverable": 1.0,
+      "schema_valid": 1.0,
+      "field_order_matches": 1.0,
+      "final_answer_marker_at_end": null,
+      "hit_max_new_tokens": 0.0,
+      "avg_latency_ms": 98912.93582,
+      "median_latency_ms": 99394.2375,
+      "avg_generated_tokens": 60.7,
+      "avg_latency_per_token_ms": 1643.2981448602195,
+      "errors": 0,
+      "source_files": [
+        "results/qwen2.5-7b/primary/reasoning-first/results/qwen2.5-7b-smoke/outlines_json_reasoning_first.jsonl"
+      ]
+    },
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "condition": "prompted_json_reasoning_first",
+      "examples": 50,
+      "correct_exact": 39,
+      "accuracy": 0.78,
+      "accuracy_ci95": [
+        0.6475845041874634,
+        0.8724608402978559
+      ],
+      "strict_accuracy": 0.0,
+      "strict_accuracy_ci95": [
+        6.938893903907228e-18,
+        0.07134759913335872
+      ],
+      "answer_field_strict_numeric": 0.0,
+      "whole_response_valid_json": 1.0,
+      "first_object_recoverable": 1.0,
+      "schema_valid": 0.0,
+      "field_order_matches": 1.0,
+      "final_answer_marker_at_end": null,
+      "hit_max_new_tokens": 0.0,
+      "avg_latency_ms": 96219.25662,
+      "median_latency_ms": 93924.641,
+      "avg_generated_tokens": 62.44,
+      "avg_latency_per_token_ms": 1541.1964512943107,
+      "errors": 0,
+      "source_files": [
+        "results/qwen2.5-7b/primary/reasoning-first/results/qwen2.5-7b-smoke/prompted_json_reasoning_first.jsonl"
+      ]
+    },
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "condition": "xgrammar_json_reasoning_first",
+      "examples": 50,
+      "correct_exact": 30,
+      "accuracy": 0.6,
+      "accuracy_ci95": [
+        0.4618143774758936,
+        0.7239161026974346
+      ],
+      "strict_accuracy": 0.6,
+      "strict_accuracy_ci95": [
+        0.4618143774758936,
+        0.7239161026974346
+      ],
+      "answer_field_strict_numeric": 1.0,
+      "whole_response_valid_json": 1.0,
+      "first_object_recoverable": 1.0,
+      "schema_valid": 1.0,
+      "field_order_matches": 1.0,
+      "final_answer_marker_at_end": null,
+      "hit_max_new_tokens": 0.0,
+      "avg_latency_ms": 99296.64232000001,
+      "median_latency_ms": 96088.88500000001,
+      "avg_generated_tokens": 63.38,
+      "avg_latency_per_token_ms": 1572.642187679806,
+      "errors": 0,
+      "source_files": [
+        "results/qwen2.5-7b/primary/reasoning-first/results/qwen2.5-7b-smoke/xgrammar_json_reasoning_first.jsonl"
+      ]
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "comparison": "json_prompt_cost",
+      "treatment": "prompted_json_reasoning_first",
+      "control": "free",
+      "paired_examples": 50,
+      "accuracy_delta": 0.06,
+      "accuracy_delta_ci95": [
+        -0.06,
+        0.18
+      ],
+      "treatment_only_correct": 6,
+      "control_only_correct": 3,
+      "both_correct": 33,
+      "both_wrong": 8,
+      "mcnemar_p_exact": 0.5078125,
+      "strict_accuracy_delta": -0.72,
+      "strict_accuracy_delta_ci95": [
+        -0.84,
+        -0.6
+      ],
+      "strict_treatment_only_correct": 0,
+      "strict_control_only_correct": 36,
+      "strict_both_correct": 0,
+      "strict_both_wrong": 14,
+      "strict_mcnemar_p_exact": 2.9103830456733704e-11
+    },
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "comparison": "outlines_constraint_effect",
+      "treatment": "outlines_json_reasoning_first",
+      "control": "prompted_json_reasoning_first",
+      "paired_examples": 50,
+      "accuracy_delta": -0.18,
+      "accuracy_delta_ci95": [
+        -0.3,
+        -0.08
+      ],
+      "treatment_only_correct": 0,
+      "control_only_correct": 9,
+      "both_correct": 30,
+      "both_wrong": 11,
+      "mcnemar_p_exact": 0.00390625,
+      "strict_accuracy_delta": 0.6,
+      "strict_accuracy_delta_ci95": [
+        0.46,
+        0.74
+      ],
+      "strict_treatment_only_correct": 30,
+      "strict_control_only_correct": 0,
+      "strict_both_correct": 0,
+      "strict_both_wrong": 20,
+      "strict_mcnemar_p_exact": 1.862645149230957e-09
+    },
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "comparison": "xgrammar_constraint_effect",
+      "treatment": "xgrammar_json_reasoning_first",
+      "control": "prompted_json_reasoning_first",
+      "paired_examples": 50,
+      "accuracy_delta": -0.18,
+      "accuracy_delta_ci95": [
+        -0.3,
+        -0.08
+      ],
+      "treatment_only_correct": 0,
+      "control_only_correct": 9,
+      "both_correct": 30,
+      "both_wrong": 11,
+      "mcnemar_p_exact": 0.00390625,
+      "strict_accuracy_delta": 0.6,
+      "strict_accuracy_delta_ci95": [
+        0.46,
+        0.74
+      ],
+      "strict_treatment_only_correct": 30,
+      "strict_control_only_correct": 0,
+      "strict_both_correct": 0,
+      "strict_both_wrong": 20,
+      "strict_mcnemar_p_exact": 1.862645149230957e-09
+    },
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "comparison": "xgrammar_vs_outlines",
+      "treatment": "xgrammar_json_reasoning_first",
+      "control": "outlines_json_reasoning_first",
+      "paired_examples": 50,
+      "accuracy_delta": 0.0,
+      "accuracy_delta_ci95": [
+        -0.06,
+        0.06
+      ],
+      "treatment_only_correct": 1,
+      "control_only_correct": 1,
+      "both_correct": 29,
+      "both_wrong": 19,
+      "mcnemar_p_exact": 1.0,
+      "strict_accuracy_delta": 0.0,
+      "strict_accuracy_delta_ci95": [
+        -0.06,
+        0.06
+      ],
+      "strict_treatment_only_correct": 1,
+      "strict_control_only_correct": 1,
+      "strict_both_correct": 29,
+      "strict_both_wrong": 19,
+      "strict_mcnemar_p_exact": 1.0
+    }
+  ]
+}

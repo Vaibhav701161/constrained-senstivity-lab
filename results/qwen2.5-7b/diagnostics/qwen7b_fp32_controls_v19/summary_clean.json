@@ -1,0 +1,157 @@
+{
+  "input_files": [
+    "results/kaggle/qwen7b_fp32_controls_v19/results/qwen2.5-7b-smoke/free.jsonl",
+    "results/kaggle/qwen7b_fp32_controls_v19/results/qwen2.5-7b-smoke/prompted_json_reasoning_first.jsonl",
+    "results/kaggle/qwen7b_fp32_controls_v19/results/qwen2.5-7b-smoke/prompted_json_answer_first.jsonl"
+  ],
+  "excluded_item_ids": [
+    "gsm8k_test_454"
+  ],
+  "excluded_rows": 3,
+  "total_rows": 57,
+  "groups": [
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "condition": "free",
+      "examples": 19,
+      "correct_exact": 11,
+      "accuracy": 0.5789473684210527,
+      "accuracy_ci95": [
+        0.3627590353425504,
+        0.7685810871754576
+      ],
+      "strict_accuracy": null,
+      "strict_accuracy_ci95": null,
+      "answer_field_strict_numeric": null,
+      "whole_response_valid_json": null,
+      "first_object_recoverable": null,
+      "schema_valid": null,
+      "field_order_matches": null,
+      "final_answer_marker_at_end": 1.0,
+      "hit_max_new_tokens": 0.0,
+      "avg_latency_ms": 123762.52557894737,
+      "median_latency_ms": 115581.888,
+      "avg_generated_tokens": 84.42105263157895,
+      "errors": 0,
+      "source_files": [
+        "results/kaggle/qwen7b_fp32_controls_v19/results/qwen2.5-7b-smoke/free.jsonl"
+      ]
+    },
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "condition": "prompted_json_answer_first",
+      "examples": 19,
+      "correct_exact": 3,
+      "accuracy": 0.15789473684210525,
+      "accuracy_ci95": [
+        0.05520471638534141,
+        0.37565475270329074
+      ],
+      "strict_accuracy": 0.15789473684210525,
+      "strict_accuracy_ci95": [
+        0.05520471638534141,
+        0.37565475270329074
+      ],
+      "answer_field_strict_numeric": 1.0,
+      "whole_response_valid_json": 1.0,
+      "first_object_recoverable": 1.0,
+      "schema_valid": 1.0,
+      "field_order_matches": 1.0,
+      "final_answer_marker_at_end": null,
+      "hit_max_new_tokens": 0.0,
+      "avg_latency_ms": 69608.01605263157,
+      "median_latency_ms": 60516.426,
+      "avg_generated_tokens": 47.05263157894737,
+      "errors": 0,
+      "source_files": [
+        "results/kaggle/qwen7b_fp32_controls_v19/results/qwen2.5-7b-smoke/prompted_json_answer_first.jsonl"
+      ]
+    },
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "condition": "prompted_json_reasoning_first",
+      "examples": 19,
+      "correct_exact": 12,
+      "accuracy": 0.631578947368421,
+      "accuracy_ci95": [
+        0.41039533164803066,
+        0.8085048725486492
+      ],
+      "strict_accuracy": 0.10526315789473684,
+      "strict_accuracy_ci95": [
+        0.02935856029887013,
+        0.31394082711109006
+      ],
+      "answer_field_strict_numeric": 0.21052631578947367,
+      "whole_response_valid_json": 1.0,
+      "first_object_recoverable": 1.0,
+      "schema_valid": 0.21052631578947367,
+      "field_order_matches": 1.0,
+      "final_answer_marker_at_end": null,
+      "hit_max_new_tokens": 0.0,
+      "avg_latency_ms": 104767.38126315789,
+      "median_latency_ms": 92739.573,
+      "avg_generated_tokens": 66.21052631578948,
+      "errors": 0,
+      "source_files": [
+        "results/kaggle/qwen7b_fp32_controls_v19/results/qwen2.5-7b-smoke/prompted_json_reasoning_first.jsonl"
+      ]
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "comparison": "json_prompt_cost",
+      "treatment": "prompted_json_reasoning_first",
+      "control": "free",
+      "paired_examples": 19,
+      "accuracy_delta": 0.05263157894736842,
+      "accuracy_delta_ci95": [
+        -0.10526315789473684,
+        0.21052631578947367
+      ],
+      "treatment_only_correct": 2,
+      "control_only_correct": 1,
+      "both_correct": 10,
+      "both_wrong": 6,
+      "mcnemar_p_exact": 1.0,
+      "strict_accuracy_delta": -0.47368421052631576,
+      "strict_accuracy_delta_ci95": [
+        -0.7368421052631579,
+        -0.21052631578947367
+      ],
+      "strict_treatment_only_correct": 1,
+      "strict_control_only_correct": 10,
+      "strict_both_correct": 1,
+      "strict_both_wrong": 7,
+      "strict_mcnemar_p_exact": 0.01171875
+    },
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "comparison": "prompted_field_order_effect",
+      "treatment": "prompted_json_answer_first",
+      "control": "prompted_json_reasoning_first",
+      "paired_examples": 19,
+      "accuracy_delta": -0.47368421052631576,
+      "accuracy_delta_ci95": [
+        -0.6842105263157895,
+        -0.2631578947368421
+      ],
+      "treatment_only_correct": 0,
+      "control_only_correct": 9,
+      "both_correct": 3,
+      "both_wrong": 7,
+      "mcnemar_p_exact": 0.00390625,
+      "strict_accuracy_delta": 0.05263157894736842,
+      "strict_accuracy_delta_ci95": [
+        -0.15789473684210525,
+        0.2631578947368421
+      ],
+      "strict_treatment_only_correct": 3,
+      "strict_control_only_correct": 2,
+      "strict_both_correct": 0,
+      "strict_both_wrong": 14,
+      "strict_mcnemar_p_exact": 1.0
+    }
+  ]
+}

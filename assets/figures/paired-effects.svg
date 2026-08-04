@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="590" viewBox="0 0 1200 590" role="img" aria-labelledby="title desc">
+<title id="title">Paired effects on recoverable math accuracy</title>
+<desc id="desc">Generated directly from checked-in experiment summary data.</desc>
+<rect width="1200" height="590" fill="#FFFFFF"/>
+<text x="60.0" y="54.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="28" font-weight="700" fill="#172033" text-anchor="start">Paired effects on recoverable math accuracy</text>
+<text x="60.0" y="84.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="15" font-weight="400" fill="#5E6B82" text-anchor="start">Percentage-point differences with paired-bootstrap 95% intervals</text>
+<line x1="360.0" y1="117" x2="360.0" y2="487" stroke="#D9DFE8" stroke-width="1"/>
+<text x="360.0" y="107.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#5E6B82" text-anchor="middle">-80</text>
+<line x1="481.8" y1="117" x2="481.8" y2="487" stroke="#D9DFE8" stroke-width="1"/>
+<text x="481.8" y="107.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#5E6B82" text-anchor="middle">-60</text>
+<line x1="603.6" y1="117" x2="603.6" y2="487" stroke="#D9DFE8" stroke-width="1"/>
+<text x="603.6" y="107.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#5E6B82" text-anchor="middle">-40</text>
+<line x1="725.5" y1="117" x2="725.5" y2="487" stroke="#D9DFE8" stroke-width="1"/>
+<text x="725.5" y="107.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#5E6B82" text-anchor="middle">-20</text>
+<line x1="847.3" y1="117" x2="847.3" y2="487" stroke="#172033" stroke-width="2"/>
+<text x="847.3" y="107.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#5E6B82" text-anchor="middle">+0</text>
+<line x1="969.1" y1="117" x2="969.1" y2="487" stroke="#D9DFE8" stroke-width="1"/>
+<text x="969.1" y="107.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#5E6B82" text-anchor="middle">+20</text>
+<text x="338.0" y="151.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="15" font-weight="550" fill="#172033" text-anchor="end">Prompted RF − Free</text>
+<line x1="810.0" y1="145.0" x2="959.1" y2="145.0" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+<line x1="810.0" y1="137.0" x2="810.0" y2="153.0" stroke="#2563EB" stroke-width="2"/>
+<line x1="959.1" y1="137.0" x2="959.1" y2="153.0" stroke="#2563EB" stroke-width="2"/>
+<circle cx="884.6" cy="145.0" r="7" fill="#2563EB"/>
+<text x="1040.0" y="150.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="14" font-weight="600" fill="#172033" text-anchor="start">+6.1 pp</text>
+<text x="1185.0" y="150.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="600" fill="#172033" text-anchor="end">p=0.5078</text>
+<text x="338.0" y="223.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="15" font-weight="550" fill="#172033" text-anchor="end">Outlines RF − Prompted RF</text>
+<line x1="660.8" y1="217.0" x2="797.6" y2="217.0" stroke="#B42318" stroke-width="4" stroke-linecap="round"/>
+<line x1="660.8" y1="209.0" x2="660.8" y2="225.0" stroke="#B42318" stroke-width="2"/>
+<line x1="797.6" y1="209.0" x2="797.6" y2="225.0" stroke="#B42318" stroke-width="2"/>
+<circle cx="735.4" cy="217.0" r="7" fill="#B42318"/>
+<text x="1040.0" y="222.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="14" font-weight="600" fill="#172033" text-anchor="start">-18.4 pp</text>
+<text x="1185.0" y="222.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="600" fill="#172033" text-anchor="end">p=0.003906</text>
+<text x="338.0" y="295.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="15" font-weight="550" fill="#172033" text-anchor="end">XGrammar RF − Prompted RF</text>
+<line x1="660.8" y1="289.0" x2="797.6" y2="289.0" stroke="#B42318" stroke-width="4" stroke-linecap="round"/>
+<line x1="660.8" y1="281.0" x2="660.8" y2="297.0" stroke="#B42318" stroke-width="2"/>
+<line x1="797.6" y1="281.0" x2="797.6" y2="297.0" stroke="#B42318" stroke-width="2"/>
+<circle cx="735.4" cy="289.0" r="7" fill="#B42318"/>
+<text x="1040.0" y="294.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="14" font-weight="600" fill="#172033" text-anchor="start">-18.4 pp</text>
+<text x="1185.0" y="294.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="600" fill="#172033" text-anchor="end">p=0.003906</text>
+<text x="338.0" y="367.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="15" font-weight="550" fill="#172033" text-anchor="end">Prompted AF − Prompted RF</text>
+<line x1="412.2" y1="361.0" x2="598.7" y2="361.0" stroke="#B42318" stroke-width="4" stroke-linecap="round"/>
+<line x1="412.2" y1="353.0" x2="412.2" y2="369.0" stroke="#B42318" stroke-width="2"/>
+<line x1="598.7" y1="353.0" x2="598.7" y2="369.0" stroke="#B42318" stroke-width="2"/>
+<circle cx="499.2" cy="361.0" r="7" fill="#B42318"/>
+<text x="1040.0" y="366.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="14" font-weight="600" fill="#172033" text-anchor="start">-57.1 pp</text>
+<text x="1185.0" y="366.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="600" fill="#172033" text-anchor="end">p=5.774e-08</text>
+<text x="338.0" y="439.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="15" font-weight="550" fill="#172033" text-anchor="end">Outlines AF − Outlines RF</text>
+<line x1="486.8" y1="433.0" x2="660.8" y2="433.0" stroke="#B42318" stroke-width="4" stroke-linecap="round"/>
+<line x1="486.8" y1="425.0" x2="486.8" y2="441.0" stroke="#B42318" stroke-width="2"/>
+<line x1="660.8" y1="425.0" x2="660.8" y2="441.0" stroke="#B42318" stroke-width="2"/>
+<circle cx="573.8" cy="433.0" r="7" fill="#B42318"/>
+<text x="1040.0" y="438.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="14" font-weight="600" fill="#172033" text-anchor="start">-44.9 pp</text>
+<text x="1185.0" y="438.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="600" fill="#172033" text-anchor="end">p=2.98e-06</text>
+<text x="360.0" y="550.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#5E6B82" text-anchor="start">Favors control</text>
+<text x="1030.0" y="550.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#5E6B82" text-anchor="end">Favors treatment</text>
+<text x="1140.0" y="84.0" font-family="Inter, ui-sans-serif, Segoe UI, sans-serif" font-size="12" font-weight="400" fill="#5E6B82" text-anchor="end">Two-sided exact McNemar p-values</text>
+</svg>

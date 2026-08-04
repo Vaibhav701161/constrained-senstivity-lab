@@ -1,0 +1,12 @@
+{
+  "dataset": "openai/gsm8k",
+  "split": "test",
+  "audited_exclusions": [
+    {
+      "item_id": "gsm8k_test_454",
+      "source_index": 454,
+      "reason": "The question says Marin and Nancy each eat 4 apples per day, implying 240 apples in 30 days, while the reference silently uses 4 + 1 per day and labels 150.",
+      "evidence_url": "https://huggingface.co/datasets/openai/gsm8k/discussions/20"
+    }
+  ]
+}

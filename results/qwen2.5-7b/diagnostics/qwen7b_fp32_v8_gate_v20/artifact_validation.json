@@ -1,0 +1,69 @@
+{
+  "valid": true,
+  "run_dir": "results/kaggle/qwen7b_fp32_v8_gate_v20/results/qwen2.5-7b-smoke",
+  "dataset": "data/gsm8k_50_seed0.jsonl",
+  "dataset_sha256": "3639f2f6def0f50e02086bc91e6f4a45567c85aa9b0f498224cb9421400d812a",
+  "expected_limit": 5,
+  "expected_conditions": [
+    "free",
+    "prompted_json_reasoning_first",
+    "outlines_json_reasoning_first",
+    "xgrammar_json_reasoning_first"
+  ],
+  "expected_prompt_versions": {
+    "free": "day2-v4-reasoning-before-answer",
+    "prompted_json_reasoning_first": "day3-v8-symbolic-json-template",
+    "outlines_json_reasoning_first": "day3-v8-symbolic-json-template",
+    "xgrammar_json_reasoning_first": "day3-v8-symbolic-json-template"
+  },
+  "failures": [],
+  "warnings": [
+    "xgrammar_json_reasoning_first: 1 token-cap hits"
+  ],
+  "conditions": {
+    "free": {
+      "path": "results/kaggle/qwen7b_fp32_v8_gate_v20/results/qwen2.5-7b-smoke/free.jsonl",
+      "sha256": "46091315f97d319036a608942f7cf350f9ac067c272468ca1f3eac2cc4a60eaa",
+      "rows": 5,
+      "unique_item_ids": 5,
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "prompt_versions": [
+        "day2-v4-reasoning-before-answer"
+      ]
+    },
+    "prompted_json_reasoning_first": {
+      "path": "results/kaggle/qwen7b_fp32_v8_gate_v20/results/qwen2.5-7b-smoke/prompted_json_reasoning_first.jsonl",
+      "sha256": "93687b77d2364e5cc9926f1cbee840b0a9eb782ae6c0171c788878b3e4f697d1",
+      "rows": 5,
+      "unique_item_ids": 5,
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "prompt_versions": [
+        "day3-v8-symbolic-json-template"
+      ]
+    },
+    "outlines_json_reasoning_first": {
+      "path": "results/kaggle/qwen7b_fp32_v8_gate_v20/results/qwen2.5-7b-smoke/outlines_json_reasoning_first.jsonl",
+      "sha256": "1e859cbc0c41e123aa62d5a6e7a2cb94f26ce16fc0a0bc686434e761ac35d6c1",
+      "rows": 5,
+      "unique_item_ids": 5,
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "prompt_versions": [
+        "day3-v8-symbolic-json-template"
+      ]
+    },
+    "xgrammar_json_reasoning_first": {
+      "path": "results/kaggle/qwen7b_fp32_v8_gate_v20/results/qwen2.5-7b-smoke/xgrammar_json_reasoning_first.jsonl",
+      "sha256": "fca5dd0cc040c32c0f6b5da2c745df414891d443d74925a68107d91f67c968fb",
+      "rows": 5,
+      "unique_item_ids": 5,
+      "errors": 0,
+      "hit_max_new_tokens": 1,
+      "prompt_versions": [
+        "day3-v8-symbolic-json-template"
+      ]
+    }
+  }
+}

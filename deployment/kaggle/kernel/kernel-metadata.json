@@ -1,0 +1,19 @@
+{
+  "id": "vaibhav7011/constrained-decoding-qwen7b-smoke",
+  "title": "Constrained Decoding Qwen7B Smoke",
+  "code_file": "run_kaggle.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_internet": "true",
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": [
+    "vaibhav7011/constrained-decoding-day3-source"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": [
+    "qwen-lm/qwen2.5/transformers/7b-instruct/1"
+  ]
+}

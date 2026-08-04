@@ -1,0 +1,74 @@
+{
+  "input_files": [
+    "results/qwen2.5-7b/primary/answer-first/results/qwen2.5-7b-smoke/prompted_json_answer_first.jsonl",
+    "results/qwen2.5-7b/primary/answer-first/results/qwen2.5-7b-smoke/outlines_json_answer_first.jsonl"
+  ],
+  "excluded_item_ids": [],
+  "excluded_rows": 0,
+  "total_rows": 100,
+  "groups": [
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "condition": "outlines_json_answer_first",
+      "examples": 50,
+      "correct_exact": 8,
+      "accuracy": 0.16,
+      "accuracy_ci95": [
+        0.08337420678033404,
+        0.2851421606303499
+      ],
+      "strict_accuracy": 0.16,
+      "strict_accuracy_ci95": [
+        0.08337420678033404,
+        0.2851421606303499
+      ],
+      "answer_field_strict_numeric": 1.0,
+      "whole_response_valid_json": 1.0,
+      "first_object_recoverable": 1.0,
+      "schema_valid": 1.0,
+      "field_order_matches": 1.0,
+      "final_answer_marker_at_end": null,
+      "hit_max_new_tokens": 0.0,
+      "avg_latency_ms": 68016.51772,
+      "median_latency_ms": 65162.21800000001,
+      "avg_generated_tokens": 44.86,
+      "avg_latency_per_token_ms": 1527.1495875565506,
+      "errors": 0,
+      "source_files": [
+        "results/qwen2.5-7b/primary/answer-first/results/qwen2.5-7b-smoke/outlines_json_answer_first.jsonl"
+      ]
+    },
+    {
+      "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+      "condition": "prompted_json_answer_first",
+      "examples": 50,
+      "correct_exact": 11,
+      "accuracy": 0.22,
+      "accuracy_ci95": [
+        0.1275391597021442,
+        0.3524154958125367
+      ],
+      "strict_accuracy": 0.16,
+      "strict_accuracy_ci95": [
+        0.08337420678033404,
+        0.2851421606303499
+      ],
+      "answer_field_strict_numeric": 0.64,
+      "whole_response_valid_json": 0.98,
+      "first_object_recoverable": 0.98,
+      "schema_valid": 0.64,
+      "field_order_matches": 0.98,
+      "final_answer_marker_at_end": null,
+      "hit_max_new_tokens": 0.0,
+      "avg_latency_ms": 71604.60528,
+      "median_latency_ms": 68515.8505,
+      "avg_generated_tokens": 49.26,
+      "avg_latency_per_token_ms": 1456.3958951642103,
+      "errors": 0,
+      "source_files": [
+        "results/qwen2.5-7b/primary/answer-first/results/qwen2.5-7b-smoke/prompted_json_answer_first.jsonl"
+      ]
+    }
+  ],
+  "paired_comparisons": []
+}

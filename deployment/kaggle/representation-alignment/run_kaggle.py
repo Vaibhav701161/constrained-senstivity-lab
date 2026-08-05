@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the FP32 Qwen2.5-7B representation-alignment targeted gate on Kaggle."""
+"""Run the FP32 Qwen2.5-7B representation-alignment full confirmation on Kaggle."""
 
 from __future__ import annotations
 
@@ -15,13 +15,12 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 MODEL_ID = "Qwen/Qwen2.5-7B-Instruct"
-RUN_SCOPE = "targeted"
+RUN_SCOPE = "full"
 MAX_NEW_TOKENS = 256
 CONDITIONS = (
     "prompted_json_integer_reasoning_first",
     "outlines_json_integer_reasoning_first",
     "xgrammar_json_integer_reasoning_first",
-    "xgrammar_json_unsigned_numeric_string_reasoning_first",
 )
 TRACE_ITEM_IDS = ("gsm8k_test_173", "gsm8k_test_1216", "gsm8k_test_12")
 PACKAGES = (
@@ -70,7 +69,7 @@ def main() -> None:
     os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
     os.environ.setdefault("PYTHONUNBUFFERED", "1")
     input_root = Path("/kaggle/input")
-    output_root = Path("/kaggle/working/results/representation-alignment-targeted")
+    output_root = Path("/kaggle/working/results/representation-alignment-full")
     output_root.mkdir(parents=True, exist_ok=True)
 
     if shutil.which("nvidia-smi"):
@@ -144,7 +143,7 @@ def main() -> None:
     shutil.copytree(runtime_package_root / "src", runtime_root / "src")
     runner = runtime_root / "run_representation_alignment.py"
     summarizer = runtime_root / "summarize_alignment_gate.py"
-    dataset = one_match(input_root, "targeted-items.jsonl")
+    dataset = one_match(input_root, "gsm8k_50_seed0.jsonl")
     model_path = one_match(input_root, "config.json").parent
     runtime = json.loads(
         subprocess.check_output(
@@ -161,12 +160,12 @@ def main() -> None:
 
     gpu = torch.cuda.get_device_properties(0)
     manifest = {
-        "experiment": "representation-alignment-targeted-v1",
+        "experiment": "representation-alignment-full-v1",
         "scope": RUN_SCOPE,
         "started_at": datetime.now(UTC).isoformat(),
         "model": MODEL_ID,
         "model_path": str(model_path),
-        "limit": 18,
+        "limit": 50,
         "conditions": list(CONDITIONS),
         "max_new_tokens": MAX_NEW_TOKENS,
         "seed": 0,
@@ -213,7 +212,7 @@ def main() -> None:
             "--manifest-out",
             str(output_root / "manifests" / f"{condition}.json"),
             "--limit",
-            "18",
+            "50",
             "--seed",
             "0",
             "--max-new-tokens",

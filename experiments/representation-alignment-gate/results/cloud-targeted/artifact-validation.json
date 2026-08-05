@@ -1,0 +1,66 @@
+{
+  "valid": true,
+  "run_dir": "experiments/representation-alignment-gate/results/cloud-targeted/results/representation-alignment-targeted",
+  "dataset_sha256": "48139da094713211893696aa5c2a968f760efdc84da285ebba714f668023727c",
+  "expected_limit": 18,
+  "expected_conditions": [
+    "prompted_json_integer_reasoning_first",
+    "outlines_json_integer_reasoning_first",
+    "xgrammar_json_integer_reasoning_first",
+    "xgrammar_json_unsigned_numeric_string_reasoning_first"
+  ],
+  "failures": [],
+  "warnings": [],
+  "conditions": {
+    "prompted_json_integer_reasoning_first": {
+      "path": "experiments/representation-alignment-gate/results/cloud-targeted/results/representation-alignment-targeted/prompted_json_integer_reasoning_first.jsonl",
+      "sha256": "364610f0033f6b5ae6c801327ca5437e8ceca7e04fe2014f2350ea776556efbe",
+      "rows": 18,
+      "unique_item_ids": 18,
+      "run_signature": "46b7c2131ade",
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "external_valid_rows": 18
+    },
+    "outlines_json_integer_reasoning_first": {
+      "path": "experiments/representation-alignment-gate/results/cloud-targeted/results/representation-alignment-targeted/outlines_json_integer_reasoning_first.jsonl",
+      "sha256": "adcebaaa5fedaa50f979efe0cc2ad17cd7670d96df72ee853418a4badca3905d",
+      "rows": 18,
+      "unique_item_ids": 18,
+      "run_signature": "3c889badbb87",
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "external_valid_rows": 18
+    },
+    "xgrammar_json_integer_reasoning_first": {
+      "path": "experiments/representation-alignment-gate/results/cloud-targeted/results/representation-alignment-targeted/xgrammar_json_integer_reasoning_first.jsonl",
+      "sha256": "6b4b261634aa2c5233478ffbd1f55887487b81a405f1817a76705d2b24ff765b",
+      "rows": 18,
+      "unique_item_ids": 18,
+      "run_signature": "90a655410340",
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "external_valid_rows": 18
+    },
+    "xgrammar_json_unsigned_numeric_string_reasoning_first": {
+      "path": "experiments/representation-alignment-gate/results/cloud-targeted/results/representation-alignment-targeted/xgrammar_json_unsigned_numeric_string_reasoning_first.jsonl",
+      "sha256": "57f8be431b909fa3f66cb90bed7653e4817079da8a0ea785af176d17e6f1b0d9",
+      "rows": 18,
+      "unique_item_ids": 18,
+      "run_signature": "43c194eea4e0",
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "external_valid_rows": 18
+    }
+  },
+  "trace": {
+    "path": "experiments/representation-alignment-gate/results/cloud-targeted/results/representation-alignment-targeted/traces/xgrammar-integer-answer-boundary.jsonl",
+    "sha256": "134b5a62477213bedf811c7d82a8c14b29ea1c3cbc1ea7b91443a4ec79afb51e",
+    "records": 6,
+    "traced_item_ids": [
+      "gsm8k_test_12",
+      "gsm8k_test_1216",
+      "gsm8k_test_173"
+    ]
+  }
+}

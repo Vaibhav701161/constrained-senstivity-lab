@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "run_dir": "experiments/representation-alignment-gate/results/cloud-full/results/representation-alignment-full",
+  "dataset_sha256": "3639f2f6def0f50e02086bc91e6f4a45567c85aa9b0f498224cb9421400d812a",
+  "expected_limit": 50,
+  "expected_conditions": [
+    "prompted_json_integer_reasoning_first",
+    "outlines_json_integer_reasoning_first",
+    "xgrammar_json_integer_reasoning_first"
+  ],
+  "failures": [],
+  "warnings": [],
+  "conditions": {
+    "prompted_json_integer_reasoning_first": {
+      "path": "experiments/representation-alignment-gate/results/cloud-full/results/representation-alignment-full/prompted_json_integer_reasoning_first.jsonl",
+      "sha256": "f8b27caa79df08de020f82c8c751fd142e1679ffd9dc075a39007139f01168d2",
+      "rows": 50,
+      "unique_item_ids": 50,
+      "run_signature": "e6471275bbda",
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "external_valid_rows": 50
+    },
+    "outlines_json_integer_reasoning_first": {
+      "path": "experiments/representation-alignment-gate/results/cloud-full/results/representation-alignment-full/outlines_json_integer_reasoning_first.jsonl",
+      "sha256": "625bac75e78b0b8d17d435de86c22ea098e9acb13ded65c7843438d0da45b901",
+      "rows": 50,
+      "unique_item_ids": 50,
+      "run_signature": "2e1175f23519",
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "external_valid_rows": 50
+    },
+    "xgrammar_json_integer_reasoning_first": {
+      "path": "experiments/representation-alignment-gate/results/cloud-full/results/representation-alignment-full/xgrammar_json_integer_reasoning_first.jsonl",
+      "sha256": "7f56b25fdda02f68db38f2e2761ce7cded625199f4652ad247b9b7b72f15aba5",
+      "rows": 50,
+      "unique_item_ids": 50,
+      "run_signature": "602be1db5a41",
+      "errors": 0,
+      "hit_max_new_tokens": 0,
+      "external_valid_rows": 50
+    }
+  },
+  "trace": {
+    "path": "experiments/representation-alignment-gate/results/cloud-full/results/representation-alignment-full/traces/xgrammar-integer-answer-boundary.jsonl",
+    "sha256": "3321e27180c9b6907620d03dbdc79930cd5d84727919be5809d941e2cf9a7101",
+    "records": 6,
+    "traced_item_ids": [
+      "gsm8k_test_12",
+      "gsm8k_test_1216",
+      "gsm8k_test_173"
+    ]
+  }
+}

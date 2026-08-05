@@ -1,0 +1,476 @@
+{
+  "input_files": [
+    "results/qwen2.5-7b/primary/reasoning-first/results/qwen2.5-7b-smoke/prompted_json_reasoning_first.jsonl",
+    "results/qwen2.5-7b/primary/reasoning-first/results/qwen2.5-7b-smoke/outlines_json_reasoning_first.jsonl",
+    "results/qwen2.5-7b/primary/reasoning-first/results/qwen2.5-7b-smoke/xgrammar_json_reasoning_first.jsonl",
+    "experiments/representation-alignment-gate/results/cloud-full/results/representation-alignment-full/prompted_json_integer_reasoning_first.jsonl",
+    "experiments/representation-alignment-gate/results/cloud-full/results/representation-alignment-full/outlines_json_integer_reasoning_first.jsonl",
+    "experiments/representation-alignment-gate/results/cloud-full/results/representation-alignment-full/xgrammar_json_integer_reasoning_first.jsonl"
+  ],
+  "excluded_item_ids": [
+    "gsm8k_test_454"
+  ],
+  "total_rows": 294,
+  "groups": [
+    {
+      "condition": "outlines_json_integer_reasoning_first",
+      "examples": 49,
+      "semantic": {
+        "count": 37,
+        "rate": 0.7551020408163265,
+        "ci95": [
+          0.6191368101239605,
+          0.8539765474166023
+        ]
+      },
+      "external_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "contract_valid": {
+        "count": 37,
+        "rate": 0.7551020408163265,
+        "ci95": [
+          0.6191368101239605,
+          0.8539765474166023
+        ]
+      },
+      "internal_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "negative_answers": 0,
+      "negative_answer_rate": 0.0,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 93431.56616326529,
+      "median_latency_ms": 91079.06,
+      "average_generated_tokens": 60.69387755102041
+    },
+    {
+      "condition": "outlines_json_reasoning_first",
+      "examples": 49,
+      "semantic": {
+        "count": 30,
+        "rate": 0.6122448979591837,
+        "ci95": [
+          0.4724599944352045,
+          0.7357098828826433
+        ]
+      },
+      "external_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "contract_valid": {
+        "count": 30,
+        "rate": 0.6122448979591837,
+        "ci95": [
+          0.4724599944352045,
+          0.7357098828826433
+        ]
+      },
+      "internal_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "negative_answers": 12,
+      "negative_answer_rate": 0.24489795918367346,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 99609.32632653062,
+      "median_latency_ms": 99750.323,
+      "average_generated_tokens": 61.12244897959184
+    },
+    {
+      "condition": "prompted_json_integer_reasoning_first",
+      "examples": 49,
+      "semantic": {
+        "count": 37,
+        "rate": 0.7551020408163265,
+        "ci95": [
+          0.6191368101239605,
+          0.8539765474166023
+        ]
+      },
+      "external_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "contract_valid": {
+        "count": 37,
+        "rate": 0.7551020408163265,
+        "ci95": [
+          0.6191368101239605,
+          0.8539765474166023
+        ]
+      },
+      "internal_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "negative_answers": 0,
+      "negative_answer_rate": 0.0,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 90962.409,
+      "median_latency_ms": 87660.081,
+      "average_generated_tokens": 63.244897959183675
+    },
+    {
+      "condition": "prompted_json_reasoning_first",
+      "examples": 49,
+      "semantic": {
+        "count": 39,
+        "rate": 0.7959183673469388,
+        "ci95": [
+          0.6636299908048744,
+          0.8851815039421786
+        ]
+      },
+      "external_valid": {
+        "count": 0,
+        "rate": 0.0,
+        "ci95": [
+          6.938893903907228e-18,
+          0.07269781922049637
+        ]
+      },
+      "contract_valid": {
+        "count": 0,
+        "rate": 0.0,
+        "ci95": [
+          6.938893903907228e-18,
+          0.07269781922049637
+        ]
+      },
+      "internal_valid": {
+        "count": 0,
+        "rate": 0.0,
+        "ci95": [
+          6.938893903907228e-18,
+          0.07269781922049637
+        ]
+      },
+      "negative_answers": 1,
+      "negative_answer_rate": 0.02040816326530612,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 96914.91838775511,
+      "median_latency_ms": 95780.027,
+      "average_generated_tokens": 62.87755102040816
+    },
+    {
+      "condition": "xgrammar_json_integer_reasoning_first",
+      "examples": 49,
+      "semantic": {
+        "count": 37,
+        "rate": 0.7551020408163265,
+        "ci95": [
+          0.6191368101239605,
+          0.8539765474166023
+        ]
+      },
+      "external_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "contract_valid": {
+        "count": 37,
+        "rate": 0.7551020408163265,
+        "ci95": [
+          0.6191368101239605,
+          0.8539765474166023
+        ]
+      },
+      "internal_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "negative_answers": 0,
+      "negative_answer_rate": 0.0,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 93355.29375510204,
+      "median_latency_ms": 87059.671,
+      "average_generated_tokens": 63.244897959183675
+    },
+    {
+      "condition": "xgrammar_json_reasoning_first",
+      "examples": 49,
+      "semantic": {
+        "count": 30,
+        "rate": 0.6122448979591837,
+        "ci95": [
+          0.4724599944352045,
+          0.7357098828826433
+        ]
+      },
+      "external_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "contract_valid": {
+        "count": 30,
+        "rate": 0.6122448979591837,
+        "ci95": [
+          0.4724599944352045,
+          0.7357098828826433
+        ]
+      },
+      "internal_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "negative_answers": 12,
+      "negative_answer_rate": 0.24489795918367346,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 100003.67793877551,
+      "median_latency_ms": 97086.451,
+      "average_generated_tokens": 63.816326530612244
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "name": "prompted_integer_vs_signed",
+      "treatment": "prompted_json_integer_reasoning_first",
+      "control": "prompted_json_reasoning_first",
+      "paired_examples": 49,
+      "semantic": {
+        "delta": -0.04081632653061224,
+        "delta_ci95": [
+          -0.12244897959183673,
+          0.04081632653061224
+        ],
+        "treatment_only": 1,
+        "control_only": 3,
+        "both_correct": 36,
+        "both_wrong": 9,
+        "mcnemar_p_exact": 0.625
+      },
+      "contract_valid": {
+        "delta": 0.7551020408163265,
+        "delta_ci95": [
+          0.6326530612244898,
+          0.8571428571428571
+        ],
+        "treatment_only": 37,
+        "control_only": 0,
+        "both_correct": 0,
+        "both_wrong": 12,
+        "mcnemar_p_exact": 1.4551915228366852e-11
+      },
+      "repaired_item_ids": [
+        "gsm8k_test_1284"
+      ],
+      "newly_broken_item_ids": [
+        "gsm8k_test_1003",
+        "gsm8k_test_12",
+        "gsm8k_test_506"
+      ]
+    },
+    {
+      "name": "outlines_integer_vs_signed",
+      "treatment": "outlines_json_integer_reasoning_first",
+      "control": "outlines_json_reasoning_first",
+      "paired_examples": 49,
+      "semantic": {
+        "delta": 0.14285714285714285,
+        "delta_ci95": [
+          0.04081632653061224,
+          0.2653061224489796
+        ],
+        "treatment_only": 8,
+        "control_only": 1,
+        "both_correct": 29,
+        "both_wrong": 11,
+        "mcnemar_p_exact": 0.0390625
+      },
+      "contract_valid": {
+        "delta": 0.14285714285714285,
+        "delta_ci95": [
+          0.04081632653061224,
+          0.2653061224489796
+        ],
+        "treatment_only": 8,
+        "control_only": 1,
+        "both_correct": 29,
+        "both_wrong": 11,
+        "mcnemar_p_exact": 0.0390625
+      },
+      "repaired_item_ids": [
+        "gsm8k_test_173",
+        "gsm8k_test_183",
+        "gsm8k_test_244",
+        "gsm8k_test_482",
+        "gsm8k_test_506",
+        "gsm8k_test_694",
+        "gsm8k_test_712",
+        "gsm8k_test_739"
+      ],
+      "newly_broken_item_ids": [
+        "gsm8k_test_629"
+      ]
+    },
+    {
+      "name": "xgrammar_integer_vs_signed",
+      "treatment": "xgrammar_json_integer_reasoning_first",
+      "control": "xgrammar_json_reasoning_first",
+      "paired_examples": 49,
+      "semantic": {
+        "delta": 0.14285714285714285,
+        "delta_ci95": [
+          0.0,
+          0.2857142857142857
+        ],
+        "treatment_only": 10,
+        "control_only": 3,
+        "both_correct": 27,
+        "both_wrong": 9,
+        "mcnemar_p_exact": 0.09228515625
+      },
+      "contract_valid": {
+        "delta": 0.14285714285714285,
+        "delta_ci95": [
+          0.0,
+          0.2857142857142857
+        ],
+        "treatment_only": 10,
+        "control_only": 3,
+        "both_correct": 27,
+        "both_wrong": 9,
+        "mcnemar_p_exact": 0.09228515625
+      },
+      "repaired_item_ids": [
+        "gsm8k_test_1216",
+        "gsm8k_test_1284",
+        "gsm8k_test_173",
+        "gsm8k_test_183",
+        "gsm8k_test_244",
+        "gsm8k_test_482",
+        "gsm8k_test_629",
+        "gsm8k_test_694",
+        "gsm8k_test_712",
+        "gsm8k_test_739"
+      ],
+      "newly_broken_item_ids": [
+        "gsm8k_test_1003",
+        "gsm8k_test_12",
+        "gsm8k_test_506"
+      ]
+    },
+    {
+      "name": "outlines_integer_vs_prompted_integer",
+      "treatment": "outlines_json_integer_reasoning_first",
+      "control": "prompted_json_integer_reasoning_first",
+      "paired_examples": 49,
+      "semantic": {
+        "delta": 0.0,
+        "delta_ci95": [
+          -0.10204081632653061,
+          0.10204081632653061
+        ],
+        "treatment_only": 3,
+        "control_only": 3,
+        "both_correct": 34,
+        "both_wrong": 9,
+        "mcnemar_p_exact": 1.0
+      },
+      "contract_valid": {
+        "delta": 0.0,
+        "delta_ci95": [
+          -0.10204081632653061,
+          0.10204081632653061
+        ],
+        "treatment_only": 3,
+        "control_only": 3,
+        "both_correct": 34,
+        "both_wrong": 9,
+        "mcnemar_p_exact": 1.0
+      },
+      "repaired_item_ids": [
+        "gsm8k_test_1003",
+        "gsm8k_test_12",
+        "gsm8k_test_506"
+      ],
+      "newly_broken_item_ids": [
+        "gsm8k_test_1216",
+        "gsm8k_test_1284",
+        "gsm8k_test_629"
+      ]
+    },
+    {
+      "name": "xgrammar_integer_vs_prompted_integer",
+      "treatment": "xgrammar_json_integer_reasoning_first",
+      "control": "prompted_json_integer_reasoning_first",
+      "paired_examples": 49,
+      "semantic": {
+        "delta": 0.0,
+        "delta_ci95": [
+          0.0,
+          0.0
+        ],
+        "treatment_only": 0,
+        "control_only": 0,
+        "both_correct": 37,
+        "both_wrong": 12,
+        "mcnemar_p_exact": 1.0
+      },
+      "contract_valid": {
+        "delta": 0.0,
+        "delta_ci95": [
+          0.0,
+          0.0
+        ],
+        "treatment_only": 0,
+        "control_only": 0,
+        "both_correct": 37,
+        "both_wrong": 12,
+        "mcnemar_p_exact": 1.0
+      },
+      "repaired_item_ids": [],
+      "newly_broken_item_ids": []
+    }
+  ]
+}

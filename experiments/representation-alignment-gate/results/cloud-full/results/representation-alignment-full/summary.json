@@ -1,0 +1,141 @@
+{
+  "input_files": [
+    "/kaggle/working/results/representation-alignment-full/prompted_json_integer_reasoning_first.jsonl",
+    "/kaggle/working/results/representation-alignment-full/outlines_json_integer_reasoning_first.jsonl",
+    "/kaggle/working/results/representation-alignment-full/xgrammar_json_integer_reasoning_first.jsonl"
+  ],
+  "excluded_item_ids": [],
+  "total_rows": 150,
+  "groups": [
+    {
+      "condition": "outlines_json_integer_reasoning_first",
+      "examples": 50,
+      "semantic": {
+        "count": 37,
+        "rate": 0.74,
+        "ci95": [
+          0.6044684273515117,
+          0.8412847250644762
+        ]
+      },
+      "external_valid": {
+        "count": 50,
+        "rate": 1.0,
+        "ci95": [
+          0.9286524008666414,
+          1.0
+        ]
+      },
+      "contract_valid": {
+        "count": 37,
+        "rate": 0.74,
+        "ci95": [
+          0.6044684273515117,
+          0.8412847250644762
+        ]
+      },
+      "internal_valid": {
+        "count": 50,
+        "rate": 1.0,
+        "ci95": [
+          0.9286524008666414,
+          1.0
+        ]
+      },
+      "negative_answers": 0,
+      "negative_answer_rate": 0.0,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 92835.39078,
+      "median_latency_ms": 90688.46650000001,
+      "average_generated_tokens": 60.28
+    },
+    {
+      "condition": "prompted_json_integer_reasoning_first",
+      "examples": 50,
+      "semantic": {
+        "count": 37,
+        "rate": 0.74,
+        "ci95": [
+          0.6044684273515117,
+          0.8412847250644762
+        ]
+      },
+      "external_valid": {
+        "count": 50,
+        "rate": 1.0,
+        "ci95": [
+          0.9286524008666414,
+          1.0
+        ]
+      },
+      "contract_valid": {
+        "count": 37,
+        "rate": 0.74,
+        "ci95": [
+          0.6044684273515117,
+          0.8412847250644762
+        ]
+      },
+      "internal_valid": {
+        "count": 50,
+        "rate": 1.0,
+        "ci95": [
+          0.9286524008666414,
+          1.0
+        ]
+      },
+      "negative_answers": 0,
+      "negative_answer_rate": 0.0,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 90322.87948,
+      "median_latency_ms": 86904.76550000001,
+      "average_generated_tokens": 62.8
+    },
+    {
+      "condition": "xgrammar_json_integer_reasoning_first",
+      "examples": 50,
+      "semantic": {
+        "count": 37,
+        "rate": 0.74,
+        "ci95": [
+          0.6044684273515117,
+          0.8412847250644762
+        ]
+      },
+      "external_valid": {
+        "count": 50,
+        "rate": 1.0,
+        "ci95": [
+          0.9286524008666414,
+          1.0
+        ]
+      },
+      "contract_valid": {
+        "count": 37,
+        "rate": 0.74,
+        "ci95": [
+          0.6044684273515117,
+          0.8412847250644762
+        ]
+      },
+      "internal_valid": {
+        "count": 50,
+        "rate": 1.0,
+        "ci95": [
+          0.9286524008666414,
+          1.0
+        ]
+      },
+      "negative_answers": 0,
+      "negative_answer_rate": 0.0,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 92697.26814,
+      "median_latency_ms": 86935.3955,
+      "average_generated_tokens": 62.8
+    }
+  ],
+  "paired_comparisons": []
+}

@@ -7,7 +7,7 @@ decoding, and output-field order affect mathematical accuracy and schema complia
 [Study design](#study-design) |
 [Reproduction](#reproduce-the-evaluation) | [Evidence](#evidence-map) |
 [Public Kaggle artifacts](#public-kaggle-artifacts) |
-[Technical article](#technical-article) |
+[Technical articles](#technical-articles) |
 [Limitations](#scope-and-limitations)
 
 ## Central result
@@ -129,14 +129,24 @@ its values are not manually entered into the artwork.
 Read the complete, artifact-linked analysis in
 [`docs/representation-alignment-results.md`](docs/representation-alignment-results.md).
 
-## Technical article
+## Technical articles
 
-A concise, reader-facing account of the study is published on DEV Community:
+The public engineering record on DEV Community follows the research from decoding
+mechanics through controlled evaluation and contract-aligned recovery:
 
-[Structured Output Fixed My JSON and Cut Math Accuracy by 18 Points](https://dev.to/vaibhav_mittal_ac22a2c5d6/structured-output-fixed-my-json-and-cut-math-accuracy-by-18-points-jm5)
+| Published | Article | Scope |
+|---|---|---|
+| 27 Jul 2026 | [Grammars are written in characters. Models emit tokens.](https://dev.to/vaibhav_mittal_ac22a2c5d6/grammars-are-written-in-characters-models-emit-tokens-1k07) | Token-level foundations of grammar-constrained decoding |
+| 30 Jul 2026 | [I Expected JSON Grammar Masks to Kill Sampling Diversity. The Prompt Got There First.](https://dev.to/vaibhav_mittal_ac22a2c5d6/i-expected-json-grammar-masks-to-kill-sampling-diversity-the-prompt-got-there-first-55fj) | Early diversity investigation and prompt effects |
+| 1 Aug 2026 | [Why "Return Valid JSON" Is Not a Decoding Constraint](https://dev.to/vaibhav_mittal_ac22a2c5d6/why-return-valid-json-is-not-a-decoding-constraint-2bl8) | Distinction between prompt instructions and enforced decoding constraints |
+| 4 Aug 2026 | [Structured Output Fixed My JSON and Cut Math Accuracy by 18 Points](https://dev.to/vaibhav_mittal_ac22a2c5d6/structured-output-fixed-my-json-and-cut-math-accuracy-by-18-points-jm5) | Controlled 300-generation baseline study |
+| 5 Aug 2026 | [Constraints Cost 18 Points. Compiling the Schema Recovered 14.](https://dev.to/vaibhav_mittal_ac22a2c5d6/constraints-cost-18-points-compiling-the-schema-recovered-14-1f72) | 222-generation contract-alignment follow-up |
 
-The source submitted to DEV is retained in
-[`articles/devto-structured-output-study.md`](articles/devto-structured-output-study.md).
+The exact submitted sources for the two artifact-backed experimental reports are
+retained in
+[`articles/devto-structured-output-study.md`](articles/devto-structured-output-study.md)
+and
+[`articles/devto-contract-alignment-followup.md`](articles/devto-contract-alignment-followup.md).
 The repository remains the canonical record for the complete methodology, raw
 artifacts, validation reports, and reproducible analysis.
 
@@ -346,8 +356,11 @@ availability.
 | Evidence | Location |
 |---|---|
 | Complete results and interpretation | [`docs/research-report.md`](docs/research-report.md) |
-| Published technical article | [DEV Community article](https://dev.to/vaibhav_mittal_ac22a2c5d6/structured-output-fixed-my-json-and-cut-math-accuracy-by-18-points-jm5) |
-| DEV article source | [`articles/devto-structured-output-study.md`](articles/devto-structured-output-study.md) |
+| Published constrained-decoding article series | [Technical articles](#technical-articles) |
+| Baseline study article | [Structured Output Fixed My JSON and Cut Math Accuracy by 18 Points](https://dev.to/vaibhav_mittal_ac22a2c5d6/structured-output-fixed-my-json-and-cut-math-accuracy-by-18-points-jm5) |
+| Baseline article source | [`articles/devto-structured-output-study.md`](articles/devto-structured-output-study.md) |
+| Contract-alignment article | [Constraints Cost 18 Points. Compiling the Schema Recovered 14.](https://dev.to/vaibhav_mittal_ac22a2c5d6/constraints-cost-18-points-compiling-the-schema-recovered-14-1f72) |
+| Contract-alignment article source | [`articles/devto-contract-alignment-followup.md`](articles/devto-contract-alignment-followup.md) |
 | Frozen analysis protocol | [`docs/methodology.md`](docs/methodology.md) |
 | 7B execution and failure ledger | [`docs/run-ledgers/qwen2.5-7b.md`](docs/run-ledgers/qwen2.5-7b.md) |
 | 0.5B execution ledger | [`docs/run-ledgers/qwen2.5-0.5b.md`](docs/run-ledgers/qwen2.5-0.5b.md) |

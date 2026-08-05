@@ -1,0 +1,41 @@
+{
+  "run_config": {
+    "model": "/kaggle/input/models/qwen-lm/qwen2.5/transformers/7b-instruct/1",
+    "condition": "xgrammar_json_unsigned_numeric_string_reasoning_first",
+    "backend": "xgrammar",
+    "answer_representation": "unsigned_numeric_string_diagnostic",
+    "diagnostic_only": true,
+    "field_order": [
+      "reasoning",
+      "answer"
+    ],
+    "prompt_version": "representation-alignment-v1",
+    "dataset_sha256": "48139da094713211893696aa5c2a968f760efdc84da285ebba714f668023727c",
+    "seed": 0,
+    "max_new_tokens": 256,
+    "device_map_auto": true,
+    "dtype": "float32",
+    "xgrammar_any_whitespace": false,
+    "internal_schema_sha256": "79b929f42121f2181c475a4c6e224e046a80052cc5fe3aeb89de3aa303de1c2d",
+    "external_schema_sha256": "fbccdf1753bf682cf52ea7a8278c76852ab793d2ca25fce74bdffb1b5670bbff",
+    "transducer_version": "integer-string-v1",
+    "plan_id": "integer-string-representation-v1",
+    "runner_sha256": "8d497b4635fea86bf5363c615a17915903712b52d3912af6ef94c5e6f923b59c"
+  },
+  "started_at": "2026-08-04T17:15:51.675697+00:00",
+  "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+  "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+  "torch": "2.6.0+cu124",
+  "cuda_runtime": "12.4",
+  "cuda_available": true,
+  "gpu_count": 2,
+  "gpu": "Tesla T4",
+  "model_revision": null,
+  "packages": {
+    "transformers": "4.51.3",
+    "accelerate": "1.6.0",
+    "jsonschema": "4.23.0",
+    "outlines": "1.3.2",
+    "xgrammar": "0.2.3"
+  }
+}

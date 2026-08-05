@@ -94,6 +94,8 @@ to canonical base-10 text, and the rebuilt object is validated against the uncha
 external signed-string schema. No second model call, sign repair, rounding, or
 heuristic coercion is allowed.
 
+![Contract-preserving model-aligned generation pipeline](assets/figures/contract-alignment-pipeline.png)
+
 The targeted screen repaired 7/8 shared signed-string failures with Outlines and 8/8
 with XGrammar. The preregistered full confirmation then retained the recovery on the
 cleaned 49-item set:
@@ -105,6 +107,8 @@ cleaned 49-item set:
 | XGrammar signed numeric string | 30/49 (61.2%) | 49/49 (100.0%) | 12/49 |
 | XGrammar native integer + transducer | 37/49 (75.5%) | 49/49 (100.0%) | 0/49 |
 
+![Data-derived recovery, paired repairs, regressions, and eliminated negative answers](assets/figures/representation-alignment-recovery.png)
+
 The paired gain is +14.3 percentage points for both backends. Outlines has 8
 treatment-only wins and 1 new loss (exact paired `p = 0.0391`). XGrammar has 10
 treatment-only wins and 3 new losses (exact paired `p = 0.0923`). Those new misses
@@ -115,6 +119,12 @@ The compact XGrammar boundary traces show that, at the internal integer answer
 boundary, digits are legal and selected on the representative sign-loss cases. The
 trace is consistent with the representation hypothesis but does not alone prove a
 general causal account.
+
+Both figures in this section are generated deterministically by
+[`scripts/build_alignment_figures.py`](scripts/build_alignment_figures.py). The result
+figure reads the accepted
+[`paired-summary.json`](experiments/representation-alignment-gate/results/cloud-full/paired-summary.json);
+its values are not manually entered into the artwork.
 
 Read the complete, artifact-linked analysis in
 [`docs/representation-alignment-results.md`](docs/representation-alignment-results.md).

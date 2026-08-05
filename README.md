@@ -3,7 +3,7 @@
 A controlled, artifact-validated study of how JSON prompting, grammar-constrained
 decoding, and output-field order affect mathematical accuracy and schema compliance.
 
-[Results](#principal-results) | [Paired evidence](#item-level-and-mechanism-evidence) |
+[Results](#principal-results) | [Alignment result](#contract-aligned-internal-representation) | [Paired evidence](#item-level-and-mechanism-evidence) |
 [Study design](#study-design) |
 [Reproduction](#reproduce-the-evaluation) | [Evidence](#evidence-map) |
 [Public Kaggle artifacts](#public-kaggle-artifacts) |
@@ -23,6 +23,13 @@ This is not a claim that constrained decoding is universally harmful. It is a
 controlled reproduction showing that contract compliance and semantic correctness
 are separate outcomes, and that a decoder can improve the first while reducing the
 second under a specific, matched setup.
+
+The completed follow-up isolates a practical recovery mechanism for this setup:
+compile the external signed numeric-string contract into a native JSON-integer
+internal representation, generate under the internal grammar, then deterministically
+stringify and validate the external response. On the same cleaned 49-item set, this
+recovered both constrained backends from 30/49 to 37/49 contract-valid correct while
+retaining 100% external validity.
 
 ![Accuracy and contract compliance across the six Qwen2.5-7B conditions](assets/figures/accuracy-compliance-tradeoff.png)
 
@@ -77,6 +84,40 @@ isolates semantic correctness and reveals the constraint-associated loss.
 The full statistical interpretation, prompt-development history, failure analysis,
 and relationship to prior work are documented in the
 [research report](docs/research-report.md).
+
+## Contract-aligned internal representation
+
+The initial matrix located a fidelity loss associated with a model-facing signed
+numeric string. The representation-alignment gate tests a narrow, safe alternative:
+the model generates a native JSON integer, the deterministic transducer converts it
+to canonical base-10 text, and the rebuilt object is validated against the unchanged
+external signed-string schema. No second model call, sign repair, rounding, or
+heuristic coercion is allowed.
+
+The targeted screen repaired 7/8 shared signed-string failures with Outlines and 8/8
+with XGrammar. The preregistered full confirmation then retained the recovery on the
+cleaned 49-item set:
+
+| Condition | Contract-valid correctness | Final external validity | Negative answers |
+|---|---:|---:|---:|
+| Outlines signed numeric string | 30/49 (61.2%) | 49/49 (100.0%) | 12/49 |
+| Outlines native integer + transducer | 37/49 (75.5%) | 49/49 (100.0%) | 0/49 |
+| XGrammar signed numeric string | 30/49 (61.2%) | 49/49 (100.0%) | 12/49 |
+| XGrammar native integer + transducer | 37/49 (75.5%) | 49/49 (100.0%) | 0/49 |
+
+The paired gain is +14.3 percentage points for both backends. Outlines has 8
+treatment-only wins and 1 new loss (exact paired `p = 0.0391`). XGrammar has 10
+treatment-only wins and 3 new losses (exact paired `p = 0.0923`). Those new misses
+are retained in the report, so the result is a scoped recovery rather than a claim
+of universal quality preservation.
+
+The compact XGrammar boundary traces show that, at the internal integer answer
+boundary, digits are legal and selected on the representative sign-loss cases. The
+trace is consistent with the representation hypothesis but does not alone prove a
+general causal account.
+
+Read the complete, artifact-linked analysis in
+[`docs/representation-alignment-results.md`](docs/representation-alignment-results.md).
 
 ## Technical article
 
@@ -174,8 +215,11 @@ constrained-decoding-lab/
 |-- docs/
 |   |-- methodology.md              # frozen analysis protocol
 |   |-- research-report.md          # complete interpretation and limitations
+|   |-- representation-alignment-results.md # accepted internal-representation result
 |   |-- run-ledgers/                # version-by-version local and cloud evidence
 |   `-- archive/                    # foundational probes and pilot record
+|-- experiments/representation-alignment-gate/ # protocol, schemas, traces, accepted raw rows
+|-- src/project_a/                  # typed representation config and deterministic transducer
 |-- results/
 |   |-- diagnostics/                # failed and precision-diagnostic evidence
 |   |-- pilots/                     # early local evaluation evidence
@@ -254,6 +298,25 @@ The checked-in 7B artifacts should be validated against the frozen deployment
 snapshot, not the subsequently extended reporting script. Exact commands are listed
 in the [7B run ledger](docs/run-ledgers/qwen2.5-7b.md).
 
+### 5. Reproduce the representation-alignment gate
+
+The internal-representation runner is deliberately separate from the frozen baseline
+runner. It emits both internal-schema and final-external-contract metrics, and it
+refuses ambiguous transduction.
+
+```bash
+PYTHONPATH=src python scripts/run_representation_alignment.py \
+  --model Qwen/Qwen2.5-0.5B-Instruct \
+  --dataset data/gsm8k_50_seed0.jsonl \
+  --condition outlines_json_integer_reasoning_first \
+  --limit 5 --seed 0 --dtype float32 \
+  --out results/reproductions/alignment/outlines-integer.jsonl
+```
+
+The accepted 7B target and full-confirmation artifacts, source hashes, manifests,
+and compact boundary traces are in
+[`experiments/representation-alignment-gate/`](experiments/representation-alignment-gate/).
+
 ## Public Kaggle artifacts
 
 The cloud execution surface and its frozen source input are publicly accessible:
@@ -282,6 +345,10 @@ availability.
 | Combined 7B item matrix | [`items.md`](results/qwen2.5-7b/primary/combined/items.md) |
 | 7B reasoning-first validation | [`artifact_validation.json`](results/qwen2.5-7b/primary/reasoning-first/artifact_validation.json) |
 | 7B answer-first validation | [`artifact_validation.json`](results/qwen2.5-7b/primary/answer-first/artifact_validation.json) |
+| Representation-alignment decision report | [`representation-alignment-results.md`](docs/representation-alignment-results.md) |
+| Targeted gate validation | [`artifact-validation.json`](experiments/representation-alignment-gate/results/cloud-targeted/artifact-validation.json) |
+| Full confirmation validation | [`artifact-validation.json`](experiments/representation-alignment-gate/results/cloud-full/artifact-validation.json) |
+| Full paired comparison | [`paired-summary.md`](experiments/representation-alignment-gate/results/cloud-full/paired-summary.md) |
 | 0.5B accepted aggregate results | [`summary_clean.md`](results/qwen2.5-0.5b/primary/summary_clean.md) |
 | Machine-readable data audit | [`gsm8k_item_audit.json`](data/gsm8k_item_audit.json) |
 | Exact accepted cloud source | [`deployment/kaggle/source-snapshot/`](deployment/kaggle/source-snapshot/) |
@@ -291,25 +358,23 @@ availability.
 
 ## Is more cloud compute required?
 
-No additional Kaggle run is required to support the current, narrow conclusion. The
-six-condition 7B matrix is complete, its 300 raw generations are present, and both
-accepted run bundles passed artifact validation with zero errors, cap hits, duplicate
-IDs, warnings, or provenance mismatches.
+No additional cloud run is required to support the current, narrow contract-alignment
+conclusion. The frozen baseline and the accepted full representation-alignment
+confirmation together establish the measured recovery on Qwen2.5-7B under the
+declared setup.
 
 More compute is required before making a broad claim about constrained decoding in
 general. The highest-value follow-up is a mechanism test, not another copy of the
 same matrix:
 
-1. Generate reasoning without a grammar, then constrain only final serialization.
-2. Test a two-stage reason-then-serialize pipeline against the current single-stage
-   conditions.
-3. Replicate on at least one independent model family.
-4. Add a harder reasoning task and a schema-centric benchmark.
-5. Use a larger preregistered sample and an independent replication split.
-6. Benchmark optimized serving hardware separately from semantic accuracy so that
+1. Replicate the safe internal representation on at least one independent model family.
+2. Add an executable tool-call task and a schema-centric benchmark.
+3. Test the other safe transforms only with their own preregistered mechanism tests.
+4. Use a larger preregistered sample and an independent replication split.
+5. Benchmark optimized serving hardware separately from semantic accuracy so that
    runtime conclusions are not inferred from slow FP32 T4 execution.
 
-No follow-up cloud job has been launched as part of this repository cleanup.
+No further cloud job is required for the completed representation-alignment gate.
 
 ## Scope and limitations
 
@@ -325,8 +390,9 @@ No follow-up cloud job has been launched as part of this repository cleanup.
 - Latency is descriptive because output lengths differ and FP32 inference on T4 is
   not an optimized serving configuration.
 - The results reproduce and sharpen known concerns about reasoning under rigid output
-  grammars; they do not establish a universal law or claim invention of constrained
-  decoding.
+  grammars. The internal-integer recovery is currently limited to this declared
+  numeric-string schema and does not establish a universal law or claim invention of
+  constrained decoding.
 
 ## Citation
 

@@ -7,8 +7,18 @@ decoding, and output-field order affect mathematical accuracy and schema complia
 [Study design](#study-design) |
 [Reproduction](#reproduce-the-evaluation) | [Evidence](#evidence-map) |
 [Public Kaggle artifacts](#public-kaggle-artifacts) |
+[Progress presentation](#progress-presentation) |
 [Technical articles](#technical-articles) |
 [Limitations](#scope-and-limitations)
+
+## Progress presentation
+
+Watch this presentation for an overview of the project's progress, key findings,
+and results to date.
+
+[![Watch the constrained decoding project progress presentation](https://img.youtube.com/vi/82-3grLsO2M/maxresdefault.jpg)](https://youtu.be/82-3grLsO2M?si=e37WsDqnmG9DbTYY)
+
+[Watch on YouTube](https://youtu.be/82-3grLsO2M?si=e37WsDqnmG9DbTYY)
 
 ## Central result
 

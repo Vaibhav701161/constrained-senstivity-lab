@@ -312,6 +312,7 @@ mechanics through controlled evaluation and contract-aligned recovery:
 | 4 Aug 2026 | [Structured Output Fixed My JSON and Cut Math Accuracy by 18 Points](https://dev.to/vaibhav_mittal_ac22a2c5d6/structured-output-fixed-my-json-and-cut-math-accuracy-by-18-points-jm5) | Controlled 300-generation baseline study |
 | 5 Aug 2026 | [Constraints Cost 18 Points. Compiling the Schema Recovered 14.](https://dev.to/vaibhav_mittal_ac22a2c5d6/constraints-cost-18-points-compiling-the-schema-recovered-14-1f72) | 222-generation contract-alignment follow-up |
 | 7 Aug 2026 | [I Found a Runner Bug, Re-ran 200 Generations, and the Effect Survived](https://dev.to/vaibhav_mittal_ac22a2c5d6/i-found-a-runner-bug-re-ran-200-generations-and-the-effect-survived-o5c) | Corrected paired replication and scoped compiler decision |
+| 7 Aug 2026 | [The Optimization Worked on Qwen. It Failed on Llama and Tool Calls.](https://dev.to/vaibhav_mittal_ac22a2c5d6/the-optimization-worked-on-qwen-it-failed-on-llama-and-tool-calls-40oe) | Cross-family non-replication, executable pilot, and final measurement-system direction |
 
 The exact submitted sources for the artifact-backed experimental reports are
 retained in
@@ -319,7 +320,9 @@ retained in
 and
 [`articles/devto-contract-alignment-followup.md`](articles/devto-contract-alignment-followup.md),
 with the corrected replication source in
-[`articles/devto-corrected-replication.md`](articles/devto-corrected-replication.md).
+[`articles/devto-corrected-replication.md`](articles/devto-corrected-replication.md)
+and the cross-family decision source in
+[`articles/devto-cross-family-replication.md`](articles/devto-cross-family-replication.md).
 The repository remains the canonical record for the complete methodology, raw
 artifacts, validation reports, and reproducible analysis.
 
@@ -593,6 +596,8 @@ availability.
 | Contract-alignment article source | [`articles/devto-contract-alignment-followup.md`](articles/devto-contract-alignment-followup.md) |
 | Corrected replication article | [I Found a Runner Bug, Re-ran 200 Generations, and the Effect Survived](https://dev.to/vaibhav_mittal_ac22a2c5d6/i-found-a-runner-bug-re-ran-200-generations-and-the-effect-survived-o5c) |
 | Corrected replication article source | [`articles/devto-corrected-replication.md`](articles/devto-corrected-replication.md) |
+| Cross-family decision article | [The Optimization Worked on Qwen. It Failed on Llama and Tool Calls.](https://dev.to/vaibhav_mittal_ac22a2c5d6/the-optimization-worked-on-qwen-it-failed-on-llama-and-tool-calls-40oe) |
+| Cross-family decision article source | [`articles/devto-cross-family-replication.md`](articles/devto-cross-family-replication.md) |
 | Frozen analysis protocol | [`docs/methodology.md`](docs/methodology.md) |
 | 7B execution and failure ledger | [`docs/run-ledgers/qwen2.5-7b.md`](docs/run-ledgers/qwen2.5-7b.md) |
 | 0.5B execution ledger | [`docs/run-ledgers/qwen2.5-0.5b.md`](docs/run-ledgers/qwen2.5-0.5b.md) |

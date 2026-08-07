@@ -1,0 +1,125 @@
+{
+  "manifest_version": "second-family-source-v1",
+  "frozen_at": "2026-08-07T14:49:12.910954+00:00",
+  "model": "meta-llama/Llama-3.2-3B-Instruct",
+  "model_revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+  "git_commit": "d78485be7064343f3a76d2491ee81313aeaadd6c",
+  "git_branch": "exp/llama32-second-family",
+  "files": [
+    {
+      "path": "requirements.txt",
+      "sha256": "66859cada14e337dda3929af87f10400fb72db8b5375704c7a09f533fe0ebfcd",
+      "bytes": 243
+    },
+    {
+      "path": "src/project_a/runtime.py",
+      "sha256": "841acbbaaee358938179de936a4ee9fcb75ec28950c4540935b6dc2dec6436b7",
+      "bytes": 20533
+    },
+    {
+      "path": "src/project_a/metrics.py",
+      "sha256": "f0ed1fbf16c3bb286d78f92374e3a106802114b5eaba921a78502d8987aef966",
+      "bytes": 5882
+    },
+    {
+      "path": "src/project_a/schema_variants.py",
+      "sha256": "110a368cc382925421f9e24e5fadc144b4f87c1e6af72cbd331e78319c2d1253",
+      "bytes": 6291
+    },
+    {
+      "path": "src/project_a/transducer.py",
+      "sha256": "74b870fa834348a1105dbc0c58963443ac4e19de3a52fc2a852c9cd0fc16d138",
+      "bytes": 2060
+    },
+    {
+      "path": "scripts/run_contract_alignment.py",
+      "sha256": "ff1ea92f04b936c7a926cd42bb8dfd364285a62609dd7be2ae718ebfc44516ab",
+      "bytes": 13739
+    },
+    {
+      "path": "scripts/prepare_unseen_gsm8k.py",
+      "sha256": "c888e8180cdcabbe2b84b38515cf2ab9b229229f4da039648552ccd2b4014e71",
+      "bytes": 10867
+    },
+    {
+      "path": "scripts/package_second_family_source.py",
+      "sha256": "fd17a1be36ff1a886e92dfb6ab8604e87299aafc24134781bc8511f4b1d255af",
+      "bytes": 3056
+    },
+    {
+      "path": "scripts/validate_second_family_canary.py",
+      "sha256": "1dfd938eeb069f014d26b8f2e4ef4c36af5baed452f8017aeebf6e80ec041b6e",
+      "bytes": 6007
+    },
+    {
+      "path": "deployment/modal/second-family/modal_app.py",
+      "sha256": "c2f9bf8c4420460c8921dde67a3766b976a2169eb9986a3d083e63f9bb86e04b",
+      "bytes": 9863
+    },
+    {
+      "path": "tests/test_contract_runtime.py",
+      "sha256": "834ea551d4ab33844a02115e41927b8c89d50ed1d3723a6e38e12e7804fcdfa5",
+      "bytes": 4455
+    },
+    {
+      "path": "tests/test_llama_prompt_parity.py",
+      "sha256": "d5c806717a835a418d03bf5e1df22325af25e0259d553174f6ae507de1503425",
+      "bytes": 1536
+    },
+    {
+      "path": "tests/test_prepare_unseen_gsm8k.py",
+      "sha256": "4519ff4267a91793fa5c8bf0198a694dc22e513e6e90e87bc72f29921f021513",
+      "bytes": 2845
+    },
+    {
+      "path": "tests/test_validate_second_family_canary.py",
+      "sha256": "6efa88d82ef9c7b9ff5b9b865da6bb5ab06dbdee4a05ab6667a2509a0d138d91",
+      "bytes": 4732
+    },
+    {
+      "path": "tests/fixtures/corrected-qwen-first5-golden.json",
+      "sha256": "d2542d97b8a299529bbdd32b9b2ca46bdc5a9ec6ce73f64130e2a7349dac0f20",
+      "bytes": 2626
+    },
+    {
+      "path": "data/gsm8k_unseen_150_seed20260815.jsonl",
+      "sha256": "70e7af8691a4b8273dc14fcb825140573fe5dcc570723b9d58e755dc3b36e154",
+      "bytes": 106650
+    },
+    {
+      "path": "data/gsm8k_unseen_150_seed20260815.manifest.json",
+      "sha256": "d133ca134ef07973532c0ea26e33ab641610c3fef7ffbdb3b6f68e3b0b78ad57",
+      "bytes": 34212
+    },
+    {
+      "path": "data/gsm8k_50_seed0.jsonl",
+      "sha256": "3639f2f6def0f50e02086bc91e6f4a45567c85aa9b0f498224cb9421400d812a",
+      "bytes": 37088
+    },
+    {
+      "path": "experiments/second-family-replication/HYPOTHESIS.md",
+      "sha256": "dc8a21f051da37c822a5bfb257ea81b53277b85546548d55ccbfe59f6d6fcb51",
+      "bytes": 1450
+    },
+    {
+      "path": "experiments/second-family-replication/protocol.md",
+      "sha256": "0051f554c35e697825803b6847523064a090d01d2c4fdccb425e6345b3870375",
+      "bytes": 10219
+    },
+    {
+      "path": "experiments/second-family-replication/dataset-manifest.json",
+      "sha256": "d133ca134ef07973532c0ea26e33ab641610c3fef7ffbdb3b6f68e3b0b78ad57",
+      "bytes": 34212
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "3b5b881c5ddf86bcec8ad2b1f1718e61b1c7847b7bc4f6d1daf4a7557f581d5c",
+      "bytes": 6283
+    },
+    {
+      "path": "docs/supported-contracts.md",
+      "sha256": "b7b448ee6c010bd1eda22af7861ec4b7bbee611ead813d738210ed35e92b879b",
+      "bytes": 4109
+    }
+  ]
+}

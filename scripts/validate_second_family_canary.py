@@ -105,7 +105,7 @@ def main() -> None:
         )
         == 1,
         "dataset_hash_is_frozen": sha256(args.dataset)
-        == dataset_manifest.get("selected_dataset", {}).get("sha256"),
+        == dataset_manifest.get("artifact", {}).get("sha256"),
         "one_model_revision": len(
             {row.get("model_revision") for row in control + treatment}
         )

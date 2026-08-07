@@ -27,7 +27,7 @@ def build_fixture(root: Path) -> list[str]:
     write_jsonl(dataset, dataset_rows)
     dataset_hash = hashlib.sha256(dataset.read_bytes()).hexdigest()
     dataset_manifest = root / "dataset-manifest.json"
-    write_json(dataset_manifest, {"selected_dataset": {"sha256": dataset_hash}})
+    write_json(dataset_manifest, {"artifact": {"sha256": dataset_hash}})
     source_manifest = root / "source-manifest.json"
     write_json(source_manifest, {"model_revision": "frozen-revision"})
     source_hash = hashlib.sha256(source_manifest.read_bytes()).hexdigest()

@@ -175,6 +175,19 @@ def condition_paths(dataset_role: str, representation: str) -> tuple[Path, Path,
     )
 
 
+def parity_paths(representation: str) -> tuple[Path, Path]:
+    condition = (
+        "outlines_json_integer_reasoning_first"
+        if representation == "integer"
+        else "outlines_json_reasoning_first"
+    )
+    root = Path("/evidence/second-family-replication")
+    return (
+        root / "results" / "parity" / f"{condition}.jsonl",
+        root / "manifests" / "parity" / f"{condition}.json",
+    )
+
+
 @app.function(
     image=image,
     secrets=[huggingface_secret],
@@ -292,6 +305,123 @@ def run_condition(
     }
 
 
+@app.function(
+    image=image,
+    secrets=[huggingface_secret],
+    gpu=GPU_TYPE,
+    volumes={
+        "/model-cache": model_volume,
+        "/evidence": evidence_volume,
+    },
+    env={**COMMON_ENV, "PROJECT_A_MODAL_EVIDENCE_VOLUME": EVIDENCE_VOLUME_NAME},
+    cpu=4,
+    memory=32768,
+    timeout=14400,
+    scaledown_window=300,
+)
+def run_outlines_parity(
+    *,
+    revision: str,
+    representation: str,
+    item_ids: list[str],
+    resume: bool,
+) -> dict[str, Any]:
+    """Run the post-result implementation-parity subset through Outlines."""
+
+    if representation not in {"signed-numeric-string", "integer"}:
+        raise ValueError(f"unsupported representation: {representation}")
+    if not item_ids or len(item_ids) != len(set(item_ids)):
+        raise ValueError("parity item IDs must be nonempty and unique")
+    source_rows = [
+        json.loads(line)
+        for line in (
+            REMOTE_ROOT / "data/gsm8k_unseen_150_seed20260815.jsonl"
+        ).read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    wanted = set(item_ids)
+    selected = [row for row in source_rows if str(row["id"]) in wanted]
+    selected_ids = [str(row["id"]) for row in selected]
+    if selected_ids != item_ids:
+        raise ValueError("parity IDs are missing or not in frozen dataset order")
+    dataset = Path("/evidence/second-family-replication/parity-dataset.jsonl")
+    payload = "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in selected)
+    if dataset.exists() and dataset.read_text(encoding="utf-8") != payload:
+        raise ValueError("refusing to replace a different frozen parity dataset")
+    dataset.parent.mkdir(parents=True, exist_ok=True)
+    if not dataset.exists():
+        dataset.write_text(payload, encoding="utf-8")
+        evidence_volume.commit()
+
+    output, manifest = parity_paths(representation)
+    command = [
+        sys.executable,
+        str(REMOTE_ROOT / "scripts/run_contract_alignment.py"),
+        "--model",
+        MODEL_ID,
+        "--revision",
+        revision,
+        "--dataset",
+        str(dataset),
+        "--dataset-role",
+        "parity",
+        "--representation",
+        representation,
+        "--backend",
+        "outlines",
+        "--out",
+        str(output),
+        "--manifest-out",
+        str(manifest),
+        "--source-manifest",
+        str(
+            REMOTE_ROOT
+            / "experiments/second-family-replication/source-manifest.json"
+        ),
+        "--limit",
+        str(len(item_ids)),
+        "--seed",
+        "0",
+        "--max-new-tokens",
+        "256",
+        "--dtype",
+        "float32",
+        "--device-map-auto",
+    ]
+    if resume:
+        command.append("--resume")
+    completed = subprocess.run(
+        command,
+        cwd=REMOTE_ROOT,
+        env=os.environ.copy(),
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        check=False,
+    )
+    evidence_volume.commit()
+    if completed.returncode != 0:
+        raise RuntimeError(
+            f"runner exited {completed.returncode}\n{completed.stdout[-12000:]}"
+        )
+    rows = [
+        json.loads(line)
+        for line in output.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    return {
+        "gpu_type": GPU_TYPE,
+        "representation": representation,
+        "rows": len(rows),
+        "selected_item_ids": item_ids,
+        "errors": sum(row.get("error") is not None for row in rows),
+        "cap_hits": sum(bool(row.get("hit_max_new_tokens")) for row in rows),
+        "output": str(output),
+        "manifest": str(manifest),
+        "stdout_tail": completed.stdout[-4000:],
+    }
+
+
 @app.local_entrypoint()
 def probe() -> None:
     print(json.dumps(probe_model_access.remote(), indent=2))
@@ -312,5 +442,26 @@ def execute(
         limit=limit,
         resume=resume,
         trace_item_ids=[],
+    )
+    print(json.dumps(report, indent=2))
+
+
+@app.local_entrypoint()
+def execute_parity(
+    revision: str,
+    representation: str,
+    item_ids_json: str,
+    resume: bool = False,
+) -> None:
+    item_ids = json.loads(item_ids_json)
+    if not isinstance(item_ids, list) or not all(
+        isinstance(item, str) for item in item_ids
+    ):
+        raise ValueError("item_ids_json must encode a list of strings")
+    report = run_outlines_parity.remote(
+        revision=revision,
+        representation=representation,
+        item_ids=item_ids,
+        resume=resume,
     )
     print(json.dumps(report, indent=2))

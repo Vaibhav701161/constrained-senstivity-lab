@@ -1,0 +1,130 @@
+{
+  "manifest_version": "bounded-bfcl-tool-source-v1",
+  "frozen_at": "2026-08-07T19:30:05.573845+00:00",
+  "model": "meta-llama/Llama-3.2-3B-Instruct",
+  "model_revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+  "git_commit": "88712e74d199f4af9f37ad3fadf6c00366021950",
+  "git_branch": "exp/llama32-second-family",
+  "files": [
+    {
+      "path": "requirements.txt",
+      "sha256": "66859cada14e337dda3929af87f10400fb72db8b5375704c7a09f533fe0ebfcd",
+      "bytes": 243
+    },
+    {
+      "path": "src/project_a/runtime.py",
+      "sha256": "841acbbaaee358938179de936a4ee9fcb75ec28950c4540935b6dc2dec6436b7",
+      "bytes": 20533
+    },
+    {
+      "path": "src/project_a/tool_runtime.py",
+      "sha256": "80afd319f2f14f9da02ce7cf3336645bdc1c7dd0c7d0040ae395716f01455b83",
+      "bytes": 13696
+    },
+    {
+      "path": "scripts/run_tool_call_pilot.py",
+      "sha256": "55ed07eaa8663efba705a1713ef0410dfdc815011b5332c88c3807e9204434d7",
+      "bytes": 11632
+    },
+    {
+      "path": "scripts/fetch_bfcl_foundation.py",
+      "sha256": "8b4d69b72070083e569e013cff0a8acda765fc95a396203e6b7bf00c513fe804",
+      "bytes": 2033
+    },
+    {
+      "path": "scripts/prepare_bfcl_tool_pilot.py",
+      "sha256": "771be98f5e281c83507e90975074763841348435bbd798f34ebe1addd91664a9",
+      "bytes": 10612
+    },
+    {
+      "path": "scripts/analyze_tool_call_pilot.py",
+      "sha256": "536cd50a8386e0439c8976909804ea67f7bdd64cb0f8bcc2962a45739fa4034e",
+      "bytes": 13105
+    },
+    {
+      "path": "scripts/validate_tool_call_canary.py",
+      "sha256": "19897a3b38e0ca552666d49287de059a3fe01d5de0fc42a7d69237abbbd69a51",
+      "bytes": 5378
+    },
+    {
+      "path": "scripts/validate_tool_call_artifacts.py",
+      "sha256": "f4b9c8bbb47ceffbb21f96f2f3e1da2a6cc679ce77025caac8e5a50f1cae3c11",
+      "bytes": 8812
+    },
+    {
+      "path": "scripts/package_tool_call_source.py",
+      "sha256": "d28491634e4f55e3e6c5cad5198a51ba53f0b45032844f665d147a75777182bf",
+      "bytes": 2852
+    },
+    {
+      "path": "scripts/check_modal_budget.py",
+      "sha256": "dd4f1f0c5cac914af21e967044913173d3e23d5cf5562aee17640a1e2f8664b5",
+      "bytes": 1976
+    },
+    {
+      "path": "deployment/modal/tool-call-pilot/modal_app.py",
+      "sha256": "6ed926afa26892fb5aecd3ec214ffb8fa54e467989be12b1cedc17e7e5970877",
+      "bytes": 5223
+    },
+    {
+      "path": "tests/test_tool_runtime.py",
+      "sha256": "957eb9f7ec229118470f2259c1218e1a93c95071789b8e674fb4c05d137bc3ac",
+      "bytes": 4579
+    },
+    {
+      "path": "tests/test_bfcl_foundation.py",
+      "sha256": "ba2c83114f720c626639c0a632f59ffada3eed6cc98721a7565e2a91189f751b",
+      "bytes": 759
+    },
+    {
+      "path": "tests/test_tool_runner.py",
+      "sha256": "d8d07e5a08ce7dab4f84f2177e24b31f9dc05b71318d6769a6f58e8c60215ce9",
+      "bytes": 1275
+    },
+    {
+      "path": "tests/test_prepare_bfcl_tool_pilot.py",
+      "sha256": "4744cfbac29d7153c6412e91d6ac889f0561e2742e417c39cddaae4a3f318506",
+      "bytes": 2354
+    },
+    {
+      "path": "tests/test_tool_call_analysis.py",
+      "sha256": "3b32a27dadc3eafaf40da290d35d9ebc810d8c533809821ac98d24e42fce15ec",
+      "bytes": 1596
+    },
+    {
+      "path": "tests/test_validate_tool_call_canary.py",
+      "sha256": "5262d603c2c47ea4884f2bd28bb4eb1767b9a6769c99c143b8ddc375d8fc010b",
+      "bytes": 3807
+    },
+    {
+      "path": "data/bfcl_tool_pilot_seed20260817.jsonl",
+      "sha256": "8590c3b1a13173dbb6a31d7b3496dad419e93bcc1b1d10352c67629b0cd1804d",
+      "bytes": 95194
+    },
+    {
+      "path": "experiments/tool-call-gate/HYPOTHESIS.md",
+      "sha256": "4604acbb8cd9e4ad49c0ae1de69e8ae17a53891ea45fc163339b144648ec0fca",
+      "bytes": 1477
+    },
+    {
+      "path": "experiments/tool-call-gate/protocol.md",
+      "sha256": "955e5c062535c78b41082bb85dcedc30d1df6a4df13d8eb532c50107c30c2ef3",
+      "bytes": 9371
+    },
+    {
+      "path": "experiments/tool-call-gate/FOUNDATION.md",
+      "sha256": "2b22c77d1c901316618946daf88d0acfdcbf44935f39f7043562f35096f20549",
+      "bytes": 3081
+    },
+    {
+      "path": "experiments/tool-call-gate/upstream-manifest.json",
+      "sha256": "7e58b0ad69642e789a5c901a3a016edb508485a7c4f5e4dfb2833c0f7fc37a9a",
+      "bytes": 830
+    },
+    {
+      "path": "experiments/tool-call-gate/dataset-manifest.json",
+      "sha256": "4bd4908163c5227895b54cc8a8118a1931a462094fe685df5b971f113ce7e701",
+      "bytes": 9310
+    }
+  ]
+}

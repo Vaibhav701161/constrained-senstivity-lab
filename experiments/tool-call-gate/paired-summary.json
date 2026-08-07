@@ -1,0 +1,400 @@
+{
+  "analysis_version": "bounded-bfcl-tool-paired-v1",
+  "primary_subset": "primary",
+  "inputs": {
+    "control": {
+      "path": "experiments/tool-call-gate/results/xgrammar_tool_external_integer_strings.jsonl",
+      "sha256": "3643e30a577aa6fcba1158435b94af863d53403665368d690ae88e81fba41f68"
+    },
+    "treatment": {
+      "path": "experiments/tool-call-gate/results/xgrammar_tool_internal_integers.jsonl",
+      "sha256": "1a610c66a3cccd7e6120baa23bcef5f0523f5ba39fa6eb5a5bb84d4f24946638"
+    }
+  },
+  "subsets": {
+    "primary": {
+      "subset": "primary",
+      "paired_examples": 30,
+      "control": {
+        "condition": "xgrammar_tool_external_integer_strings",
+        "examples": 30,
+        "executable_contract_success": {
+          "count": 26,
+          "rate": 0.8666666666666667,
+          "wilson_ci95": [
+            0.703186733179637,
+            0.9469034451594526
+          ]
+        },
+        "tool_selection_correct": {
+          "count": 30,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.8864866068260312,
+            0.9999999999999999
+          ]
+        },
+        "whole_response_valid_json": {
+          "count": 30,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.8864866068260312,
+            0.9999999999999999
+          ]
+        },
+        "internal_schema_valid": {
+          "count": 30,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.8864866068260312,
+            0.9999999999999999
+          ]
+        },
+        "external_schema_valid": {
+          "count": 30,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.8864866068260312,
+            0.9999999999999999
+          ]
+        },
+        "argument_semantics_correct": {
+          "count": 26,
+          "rate": 0.8666666666666667,
+          "wilson_ci95": [
+            0.703186733179637,
+            0.9469034451594526
+          ]
+        },
+        "execution_success": {
+          "count": 30,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.8864866068260312,
+            0.9999999999999999
+          ]
+        },
+        "correct_post_execution_state": {
+          "count": 26,
+          "rate": 0.8666666666666667,
+          "wilson_ci95": [
+            0.703186733179637,
+            0.9469034451594526
+          ]
+        },
+        "errors": 0,
+        "cap_hits": 0,
+        "transduction_failures": 0,
+        "heuristic_repairs": 0,
+        "generated_tokens": {
+          "total": 790,
+          "mean": 26.333333333333332,
+          "median": 26.0
+        },
+        "latency_ms_descriptive": {
+          "total": 54731.095,
+          "mean": 1824.3698333333334,
+          "median": 1686.5465
+        }
+      },
+      "treatment": {
+        "condition": "xgrammar_tool_internal_integers",
+        "examples": 30,
+        "executable_contract_success": {
+          "count": 24,
+          "rate": 0.8,
+          "wilson_ci95": [
+            0.6269430358685175,
+            0.9049489282271013
+          ]
+        },
+        "tool_selection_correct": {
+          "count": 30,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.8864866068260312,
+            0.9999999999999999
+          ]
+        },
+        "whole_response_valid_json": {
+          "count": 30,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.8864866068260312,
+            0.9999999999999999
+          ]
+        },
+        "internal_schema_valid": {
+          "count": 30,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.8864866068260312,
+            0.9999999999999999
+          ]
+        },
+        "external_schema_valid": {
+          "count": 30,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.8864866068260312,
+            0.9999999999999999
+          ]
+        },
+        "argument_semantics_correct": {
+          "count": 24,
+          "rate": 0.8,
+          "wilson_ci95": [
+            0.6269430358685175,
+            0.9049489282271013
+          ]
+        },
+        "execution_success": {
+          "count": 30,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.8864866068260312,
+            0.9999999999999999
+          ]
+        },
+        "correct_post_execution_state": {
+          "count": 24,
+          "rate": 0.8,
+          "wilson_ci95": [
+            0.6269430358685175,
+            0.9049489282271013
+          ]
+        },
+        "errors": 0,
+        "cap_hits": 0,
+        "transduction_failures": 0,
+        "heuristic_repairs": 0,
+        "generated_tokens": {
+          "total": 796,
+          "mean": 26.533333333333335,
+          "median": 26.0
+        },
+        "latency_ms_descriptive": {
+          "total": 54175.543,
+          "mean": 1805.8514333333333,
+          "median": 1683.1550000000002
+        }
+      },
+      "primary_executable_effect": {
+        "paired_difference": -0.06666666666666667,
+        "exact_paired_bootstrap_ci95": [
+          -0.2,
+          0.06666666666666667
+        ],
+        "treatment_only": 1,
+        "control_only": 3,
+        "both_success": 23,
+        "both_failure": 3,
+        "mcnemar_p_exact": 0.625
+      },
+      "repaired_item_ids": [
+        "simple_python_202"
+      ],
+      "newly_broken_item_ids": [
+        "simple_python_40",
+        "simple_python_365",
+        "simple_python_399"
+      ]
+    },
+    "sign_stress": {
+      "subset": "sign_stress",
+      "paired_examples": 3,
+      "control": {
+        "condition": "xgrammar_tool_external_integer_strings",
+        "examples": 3,
+        "executable_contract_success": {
+          "count": 1,
+          "rate": 0.3333333333333333,
+          "wilson_ci95": [
+            0.06149194472039621,
+            0.7923403991979522
+          ]
+        },
+        "tool_selection_correct": {
+          "count": 3,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "whole_response_valid_json": {
+          "count": 3,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "internal_schema_valid": {
+          "count": 3,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "external_schema_valid": {
+          "count": 3,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "argument_semantics_correct": {
+          "count": 1,
+          "rate": 0.3333333333333333,
+          "wilson_ci95": [
+            0.06149194472039621,
+            0.7923403991979522
+          ]
+        },
+        "execution_success": {
+          "count": 3,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "correct_post_execution_state": {
+          "count": 1,
+          "rate": 0.3333333333333333,
+          "wilson_ci95": [
+            0.06149194472039621,
+            0.7923403991979522
+          ]
+        },
+        "errors": 0,
+        "cap_hits": 0,
+        "transduction_failures": 0,
+        "heuristic_repairs": 0,
+        "generated_tokens": {
+          "total": 83,
+          "mean": 27.666666666666668,
+          "median": 28
+        },
+        "latency_ms_descriptive": {
+          "total": 5420.907999999999,
+          "mean": 1806.9693333333332,
+          "median": 1851.357
+        }
+      },
+      "treatment": {
+        "condition": "xgrammar_tool_internal_integers",
+        "examples": 3,
+        "executable_contract_success": {
+          "count": 2,
+          "rate": 0.6666666666666666,
+          "wilson_ci95": [
+            0.2076596008020477,
+            0.9385080552796037
+          ]
+        },
+        "tool_selection_correct": {
+          "count": 3,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "whole_response_valid_json": {
+          "count": 3,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "internal_schema_valid": {
+          "count": 3,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "external_schema_valid": {
+          "count": 3,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "argument_semantics_correct": {
+          "count": 2,
+          "rate": 0.6666666666666666,
+          "wilson_ci95": [
+            0.2076596008020477,
+            0.9385080552796037
+          ]
+        },
+        "execution_success": {
+          "count": 3,
+          "rate": 1.0,
+          "wilson_ci95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "correct_post_execution_state": {
+          "count": 2,
+          "rate": 0.6666666666666666,
+          "wilson_ci95": [
+            0.2076596008020477,
+            0.9385080552796037
+          ]
+        },
+        "errors": 0,
+        "cap_hits": 0,
+        "transduction_failures": 0,
+        "heuristic_repairs": 0,
+        "generated_tokens": {
+          "total": 79,
+          "mean": 26.333333333333332,
+          "median": 26
+        },
+        "latency_ms_descriptive": {
+          "total": 5352.654,
+          "mean": 1784.218,
+          "median": 1842.579
+        }
+      },
+      "primary_executable_effect": {
+        "paired_difference": 0.3333333333333333,
+        "exact_paired_bootstrap_ci95": [
+          0.0,
+          1.0
+        ],
+        "treatment_only": 1,
+        "control_only": 0,
+        "both_success": 1,
+        "both_failure": 1,
+        "mcnemar_p_exact": 1.0
+      },
+      "repaired_item_ids": [
+        "simple_python_5"
+      ],
+      "newly_broken_item_ids": []
+    }
+  },
+  "discordant_items": 5,
+  "manual_audit_complete": true,
+  "attribution_categories": [
+    "integer_lexical_boundary_change",
+    "tool_selection_change",
+    "argument_semantic_correction",
+    "argument_semantic_regression",
+    "transduction_or_validation_failure",
+    "execution_or_state_failure",
+    "truncation",
+    "other"
+  ]
+}

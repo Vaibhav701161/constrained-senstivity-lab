@@ -1,0 +1,43 @@
+{
+  "gate_version": "second-family-canary-v1",
+  "evaluated_at": "2026-08-07T18:05:42.709675+00:00",
+  "scope": "operational_integrity_only",
+  "semantic_outcomes_inspected": false,
+  "passed": true,
+  "checks": {
+    "exactly_five_control_rows": true,
+    "exactly_five_treatment_rows": true,
+    "control_ids_match_frozen_order": true,
+    "treatment_ids_match_frozen_order": true,
+    "no_control_duplicates": true,
+    "no_treatment_duplicates": true,
+    "one_chat_template_application": true,
+    "nonempty_outputs": true,
+    "no_generation_exceptions": true,
+    "no_token_cap_hits": true,
+    "all_internal_schema_valid": true,
+    "all_treatment_external_valid": true,
+    "one_control_signature": true,
+    "one_treatment_signature": true,
+    "paired_config_parity": true,
+    "matching_dataset_hashes": true,
+    "dataset_hash_is_frozen": true,
+    "one_model_revision": true,
+    "model_revision_is_preregistered": true,
+    "one_tokenizer_revision": true,
+    "matching_package_environment": true,
+    "matching_gpu_environment": true,
+    "source_manifest_bound": true
+  },
+  "expected_item_ids": [
+    "gsm8k_test_270",
+    "gsm8k_test_741",
+    "gsm8k_test_536",
+    "gsm8k_test_743",
+    "gsm8k_test_1247"
+  ],
+  "control_run_signature": "76d1bb42b9e4",
+  "treatment_run_signature": "a2fa2f3f8dfb",
+  "dataset_sha256": "70e7af8691a4b8273dc14fcb825140573fe5dcc570723b9d58e755dc3b36e154",
+  "source_manifest_sha256": "f388d841378485da12cf0eaedcf6254480cecdec6fc4caad7e809c73fd831d0f"
+}

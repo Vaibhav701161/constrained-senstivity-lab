@@ -203,6 +203,7 @@ Primary corrected evidence:
 - [Exact paired summary](experiments/corrected-replication/results/qwen2.5-7b-corrected/paired-summary-exact.md)
 - [Decision report](experiments/corrected-replication/results/qwen2.5-7b-corrected/decision-report.md)
 - [Compiler prototype acceptance report](experiments/compiler-prototype-probes/acceptance-report.json)
+- [Published corrected replication analysis](https://dev.to/vaibhav_mittal_ac22a2c5d6/i-found-a-runner-bug-re-ran-200-generations-and-the-effect-survived-o5c)
 
 All corrected figures are generated directly from the checked-in decision, summary,
 validation, and raw JSONL artifacts by
@@ -220,12 +221,15 @@ mechanics through controlled evaluation and contract-aligned recovery:
 | 1 Aug 2026 | [Why "Return Valid JSON" Is Not a Decoding Constraint](https://dev.to/vaibhav_mittal_ac22a2c5d6/why-return-valid-json-is-not-a-decoding-constraint-2bl8) | Distinction between prompt instructions and enforced decoding constraints |
 | 4 Aug 2026 | [Structured Output Fixed My JSON and Cut Math Accuracy by 18 Points](https://dev.to/vaibhav_mittal_ac22a2c5d6/structured-output-fixed-my-json-and-cut-math-accuracy-by-18-points-jm5) | Controlled 300-generation baseline study |
 | 5 Aug 2026 | [Constraints Cost 18 Points. Compiling the Schema Recovered 14.](https://dev.to/vaibhav_mittal_ac22a2c5d6/constraints-cost-18-points-compiling-the-schema-recovered-14-1f72) | 222-generation contract-alignment follow-up |
+| 7 Aug 2026 | [I Found a Runner Bug, Re-ran 200 Generations, and the Effect Survived](https://dev.to/vaibhav_mittal_ac22a2c5d6/i-found-a-runner-bug-re-ran-200-generations-and-the-effect-survived-o5c) | Corrected paired replication and scoped compiler decision |
 
 The exact submitted sources for the artifact-backed experimental reports are
 retained in
 [`articles/devto-structured-output-study.md`](articles/devto-structured-output-study.md)
 and
-[`articles/devto-contract-alignment-followup.md`](articles/devto-contract-alignment-followup.md).
+[`articles/devto-contract-alignment-followup.md`](articles/devto-contract-alignment-followup.md),
+with the corrected replication source in
+[`articles/devto-corrected-replication.md`](articles/devto-corrected-replication.md).
 The repository remains the canonical record for the complete methodology, raw
 artifacts, validation reports, and reproducible analysis.
 
@@ -469,6 +473,8 @@ availability.
 | Baseline article source | [`articles/devto-structured-output-study.md`](articles/devto-structured-output-study.md) |
 | Contract-alignment article | [Constraints Cost 18 Points. Compiling the Schema Recovered 14.](https://dev.to/vaibhav_mittal_ac22a2c5d6/constraints-cost-18-points-compiling-the-schema-recovered-14-1f72) |
 | Contract-alignment article source | [`articles/devto-contract-alignment-followup.md`](articles/devto-contract-alignment-followup.md) |
+| Corrected replication article | [I Found a Runner Bug, Re-ran 200 Generations, and the Effect Survived](https://dev.to/vaibhav_mittal_ac22a2c5d6/i-found-a-runner-bug-re-ran-200-generations-and-the-effect-survived-o5c) |
+| Corrected replication article source | [`articles/devto-corrected-replication.md`](articles/devto-corrected-replication.md) |
 | Frozen analysis protocol | [`docs/methodology.md`](docs/methodology.md) |
 | 7B execution and failure ledger | [`docs/run-ledgers/qwen2.5-7b.md`](docs/run-ledgers/qwen2.5-7b.md) |
 | 0.5B execution ledger | [`docs/run-ledgers/qwen2.5-0.5b.md`](docs/run-ledgers/qwen2.5-0.5b.md) |

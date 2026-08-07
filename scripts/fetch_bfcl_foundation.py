@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_MANIFEST = ROOT / "experiments/tool-call-gate/source-manifest.json"
+DEFAULT_MANIFEST = ROOT / "experiments/tool-call-gate/upstream-manifest.json"
 
 
 def verify_bytes(payload: bytes, expected_sha256: str) -> None:

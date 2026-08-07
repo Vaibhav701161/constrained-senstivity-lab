@@ -186,8 +186,7 @@ def condition_paths(dataset_role: str, representation: str) -> tuple[Path, Path,
     env={**COMMON_ENV, "PROJECT_A_MODAL_EVIDENCE_VOLUME": EVIDENCE_VOLUME_NAME},
     cpu=4,
     memory=32768,
-    timeout=86400,
-    retries=modal.Retries(max_retries=2, initial_delay=10.0, max_delay=60.0),
+    timeout=14400,
     scaledown_window=300,
 )
 def run_condition(

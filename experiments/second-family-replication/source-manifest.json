@@ -1,9 +1,9 @@
 {
   "manifest_version": "second-family-source-v1",
-  "frozen_at": "2026-08-07T14:49:12.910954+00:00",
+  "frozen_at": "2026-08-07T14:50:56.897264+00:00",
   "model": "meta-llama/Llama-3.2-3B-Instruct",
   "model_revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
-  "git_commit": "d78485be7064343f3a76d2491ee81313aeaadd6c",
+  "git_commit": "898ea205549856a86c6a2c592667928c46ed6b74",
   "git_branch": "exp/llama32-second-family",
   "files": [
     {
@@ -43,8 +43,13 @@
     },
     {
       "path": "scripts/package_second_family_source.py",
-      "sha256": "fd17a1be36ff1a886e92dfb6ab8604e87299aafc24134781bc8511f4b1d255af",
-      "bytes": 3056
+      "sha256": "69105752744df55b9fb17667aad6c3049e9903cc0d969a609b751b954a1a59f0",
+      "bytes": 3127
+    },
+    {
+      "path": "scripts/check_modal_budget.py",
+      "sha256": "dd4f1f0c5cac914af21e967044913173d3e23d5cf5562aee17640a1e2f8664b5",
+      "bytes": 1976
     },
     {
       "path": "scripts/validate_second_family_canary.py",
@@ -53,8 +58,8 @@
     },
     {
       "path": "deployment/modal/second-family/modal_app.py",
-      "sha256": "c2f9bf8c4420460c8921dde67a3766b976a2169eb9986a3d083e63f9bb86e04b",
-      "bytes": 9863
+      "sha256": "c8f233b1dfd13359a234f9afaad6571c13057cdd5ed2d2cc4861ae9b83d293f0",
+      "bytes": 9785
     },
     {
       "path": "tests/test_contract_runtime.py",
@@ -65,6 +70,11 @@
       "path": "tests/test_llama_prompt_parity.py",
       "sha256": "d5c806717a835a418d03bf5e1df22325af25e0259d553174f6ae507de1503425",
       "bytes": 1536
+    },
+    {
+      "path": "tests/test_modal_budget.py",
+      "sha256": "f999e332299304376049a69ef8471780560d72a1e2bc28ee4e34cd17166d2160",
+      "bytes": 932
     },
     {
       "path": "tests/test_prepare_unseen_gsm8k.py",

@@ -3,7 +3,7 @@
 A controlled, artifact-validated study of how JSON prompting, grammar-constrained
 decoding, and output-field order affect mathematical accuracy and schema compliance.
 
-[Results](#principal-results) | [Alignment result](#contract-aligned-internal-representation) | [Corrected replication](#corrected-7b-replication) | [Paired evidence](#item-level-and-mechanism-evidence) |
+[Results](#principal-results) | [Alignment result](#contract-aligned-internal-representation) | [Corrected replication](#corrected-7b-replication) | [Cross-family decision](#cross-family-replication-and-executable-gate) | [Paired evidence](#item-level-and-mechanism-evidence) |
 [Study design](#study-design) |
 [Reproduction](#reproduce-the-evaluation) | [Evidence](#evidence-map) |
 [Public Kaggle artifacts](#public-kaggle-artifacts) |
@@ -22,29 +22,49 @@ and results to date.
 
 ## Central result
 
-Constrained decoding solved the formatting problem, but it did not preserve all of
-the model's recoverable mathematical accuracy. On Qwen2.5-7B, prompt-only JSON
-achieved 79.6% recoverable accuracy and 0% schema compliance. Outlines and XGrammar
-each achieved 61.2% recoverable accuracy and 100% schema compliance. The paired
-semantic effect was -18.4 percentage points for both backends (exact McNemar
-`p = 0.003906`).
+The general optimizing-transform thesis is **not supported** by the completed
+evidence.
 
-This is not a claim that constrained decoding is universally harmful. It is a
-controlled reproduction showing that contract compliance and semantic correctness
-are separate outcomes, and that a decoder can improve the first while reducing the
-second under a specific, matched setup.
+The original Qwen2.5-7B study showed that constrained decoding solved schema
+compliance while changing semantic behavior. Prompt-only JSON achieved 79.6%
+recoverable GSM8K accuracy and 0% schema compliance; Outlines and XGrammar each
+achieved 61.2% recoverable accuracy and 100% compliance. That -18.4 point paired
+semantic effect motivated a narrow contract-alignment transform: let the model emit
+a native integer, deterministically stringify it, then validate against the
+unchanged caller-facing numeric-string schema.
 
-The follow-up isolates a practical recovery mechanism for this setup:
-compile the external signed numeric-string contract into a native JSON-integer
-internal representation, generate under the internal grammar, then deterministically
-stringify and validate the external response. A subsequent runner audit found a
-double-chat-template risk in the historical Outlines path, so both representations
-were rerun from a frozen corrected source. The corrected paired result improved from
-18/49 to 24/49 contract-valid correct, a +12.2 point estimate, while retaining 100%
-external validity. The exact interval touches zero and McNemar `p = 0.146`, so the
-decision is scoped continuation, not a production claim.
+The corrected Qwen replication estimated a +12.2 point recovery, from 18/49 to
+24/49 contract-valid correct, with an interval of [0.0, 26.5] points. That was valid
+but uncertain evidence and authorized a cross-family test, not a general claim.
 
-![Accuracy and contract compliance across the six Qwen2.5-7B conditions](assets/figures/accuracy-compliance-tradeoff.png)
+The confirmatory gates moved in the opposite direction:
+
+| Gate | Control | Integer treatment | Paired effect | Wins : losses | Decision |
+|---|---:|---:|---:|---:|---|
+| Corrected Qwen2.5-7B GSM8K, n=49 | 18/49 (36.7%) | 24/49 (49.0%) | +12.2 pp, CI [0.0, 26.5] | 9 : 3 | Scoped continuation at that gate |
+| Llama 3.2 3B unseen GSM8K, n=150 | 92/150 (61.3%) | 82/150 (54.7%) | -6.7 pp, CI [-12.7, -1.3] | 5 : 15 | Red |
+| Llama 3.2 3B executable primary pilot, n=30 | 26/30 (86.7%) | 24/30 (80.0%) | -6.7 pp, CI [-20.0, 6.7] | 1 : 3 | Red |
+
+![Paired contract-alignment effects across all three decision gates](assets/figures/cross-family-evidence.png)
+
+The Llama GSM8K replication used 150 randomly selected, previously unseen items and
+398 total primary plus bridge generations. The fresh-set interval was fully below
+zero, final treatment validity fell to 149/150 because of one retained cap hit, and
+all 25 discordant cases were manually audited. Outlines then reproduced all 80
+selected XGrammar outputs byte for byte, which rules out a backend-specific
+explanation on that parity subset.
+
+The bounded practical gate used pinned BFCL V4 `simple_python` cases, strict caller
+contracts, deterministic side-effect-free execution wrappers, exact argument and
+post-state scoring, and 66 artifact-validated generations. All calls were valid and
+executable in both conditions. The loss came from argument semantics, not from the
+transducer or validator.
+
+The project therefore continues as a **schema-risk linter, contract-sensitivity
+analyzer, and reproducible measurement harness**, not as a general optimizing
+compiler. The integer-to-string transducer remains a supported contract-preserving
+utility, but current evidence does not support enabling it as a default quality
+optimization.
 
 ## Principal results
 
@@ -189,12 +209,13 @@ warnings. One repaired final answer, `gsm8k_test_712`, still contradicts its own
 reasoning, so the evidence supports improved final-answer fidelity rather than
 improved reasoning faithfulness.
 
-The current decision is **green for scoped continuation**. The implemented compiler
-prototype has a canonical contract IR, deterministic and serializable plans,
-conservative integer-string, key-alias, field-order, scratch-field, and whitespace
-transforms, exact inverse transduction, final validation, and typed fail-closed
-refusals. Broader schema support remains unauthorized until a second model family or
-an executable tool-call task reproduces practical value.
+This result was **green for scoped continuation at the corrected Qwen gate**. The
+implemented prototype has a canonical contract IR, deterministic and serializable
+plans, conservative integer-string, key-alias, field-order, scratch-field, and
+whitespace transforms, exact inverse transduction, final validation, and typed
+fail-closed refusals. The later cross-family and executable gates did not reproduce
+the quality improvement, so they supersede the overall product decision while
+preserving this Qwen result as model-specific evidence.
 
 Primary corrected evidence:
 
@@ -208,6 +229,75 @@ Primary corrected evidence:
 All corrected figures are generated directly from the checked-in decision, summary,
 validation, and raw JSONL artifacts by
 [`scripts/build_corrected_replication_figures.py`](scripts/build_corrected_replication_figures.py).
+
+## Cross-family replication and executable gate
+
+The independent replication changed the model family to
+`meta-llama/Llama-3.2-3B-Instruct`, froze the exact model and tokenizer revision,
+used one shared XGrammar runner for both representations, and placed 150 randomly
+selected unseen GSM8K items in the confirmatory role. The historical cleaned 49-item
+set remained a bridge comparison only.
+
+| Llama set | Signed-string control | Integer treatment | Paired difference | Treatment-only | Control-only |
+|---|---:|---:|---:|---:|---:|
+| Fresh unseen, n=150 | 92 (61.3%) | 82 (54.7%) | -6.7 pp, CI [-12.7, -1.3] | 5 | 15 |
+| Bridge, n=49 | 21 (42.9%) | 20 (40.8%) | -2.0 pp, CI [-10.2, 6.1] | 2 | 3 |
+
+The fresh result reached the preregistered Red gate. Its exact McNemar p-value was
+0.0414. Treatment final external validity was 149/150 because one token-cap failure
+remained in the denominator. Manual attribution of every discordance found no direct
+sign or lexical-boundary repair: 12 problem-interpretation changes, 9
+reasoning-to-final inconsistencies, 3 arithmetic regressions, and 1 arithmetic
+correction. All 80 post-result Outlines parity outputs matched XGrammar byte for
+byte.
+
+The Red path authorized one bounded practical tool-call pilot. It used a pinned BFCL
+V4 `simple_python` foundation, a 30-case random primary sample, a separate 3-case
+negative-sign stress set, and deterministic local wrappers with no external side
+effects. This is an executable contract study built from BFCL cases and official
+acceptable arguments, not a claim of an official BFCL leaderboard score.
+
+![Executable pilot component outcomes and paired transition matrix](assets/figures/tool-call-pilot-result.png)
+
+| Executable primary metric | String control | Integer treatment |
+|---|---:|---:|
+| Executable-contract success | 26/30 (86.7%) | 24/30 (80.0%) |
+| Internal-schema validity | 30/30 (100.0%) | 30/30 (100.0%) |
+| Reconstructed external validity | 30/30 (100.0%) | 30/30 (100.0%) |
+| Exact argument semantics | 26/30 (86.7%) | 24/30 (80.0%) |
+| Execution acceptance | 30/30 (100.0%) | 30/30 (100.0%) |
+| Correct post-execution state | 26/30 (86.7%) | 24/30 (80.0%) |
+
+The paired pilot effect was -6.7 points with an interval of [-20.0, 6.7], 1
+treatment-only win, 3 control-only wins, and exact McNemar p = 0.625. Every one of
+the five discordant primary or stress cases was inspected. There were 2 semantic
+corrections and 3 semantic regressions. Neither correction fixed a signed numeric
+value; both changed an unrelated string field. The separate three-case sign-stress
+estimate was positive but did not show a direct sign repair and is too small to
+override the primary gate.
+
+The final decision is Red for the general optimizing transform. The architecture
+now distinguishes two claims:
+
+- deterministic integer-to-string transduction is contract-preserving and supported;
+- using the transform to improve model quality by default is rejected by current
+  cross-family and practical evidence.
+
+Complete evidence:
+
+- [Second-family frozen protocol](experiments/second-family-replication/protocol.md)
+- [Second-family paired summary](experiments/second-family-replication/paired-summary.md)
+- [Second-family decision report](experiments/second-family-replication/decision-report.md)
+- [Outlines implementation-parity report](experiments/second-family-replication/parity-report.json)
+- [Executable pilot frozen protocol](experiments/tool-call-gate/protocol.md)
+- [Executable pilot artifact validation](experiments/tool-call-gate/artifact-validation.json)
+- [Executable pilot paired summary](experiments/tool-call-gate/paired-summary.md)
+- [Complete executable discordance audit](experiments/tool-call-gate/failure-attribution.jsonl)
+- [Executable pilot decision report](experiments/tool-call-gate/decision-report.md)
+
+Both figures are generated directly from the frozen machine-readable decisions and
+paired summaries by
+[`scripts/build_replication_gate_figures.py`](scripts/build_replication_gate_figures.py).
 
 ## Technical articles
 
@@ -324,6 +414,8 @@ constrained-decoding-lab/
 |   `-- archive/                    # foundational probes and pilot record
 |-- experiments/representation-alignment-gate/ # historical alignment evidence
 |-- experiments/corrected-replication/ # corrected raw rows, validation, decision
+|-- experiments/second-family-replication/ # unseen Llama replication and backend parity
+|-- experiments/tool-call-gate/       # bounded executable pilot and final product gate
 |-- experiments/compiler-prototype-probes/ # local compiler acceptance evidence
 |-- src/project_a/                  # contract IR, plans, transforms, and transducer
 |-- results/
@@ -400,6 +492,7 @@ python -m unittest discover -s tests -v
 python scripts/build_figures.py
 python scripts/build_alignment_figures.py
 python scripts/build_corrected_replication_figures.py
+python scripts/build_replication_gate_figures.py
 ```
 
 The checked-in 7B artifacts should be validated against the frozen deployment
@@ -449,6 +542,31 @@ runner hashes, prompt equivalence, backend output equivalence, errors, cap hits,
 schema validity, and trace completeness. It does not trust the remote summary as its
 own proof.
 
+### 7. Validate the cross-family and executable gates
+
+```bash
+python scripts/validate_second_family_artifacts.py \
+  --run-dir experiments/second-family-replication \
+  --fresh-dataset data/gsm8k_unseen_150_seed20260815.jsonl \
+  --bridge-dataset data/gsm8k_50_seed0.jsonl \
+  --source-root . \
+  --out /tmp/second-family-validation.json \
+  --require-analysis
+
+python scripts/validate_tool_call_artifacts.py \
+  --run-dir experiments/tool-call-gate \
+  --dataset data/bfcl_tool_pilot_seed20260817.jsonl \
+  --source-root . \
+  --out /tmp/tool-call-validation.json \
+  --require-analysis
+```
+
+The second-family validator binds 398 XGrammar rows to the unseen and bridge dataset
+hashes, source snapshot, paired run configurations, model revision, environment, and
+complete manual audit. The executable validator binds 66 rows to the pinned BFCL
+foundation, dataset, source manifest, canary, run signatures, transduction, and
+discordance audit.
+
 ## Public Kaggle artifacts
 
 The cloud execution surface and its frozen source input are publicly accessible:
@@ -491,6 +609,17 @@ availability.
 | Corrected exact paired summary | [`paired-summary-exact.md`](experiments/corrected-replication/results/qwen2.5-7b-corrected/paired-summary-exact.md) |
 | Corrected architecture decision | [`decision-report.md`](experiments/corrected-replication/results/qwen2.5-7b-corrected/decision-report.md) |
 | Compiler prototype acceptance | [`acceptance-report.json`](experiments/compiler-prototype-probes/acceptance-report.json) |
+| Current evidence status and product direction | [`evidence-status.md`](docs/evidence-status.md) |
+| Second-family preregistration | [`protocol.md`](experiments/second-family-replication/protocol.md) |
+| Second-family artifact validation | [`artifact-validation.json`](experiments/second-family-replication/artifact-validation.json) |
+| Second-family paired summary | [`paired-summary.md`](experiments/second-family-replication/paired-summary.md) |
+| Second-family Red decision | [`decision-report.md`](experiments/second-family-replication/decision-report.md) |
+| Outlines implementation parity | [`parity-report.json`](experiments/second-family-replication/parity-report.json) |
+| Executable pilot preregistration | [`protocol.md`](experiments/tool-call-gate/protocol.md) |
+| Executable pilot artifact validation | [`artifact-validation.json`](experiments/tool-call-gate/artifact-validation.json) |
+| Executable pilot paired summary | [`paired-summary.md`](experiments/tool-call-gate/paired-summary.md) |
+| Executable pilot discordance audit | [`failure-attribution.jsonl`](experiments/tool-call-gate/failure-attribution.jsonl) |
+| Executable pilot Red decision | [`decision-report.md`](experiments/tool-call-gate/decision-report.md) |
 | 0.5B accepted aggregate results | [`summary_clean.md`](results/qwen2.5-0.5b/primary/summary_clean.md) |
 | Machine-readable data audit | [`gsm8k_item_audit.json`](data/gsm8k_item_audit.json) |
 | Exact accepted cloud source | [`deployment/kaggle/source-snapshot/`](deployment/kaggle/source-snapshot/) |
@@ -500,44 +629,42 @@ availability.
 
 ## Is more cloud compute required?
 
-No additional cloud run is required to support the current, narrow contract-alignment
-continuation decision. The corrected 200-row replication establishes the measured
-recovery on Qwen2.5-7B under the declared setup without relying on mixed runner paths.
+No additional cloud run is required to decide the current research question. The
+independent model-family replication and the bounded executable pilot are complete,
+artifact-validated, manually audited, and both reached the preregistered Red gate.
 
-More compute is required before making a broad claim about constrained decoding in
-general. The highest-value follow-up is a mechanism test, not another copy of the
-same matrix:
+Repeating the same Qwen or Llama matrices, trying alternative prompts after seeing
+the outcomes, or searching model families for another positive result would not add
+credible evidence to the closed optimizer claim.
 
-1. Replicate the safe internal representation on at least one independent model family.
-2. Add an executable tool-call task and a schema-centric benchmark.
-3. Test the other safe transforms only with their own preregistered mechanism tests.
-4. Use a larger preregistered sample and an independent replication split.
-5. Benchmark optimized serving hardware separately from semantic accuracy so that
-   runtime conclusions are not inferred from slow FP32 T4 execution.
-
-No further copy of the same Qwen2.5-7B GSM8K matrix is required. The next cloud job
-must test external validity, not merely add repetitions to the same setup.
+A future cloud study is justified only for a new question: whether the schema-risk
+analyzer's warnings and paired measurements predict real deployment regressions
+across independent structured-output workloads. That requires its own protocol,
+holdout, and decision gate. It is product validation for the measurement system, not
+another attempt to rescue the rejected transform.
 
 ## Scope and limitations
 
-- The accepted task evidence covers one deterministic GSM8K subset, two sizes from
-  one model family, one final prompt family, greedy decoding, and two grammar
-  backends.
-- The sample of 49 audited items produces meaningful paired evidence but still leaves
-  wide intervals. In the corrected replication, the exact interval touches zero and
-  the exact McNemar p-value is 0.146.
+- The evidence covers Qwen2.5 and Llama 3.2 model families, GSM8K and a bounded
+  BFCL-based executable-call pilot, greedy decoding, FP32, and XGrammar. Outlines was
+  used for exact implementation parity, not as a second statistical result.
+- The positive corrected Qwen sample contains 49 audited items and its interval
+  touches zero. The unseen Llama sample contains 150 items and its interval is below
+  zero. The executable primary sample contains only 30 calls and remains uncertain.
 - Prompt wording and field order are causal variables. Earlier prompt probes changed
   apparent backend effects and are retained as diagnostics rather than pooled.
 - The T4 precision failures are properties of the tested software and hardware path,
   not evidence that those dtypes fail universally.
 - Latency is descriptive because output lengths differ and FP32 inference on T4 is
   not an optimized serving configuration.
-- The results reproduce and sharpen known concerns about reasoning under rigid output
-  grammars. The internal-integer recovery is currently limited to this declared
-  numeric-string schema and does not establish a universal law or claim invention of
-  constrained decoding.
-- The corrected Outlines and XGrammar rows are byte-identical, so the backend arms
-  validate implementation agreement but are not independent semantic replications.
+- The executable pilot adapts official BFCL cases and acceptable arguments to a
+  project-defined numeric-string external contract. It is not an official BFCL
+  leaderboard evaluation and does not execute original business functions.
+- The results reproduce and sharpen known concerns about semantic sensitivity under
+  rigid output contracts. They do not establish a universal law or claim invention
+  of constrained decoding.
+- Byte-identical Outlines and XGrammar rows validate implementation agreement on the
+  tested subsets but are not independent semantic replications.
 - One correct treatment answer contradicts its own reasoning, so benchmark accuracy
   must not be presented as reasoning faithfulness.
 

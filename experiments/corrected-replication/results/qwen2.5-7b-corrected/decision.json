@@ -1,0 +1,82 @@
+{
+  "decision_version": "corrected-replication-decision-v1",
+  "decision": "green_scoped_continuation",
+  "claim_scope": "Qwen2.5-7B-Instruct, deterministic GSM8K-50 subset, greedy FP32 decoding, reasoning-first two-field JSON, canonical signed-integer-string external contract, Outlines 1.3.2 and XGrammar 0.2.3",
+  "artifact_validation": {
+    "valid": true,
+    "expected_rows": 200,
+    "failures": 0,
+    "warnings": 0,
+    "sha256": "df704538071ffdf1cbb3b6730ef5af4631913e803731f4898ee95cdfaae52646"
+  },
+  "operational": {
+    "canary_passed": true,
+    "full_gate_passed": true,
+    "errors": 0,
+    "cap_hits": 0,
+    "blank_outputs": 0,
+    "internal_invalid": 0,
+    "external_invalid": 0,
+    "trace_records": 3
+  },
+  "clean_paired_examples": 49,
+  "conditions": {
+    "signed_string": {
+      "correct": 18,
+      "accuracy": 0.3673469387755102,
+      "external_valid": 49,
+      "negative_answers": 2
+    },
+    "internal_integer": {
+      "correct": 24,
+      "accuracy": 0.4897959183673469,
+      "external_valid": 49,
+      "negative_answers": 0
+    }
+  },
+  "paired_effect": {
+    "accuracy_delta": 0.12244897959183673,
+    "exact_bootstrap_ci95": [
+      0.0,
+      0.2653061224489796
+    ],
+    "treatment_only": 9,
+    "control_only": 3,
+    "both_correct": 15,
+    "both_wrong": 22,
+    "mcnemar_p_exact": 0.14599609375,
+    "identical_for_outlines_and_xgrammar": true
+  },
+  "backend_equivalence": {
+    "signed_string_byte_identical_outputs": 50,
+    "integer_byte_identical_outputs": 50,
+    "total_items_per_representation": 50,
+    "interpretation": "Under the corrected canonical grammar settings, representation rather than backend identity explains the observed paired difference in this run. The backend arms are not independent replications."
+  },
+  "mechanistic_observations": {
+    "negative_signed_outputs_repaired": 2,
+    "negative_signed_outputs_total": 2,
+    "reasoning_answer_inconsistency_item": "gsm8k_test_712",
+    "trace_interpretation": "The integer grammar removed quote and structural-space options at the answer boundary but still allowed a minus token. The effect is a changed token path, not a rule that simply prohibits negative answers."
+  },
+  "decision_rule_evaluation": {
+    "gain_at_least_five_points": true,
+    "one_hundred_percent_external_validity": true,
+    "paired_wins_exceed_losses": true,
+    "no_backend_systematic_regression": true,
+    "representation_boundary_mechanism_survives": true,
+    "conventional_significance_reached": false
+  },
+  "limitations": [
+    "The exact McNemar p-value is 0.146 and the exact bootstrap interval touches zero.",
+    "Absolute contract-valid accuracy is 49.0 percent for the treatment, so the current system is not production-ready.",
+    "Both backends produced identical rows, so this is one effective 49-item paired semantic experiment, not two independent replications.",
+    "One repaired final answer contradicts its generated reasoning, so the result does not establish improved reasoning faithfulness.",
+    "The result is limited to one model, one dataset, one contract family, and deterministic greedy decoding."
+  ],
+  "derived_summary": {
+    "path": "paired-summary-exact.json",
+    "sha256": "a70eef40ffb89c2b522b0cf5f37526e0c059b171114b960b4ff3d6edc68ead6f"
+  },
+  "next_gate": "Freeze architecture decisions for the demonstrated transform. Do not broaden schema support until a second-model or executable tool-call replication confirms practical relevance."
+}

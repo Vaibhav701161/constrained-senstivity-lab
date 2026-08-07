@@ -1,0 +1,68 @@
+{
+  "gate_version": "corrected-replication-operational-gate-v1",
+  "stage": "canary",
+  "checked_at": "2026-08-06T15:07:14.311408+00:00",
+  "expected_limit": 5,
+  "passed": true,
+  "failures": [],
+  "conditions": {
+    "outlines_json_reasoning_first": {
+      "rows": 5,
+      "unique_item_ids": 5,
+      "run_signature": "b7c5f5682f9b",
+      "run_id": "20260806T142924Z-b7c5f5682f9b",
+      "errors": 0,
+      "cap_hits": 0,
+      "blank_outputs": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0,
+      "sha256": "2b074f86d7c77951ddbe0ab06363dacb1b412875b4dea879b5009a014e76d020"
+    },
+    "xgrammar_json_reasoning_first": {
+      "rows": 5,
+      "unique_item_ids": 5,
+      "run_signature": "e41c416387f7",
+      "run_id": "20260806T144029Z-e41c416387f7",
+      "errors": 0,
+      "cap_hits": 0,
+      "blank_outputs": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0,
+      "sha256": "32fb2c0bb2d894fb80a8b03b7ceb6677bf15c29871d66455ce2f1d528f59e3ef"
+    },
+    "outlines_json_integer_reasoning_first": {
+      "rows": 5,
+      "unique_item_ids": 5,
+      "run_signature": "5a7512a992ad",
+      "run_id": "20260806T145121Z-5a7512a992ad",
+      "errors": 0,
+      "cap_hits": 0,
+      "blank_outputs": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0,
+      "sha256": "2a07e2f74b7ec19946c7000d3e2e2371ec46f7abfca3b1c5376a7bb7542ce6b7"
+    },
+    "xgrammar_json_integer_reasoning_first": {
+      "rows": 5,
+      "unique_item_ids": 5,
+      "run_signature": "588ba2d09c51",
+      "run_id": "20260806T145934Z-588ba2d09c51",
+      "errors": 0,
+      "cap_hits": 0,
+      "blank_outputs": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0,
+      "sha256": "0afb83afeac27e86f468cd8a680608caafc5a8c52419b38bce9a0b5d86424475"
+    }
+  },
+  "prompt_equivalence_pairs": [
+    [
+      "outlines_json_reasoning_first",
+      "xgrammar_json_reasoning_first"
+    ],
+    [
+      "outlines_json_integer_reasoning_first",
+      "xgrammar_json_integer_reasoning_first"
+    ]
+  ]
+}

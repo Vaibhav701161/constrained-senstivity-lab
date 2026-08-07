@@ -1,0 +1,12 @@
+{
+  "snapshot": "contract-alignment-corrected-replication-v1",
+  "purpose": "Immutable source for the preregistered corrected Qwen2.5-7B paired replication",
+  "files": {
+    "gsm8k_50_seed0.jsonl": "3639f2f6def0f50e02086bc91e6f4a45567c85aa9b0f498224cb9421400d812a",
+    "project-a-runtime.zip": "9d2c3aa96b344a619e55285f78ca65028ebeced7d65e92778956ed1184156414",
+    "protocol.md": "2b86ada657830d1d70f16d6102f0eb51925bd719bcbf7b9a872fcee1107545fa",
+    "run_evaluation.py": "9651c48dcfb4e4ea95800f535f202c2107fbd9f428eaa4b346211475ff35ae04",
+    "run_representation_alignment.py": "a9d0108b0c77b3307977a34a963a320e0f1ceb2284c272135633e35eda189e76",
+    "summarize_alignment_gate.py": "032af35a1346f092134f890ce4098f2b6e694dd18b0dfb77714aff7074778ab7"
+  }
+}

@@ -90,6 +90,23 @@ class IntegerStringTransducerTests(unittest.TestCase):
         self.assertFalse(result.external_valid)
         self.assertIsNone(result.external_value)
 
+    def test_transducer_never_repairs_or_infers_a_sign(self) -> None:
+        result = transduce_and_validate(
+            {"reasoning": "The magnitude is positive 26.", "answer": -26},
+            external_schema(),
+        )
+        self.assertTrue(result.external_valid)
+        self.assertEqual(result.external_value["answer"], "-26")
+
+    def test_lexical_strings_are_not_heuristically_coerced(self) -> None:
+        for value in ("-26", "+26", "00026", "26.0", "2.6e1"):
+            with self.subTest(value=value):
+                result = transduce_and_validate(
+                    {"reasoning": "calculation", "answer": value}, external_schema()
+                )
+                self.assertFalse(result.external_valid)
+                self.assertIsNone(result.external_value)
+
 
 class ContractValidScoringTests(unittest.TestCase):
     def setUp(self) -> None:

@@ -4,10 +4,12 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
+import random
 import statistics
-from collections import Counter, defaultdict
+from collections import defaultdict
 from pathlib import Path
 from typing import Any, Callable
 
@@ -41,32 +43,17 @@ def wilson_interval(successes: int, total: int) -> list[float] | None:
     return [max(0.0, centre - radius), min(1.0, centre + radius)]
 
 
-def bootstrap_interval(values: list[int]) -> list[float] | None:
-    """Return the exact percentile interval for the empirical paired bootstrap."""
-
+def bootstrap_interval(values: list[int], seed_material: str) -> list[float] | None:
     if not values:
         return None
+    seed = int(hashlib.sha256(seed_material.encode()).hexdigest()[:16], 16)
+    generator = random.Random(seed)
     count = len(values)
-    empirical = {
-        value: frequency / count for value, frequency in Counter(values).items()
-    }
-    distribution = {0: 1.0}
-    for _ in range(count):
-        updated: dict[int, float] = defaultdict(float)
-        for current_sum, current_probability in distribution.items():
-            for value, probability in empirical.items():
-                updated[current_sum + value] += current_probability * probability
-        distribution = dict(updated)
-
-    def quantile(probability: float) -> float:
-        cumulative = 0.0
-        for total, mass in sorted(distribution.items()):
-            cumulative += mass
-            if cumulative >= probability:
-                return total / count
-        return max(distribution) / count
-
-    return [quantile(0.025), quantile(0.975)]
+    means = sorted(
+        sum(values[generator.randrange(count)] for _ in range(count)) / count
+        for _ in range(10_000)
+    )
+    return [means[249], means[9749]]
 
 
 def exact_mcnemar(treatment_only: int, control_only: int) -> float:
@@ -136,7 +123,7 @@ def paired_comparison(
         values = [int(metric(treatment[item])) - int(metric(control[item])) for item in shared]
         return {
             "delta": (treatment_only - control_only) / len(shared),
-            "delta_ci95": bootstrap_interval(values),
+            "delta_ci95": bootstrap_interval(values, f"{name}:{label}"),
             "treatment_only": treatment_only,
             "control_only": control_only,
             "both_correct": both_correct,

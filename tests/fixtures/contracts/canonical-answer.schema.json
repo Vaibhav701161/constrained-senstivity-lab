@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "answer": {
+      "type": "string",
+      "pattern": "^-?(?:0|[1-9][0-9]*)$"
+    },
+    "reasoning": {
+      "type": "string",
+      "maxLength": 256
+    }
+  },
+  "required": ["answer", "reasoning"],
+  "additionalProperties": false
+}

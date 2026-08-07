@@ -1,0 +1,280 @@
+{
+  "input_files": [
+    "/kaggle/working/results/corrected-replication/outlines_json_reasoning_first.jsonl",
+    "/kaggle/working/results/corrected-replication/xgrammar_json_reasoning_first.jsonl",
+    "/kaggle/working/results/corrected-replication/outlines_json_integer_reasoning_first.jsonl",
+    "/kaggle/working/results/corrected-replication/xgrammar_json_integer_reasoning_first.jsonl"
+  ],
+  "excluded_item_ids": [
+    "gsm8k_test_454"
+  ],
+  "total_rows": 196,
+  "groups": [
+    {
+      "condition": "outlines_json_integer_reasoning_first",
+      "examples": 49,
+      "semantic": {
+        "count": 24,
+        "rate": 0.4897959183673469,
+        "ci95": [
+          0.3557511031030578,
+          0.6253243625953194
+        ]
+      },
+      "external_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "contract_valid": {
+        "count": 24,
+        "rate": 0.4897959183673469,
+        "ci95": [
+          0.3557511031030578,
+          0.6253243625953194
+        ]
+      },
+      "internal_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "negative_answers": 0,
+      "negative_answer_rate": 0.0,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 79276.39604081633,
+      "median_latency_ms": 73718.537,
+      "average_generated_tokens": 49.285714285714285
+    },
+    {
+      "condition": "outlines_json_reasoning_first",
+      "examples": 49,
+      "semantic": {
+        "count": 18,
+        "rate": 0.3673469387755102,
+        "ci95": [
+          0.24665172968683138,
+          0.5073293243920758
+        ]
+      },
+      "external_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "contract_valid": {
+        "count": 18,
+        "rate": 0.3673469387755102,
+        "ci95": [
+          0.24665172968683138,
+          0.5073293243920758
+        ]
+      },
+      "internal_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "negative_answers": 2,
+      "negative_answer_rate": 0.04081632653061224,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 80074.87967346939,
+      "median_latency_ms": 75178.717,
+      "average_generated_tokens": 48.795918367346935
+    },
+    {
+      "condition": "xgrammar_json_integer_reasoning_first",
+      "examples": 49,
+      "semantic": {
+        "count": 24,
+        "rate": 0.4897959183673469,
+        "ci95": [
+          0.3557511031030578,
+          0.6253243625953194
+        ]
+      },
+      "external_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "contract_valid": {
+        "count": 24,
+        "rate": 0.4897959183673469,
+        "ci95": [
+          0.3557511031030578,
+          0.6253243625953194
+        ]
+      },
+      "internal_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "negative_answers": 0,
+      "negative_answer_rate": 0.0,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 80066.73302040817,
+      "median_latency_ms": 73822.671,
+      "average_generated_tokens": 49.285714285714285
+    },
+    {
+      "condition": "xgrammar_json_reasoning_first",
+      "examples": 49,
+      "semantic": {
+        "count": 18,
+        "rate": 0.3673469387755102,
+        "ci95": [
+          0.24665172968683138,
+          0.5073293243920758
+        ]
+      },
+      "external_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "contract_valid": {
+        "count": 18,
+        "rate": 0.3673469387755102,
+        "ci95": [
+          0.24665172968683138,
+          0.5073293243920758
+        ]
+      },
+      "internal_valid": {
+        "count": 49,
+        "rate": 1.0,
+        "ci95": [
+          0.9273021807795035,
+          0.9999999999999999
+        ]
+      },
+      "negative_answers": 2,
+      "negative_answer_rate": 0.04081632653061224,
+      "errors": 0,
+      "cap_hits": 0,
+      "average_latency_ms": 81662.12359183673,
+      "median_latency_ms": 84413.464,
+      "average_generated_tokens": 48.795918367346935
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "name": "outlines_integer_vs_signed",
+      "treatment": "outlines_json_integer_reasoning_first",
+      "control": "outlines_json_reasoning_first",
+      "paired_examples": 49,
+      "semantic": {
+        "delta": 0.12244897959183673,
+        "delta_ci95": [
+          -0.02040816326530612,
+          0.2653061224489796
+        ],
+        "treatment_only": 9,
+        "control_only": 3,
+        "both_correct": 15,
+        "both_wrong": 22,
+        "mcnemar_p_exact": 0.14599609375
+      },
+      "contract_valid": {
+        "delta": 0.12244897959183673,
+        "delta_ci95": [
+          0.0,
+          0.2653061224489796
+        ],
+        "treatment_only": 9,
+        "control_only": 3,
+        "both_correct": 15,
+        "both_wrong": 22,
+        "mcnemar_p_exact": 0.14599609375
+      },
+      "repaired_item_ids": [
+        "gsm8k_test_1205",
+        "gsm8k_test_1232",
+        "gsm8k_test_1251",
+        "gsm8k_test_1272",
+        "gsm8k_test_416",
+        "gsm8k_test_712",
+        "gsm8k_test_739",
+        "gsm8k_test_765",
+        "gsm8k_test_98"
+      ],
+      "newly_broken_item_ids": [
+        "gsm8k_test_506",
+        "gsm8k_test_601",
+        "gsm8k_test_996"
+      ]
+    },
+    {
+      "name": "xgrammar_integer_vs_signed",
+      "treatment": "xgrammar_json_integer_reasoning_first",
+      "control": "xgrammar_json_reasoning_first",
+      "paired_examples": 49,
+      "semantic": {
+        "delta": 0.12244897959183673,
+        "delta_ci95": [
+          0.0,
+          0.2653061224489796
+        ],
+        "treatment_only": 9,
+        "control_only": 3,
+        "both_correct": 15,
+        "both_wrong": 22,
+        "mcnemar_p_exact": 0.14599609375
+      },
+      "contract_valid": {
+        "delta": 0.12244897959183673,
+        "delta_ci95": [
+          0.0,
+          0.2653061224489796
+        ],
+        "treatment_only": 9,
+        "control_only": 3,
+        "both_correct": 15,
+        "both_wrong": 22,
+        "mcnemar_p_exact": 0.14599609375
+      },
+      "repaired_item_ids": [
+        "gsm8k_test_1205",
+        "gsm8k_test_1232",
+        "gsm8k_test_1251",
+        "gsm8k_test_1272",
+        "gsm8k_test_416",
+        "gsm8k_test_712",
+        "gsm8k_test_739",
+        "gsm8k_test_765",
+        "gsm8k_test_98"
+      ],
+      "newly_broken_item_ids": [
+        "gsm8k_test_506",
+        "gsm8k_test_601",
+        "gsm8k_test_996"
+      ]
+    }
+  ]
+}

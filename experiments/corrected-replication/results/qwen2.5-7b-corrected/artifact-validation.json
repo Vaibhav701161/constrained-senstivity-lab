@@ -1,0 +1,80 @@
+{
+  "validation_version": "corrected-replication-artifact-validation-v1",
+  "valid": true,
+  "run_dir": "experiments/corrected-replication/results/qwen2.5-7b-corrected/results/corrected-replication",
+  "dataset_sha256": "3639f2f6def0f50e02086bc91e6f4a45567c85aa9b0f498224cb9421400d812a",
+  "expected_conditions": [
+    "outlines_json_reasoning_first",
+    "xgrammar_json_reasoning_first",
+    "outlines_json_integer_reasoning_first",
+    "xgrammar_json_integer_reasoning_first"
+  ],
+  "expected_rows": 200,
+  "failures": [],
+  "warnings": [],
+  "conditions": {
+    "outlines_json_reasoning_first": {
+      "path": "experiments/corrected-replication/results/qwen2.5-7b-corrected/results/corrected-replication/outlines_json_reasoning_first.jsonl",
+      "sha256": "6c6c76c82ff4ac74619a5a62f754a6fdc3e2e90f8a002c898ee702783e4f97c1",
+      "rows": 50,
+      "unique_item_ids": 50,
+      "run_signature": "b7c5f5682f9b",
+      "run_id": "20260806T142924Z-b7c5f5682f9b",
+      "errors": 0,
+      "cap_hits": 0,
+      "blank_outputs": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0
+    },
+    "xgrammar_json_reasoning_first": {
+      "path": "experiments/corrected-replication/results/qwen2.5-7b-corrected/results/corrected-replication/xgrammar_json_reasoning_first.jsonl",
+      "sha256": "684ad26199ac0a1b4cbdc7fada5d70a539522f82ea8db2c387651856a0c971f7",
+      "rows": 50,
+      "unique_item_ids": 50,
+      "run_signature": "e41c416387f7",
+      "run_id": "20260806T144029Z-e41c416387f7",
+      "errors": 0,
+      "cap_hits": 0,
+      "blank_outputs": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0
+    },
+    "outlines_json_integer_reasoning_first": {
+      "path": "experiments/corrected-replication/results/qwen2.5-7b-corrected/results/corrected-replication/outlines_json_integer_reasoning_first.jsonl",
+      "sha256": "34c9082442b02a450ec04c1c82e51e41477b4b17b9acc8d75811784b31051746",
+      "rows": 50,
+      "unique_item_ids": 50,
+      "run_signature": "5a7512a992ad",
+      "run_id": "20260806T145121Z-5a7512a992ad",
+      "errors": 0,
+      "cap_hits": 0,
+      "blank_outputs": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0
+    },
+    "xgrammar_json_integer_reasoning_first": {
+      "path": "experiments/corrected-replication/results/qwen2.5-7b-corrected/results/corrected-replication/xgrammar_json_integer_reasoning_first.jsonl",
+      "sha256": "1d2bb941d7397a5b4caab6ec5e011c6b595d884c833550ee9a9c04118d59f53c",
+      "rows": 50,
+      "unique_item_ids": 50,
+      "run_signature": "588ba2d09c51",
+      "run_id": "20260806T145934Z-588ba2d09c51",
+      "errors": 0,
+      "cap_hits": 0,
+      "blank_outputs": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0
+    }
+  },
+  "trace": {
+    "path": "experiments/corrected-replication/results/qwen2.5-7b-corrected/results/corrected-replication/traces/xgrammar-integer-answer-boundary.jsonl",
+    "sha256": "e171481f56c2cd38930fdd6b43678a909816040555a4bd5abe8252c7f201d451",
+    "records": 3,
+    "traced_item_ids": [
+      "gsm8k_test_12",
+      "gsm8k_test_1216",
+      "gsm8k_test_173"
+    ]
+  },
+  "paired_summary_sha256": "41ce78f138d99467bb5bc9978d1479c63e83b06aceb7d8a88d750975c71835c3"
+}

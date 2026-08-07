@@ -1,0 +1,68 @@
+{
+  "gate_version": "corrected-replication-operational-gate-v1",
+  "stage": "full",
+  "checked_at": "2026-08-06T18:59:21.543294+00:00",
+  "expected_limit": 50,
+  "passed": true,
+  "failures": [],
+  "conditions": {
+    "outlines_json_reasoning_first": {
+      "rows": 50,
+      "unique_item_ids": 50,
+      "run_signature": "b7c5f5682f9b",
+      "run_id": "20260806T142924Z-b7c5f5682f9b",
+      "errors": 0,
+      "cap_hits": 0,
+      "blank_outputs": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0,
+      "sha256": "6c6c76c82ff4ac74619a5a62f754a6fdc3e2e90f8a002c898ee702783e4f97c1"
+    },
+    "xgrammar_json_reasoning_first": {
+      "rows": 50,
+      "unique_item_ids": 50,
+      "run_signature": "e41c416387f7",
+      "run_id": "20260806T144029Z-e41c416387f7",
+      "errors": 0,
+      "cap_hits": 0,
+      "blank_outputs": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0,
+      "sha256": "684ad26199ac0a1b4cbdc7fada5d70a539522f82ea8db2c387651856a0c971f7"
+    },
+    "outlines_json_integer_reasoning_first": {
+      "rows": 50,
+      "unique_item_ids": 50,
+      "run_signature": "5a7512a992ad",
+      "run_id": "20260806T145121Z-5a7512a992ad",
+      "errors": 0,
+      "cap_hits": 0,
+      "blank_outputs": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0,
+      "sha256": "34c9082442b02a450ec04c1c82e51e41477b4b17b9acc8d75811784b31051746"
+    },
+    "xgrammar_json_integer_reasoning_first": {
+      "rows": 50,
+      "unique_item_ids": 50,
+      "run_signature": "588ba2d09c51",
+      "run_id": "20260806T145934Z-588ba2d09c51",
+      "errors": 0,
+      "cap_hits": 0,
+      "blank_outputs": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0,
+      "sha256": "1d2bb941d7397a5b4caab6ec5e011c6b595d884c833550ee9a9c04118d59f53c"
+    }
+  },
+  "prompt_equivalence_pairs": [
+    [
+      "outlines_json_reasoning_first",
+      "xgrammar_json_reasoning_first"
+    ],
+    [
+      "outlines_json_integer_reasoning_first",
+      "xgrammar_json_integer_reasoning_first"
+    ]
+  ]
+}

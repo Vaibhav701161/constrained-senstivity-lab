@@ -1,0 +1,116 @@
+{
+  "report_version": "compiler-prototype-acceptance-v1",
+  "generated_at": "2026-08-06T14:08:28Z",
+  "status": "passed_with_documented_limitations",
+  "environment": {
+    "execution": "local",
+    "python": "3.12.3",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "torch": "2.6.0+cu124",
+    "cuda_runtime": "12.4",
+    "transformers": "4.51.3",
+    "outlines": "1.3.2",
+    "xgrammar": "0.2.3",
+    "jsonschema": "4.23.0",
+    "pytest": "8.3.5"
+  },
+  "regression_suite": {
+    "command": ".venv/bin/python -m pytest -q",
+    "passed": 82,
+    "failed": 0,
+    "warnings": 1,
+    "warning_assessment": "Optional XGrammar TVM PyTorch DLPack acceleration extension is unavailable. Grammar compilation and matching passed, and the extension is not required by the tested path.",
+    "integer_property_cases": 1501
+  },
+  "immutable_artifact_revalidation": {
+    "targeted": {
+      "rows": 72,
+      "traces": 6,
+      "failures": 0,
+      "warnings": 0,
+      "valid": true
+    },
+    "full": {
+      "rows": 150,
+      "traces": 6,
+      "failures": 0,
+      "warnings": 0,
+      "valid": true
+    },
+    "total_rows": 222,
+    "accepted_artifacts_modified": false
+  },
+  "acceptance_criteria": {
+    "T1_evidence_and_boundary_revalidation": "passed",
+    "T2_contract_ir": "passed",
+    "T3_alignment_plan": "passed",
+    "T4_integer_string_transform": "passed",
+    "T5_key_alias_transform": "passed",
+    "T6_field_order_transform": "passed",
+    "T7_canonical_whitespace_policy": "passed",
+    "T8_scratch_field_safety": "passed",
+    "T9_transform_composition": "passed",
+    "T10_property_and_adversarial_testing": "passed",
+    "T11_local_backend_probes": "passed"
+  },
+  "corrected_backend_probes": [
+    {
+      "backend": "outlines",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "item_id": "gsm8k_test_264",
+      "prompt_tokens": 181,
+      "generated_content_tokens": 16,
+      "latency_ms": 3374.513,
+      "internal_schema_valid": true,
+      "external_schema_valid": true,
+      "semantic_correct": false,
+      "predicted_answer": "405",
+      "gold_answer": "400",
+      "error": null,
+      "result_sha256": "3c8df525072a00078dea62448f56823478bfc992d56173651a80c994d8ee1c90"
+    },
+    {
+      "backend": "xgrammar",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "item_id": "gsm8k_test_264",
+      "prompt_tokens": 181,
+      "generated_content_tokens": 16,
+      "latency_ms": 1155.715,
+      "internal_schema_valid": true,
+      "external_schema_valid": true,
+      "semantic_correct": false,
+      "predicted_answer": "405",
+      "gold_answer": "400",
+      "error": null,
+      "result_sha256": "e4c1634d98d3771ea9800ba7a05dd5ab7e35cb4cae9c817ccd688fc07491b76a"
+    }
+  ],
+  "defects_found_and_corrected": [
+    {
+      "id": "double-chat-template",
+      "impact": "Outlines could receive a prompt that had already been chat-templated and then apply the model chat template a second time.",
+      "correction": "Pass the raw project prompt to Outlines and use a single shared formatter only for direct generation and effective prompt measurement.",
+      "verification": "Unit fake and cached Qwen tokenizer integration test prove direct and Outlines effective prompt token IDs match and the nested form differs."
+    },
+    {
+      "id": "generated-token-metric",
+      "impact": "Direct and XGrammar tensor counts could include a backend stop token while the Outlines visible-text count did not.",
+      "correction": "Retokenize visible generated content without special tokens for every backend.",
+      "verification": "Fresh probes now report 16 generated content tokens for both backends on byte-identical output."
+    },
+    {
+      "id": "unbounded-json-whitespace",
+      "impact": "Permissive whitespace loops can create unnecessary constrained-generation paths and stalls.",
+      "correction": "Use compact separators with any_whitespace=false in XGrammar and an empty whitespace pattern in Outlines.",
+      "verification": "Real pinned backend grammar tests accept compact valid JSON and reject a long whitespace prefix."
+    }
+  ],
+  "limitations": [
+    "The compiler and transducer are a conservative prototype, not a general JSON Schema compiler.",
+    "References and schema features outside the supported subset are intentionally refused.",
+    "The local model probe validates integration and contract preservation, not semantic quality or backend speed.",
+    "One smoke item is insufficient for comparative latency conclusions.",
+    "Broader model and task replication belongs to the subsequent empirical evaluation stage."
+  ]
+}

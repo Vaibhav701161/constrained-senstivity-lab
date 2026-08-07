@@ -3,7 +3,7 @@
 A controlled, artifact-validated study of how JSON prompting, grammar-constrained
 decoding, and output-field order affect mathematical accuracy and schema compliance.
 
-[Results](#principal-results) | [Alignment result](#contract-aligned-internal-representation) | [Paired evidence](#item-level-and-mechanism-evidence) |
+[Results](#principal-results) | [Alignment result](#contract-aligned-internal-representation) | [Corrected replication](#corrected-7b-replication) | [Paired evidence](#item-level-and-mechanism-evidence) |
 [Study design](#study-design) |
 [Reproduction](#reproduce-the-evaluation) | [Evidence](#evidence-map) |
 [Public Kaggle artifacts](#public-kaggle-artifacts) |
@@ -34,12 +34,15 @@ controlled reproduction showing that contract compliance and semantic correctnes
 are separate outcomes, and that a decoder can improve the first while reducing the
 second under a specific, matched setup.
 
-The completed follow-up isolates a practical recovery mechanism for this setup:
+The follow-up isolates a practical recovery mechanism for this setup:
 compile the external signed numeric-string contract into a native JSON-integer
 internal representation, generate under the internal grammar, then deterministically
-stringify and validate the external response. On the same cleaned 49-item set, this
-recovered both constrained backends from 30/49 to 37/49 contract-valid correct while
-retaining 100% external validity.
+stringify and validate the external response. A subsequent runner audit found a
+double-chat-template risk in the historical Outlines path, so both representations
+were rerun from a frozen corrected source. The corrected paired result improved from
+18/49 to 24/49 contract-valid correct, a +12.2 point estimate, while retaining 100%
+external validity. The exact interval touches zero and McNemar `p = 0.146`, so the
+decision is scoped continuation, not a production claim.
 
 ![Accuracy and contract compliance across the six Qwen2.5-7B conditions](assets/figures/accuracy-compliance-tradeoff.png)
 
@@ -107,8 +110,10 @@ heuristic coercion is allowed.
 ![Contract-preserving model-aligned generation pipeline](assets/figures/contract-alignment-pipeline.png)
 
 The targeted screen repaired 7/8 shared signed-string failures with Outlines and 8/8
-with XGrammar. The preregistered full confirmation then retained the recovery on the
-cleaned 49-item set:
+with XGrammar. The preregistered historical full confirmation then retained the
+recovery on the cleaned 49-item set. These values remain reproducible historical
+evidence, but the corrected replication in the next section is authoritative for
+current architecture decisions:
 
 | Condition | Contract-valid correctness | Final external validity | Negative answers |
 |---|---:|---:|---:|
@@ -139,6 +144,70 @@ its values are not manually entered into the artwork.
 Read the complete, artifact-linked analysis in
 [`docs/representation-alignment-results.md`](docs/representation-alignment-results.md).
 
+## Corrected 7B replication
+
+An end-to-end audit found three measurement risks before the compiler prototype was
+allowed to advance:
+
+1. The historical Outlines path could apply Qwen's chat template twice.
+2. Generated-token counts were not defined identically across wrappers.
+3. Backend whitespace policies were not canonicalized to the same compact JSON
+   language.
+
+The corrected runner passes raw project prompts to Outlines, applies the chat
+template exactly once on every effective generation path, retokenizes visible output
+for a backend-independent token metric, and pins compact JSON separators. The
+correction was followed by a frozen four-condition, 200-generation Kaggle replication
+on Qwen2.5-7B, not by reinterpreting the historical rows.
+
+![Corrected paired effect and artifact integrity](assets/figures/corrected-replication-effect.png)
+
+| Corrected representation | Contract-valid correct | Final external validity | Negative answers |
+|---|---:|---:|---:|
+| Signed numeric string | 18/49 (36.7%) | 49/49 (100.0%) | 2 |
+| Internal integer plus deterministic stringification | 24/49 (49.0%) | 49/49 (100.0%) | 0 |
+
+The paired estimate is +12.2 percentage points with an exact deterministic bootstrap
+95% interval of `[0.0, 26.5]` points. There were nine repairs and three regressions,
+with exact two-sided McNemar `p = 0.145996`. The point estimate clears the frozen
+five-point continuation threshold, but conventional significance was not reached.
+
+![Corrected paired transition matrix](assets/figures/corrected-replication-transitions.png)
+
+Outlines and XGrammar emitted byte-identical raw output for all 50 signed-string
+items and all 50 integer items. This is useful implementation evidence but not two
+independent semantic replications. Under matched canonical policies, the observed
+item-level difference is attributable to the representation path rather than backend
+identity in this run.
+
+![All corrected clean-analysis item outcomes](assets/figures/corrected-replication-item-map.png)
+
+The run produced 200/200 expected rows, zero generation errors, zero cap hits, zero
+blank outputs, zero internal or external validation failures, and three preregistered
+boundary traces. An independent local validator reported zero failures and zero
+warnings. One repaired final answer, `gsm8k_test_712`, still contradicts its own
+reasoning, so the evidence supports improved final-answer fidelity rather than
+improved reasoning faithfulness.
+
+The current decision is **green for scoped continuation**. The implemented compiler
+prototype has a canonical contract IR, deterministic and serializable plans,
+conservative integer-string, key-alias, field-order, scratch-field, and whitespace
+transforms, exact inverse transduction, final validation, and typed fail-closed
+refusals. Broader schema support remains unauthorized until a second model family or
+an executable tool-call task reproduces practical value.
+
+Primary corrected evidence:
+
+- [Frozen replication protocol](experiments/corrected-replication/protocol.md)
+- [Independent artifact validation](experiments/corrected-replication/results/qwen2.5-7b-corrected/artifact-validation.json)
+- [Exact paired summary](experiments/corrected-replication/results/qwen2.5-7b-corrected/paired-summary-exact.md)
+- [Decision report](experiments/corrected-replication/results/qwen2.5-7b-corrected/decision-report.md)
+- [Compiler prototype acceptance report](experiments/compiler-prototype-probes/acceptance-report.json)
+
+All corrected figures are generated directly from the checked-in decision, summary,
+validation, and raw JSONL artifacts by
+[`scripts/build_corrected_replication_figures.py`](scripts/build_corrected_replication_figures.py).
+
 ## Technical articles
 
 The public engineering record on DEV Community follows the research from decoding
@@ -152,7 +221,7 @@ mechanics through controlled evaluation and contract-aligned recovery:
 | 4 Aug 2026 | [Structured Output Fixed My JSON and Cut Math Accuracy by 18 Points](https://dev.to/vaibhav_mittal_ac22a2c5d6/structured-output-fixed-my-json-and-cut-math-accuracy-by-18-points-jm5) | Controlled 300-generation baseline study |
 | 5 Aug 2026 | [Constraints Cost 18 Points. Compiling the Schema Recovered 14.](https://dev.to/vaibhav_mittal_ac22a2c5d6/constraints-cost-18-points-compiling-the-schema-recovered-14-1f72) | 222-generation contract-alignment follow-up |
 
-The exact submitted sources for the two artifact-backed experimental reports are
+The exact submitted sources for the artifact-backed experimental reports are
 retained in
 [`articles/devto-structured-output-study.md`](articles/devto-structured-output-study.md)
 and
@@ -240,16 +309,19 @@ constrained-decoding-lab/
 |-- assets/figures/                 # deterministic, data-derived SVG figures
 |-- data/                           # fixed evaluation subset and audit policy
 |-- deployment/kaggle/
-|   |-- kernel/                     # Kaggle entry point and metadata
-|   `-- source-snapshot/            # exact source used by accepted cloud runs
+|   |-- kernel/                     # baseline Kaggle entry point and metadata
+|   |-- source-snapshot/            # exact source used by accepted baseline runs
+|   `-- corrected-replication/      # frozen corrected 7B execution bundle
 |-- docs/
 |   |-- methodology.md              # frozen analysis protocol
 |   |-- research-report.md          # complete interpretation and limitations
 |   |-- representation-alignment-results.md # accepted internal-representation result
 |   |-- run-ledgers/                # version-by-version local and cloud evidence
 |   `-- archive/                    # foundational probes and pilot record
-|-- experiments/representation-alignment-gate/ # protocol, schemas, traces, accepted raw rows
-|-- src/project_a/                  # typed representation config and deterministic transducer
+|-- experiments/representation-alignment-gate/ # historical alignment evidence
+|-- experiments/corrected-replication/ # corrected raw rows, validation, decision
+|-- experiments/compiler-prototype-probes/ # local compiler acceptance evidence
+|-- src/project_a/                  # contract IR, plans, transforms, and transducer
 |-- results/
 |   |-- diagnostics/                # failed and precision-diagnostic evidence
 |   |-- pilots/                     # early local evaluation evidence
@@ -322,6 +394,8 @@ python scripts/summarize_results.py \
 
 python -m unittest discover -s tests -v
 python scripts/build_figures.py
+python scripts/build_alignment_figures.py
+python scripts/build_corrected_replication_figures.py
 ```
 
 The checked-in 7B artifacts should be validated against the frozen deployment
@@ -346,6 +420,30 @@ PYTHONPATH=src python scripts/run_representation_alignment.py \
 The accepted 7B target and full-confirmation artifacts, source hashes, manifests,
 and compact boundary traces are in
 [`experiments/representation-alignment-gate/`](experiments/representation-alignment-gate/).
+
+### 6. Validate the corrected replication
+
+```bash
+python scripts/validate_corrected_replication.py \
+  --run-dir experiments/corrected-replication/results/qwen2.5-7b-corrected/results/corrected-replication \
+  --dataset data/gsm8k_50_seed0.jsonl \
+  --source-root deployment/kaggle/corrected-replication/source-snapshot \
+  --kernel-source deployment/kaggle/corrected-replication/run_kaggle.py \
+  --out /tmp/corrected-artifact-validation.json
+
+python scripts/summarize_alignment_gate.py \
+  experiments/corrected-replication/results/qwen2.5-7b-corrected/results/corrected-replication/*.jsonl \
+  --exclude-item-id gsm8k_test_454 \
+  --comparison outlines_integer_vs_signed outlines_json_integer_reasoning_first outlines_json_reasoning_first \
+  --comparison xgrammar_integer_vs_signed xgrammar_json_integer_reasoning_first xgrammar_json_reasoning_first \
+  --out-json /tmp/corrected-paired-summary.json \
+  --out-md /tmp/corrected-paired-summary.md
+```
+
+The validator checks row counts, item identity, condition signatures, source and
+runner hashes, prompt equivalence, backend output equivalence, errors, cap hits,
+schema validity, and trace completeness. It does not trust the remote summary as its
+own proof.
 
 ## Public Kaggle artifacts
 
@@ -382,6 +480,11 @@ availability.
 | Targeted gate validation | [`artifact-validation.json`](experiments/representation-alignment-gate/results/cloud-targeted/artifact-validation.json) |
 | Full confirmation validation | [`artifact-validation.json`](experiments/representation-alignment-gate/results/cloud-full/artifact-validation.json) |
 | Full paired comparison | [`paired-summary.md`](experiments/representation-alignment-gate/results/cloud-full/paired-summary.md) |
+| Corrected replication protocol | [`protocol.md`](experiments/corrected-replication/protocol.md) |
+| Corrected artifact validation | [`artifact-validation.json`](experiments/corrected-replication/results/qwen2.5-7b-corrected/artifact-validation.json) |
+| Corrected exact paired summary | [`paired-summary-exact.md`](experiments/corrected-replication/results/qwen2.5-7b-corrected/paired-summary-exact.md) |
+| Corrected architecture decision | [`decision-report.md`](experiments/corrected-replication/results/qwen2.5-7b-corrected/decision-report.md) |
+| Compiler prototype acceptance | [`acceptance-report.json`](experiments/compiler-prototype-probes/acceptance-report.json) |
 | 0.5B accepted aggregate results | [`summary_clean.md`](results/qwen2.5-0.5b/primary/summary_clean.md) |
 | Machine-readable data audit | [`gsm8k_item_audit.json`](data/gsm8k_item_audit.json) |
 | Exact accepted cloud source | [`deployment/kaggle/source-snapshot/`](deployment/kaggle/source-snapshot/) |
@@ -392,9 +495,8 @@ availability.
 ## Is more cloud compute required?
 
 No additional cloud run is required to support the current, narrow contract-alignment
-conclusion. The frozen baseline and the accepted full representation-alignment
-confirmation together establish the measured recovery on Qwen2.5-7B under the
-declared setup.
+continuation decision. The corrected 200-row replication establishes the measured
+recovery on Qwen2.5-7B under the declared setup without relying on mixed runner paths.
 
 More compute is required before making a broad claim about constrained decoding in
 general. The highest-value follow-up is a mechanism test, not another copy of the
@@ -407,7 +509,8 @@ same matrix:
 5. Benchmark optimized serving hardware separately from semantic accuracy so that
    runtime conclusions are not inferred from slow FP32 T4 execution.
 
-No further cloud job is required for the completed representation-alignment gate.
+No further copy of the same Qwen2.5-7B GSM8K matrix is required. The next cloud job
+must test external validity, not merely add repetitions to the same setup.
 
 ## Scope and limitations
 
@@ -415,7 +518,8 @@ No further cloud job is required for the completed representation-alignment gate
   one model family, one final prompt family, greedy decoding, and two grammar
   backends.
 - The sample of 49 audited items produces meaningful paired evidence but still leaves
-  wide intervals for several contrasts.
+  wide intervals. In the corrected replication, the exact interval touches zero and
+  the exact McNemar p-value is 0.146.
 - Prompt wording and field order are causal variables. Earlier prompt probes changed
   apparent backend effects and are retained as diagnostics rather than pooled.
 - The T4 precision failures are properties of the tested software and hardware path,
@@ -426,6 +530,10 @@ No further cloud job is required for the completed representation-alignment gate
   grammars. The internal-integer recovery is currently limited to this declared
   numeric-string schema and does not establish a universal law or claim invention of
   constrained decoding.
+- The corrected Outlines and XGrammar rows are byte-identical, so the backend arms
+  validate implementation agreement but are not independent semantic replications.
+- One correct treatment answer contradicts its own reasoning, so benchmark accuracy
+  must not be presented as reasoning faithfulness.
 
 ## Citation
 

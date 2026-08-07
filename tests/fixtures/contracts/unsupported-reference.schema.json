@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "answer": {
+      "$ref": "https://example.invalid/answer.schema.json"
+    }
+  },
+  "required": ["answer"],
+  "additionalProperties": false
+}

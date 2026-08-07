@@ -37,13 +37,8 @@ Candidate cases must contain an integer-valued argument with an unambiguous cano
 
 The gate will score tool selection, exact argument semantics, internal-schema validity, reconstructed external-schema validity, execution success, final state, and heuristic-repair count. A model output is never repaired heuristically.
 
-## Scope deliberately not frozen yet
+## Scope resolution
 
-The following remain unset until the second-family decision is frozen:
+The second-family result was frozen as Red. The authorized practical experiment is therefore one bounded pilot rather than the full gate. Its exact eligibility rules, random 30-case primary sample, complete negative sign-stress supplement, execution semantics, metrics, and decision rule are frozen in `protocol.md` before selection or generation.
 
-- pilot versus full gate size;
-- exact selected BFCL run IDs;
-- the number and type of deterministic wrappers;
-- the continuation decision.
-
-A green or yellow second-family result authorizes the full registered practical gate. A red result authorizes one bounded pilot only.
+No later result can expand this pilot retroactively.

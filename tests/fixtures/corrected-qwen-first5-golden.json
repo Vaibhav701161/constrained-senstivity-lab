@@ -1,0 +1,60 @@
+{
+  "fixture_version": "corrected-qwen-first5-golden-v1",
+  "source": "accepted corrected XGrammar artifacts",
+  "conditions": {
+    "signed-numeric-string": [
+      {
+        "item_id": "gsm8k_test_264",
+        "prompt_sha256": "c54276e77cdfa470f744db9f0c990c281195472ebf7d583922aacc5878a8c306",
+        "raw_output_sha256": "d6d533a1f017c7a45a1d20e00f220caba2c44f601518f0908c26fcc436780e1d"
+      },
+      {
+        "item_id": "gsm8k_test_725",
+        "prompt_sha256": "c2345373ddf01ea0fb2a126888af36d23b72ae204d5a26d786ded5142a75a739",
+        "raw_output_sha256": "eccc3cd57c0504b75a4578c5f8678ca50a23ef147a0ada02e27ee8d5e96c6c0c"
+      },
+      {
+        "item_id": "gsm8k_test_996",
+        "prompt_sha256": "96c2385f9eb010fc53790de693c96ffa8c93ede90f5baf566c8297048da146cd",
+        "raw_output_sha256": "ae4400f1336a2e6b68a236c4cccdc83fb7f22dccab572911a1a94aa53ebbe291"
+      },
+      {
+        "item_id": "gsm8k_test_586",
+        "prompt_sha256": "abc87a042ed35097a2363d2f379d1b4e56c390a38649d2f0c7bcc1a4fa5b6478",
+        "raw_output_sha256": "ee88e94e7432230539144bfee0e470328e071b28d2cbd73735b694b3dca29ead"
+      },
+      {
+        "item_id": "gsm8k_test_1010",
+        "prompt_sha256": "5791694e4c7ec47f858c3ca6ba218b09deb2ac38faccc0790361c94aa570855e",
+        "raw_output_sha256": "4a0b9a6141650233ac7b714e3ae581c5c7a1a6bd6d1c314ee347048ba0d11aeb"
+      }
+    ],
+    "integer": [
+      {
+        "item_id": "gsm8k_test_264",
+        "prompt_sha256": "cd85cbf61a22713bb3dda87c21b0767f0e5941fac8c248c76530357546cec7f1",
+        "raw_output_sha256": "3f8c9e57818e3606a492a3c871572e3b89a061af123cb669ea2d4a8b9c2216f8"
+      },
+      {
+        "item_id": "gsm8k_test_725",
+        "prompt_sha256": "6fac0e30dfee2a228f4ff158b12170c01b94cc58115bbca8696d420459eeb083",
+        "raw_output_sha256": "c857dfc77830375e9305c72d9d5b989f2c0a069dcef6d1d0def3c25b615cc8bc"
+      },
+      {
+        "item_id": "gsm8k_test_996",
+        "prompt_sha256": "62e768ea899180d7354c38e9128d5506421214700c9786e53d0fd1530c9d612e",
+        "raw_output_sha256": "4243f180b863bd6ef3157319b3a66f1d5d60da1e0723dc938f477058af640cfc"
+      },
+      {
+        "item_id": "gsm8k_test_586",
+        "prompt_sha256": "c64b8226f7f5e20fe102d1e5f4edb8f492e9ebdc4119425741b3d228f9da440f",
+        "raw_output_sha256": "e5eb4405f2411e92ea3b7017a6b01c7a6482db2ff1d4244918d4de6c6108e4f7"
+      },
+      {
+        "item_id": "gsm8k_test_1010",
+        "prompt_sha256": "b09363af262856fe98635051aa844c8959dff0c4bbf6d383856298ed1b62c5aa",
+        "raw_output_sha256": "41579272792426ed2b287cd83730bbf8ae1fb714b3f8869ff7c317b467bfb328"
+      }
+    ]
+  }
+}

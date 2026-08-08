@@ -1,0 +1,165 @@
+{
+  "manifest_version": "second-family-source-v1",
+  "frozen_at": "2026-08-07T18:00:48.693799+00:00",
+  "model": "meta-llama/Llama-3.2-3B-Instruct",
+  "model_revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+  "git_commit": "7312501beb0b2d952d6c88866f46b9f490c0ede2",
+  "git_branch": "exp/llama32-second-family",
+  "files": [
+    {
+      "path": "requirements.txt",
+      "sha256": "66859cada14e337dda3929af87f10400fb72db8b5375704c7a09f533fe0ebfcd",
+      "bytes": 243
+    },
+    {
+      "path": "src/project_a/runtime.py",
+      "sha256": "841acbbaaee358938179de936a4ee9fcb75ec28950c4540935b6dc2dec6436b7",
+      "bytes": 20533
+    },
+    {
+      "path": "src/project_a/metrics.py",
+      "sha256": "f0ed1fbf16c3bb286d78f92374e3a106802114b5eaba921a78502d8987aef966",
+      "bytes": 5882
+    },
+    {
+      "path": "src/project_a/schema_variants.py",
+      "sha256": "110a368cc382925421f9e24e5fadc144b4f87c1e6af72cbd331e78319c2d1253",
+      "bytes": 6291
+    },
+    {
+      "path": "src/project_a/transducer.py",
+      "sha256": "74b870fa834348a1105dbc0c58963443ac4e19de3a52fc2a852c9cd0fc16d138",
+      "bytes": 2060
+    },
+    {
+      "path": "scripts/run_contract_alignment.py",
+      "sha256": "ff1ea92f04b936c7a926cd42bb8dfd364285a62609dd7be2ae718ebfc44516ab",
+      "bytes": 13739
+    },
+    {
+      "path": "scripts/analyze_second_family_replication.py",
+      "sha256": "15858d1fcdf1cc920fae1bbd8c61ffa3da635a774082933c0c5d9c3dae64f088",
+      "bytes": 15606
+    },
+    {
+      "path": "scripts/select_outlines_parity.py",
+      "sha256": "18eefd62953a90c0f450070aafd9df9d93fea5b9c70eee9b66abc60e104f499f",
+      "bytes": 3122
+    },
+    {
+      "path": "scripts/prepare_unseen_gsm8k.py",
+      "sha256": "c888e8180cdcabbe2b84b38515cf2ab9b229229f4da039648552ccd2b4014e71",
+      "bytes": 10867
+    },
+    {
+      "path": "scripts/package_second_family_source.py",
+      "sha256": "ae6a0624801005ef25d61911b512b3b40160da56e68cac6931579594c5484d52",
+      "bytes": 3416
+    },
+    {
+      "path": "scripts/check_modal_budget.py",
+      "sha256": "dd4f1f0c5cac914af21e967044913173d3e23d5cf5562aee17640a1e2f8664b5",
+      "bytes": 1976
+    },
+    {
+      "path": "scripts/validate_second_family_canary.py",
+      "sha256": "5407f10555266a78e4334211c15a8e9426e530d4bab491feca590789a1d09914",
+      "bytes": 5999
+    },
+    {
+      "path": "scripts/validate_second_family_artifacts.py",
+      "sha256": "dcbe6fed5c85cb6578e4add14023aea2606251bd4f529ffe82fe34bc140cf8a1",
+      "bytes": 12235
+    },
+    {
+      "path": "deployment/modal/second-family/modal_app.py",
+      "sha256": "b5fdc48aa05cf9a6d875b944c7f606a3d8ef31e742da63b408d40ddeceed63d0",
+      "bytes": 14435
+    },
+    {
+      "path": "tests/test_contract_runtime.py",
+      "sha256": "834ea551d4ab33844a02115e41927b8c89d50ed1d3723a6e38e12e7804fcdfa5",
+      "bytes": 4455
+    },
+    {
+      "path": "tests/test_second_family_analysis.py",
+      "sha256": "d1392d1c24e559e9e2b74460566698ca59be9224ddb1e592d25ee9b6d03a95ea",
+      "bytes": 3171
+    },
+    {
+      "path": "tests/test_outlines_parity_selection.py",
+      "sha256": "74524b01ab1f1917094dfc14e82f989853bea312d11452dd34ebed98d2b0e721",
+      "bytes": 1858
+    },
+    {
+      "path": "tests/test_llama_prompt_parity.py",
+      "sha256": "d5c806717a835a418d03bf5e1df22325af25e0259d553174f6ae507de1503425",
+      "bytes": 1536
+    },
+    {
+      "path": "tests/test_modal_budget.py",
+      "sha256": "f999e332299304376049a69ef8471780560d72a1e2bc28ee4e34cd17166d2160",
+      "bytes": 932
+    },
+    {
+      "path": "tests/test_prepare_unseen_gsm8k.py",
+      "sha256": "4519ff4267a91793fa5c8bf0198a694dc22e513e6e90e87bc72f29921f021513",
+      "bytes": 2845
+    },
+    {
+      "path": "tests/test_validate_second_family_canary.py",
+      "sha256": "821dc9524428139dc564fc8908dc78b9a48a065886f8ee943eec6772cdae5ac0",
+      "bytes": 4724
+    },
+    {
+      "path": "tests/test_second_family_artifact_validator.py",
+      "sha256": "95c540861316e446dac9c2ff1de0909fd7922d371a0ace579bdf90f71d1d178e",
+      "bytes": 6101
+    },
+    {
+      "path": "tests/fixtures/corrected-qwen-first5-golden.json",
+      "sha256": "d2542d97b8a299529bbdd32b9b2ca46bdc5a9ec6ce73f64130e2a7349dac0f20",
+      "bytes": 2626
+    },
+    {
+      "path": "data/gsm8k_unseen_150_seed20260815.jsonl",
+      "sha256": "70e7af8691a4b8273dc14fcb825140573fe5dcc570723b9d58e755dc3b36e154",
+      "bytes": 106650
+    },
+    {
+      "path": "data/gsm8k_unseen_150_seed20260815.manifest.json",
+      "sha256": "d133ca134ef07973532c0ea26e33ab641610c3fef7ffbdb3b6f68e3b0b78ad57",
+      "bytes": 34212
+    },
+    {
+      "path": "data/gsm8k_50_seed0.jsonl",
+      "sha256": "3639f2f6def0f50e02086bc91e6f4a45567c85aa9b0f498224cb9421400d812a",
+      "bytes": 37088
+    },
+    {
+      "path": "experiments/second-family-replication/HYPOTHESIS.md",
+      "sha256": "dc8a21f051da37c822a5bfb257ea81b53277b85546548d55ccbfe59f6d6fcb51",
+      "bytes": 1450
+    },
+    {
+      "path": "experiments/second-family-replication/protocol.md",
+      "sha256": "0051f554c35e697825803b6847523064a090d01d2c4fdccb425e6345b3870375",
+      "bytes": 10219
+    },
+    {
+      "path": "experiments/second-family-replication/dataset-manifest.json",
+      "sha256": "d133ca134ef07973532c0ea26e33ab641610c3fef7ffbdb3b6f68e3b0b78ad57",
+      "bytes": 34212
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "3b5b881c5ddf86bcec8ad2b1f1718e61b1c7847b7bc4f6d1daf4a7557f581d5c",
+      "bytes": 6283
+    },
+    {
+      "path": "docs/supported-contracts.md",
+      "sha256": "b7b448ee6c010bd1eda22af7861ec4b7bbee611ead813d738210ed35e92b879b",
+      "bytes": 4109
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "report_version": "outlines-implementation-parity-v1",
+  "scope": "post_result_implementation_parity_only",
+  "changes_primary_estimate": false,
+  "selection_sha256": "cf489b1afcdca7207649dc311e5bf2f258b0716e387b7d895d06b1ab96b545f2",
+  "source_manifest_sha256": "f388d841378485da12cf0eaedcf6254480cecdec6fc4caad7e809c73fd831d0f",
+  "selected_rows": 40,
+  "structurally_valid": true,
+  "implementation_parity_passed": true,
+  "representations": {
+    "signed-numeric-string": {
+      "rows": 40,
+      "xgrammar_sha256": "618ec529babec4ba9f3c72c0e8f229c45123869fe20efda8c2f21ad434218e1a",
+      "outlines_sha256": "ab24a2917c6028d4242a015cf31cbd90e8cc59451da8469d3d445a044ac83646",
+      "xgrammar_manifest_sha256": "9edfd062aac7fc2fb3cdec2fb4eac231d5625ad0564ae62f60f3de945b1a37d9",
+      "outlines_manifest_sha256": "7d8c60c1ed538a480f1f20899ea0a3c02889b76cfbb5f1f1fcda43dcbdb22d0d",
+      "agreements": {
+        "formatted_prompt": 40,
+        "raw_output": 40,
+        "predicted_answer_normalized": 40,
+        "semantic_correct": 40,
+        "contract_valid_correct": 40,
+        "internal_schema_valid": 40,
+        "external_schema_valid": 40,
+        "hit_max_new_tokens": 40,
+        "error": 40
+      },
+      "mismatched_item_ids": {
+        "formatted_prompt": [],
+        "raw_output": [],
+        "predicted_answer_normalized": [],
+        "semantic_correct": [],
+        "contract_valid_correct": [],
+        "internal_schema_valid": [],
+        "external_schema_valid": [],
+        "hit_max_new_tokens": [],
+        "error": []
+      },
+      "score_identical_rows": 40,
+      "xgrammar_cap_hits": 0,
+      "outlines_cap_hits": 0
+    },
+    "integer": {
+      "rows": 40,
+      "xgrammar_sha256": "298d1a38ad8d95d89ca97ab1f98d14bef4853342bf388d080f57f06de9c47342",
+      "outlines_sha256": "de38190c0555a7e8ba37daf0b4397a9c45a7e083f3dbc332a83c77f2544c65c5",
+      "xgrammar_manifest_sha256": "6a308802cd0be504dd4f8d6a694b0c4ac43bc3b1c47527f77d642e4141d12052",
+      "outlines_manifest_sha256": "35e7d7509d3796efdd47d82853286374d9223761ffcd496fc06f6c783b109556",
+      "agreements": {
+        "formatted_prompt": 40,
+        "raw_output": 40,
+        "predicted_answer_normalized": 40,
+        "semantic_correct": 40,
+        "contract_valid_correct": 40,
+        "internal_schema_valid": 40,
+        "external_schema_valid": 40,
+        "hit_max_new_tokens": 40,
+        "error": 40
+      },
+      "mismatched_item_ids": {
+        "formatted_prompt": [],
+        "raw_output": [],
+        "predicted_answer_normalized": [],
+        "semantic_correct": [],
+        "contract_valid_correct": [],
+        "internal_schema_valid": [],
+        "external_schema_valid": [],
+        "hit_max_new_tokens": [],
+        "error": []
+      },
+      "score_identical_rows": 40,
+      "xgrammar_cap_hits": 1,
+      "outlines_cap_hits": 1
+    }
+  },
+  "failures": []
+}

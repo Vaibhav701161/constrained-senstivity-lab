@@ -1,0 +1,60 @@
+{
+  "manifest_version": "contract-generation-manifest-v1",
+  "run_config": {
+    "runtime_version": "contract-generation-runtime-v1",
+    "model": "meta-llama/Llama-3.2-3B-Instruct",
+    "revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+    "dataset_path": "/evidence/second-family-replication/parity-dataset.jsonl",
+    "dataset_role": "parity",
+    "dataset_sha256": "36df29fcae66ee72c46f03ef23446524e0fde43c125615da7a1fb822ad45548a",
+    "excluded_item_ids": [],
+    "condition": "outlines_json_reasoning_first",
+    "backend": "outlines",
+    "answer_representation": "signed-numeric-string",
+    "field_order": [
+      "reasoning",
+      "answer"
+    ],
+    "prompt_version": "contract-alignment-unified-v1",
+    "seed": 0,
+    "do_sample": false,
+    "max_new_tokens": 256,
+    "dtype": "float32",
+    "device_map_auto": true,
+    "xgrammar_any_whitespace": null,
+    "xgrammar_separators": null,
+    "outlines_whitespace_pattern": "",
+    "internal_schema_sha256": "fbccdf1753bf682cf52ea7a8278c76852ab793d2ca25fce74bdffb1b5670bbff",
+    "external_schema_sha256": "fbccdf1753bf682cf52ea7a8278c76852ab793d2ca25fce74bdffb1b5670bbff",
+    "transducer_version": null,
+    "plan_id": "external-signed-string-control-v1",
+    "runner_sha256": "ff1ea92f04b936c7a926cd42bb8dfd364285a62609dd7be2ae718ebfc44516ab",
+    "runtime_sha256": "841acbbaaee358938179de936a4ee9fcb75ec28950c4540935b6dc2dec6436b7"
+  },
+  "started_at": "2026-08-07T18:59:34.987490+00:00",
+  "python": "3.12.10 (main, May 21 2025, 23:34:56) [GCC 12.2.0]",
+  "platform": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+  "torch": "2.6.0+cu124",
+  "cuda_runtime": "12.4",
+  "cuda_available": true,
+  "gpu_count": 1,
+  "gpus": [
+    {
+      "index": 0,
+      "name": "NVIDIA L4",
+      "total_memory": 23659151360
+    }
+  ],
+  "model_revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+  "tokenizer_revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+  "packages": {
+    "torch": "2.6.0+cu124",
+    "transformers": "4.51.3",
+    "accelerate": "1.6.0",
+    "datasets": "3.6.0",
+    "jsonschema": "4.23.0",
+    "outlines": "1.3.2",
+    "xgrammar": "0.2.3"
+  },
+  "source_manifest_sha256": "f388d841378485da12cf0eaedcf6254480cecdec6fc4caad7e809c73fd831d0f"
+}

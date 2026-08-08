@@ -1,0 +1,38 @@
+{
+  "validation_version": "bounded-bfcl-tool-artifacts-v1",
+  "valid": true,
+  "model": "meta-llama/Llama-3.2-3B-Instruct",
+  "model_revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+  "source_manifest_sha256": "a584b8ac650c146f482a129d69c61d7a7533ac41cf4e414d1d4ff1a6cdf64d8a",
+  "expected_generation_rows": 66,
+  "validated_generation_rows": 66,
+  "results": {
+    "xgrammar_tool_external_integer_strings": {
+      "rows": 33,
+      "sha256": "3643e30a577aa6fcba1158435b94af863d53403665368d690ae88e81fba41f68",
+      "manifest_sha256": "ced76c5ad187f511471ef4b4b1cde2d897091957f4e90d0737ade725a64c1884",
+      "run_id": "20260807T193138Z-e109eccc23b1",
+      "run_signature": "e109eccc23b1",
+      "errors": 0,
+      "cap_hits": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0,
+      "execution_failures": 0,
+      "heuristic_repairs": 0
+    },
+    "xgrammar_tool_internal_integers": {
+      "rows": 33,
+      "sha256": "1a610c66a3cccd7e6120baa23bcef5f0523f5ba39fa6eb5a5bb84d4f24946638",
+      "manifest_sha256": "2ab22212c3c18df22a397bc9a41e9584fa5be939ca76dfa75f9226c0784ded09",
+      "run_id": "20260807T193231Z-19a326d6d641",
+      "run_signature": "19a326d6d641",
+      "errors": 0,
+      "cap_hits": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0,
+      "execution_failures": 0,
+      "heuristic_repairs": 0
+    }
+  },
+  "failures": []
+}

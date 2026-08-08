@@ -1,0 +1,57 @@
+{
+  "validation_version": "second-family-artifact-validation-v1",
+  "valid": true,
+  "model": "meta-llama/Llama-3.2-3B-Instruct",
+  "model_revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+  "source_manifest_sha256": "f388d841378485da12cf0eaedcf6254480cecdec6fc4caad7e809c73fd831d0f",
+  "expected_primary_rows": 398,
+  "validated_primary_rows": 398,
+  "results": {
+    "fresh/xgrammar_json_reasoning_first": {
+      "rows": 150,
+      "sha256": "618ec529babec4ba9f3c72c0e8f229c45123869fe20efda8c2f21ad434218e1a",
+      "manifest_sha256": "9edfd062aac7fc2fb3cdec2fb4eac231d5625ad0564ae62f60f3de945b1a37d9",
+      "run_signature": "76d1bb42b9e4",
+      "run_id": "20260807T180257Z-76d1bb42b9e4",
+      "errors": 0,
+      "cap_hits": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0
+    },
+    "fresh/xgrammar_json_integer_reasoning_first": {
+      "rows": 150,
+      "sha256": "298d1a38ad8d95d89ca97ab1f98d14bef4853342bf388d080f57f06de9c47342",
+      "manifest_sha256": "6a308802cd0be504dd4f8d6a694b0c4ac43bc3b1c47527f77d642e4141d12052",
+      "run_signature": "a2fa2f3f8dfb",
+      "run_id": "20260807T180428Z-a2fa2f3f8dfb",
+      "errors": 0,
+      "cap_hits": 1,
+      "internal_invalid": 1,
+      "external_invalid": 1
+    },
+    "bridge/xgrammar_json_reasoning_first": {
+      "rows": 49,
+      "sha256": "eab6d51ca261e448f179208ba228414277ed19c708f4610947b38c59b578a24d",
+      "manifest_sha256": "43ab1046db151c068d338f4cc9d47dc40ef13b799b7495f376731e63d32eddaf",
+      "run_signature": "bf916a9d7ad4",
+      "run_id": "20260807T184214Z-bf916a9d7ad4",
+      "errors": 0,
+      "cap_hits": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0
+    },
+    "bridge/xgrammar_json_integer_reasoning_first": {
+      "rows": 49,
+      "sha256": "a11b9dc67ba8b1aaeeac1a3fe8c7c68d7a6d505497c8799ea9b0c904a7136e72",
+      "manifest_sha256": "30a725cdfd114faf2f89457e890cf84dc4bce90833916764e4120b3a225175d3",
+      "run_signature": "320a01f5a48d",
+      "run_id": "20260807T184825Z-320a01f5a48d",
+      "errors": 0,
+      "cap_hits": 0,
+      "internal_invalid": 0,
+      "external_invalid": 0
+    }
+  },
+  "failures": [],
+  "warnings": []
+}

@@ -1,0 +1,102 @@
+{
+  "fresh:gsm8k_test_955": {
+    "manual_category": "problem_interpretation_change",
+    "manual_notes": "Treatment correctly adds 700 new patients to the 200 occupied beds and subtracts 900 from capacity. Control instead subtracts admissions from occupied beds and also reports 200 - 700 as positive 500."
+  },
+  "fresh:gsm8k_test_449": {
+    "manual_category": "problem_interpretation_change",
+    "manual_notes": "Treatment uses the stated split of six 8-color packets and four 16-color packets. Control incorrectly applies eight colors to all ten packets."
+  },
+  "fresh:gsm8k_test_330": {
+    "manual_category": "problem_interpretation_change",
+    "manual_notes": "Treatment subtracts both the four-dollar reward and the separate eight-dollar coupon from 43. Control subtracts only the coupon amount."
+  },
+  "fresh:gsm8k_test_1236": {
+    "manual_category": "problem_interpretation_change",
+    "manual_notes": "Treatment reconstructs the initial stock by including Madeline's six eaten grapes in addition to 30 used by her brother and 48 used in pies. Control omits the six eaten grapes."
+  },
+  "fresh:gsm8k_test_538": {
+    "manual_category": "arithmetic_correction",
+    "manual_notes": "Treatment completes 18 + 21 + 15 = 54 and 72 - 54 = 18. Control states the intended operations but never evaluates them and emits 39."
+  },
+  "fresh:gsm8k_test_1084": {
+    "manual_category": "reasoning_final_answer_inconsistency",
+    "manual_notes": "Both outputs contain the same derivation x = 20 for Sam. Treatment emits 40 despite its own reasoning, while control emits the derived 20."
+  },
+  "fresh:gsm8k_test_1273": {
+    "manual_category": "reasoning_final_answer_inconsistency",
+    "manual_notes": "The reasoning text is byte-identical and stops at the same equation. Control emits the correct 27, while treatment emits an unsupported 17."
+  },
+  "fresh:gsm8k_test_1176": {
+    "manual_category": "reasoning_final_answer_inconsistency",
+    "manual_notes": "Both outputs contain the same reasoning and explicitly conclude that recycling occurs after two days. Treatment nevertheless emits 3."
+  },
+  "fresh:gsm8k_test_1173": {
+    "manual_category": "problem_interpretation_change",
+    "manual_notes": "Control converts 120 pods for 12 dollars into 10 cycles per dollar. Treatment treats all 120 cycles as obtainable for one dollar and emits 120."
+  },
+  "fresh:gsm8k_test_446": {
+    "manual_category": "reasoning_final_answer_inconsistency",
+    "manual_notes": "Both outputs derive 10 glasses and then 2 trays. Treatment selects the intermediate glass count 10 as the final answer instead of the requested tray count."
+  },
+  "fresh:gsm8k_test_924": {
+    "manual_category": "problem_interpretation_change",
+    "manual_notes": "Treatment double-counts the two trips by changing 2x = 24 into 2x times 2 = 24, producing 6 berries per trip. Control uses the correct two-trip interpretation and emits 12."
+  },
+  "fresh:gsm8k_test_33": {
+    "manual_category": "problem_interpretation_change",
+    "manual_notes": "Treatment omits the silver-coin term from the total, solves x + 30 = 110, and then emits the resulting silver count. Control uses x + (x + 30) = 110 and returns 70 gold coins."
+  },
+  "fresh:gsm8k_test_646": {
+    "manual_category": "arithmetic_regression",
+    "manual_notes": "Treatment states the correct expression 12 times 4.5 plus 10 times 2.5 but emits 67 rather than evaluating it as 79. Control evaluates the same quantities correctly."
+  },
+  "fresh:gsm8k_test_668": {
+    "manual_category": "reasoning_final_answer_inconsistency",
+    "manual_notes": "The reasoning expression is byte-identical in both outputs and evaluates to 3. Treatment emits 15, while control emits 3."
+  },
+  "fresh:gsm8k_test_279": {
+    "manual_category": "arithmetic_regression",
+    "manual_notes": "Both responses use the same flawed symbolic setup, but control lands on the reference answer 6 and treatment claims the same equation solves to 12. This is a treatment-side arithmetic change, not a lexical or parser effect."
+  },
+  "fresh:gsm8k_test_762": {
+    "manual_category": "problem_interpretation_change",
+    "manual_notes": "Control subtracts Jayden's existing 70 dollars and Ava's 45 dollars from the 200-dollar price. Treatment instead adds 45 to the price and ignores the existing 70, emitting 245."
+  },
+  "fresh:gsm8k_test_31": {
+    "manual_category": "reasoning_final_answer_inconsistency",
+    "manual_notes": "The displayed arithmetic expression is byte-identical across conditions. The final fields differ, with control emitting the reference 80 and treatment emitting 86; neither final value is derived in the displayed reasoning."
+  },
+  "fresh:gsm8k_test_207": {
+    "manual_category": "reasoning_final_answer_inconsistency",
+    "manual_notes": "Both responses state the same correct total expression, 25 times 40 plus 80 times 20. Control emits its value 2600, while treatment emits an unsupported 600."
+  },
+  "fresh:gsm8k_test_211": {
+    "manual_category": "reasoning_final_answer_inconsistency",
+    "manual_notes": "Treatment gives the correct equation 3r + 5(r + 2) = 42 but stops before solving and emits 9. Control completes the equation and emits r = 4. There was no token-cap hit."
+  },
+  "fresh:gsm8k_test_299": {
+    "manual_category": "problem_interpretation_change",
+    "manual_notes": "Treatment multiplies the already round-trip daily distance of 60 miles by an extra factor of two, doubling annual mileage and producing 61800. Control preserves the stated 60-mile daily total and emits 31800."
+  },
+  "bridge:gsm8k_test_1020": {
+    "manual_category": "problem_interpretation_change",
+    "manual_notes": "Treatment sums Wednesday, Thursday, and Friday to obtain the requested total of 22 bananas. Control reports only Thursday plus Friday, omitting Wednesday's four bananas."
+  },
+  "bridge:gsm8k_test_1216": {
+    "manual_category": "problem_interpretation_change",
+    "manual_notes": "Treatment applies the stated doubling at the third station, reaching 180 passengers and 20 remaining spaces. Control stops at 90 passengers and omits the third-station event."
+  },
+  "bridge:gsm8k_test_1010": {
+    "manual_category": "reasoning_final_answer_inconsistency",
+    "manual_notes": "Both responses derive Quinn's five laps. The requested difference is 10 - 5 = 5; control emits 5, while treatment emits an unsupported 3."
+  },
+  "bridge:gsm8k_test_12": {
+    "manual_category": "arithmetic_regression",
+    "manual_notes": "Treatment correctly computes annual net proceeds of 7.5 dollars but then divides 90 by gross proceeds of 10.5, yielding 9. Control's final answer 13 matches the reference despite defects in its written explanation."
+  },
+  "bridge:gsm8k_test_739": {
+    "manual_category": "problem_interpretation_change",
+    "manual_notes": "Treatment interprets a half-gallon jar as costing twice five dollars. The statement says a gallon costs two dollars more, so the half-gallon price is three dollars, which control uses to obtain 98."
+  }
+}

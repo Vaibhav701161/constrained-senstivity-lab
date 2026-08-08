@@ -1,0 +1,38 @@
+{
+  "gate_version": "bounded-bfcl-tool-canary-v1",
+  "evaluated_at": "2026-08-07T19:33:11.845636+00:00",
+  "scope": "operational_integrity_only",
+  "semantic_outcomes_inspected": false,
+  "passed": true,
+  "checks": {
+    "exactly_three_control_rows": true,
+    "exactly_three_treatment_rows": true,
+    "control_ids_match_frozen_order": true,
+    "treatment_ids_match_frozen_order": true,
+    "no_duplicates": true,
+    "one_chat_template_application": true,
+    "nonempty_outputs": true,
+    "no_generation_exceptions": true,
+    "no_token_cap_hits": true,
+    "all_internal_schema_valid": true,
+    "all_external_schema_valid": true,
+    "all_execution_paths_operational": true,
+    "zero_heuristic_repairs": true,
+    "paired_config_parity": true,
+    "matching_dataset_hashes": true,
+    "dataset_hash_is_frozen": true,
+    "one_model_revision": true,
+    "one_tokenizer_revision": true,
+    "matching_environment": true,
+    "source_manifest_bound": true
+  },
+  "expected_item_ids": [
+    "simple_python_8",
+    "simple_python_11",
+    "simple_python_17"
+  ],
+  "control_run_signature": "e109eccc23b1",
+  "treatment_run_signature": "19a326d6d641",
+  "dataset_sha256": "8590c3b1a13173dbb6a31d7b3496dad419e93bcc1b1d10352c67629b0cd1804d",
+  "source_manifest_sha256": "a584b8ac650c146f482a129d69c61d7a7533ac41cf4e414d1d4ff1a6cdf64d8a"
+}

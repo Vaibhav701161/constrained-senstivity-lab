@@ -1,0 +1,21 @@
+{
+  "replay_version": "artifact-score-replay-v1",
+  "scopes": [
+    {
+      "scope": "second_family",
+      "replayed_rows": 398,
+      "row_score_mismatches": [],
+      "paired_summary_mismatches": [],
+      "valid": true
+    },
+    {
+      "scope": "tool_call",
+      "replayed_rows": 66,
+      "row_score_mismatches": [],
+      "paired_summary_mismatches": [],
+      "valid": true
+    }
+  ],
+  "replayed_rows": 464,
+  "valid": true
+}

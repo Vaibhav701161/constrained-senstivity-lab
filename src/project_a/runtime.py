@@ -23,6 +23,7 @@ from .metrics import score_alignment_output
 from .schema_variants import (
     AnswerRepresentation,
     ConditionSpec,
+    canonical_external_schema,
     external_schema,
     schema_for_spec,
     schema_sha256,
@@ -50,6 +51,7 @@ class RuntimeRepresentation(StrEnum):
     """The only experimental switch in the unified runtime."""
 
     SIGNED_NUMERIC_STRING = "signed-numeric-string"
+    CANONICAL_SIGNED_INTEGER_STRING = "canonical-signed-integer-string"
     INTEGER = "integer"
 
 
@@ -83,16 +85,15 @@ def representation_spec(
     representation: RuntimeRepresentation,
     backend: RuntimeBackend,
 ) -> ConditionSpec:
-    answer_representation = (
-        AnswerRepresentation.INTEGER
-        if representation is RuntimeRepresentation.INTEGER
-        else AnswerRepresentation.SIGNED_NUMERIC_STRING
-    )
-    suffix = (
-        "integer_reasoning_first"
-        if representation is RuntimeRepresentation.INTEGER
-        else "reasoning_first"
-    )
+    if representation is RuntimeRepresentation.INTEGER:
+        answer_representation = AnswerRepresentation.INTEGER
+        suffix = "integer_reasoning_first"
+    elif representation is RuntimeRepresentation.CANONICAL_SIGNED_INTEGER_STRING:
+        answer_representation = AnswerRepresentation.CANONICAL_SIGNED_INTEGER_STRING
+        suffix = "canonical_integer_string_reasoning_first"
+    else:
+        answer_representation = AnswerRepresentation.SIGNED_NUMERIC_STRING
+        suffix = "reasoning_first"
     return ConditionSpec(
         name=f"{backend.value}_json_{suffix}",
         backend=backend.value,
@@ -467,7 +468,11 @@ def run_config(
 ) -> dict[str, Any]:
     spec = representation_spec(representation, backend)
     internal = schema_for_spec(spec)
-    external = external_schema(spec.field_order)
+    external = (
+        canonical_external_schema(spec.field_order)
+        if representation is RuntimeRepresentation.CANONICAL_SIGNED_INTEGER_STRING
+        else external_schema(spec.field_order)
+    )
     return {
         "runtime_version": RUNTIME_VERSION,
         "model": model,
@@ -502,9 +507,13 @@ def run_config(
             if representation is RuntimeRepresentation.INTEGER
             else None
         ),
-        "plan_id": "integer-string-representation-v1"
-        if representation is RuntimeRepresentation.INTEGER
-        else "external-signed-string-control-v1",
+        "plan_id": (
+            "integer-string-representation-v1"
+            if representation is RuntimeRepresentation.INTEGER
+            else "canonical-signed-integer-string-control-v1"
+            if representation is RuntimeRepresentation.CANONICAL_SIGNED_INTEGER_STRING
+            else "external-broad-numeric-string-control-v1"
+        ),
         "runner_sha256": runner_sha256,
         "runtime_sha256": runtime_sha256,
     }
@@ -592,10 +601,15 @@ def score_output(
     gold_answer: str,
 ) -> dict[str, Any]:
     spec = representation_spec(representation, backend)
+    external = (
+        canonical_external_schema(spec.field_order)
+        if representation is RuntimeRepresentation.CANONICAL_SIGNED_INTEGER_STRING
+        else external_schema(spec.field_order)
+    )
     return score_alignment_output(
         raw_output,
         schema_for_spec(spec),
-        external_schema(spec.field_order),
+        external,
         spec.field_order,
         gold_answer,
         spec.answer_representation,

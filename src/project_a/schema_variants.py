@@ -9,6 +9,12 @@ from dataclasses import dataclass
 from enum import StrEnum
 from typing import Any
 
+from .contracts import (
+    CANONICAL_SIGNED_INTEGER_PATTERN,
+    canonical_integer_string_schema,
+)
+from .transforms import IntegerStringTransform
+
 SIGNED_NUMERIC_STRING_PATTERN = re.compile(
     r"^-?(?:(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?|"
     r"(?:\d+|\d{1,3}(?:,\d{3})+)/(?:\d+|\d{1,3}(?:,\d{3})+))$"
@@ -24,6 +30,7 @@ class AnswerRepresentation(StrEnum):
     """Model-facing answer forms supported by the gate."""
 
     SIGNED_NUMERIC_STRING = "signed_numeric_string"
+    CANONICAL_SIGNED_INTEGER_STRING = "canonical_signed_integer_string"
     UNSIGNED_NUMERIC_STRING_DIAGNOSTIC = "unsigned_numeric_string_diagnostic"
     INTEGER = "integer"
 
@@ -85,6 +92,8 @@ def numeric_string_pattern(representation: AnswerRepresentation) -> str:
 
     if representation is AnswerRepresentation.SIGNED_NUMERIC_STRING:
         return SIGNED_NUMERIC_STRING_PATTERN.pattern
+    if representation is AnswerRepresentation.CANONICAL_SIGNED_INTEGER_STRING:
+        return CANONICAL_SIGNED_INTEGER_PATTERN
     if representation is AnswerRepresentation.UNSIGNED_NUMERIC_STRING_DIAGNOSTIC:
         return UNSIGNED_NUMERIC_STRING_PATTERN.pattern
     raise ValueError(f"{representation} is not a numeric-string representation")
@@ -95,6 +104,8 @@ def answer_schema(representation: AnswerRepresentation) -> dict[str, Any]:
 
     if representation is AnswerRepresentation.INTEGER:
         return {"type": "integer"}
+    if representation is AnswerRepresentation.CANONICAL_SIGNED_INTEGER_STRING:
+        return canonical_integer_string_schema()
     return {"type": "string", "pattern": numeric_string_pattern(representation)}
 
 
@@ -127,6 +138,31 @@ def external_schema(field_order: tuple[str, str] = ("reasoning", "answer")) -> d
             field_order=field_order,
         )
     )
+
+
+def canonical_external_schema(
+    field_order: tuple[str, str] = ("reasoning", "answer"),
+) -> dict[str, Any]:
+    """Return the exact compiler-supported canonical integer-string contract."""
+
+    return schema_for_spec(
+        ConditionSpec(
+            name="external_canonical_signed_integer_string",
+            backend="external",
+            answer_representation=AnswerRepresentation.CANONICAL_SIGNED_INTEGER_STRING,
+            field_order=field_order,
+        )
+    )
+
+
+def canonical_schema_pair(
+    field_order: tuple[str, str] = ("reasoning", "answer"),
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Build external and internal schemas through the compiler transform path."""
+
+    external = canonical_external_schema(field_order)
+    internal = IntegerStringTransform(("answer",)).rewrite_schema(external)
+    return external, internal
 
 
 def symbolic_template(spec: ConditionSpec) -> str:

@@ -16,6 +16,7 @@ from project_a.runtime import (
     score_output,
     select_examples,
 )
+from project_a.schema_variants import canonical_schema_pair
 
 ROOT = Path(__file__).parents[1]
 ACCEPTED = (
@@ -35,7 +36,13 @@ def digest_text(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
 
-@pytest.mark.parametrize("representation", tuple(RuntimeRepresentation))
+@pytest.mark.parametrize(
+    "representation",
+    (
+        RuntimeRepresentation.SIGNED_NUMERIC_STRING,
+        RuntimeRepresentation.INTEGER,
+    ),
+)
 def test_first_five_corrected_qwen_artifacts_are_golden_and_runtime_compatible(
     representation: RuntimeRepresentation,
 ) -> None:
@@ -85,6 +92,27 @@ def test_representation_is_the_only_prompt_difference() -> None:
     assert signed.replace('"<final numeric answer>"', "<integer>") == integer
 
 
+def test_canonical_control_preserves_the_accepted_string_prompt_exactly() -> None:
+    question = "What is 2 + 2?"
+    broad = make_contract_prompt(
+        question, RuntimeRepresentation.SIGNED_NUMERIC_STRING
+    )
+    canonical = make_contract_prompt(
+        question, RuntimeRepresentation.CANONICAL_SIGNED_INTEGER_STRING
+    )
+
+    assert canonical == broad
+
+
+def test_canonical_schema_pair_uses_the_compiler_rewrite_path() -> None:
+    external, internal = canonical_schema_pair()
+    assert external["properties"]["answer"] == {
+        "type": "string",
+        "pattern": r"^-?(?:0|[1-9][0-9]*)$",
+    }
+    assert internal["properties"]["answer"] == {"type": "integer"}
+
+
 def test_condition_names_preserve_accepted_identifiers() -> None:
     assert representation_spec(
         RuntimeRepresentation.SIGNED_NUMERIC_STRING, RuntimeBackend.XGRAMMAR
@@ -92,6 +120,10 @@ def test_condition_names_preserve_accepted_identifiers() -> None:
     assert representation_spec(
         RuntimeRepresentation.INTEGER, RuntimeBackend.XGRAMMAR
     ).name == "xgrammar_json_integer_reasoning_first"
+    assert representation_spec(
+        RuntimeRepresentation.CANONICAL_SIGNED_INTEGER_STRING,
+        RuntimeBackend.XGRAMMAR,
+    ).name == "xgrammar_json_canonical_integer_string_reasoning_first"
 
 
 def test_selection_applies_frozen_exclusion_before_slicing() -> None:

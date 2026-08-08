@@ -6,11 +6,17 @@ import hashlib
 import json
 import re
 from copy import deepcopy
+from decimal import Decimal, InvalidOperation
 from typing import Any, Mapping
 
 from jsonschema import Draft202012Validator
 
-CANONICAL_INTEGER_PATTERN = r"^-?(0|[1-9][0-9]*)$"
+from .contracts import (
+    CANONICAL_SIGNED_INTEGER_PATTERN,
+    canonical_integer_string_schema,
+)
+
+CANONICAL_INTEGER_PATTERN = CANONICAL_SIGNED_INTEGER_PATTERN
 CANONICAL_INTEGER_RE = re.compile(CANONICAL_INTEGER_PATTERN)
 SUPPORTED_BFCL_TYPES = {"string", "integer", "float", "boolean", "array", "dict"}
 
@@ -61,13 +67,32 @@ def map_integers_to_strings(schema: Mapping[str, Any]) -> dict[str, Any]:
 
     schema_type = schema.get("type")
     if schema_type == "integer":
-        result = {
-            "type": "string",
-            "pattern": CANONICAL_INTEGER_PATTERN,
-        }
-        if "description" in schema:
-            result["description"] = schema["description"]
-        return result
+        unsafe_constraints = sorted(
+            key
+            for key in (
+                "const",
+                "enum",
+                "minimum",
+                "maximum",
+                "exclusiveMinimum",
+                "exclusiveMaximum",
+                "multipleOf",
+            )
+            if key in schema
+        )
+        if unsafe_constraints:
+            raise UnsupportedToolSchema(
+                "integer-to-string rewrite refuses constraints that are not "
+                f"translated exactly: {unsafe_constraints}"
+            )
+        return canonical_integer_string_schema(
+            title=schema.get("title") if isinstance(schema.get("title"), str) else None,
+            description=(
+                schema.get("description")
+                if isinstance(schema.get("description"), str)
+                else None
+            ),
+        )
     result = deepcopy(dict(schema))
     if schema_type == "array":
         result["items"] = map_integers_to_strings(schema["items"])
@@ -188,8 +213,17 @@ def validation_error(value: Any, schema: Mapping[str, Any]) -> str | None:
 def semantically_equal(left: Any, right: Any) -> bool:
     if isinstance(left, bool) or isinstance(right, bool):
         return type(left) is type(right) and left == right
+    if isinstance(left, int) and isinstance(right, int):
+        return left == right
     if isinstance(left, (int, float)) and isinstance(right, (int, float)):
-        return float(left) == float(right)
+        try:
+            left_decimal = Decimal(left) if isinstance(left, int) else Decimal(str(left))
+            right_decimal = (
+                Decimal(right) if isinstance(right, int) else Decimal(str(right))
+            )
+        except (InvalidOperation, ValueError):
+            return False
+        return left_decimal.is_finite() and right_decimal.is_finite() and left_decimal == right_decimal
     if isinstance(left, list) and isinstance(right, list):
         return len(left) == len(right) and all(
             semantically_equal(a, b) for a, b in zip(left, right, strict=True)

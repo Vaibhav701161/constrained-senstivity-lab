@@ -8,8 +8,10 @@ from project_a.tool_runtime import (
     call_schema,
     external_call_schema,
     make_tool_prompt,
+    map_integers_to_strings,
     normalize_bfcl_schema,
     score_tool_output,
+    semantically_equal,
     transduce_call,
 )
 
@@ -43,6 +45,36 @@ def test_normalization_and_recursive_integer_mapping() -> None:
 def test_unsupported_schema_fails_closed() -> None:
     with pytest.raises(UnsupportedToolSchema):
         normalize_bfcl_schema({"type": "tuple"})
+
+
+@pytest.mark.parametrize(
+    "constraint",
+    (
+        {"enum": [1, 2]},
+        {"minimum": 0},
+        {"maximum": 10},
+        {"exclusiveMinimum": 0},
+        {"exclusiveMaximum": 10},
+        {"multipleOf": 2},
+        {"const": 7},
+    ),
+)
+def test_integer_string_mapping_refuses_untranslated_constraints(
+    constraint: dict[str, object],
+) -> None:
+    with pytest.raises(UnsupportedToolSchema, match="refuses constraints"):
+        map_integers_to_strings({"type": "integer", **constraint})
+
+
+def test_semantic_numeric_comparison_preserves_arbitrary_precision() -> None:
+    exact = 2**80 + 1
+    rounded = float(exact)
+    assert semantically_equal(exact, exact)
+    assert not semantically_equal(exact, rounded)
+    assert semantically_equal(12, 12.0)
+    assert semantically_equal(0.125, 0.125)
+    assert not semantically_equal(float("nan"), float("nan"))
+    assert not semantically_equal(float("inf"), float("inf"))
 
 
 def test_transducer_canonicalizes_registered_integer_leaves_only() -> None:

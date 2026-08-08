@@ -8,6 +8,7 @@ from typing import Any, Mapping, MutableMapping
 
 from jsonschema import SchemaError, ValidationError, validate
 
+from .contracts import CANONICAL_SIGNED_INTEGER_PATTERNS
 from .plan import AlignmentPlan, PlanError, TransformStep
 
 
@@ -22,12 +23,6 @@ class TransformError(ValueError):
     def __str__(self) -> str:
         location = "/" + "/".join(self.path) if self.path else "/"
         return f"{self.code} at {location}: {super().__str__()}"
-
-
-CANONICAL_SIGNED_INTEGER_PATTERNS = {
-    r"^-?(?:0|[1-9][0-9]*)$",
-    r"^-?(?:0|[1-9]\d*)$",
-}
 
 
 @dataclass(frozen=True)

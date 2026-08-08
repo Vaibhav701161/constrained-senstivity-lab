@@ -1,0 +1,33 @@
+name: evidence-ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  replay-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install lightweight test environment
+        run: python -m pip install -e ".[dev]"
+      - name: Compile Python sources
+        run: python -m compileall -q src scripts tests
+      - name: Replay accepted artifacts
+        run: >-
+          python scripts/replay_artifacts.py
+          --scope all
+          --out /tmp/replay-validation.json
+      - name: Run tests
+        run: python -m pytest
+

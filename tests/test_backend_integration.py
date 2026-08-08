@@ -33,6 +33,7 @@ def internal_schema() -> dict:
 
 
 def test_effective_prompt_tokens_match_between_direct_and_outlines_paths() -> None:
+    pytest.importorskip("outlines")
     from outlines.models.transformers import TransformersTypeAdapter
 
     tokenizer, _ = model_components()
@@ -52,6 +53,7 @@ def test_effective_prompt_tokens_match_between_direct_and_outlines_paths() -> No
 
 
 def test_outlines_compiles_tokenizer_aware_canonical_schema() -> None:
+    pytest.importorskip("outlines")
     from outlines.backends.outlines_core import OutlinesCoreBackend
     from outlines.models.transformers import TransformerTokenizer
     from outlines_core import Index
@@ -74,6 +76,7 @@ def test_outlines_compiles_tokenizer_aware_canonical_schema() -> None:
 
 
 def test_xgrammar_compiles_canonical_schema_and_rejects_whitespace_loop() -> None:
+    pytest.importorskip("xgrammar")
     import xgrammar as xgr
 
     tokenizer, config = model_components()
@@ -100,6 +103,7 @@ def test_xgrammar_compiles_canonical_schema_and_rejects_whitespace_loop() -> Non
 
 
 def test_xgrammar_huggingface_processor_is_fresh_per_generation() -> None:
+    pytest.importorskip("xgrammar")
     import xgrammar as xgr
 
     tokenizer, config = model_components()

@@ -16,8 +16,20 @@ from enum import StrEnum
 from pathlib import Path
 from typing import Any, Iterable
 
-import torch
-from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer, LogitsProcessor
+try:
+    import torch
+except ModuleNotFoundError:  # Lightweight artifact replay does not require Torch.
+    torch = None  # type: ignore[assignment]
+
+try:
+    from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer, LogitsProcessor
+except ModuleNotFoundError:  # Lightweight artifact replay does not require Transformers.
+    AutoConfig = AutoModelForCausalLM = AutoTokenizer = None  # type: ignore[assignment]
+
+    class LogitsProcessor:  # type: ignore[no-redef]
+        """Import-time placeholder; generation requires the optional dependency."""
+
+        pass
 
 from .metrics import score_alignment_output
 from .schema_variants import (
@@ -192,6 +204,8 @@ def select_examples(
 
 def set_seed(seed: int) -> None:
     random.seed(seed)
+    if torch is None:
+        raise RuntimeError("generation requires the optional generation dependencies")
     torch.manual_seed(seed)
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(seed)
@@ -220,6 +234,8 @@ def load_model(
     device_map_auto: bool,
     dtype: str,
 ) -> LoadedModel:
+    if torch is None or AutoTokenizer is None or AutoConfig is None or AutoModelForCausalLM is None:
+        raise RuntimeError("model loading requires the optional generation dependencies")
     use_cuda = torch.cuda.is_available() and not force_cpu
     if device_map_auto and not use_cuda:
         raise RuntimeError("device_map=auto requires an available CUDA GPU")

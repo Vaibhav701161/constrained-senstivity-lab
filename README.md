@@ -1,9 +1,9 @@
-# Constrained Decoding Under Matched Conditions
+# Contract Sensitivity Lab
 
-A controlled, artifact-validated study of how JSON prompting, grammar-constrained
-decoding, and output-field order affect mathematical accuracy and schema compliance.
+An artifact-backed evaluation harness for measuring how model-facing structured
+output contracts change semantic behavior, validity, and execution outcomes.
 
-[Results](#principal-results) | [Alignment result](#contract-aligned-internal-representation) | [Corrected replication](#corrected-7b-replication) | [Cross-family decision](#cross-family-replication-and-executable-gate) | [Paired evidence](#item-level-and-mechanism-evidence) |
+[Results](#principal-results) | [Alignment result](#contract-aligned-internal-representation) | [Corrected replication](#corrected-7b-replication) | [Canonical correction](#canonical-schema-equivalence-correction) | [Cross-family decision](#cross-family-replication-and-executable-gate) | [Paired evidence](#item-level-and-mechanism-evidence) |
 [Study design](#study-design) |
 [Reproduction](#reproduce-the-evaluation) | [Evidence](#evidence-map) |
 [Public Kaggle artifacts](#public-kaggle-artifacts) |
@@ -22,8 +22,9 @@ and results to date.
 
 ## Central result
 
-The general optimizing-transform thesis is **not supported** by the completed
-evidence.
+The general optimizing-transform thesis is **closed by the completed evidence**.
+The supported contribution is a contract-sensitivity evaluation harness with a
+secondary fail-closed schema linter.
 
 The original Qwen2.5-7B study showed that constrained decoding solved schema
 compliance while changing semantic behavior. Prompt-only JSON achieved 79.6%
@@ -42,29 +43,34 @@ The confirmatory gates moved in the opposite direction:
 | Gate | Control | Integer treatment | Paired effect | Wins : losses | Decision |
 |---|---:|---:|---:|---:|---|
 | Corrected Qwen2.5-7B GSM8K, n=49 | 18/49 (36.7%) | 24/49 (49.0%) | +12.2 pp, CI [0.0, 26.5] | 9 : 3 | Scoped continuation at that gate |
-| Llama 3.2 3B unseen GSM8K, n=150 | 92/150 (61.3%) | 82/150 (54.7%) | -6.7 pp, CI [-12.7, -1.3] | 5 : 15 | Red |
-| Llama 3.2 3B executable primary pilot, n=30 | 26/30 (86.7%) | 24/30 (80.0%) | -6.7 pp, CI [-20.0, 6.7] | 1 : 3 | Red |
+| Llama 3.2 3B broad-string GSM8K, n=150 | 92/150 (61.3%) | 82/150 (54.7%) | -6.7 pp, CI [-12.7, -1.3] | 5 : 15 | Negative, schema mismatch later corrected |
+| Llama 3.2 3B canonical-string correction, n=150 | 92/150 (61.3%) | 82/150 (54.7%) | -6.7 pp, CI [-12.7, -0.7] | 6 : 16 | Optimizer thesis closed |
+| Llama 3.2 3B deterministic tool-dispatch pilot, n=30 | 26/30 (86.7%) | 24/30 (80.0%) | -6.7 pp, CI [-20.0, 6.7] | 1 : 3 | No evidence of practical benefit |
 
 ![Paired contract-alignment effects across all three decision gates](assets/figures/cross-family-evidence.png)
 
-The Llama GSM8K replication used 150 randomly selected, previously unseen items and
-398 total primary plus bridge generations. The fresh-set interval was fully below
-zero, final treatment validity fell to 149/150 because of one retained cap hit, and
-all 25 discordant cases were manually audited. Outlines then reproduced all 80
-selected XGrammar outputs byte for byte, which rules out a backend-specific
-explanation on that parity subset.
+The initial Llama replication used 150 randomly selected, previously unseen items.
+An external review then found that its string control accepted decimals, fractions,
+comma grouping, and leading zeros while the compiler supported only canonical
+integers. The preregistered correction generated one exact canonical-string control
+arm and reused the immutable treatment. The negative estimate survived unchanged in
+magnitude. All 22 corrected discordances were manually audited, with no sign,
+parser, validator, transduction, or truncation explanation.
+
+![Canonical schema-equivalence correction outcome, transitions, and complete audit](assets/figures/canonical-schema-correction.png)
 
 The bounded practical gate used pinned BFCL V4 `simple_python` cases, strict caller
-contracts, deterministic side-effect-free execution wrappers, exact argument and
-post-state scoring, and 66 artifact-validated generations. All calls were valid and
-executable in both conditions. The loss came from argument semantics, not from the
-transducer or validator.
+contracts, deterministic tool dispatch, state receipts, exact argument and
+post-state scoring, and 66 artifact-validated generations. It did not execute
+arbitrary business functions. All calls were structurally valid and dispatchable in
+both conditions. The loss came from argument semantics, not from the transducer or
+validator.
 
-The project therefore continues as a **schema-risk linter, contract-sensitivity
-analyzer, and reproducible measurement harness**, not as a general optimizing
-compiler. The integer-to-string transducer remains a supported contract-preserving
-utility, but current evidence does not support enabling it as a default quality
-optimization.
+The project therefore continues primarily as a **contract-sensitivity analyzer and
+reproducible measurement harness**, not as a general optimizing compiler. A static
+linter can flag boundaries that require measurement, but cannot promise which
+representation will improve quality. The integer-to-string transducer remains a
+supported contract-preserving utility, not a default optimization.
 
 ## Principal results
 
@@ -230,6 +236,67 @@ All corrected figures are generated directly from the checked-in decision, summa
 validation, and raw JSONL artifacts by
 [`scripts/build_corrected_replication_figures.py`](scripts/build_corrected_replication_figures.py).
 
+## Canonical schema-equivalence correction
+
+An external artifact review identified one important mismatch in the Llama
+replication. The original signed-string control used a broad numeric language:
+
+```text
+integers + decimals + fractions + comma grouping + leading zeros
+```
+
+The safe compiler transform supports only this canonical language:
+
+```regex
+^-?(?:0|[1-9][0-9]*)$
+```
+
+Eight observed broad-control outputs were outside the compiler's supported
+language. All eight were incorrect in both arms, so they did not directly explain
+the earlier net loss, but the mismatch prevented a claim about exact schema
+equivalence.
+
+The correction was preregistered before generation. It reused the same Llama
+revision, 150-item unseen holdout, prompt, XGrammar 0.2.3 backend, package and GPU
+environment, greedy FP32 decoding, seed, and immutable integer-treatment artifact.
+Only one new 150-row canonical-string arm was generated.
+
+![Canonical schema-equivalence correction outcome, transitions, and complete audit](assets/figures/canonical-schema-correction.png)
+
+| Canonical correction metric | String control | Integer treatment |
+|---|---:|---:|
+| Contract-valid correctness | 92/150 (61.3%) | 82/150 (54.7%) |
+| Semantic correctness | 92/150 (61.3%) | 82/150 (54.7%) |
+| Final external validity | 150/150 (100.0%) | 149/150 (99.3%) |
+| Internal schema validity | 150/150 (100.0%) | 149/150 (99.3%) |
+| Errors | 0 | 0 |
+| Token-cap hits | 0 | 1 |
+
+The paired treatment-minus-control effect is **-6.7 points**, with exact paired
+bootstrap interval **[-12.7, -0.7]**, 6 treatment-only wins, 16 control-only wins,
+and exact McNemar `p = 0.05248`. The interval and exact test are reported separately.
+The preregistered decision did not require a significance label: if the exact
+canonical control still beat treatment, the optimizer thesis closed. It did, by ten
+net items.
+
+Every discordance was inspected. The 22 cases contained 10 problem-interpretation
+changes, 8 reasoning and final-answer inconsistencies, 3 arithmetic regressions,
+and 1 arithmetic correction. There were zero sign-boundary, parser, validator,
+truncation, or transduction cases. The result supports a broader systems finding:
+model-facing schemas are semantic context, not transparent serialization wrappers.
+
+Complete correction evidence:
+
+- [Preregistered protocol](experiments/canonical-schema-equivalence-correction/protocol.md)
+- [Operational canary gate](experiments/canonical-schema-equivalence-correction/canary-gate.json)
+- [Artifact validation](experiments/canonical-schema-equivalence-correction/artifact-validation.json)
+- [Paired summary](experiments/canonical-schema-equivalence-correction/paired-summary.md)
+- [Complete discordance audit](experiments/canonical-schema-equivalence-correction/failure-attribution.jsonl)
+- [Final decision](experiments/canonical-schema-equivalence-correction/decision-report.md)
+
+The figure is generated directly from the paired summary and item-level audit by
+[`scripts/build_canonical_correction_figure.py`](scripts/build_canonical_correction_figure.py).
+
 ## Cross-family replication and executable gate
 
 The independent replication changed the model family to
@@ -238,18 +305,18 @@ used one shared XGrammar runner for both representations, and placed 150 randoml
 selected unseen GSM8K items in the confirmatory role. The historical cleaned 49-item
 set remained a bridge comparison only.
 
-| Llama set | Signed-string control | Integer treatment | Paired difference | Treatment-only | Control-only |
+| Llama set | String control | Integer treatment | Paired difference | Treatment-only | Control-only |
 |---|---:|---:|---:|---:|---:|
-| Fresh unseen, n=150 | 92 (61.3%) | 82 (54.7%) | -6.7 pp, CI [-12.7, -1.3] | 5 | 15 |
+| Fresh unseen, broad numeric string, n=150 | 92 (61.3%) | 82 (54.7%) | -6.7 pp, CI [-12.7, -1.3] | 5 | 15 |
+| Fresh unseen, canonical integer string, n=150 | 92 (61.3%) | 82 (54.7%) | -6.7 pp, CI [-12.7, -0.7] | 6 | 16 |
 | Bridge, n=49 | 21 (42.9%) | 20 (40.8%) | -2.0 pp, CI [-10.2, 6.1] | 2 | 3 |
 
-The fresh result reached the preregistered Red gate. Its exact McNemar p-value was
-0.0414. Treatment final external validity was 149/150 because one token-cap failure
-remained in the denominator. Manual attribution of every discordance found no direct
-sign or lexical-boundary repair: 12 problem-interpretation changes, 9
-reasoning-to-final inconsistencies, 3 arithmetic regressions, and 1 arithmetic
-correction. All 80 post-result Outlines parity outputs matched XGrammar byte for
-byte.
+The broad-string fresh result reached its preregistered Red gate. Its exact McNemar
+p-value was 0.0414. The later canonical correction is authoritative for the exact
+compiler-supported language and independently closes the optimizer claim under its
+own frozen interpretation rule. Treatment final external validity was 149/150
+because one token-cap failure remained in the denominator. All 80 post-result
+Outlines parity outputs from the initial replication matched XGrammar byte for byte.
 
 The Red path authorized one bounded practical tool-call pilot. It used a pinned BFCL
 V4 `simple_python` foundation, a 30-case random primary sample, a separate 3-case
@@ -276,7 +343,7 @@ value; both changed an unrelated string field. The separate three-case sign-stre
 estimate was positive but did not show a direct sign repair and is too small to
 override the primary gate.
 
-The final decision is Red for the general optimizing transform. The architecture
+The final decision is closed for the general optimizing transform. The architecture
 now distinguishes two claims:
 
 - deterministic integer-to-string transduction is contract-preserving and supported;
@@ -418,8 +485,10 @@ constrained-decoding-lab/
 |-- experiments/representation-alignment-gate/ # historical alignment evidence
 |-- experiments/corrected-replication/ # corrected raw rows, validation, decision
 |-- experiments/second-family-replication/ # unseen Llama replication and backend parity
-|-- experiments/tool-call-gate/       # bounded executable pilot and final product gate
+|-- experiments/canonical-schema-equivalence-correction/ # exact-language correction
+|-- experiments/tool-call-gate/       # bounded tool-dispatch and post-state pilot
 |-- experiments/compiler-prototype-probes/ # local compiler acceptance evidence
+|-- deployment/modal/                 # frozen Modal execution surfaces
 |-- src/project_a/                  # contract IR, plans, transforms, and transducer
 |-- results/
 |   |-- diagnostics/                # failed and precision-diagnostic evidence
@@ -439,10 +508,26 @@ that already occurred.
 
 ### 1. Create the verified local environment
 
+Artifact replay and the default test suite do not require Torch, CUDA, Outlines, or
+XGrammar:
+
 ```bash
 uv venv .venv --python 3.12
-uv pip install --python .venv/bin/python -r requirements.txt
+uv pip install --python .venv/bin/python -e ".[dev]"
 source .venv/bin/activate
+python -m pytest
+python scripts/replay_artifacts.py \
+  --scope all \
+  --out /tmp/replay-validation.json
+```
+
+Install the pinned generation, backend, and analysis layers only when needed:
+
+```bash
+uv pip install --python .venv/bin/python \
+  -r requirements-generation.txt \
+  -r requirements-backends.txt \
+  -r requirements-analysis.txt
 python scripts/probe_environment.py
 ```
 
@@ -491,11 +576,16 @@ python scripts/summarize_results.py \
   --out-json results/reproductions/qwen2.5-0.5b/summary.json \
   --out-md results/reproductions/qwen2.5-0.5b/summary.md
 
-python -m unittest discover -s tests -v
+python -m pytest
 python scripts/build_figures.py
 python scripts/build_alignment_figures.py
 python scripts/build_corrected_replication_figures.py
 python scripts/build_replication_gate_figures.py
+python scripts/build_canonical_correction_figure.py \
+  --summary experiments/canonical-schema-equivalence-correction/paired-summary.json \
+  --audit experiments/canonical-schema-equivalence-correction/failure-attribution.jsonl \
+  --png assets/figures/canonical-schema-correction.png \
+  --svg assets/figures/canonical-schema-correction.svg
 ```
 
 The checked-in 7B artifacts should be validated against the frozen deployment
@@ -566,9 +656,27 @@ python scripts/validate_tool_call_artifacts.py \
 
 The second-family validator binds 398 XGrammar rows to the unseen and bridge dataset
 hashes, source snapshot, paired run configurations, model revision, environment, and
-complete manual audit. The executable validator binds 66 rows to the pinned BFCL
+complete manual audit. The tool-dispatch validator binds 66 rows to the pinned BFCL
 foundation, dataset, source manifest, canary, run signatures, transduction, and
 discordance audit.
+
+### 8. Validate the canonical correction
+
+```bash
+python scripts/validate_canonical_correction_artifacts.py \
+  --run-dir experiments/canonical-schema-equivalence-correction \
+  --dataset data/gsm8k_unseen_150_seed20260815.jsonl \
+  --source-root . \
+  --historical-control experiments/second-family-replication/results/fresh/xgrammar_json_reasoning_first.jsonl \
+  --frozen-treatment experiments/second-family-replication/results/fresh/xgrammar_json_integer_reasoning_first.jsonl \
+  --frozen-treatment-manifest experiments/second-family-replication/manifests/fresh/xgrammar_json_integer_reasoning_first.json \
+  --out /tmp/canonical-correction-validation.json \
+  --require-analysis
+```
+
+This validator checks the source commit and file hashes, exact dataset order, prompt
+parity, one chat-template application, model and tokenizer revisions, environment
+parity, immutable treatment hash, score replay, complete audit, and final report.
 
 ## Public Kaggle artifacts
 
@@ -620,6 +728,12 @@ availability.
 | Second-family paired summary | [`paired-summary.md`](experiments/second-family-replication/paired-summary.md) |
 | Second-family Red decision | [`decision-report.md`](experiments/second-family-replication/decision-report.md) |
 | Outlines implementation parity | [`parity-report.json`](experiments/second-family-replication/parity-report.json) |
+| Canonical correction preregistration | [`protocol.md`](experiments/canonical-schema-equivalence-correction/protocol.md) |
+| Canonical correction artifact validation | [`artifact-validation.json`](experiments/canonical-schema-equivalence-correction/artifact-validation.json) |
+| Canonical correction paired summary | [`paired-summary.md`](experiments/canonical-schema-equivalence-correction/paired-summary.md) |
+| Canonical correction complete audit | [`failure-attribution.jsonl`](experiments/canonical-schema-equivalence-correction/failure-attribution.jsonl) |
+| Canonical correction final decision | [`decision-report.md`](experiments/canonical-schema-equivalence-correction/decision-report.md) |
+| One-command prior-artifact replay | [`replay-validation.json`](experiments/replay-validation.json) |
 | Executable pilot preregistration | [`protocol.md`](experiments/tool-call-gate/protocol.md) |
 | Executable pilot artifact validation | [`artifact-validation.json`](experiments/tool-call-gate/artifact-validation.json) |
 | Executable pilot paired summary | [`paired-summary.md`](experiments/tool-call-gate/paired-summary.md) |
@@ -635,8 +749,10 @@ availability.
 ## Is more cloud compute required?
 
 No additional cloud run is required to decide the current research question. The
-independent model-family replication and the bounded executable pilot are complete,
-artifact-validated, manually audited, and both reached the preregistered Red gate.
+exact canonical schema correction is complete, artifact-validated, manually audited,
+and closes the default optimizer thesis under its preregistered interpretation. The
+independent model-family replication and bounded tool-dispatch pilot remain
+preserved as earlier gates.
 
 Repeating the same Qwen or Llama matrices, trying alternative prompts after seeing
 the outcomes, or searching model families for another positive result would not add

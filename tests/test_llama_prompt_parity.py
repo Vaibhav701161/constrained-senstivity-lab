@@ -26,6 +26,7 @@ def llama_tokenizer():
 def test_llama_direct_xgrammar_and_outlines_effective_prompts_match(
     representation: RuntimeRepresentation,
 ) -> None:
+    pytest.importorskip("outlines")
     from outlines.models.transformers import TransformersTypeAdapter
 
     tokenizer = llama_tokenizer()

@@ -1,4 +1,16 @@
+---
+title: Executable tool-call pilot
+description: Bounded BFCL-based evaluation of external validity and deterministic execution success
+---
+
 # Executable tool-call pilot
+
+<div class="csl-study-header">
+  <div class="csl-study-header__item"><span>Primary set</span><strong>30 executable calls</strong></div>
+  <div class="csl-study-header__item"><span>Structural validity</span><strong>100% in both arms</strong></div>
+  <div class="csl-study-header__item"><span>Paired effect</span><strong>-6.7 pp</strong></div>
+  <div class="csl-study-header__item"><span>Decision</span><strong>No practical benefit detected</strong></div>
+</div>
 
 ## Practical question
 
@@ -58,8 +70,8 @@ regressions before deployment rather than promising an intrinsically better sche
 
 ## Primary records
 
-- [Foundation and provenance](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/tool-call-gate/FOUNDATION.md)
-- [Frozen protocol](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/tool-call-gate/protocol.md)
-- [Artifact validation](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/tool-call-gate/artifact-validation.json)
-- [Paired summary](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/tool-call-gate/paired-summary.md)
-- [Decision report](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/tool-call-gate/decision-report.md)
+- [Foundation and provenance](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/tool-call-gate/FOUNDATION.md)
+- [Frozen protocol](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/tool-call-gate/protocol.md)
+- [Artifact validation](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/tool-call-gate/artifact-validation.json)
+- [Paired summary](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/tool-call-gate/paired-summary.md)
+- [Decision report](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/tool-call-gate/decision-report.md)

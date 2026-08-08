@@ -1,4 +1,16 @@
+---
+title: Canonical schema correction
+description: Exact schema-equivalence correction using one new control and an immutable treatment
+---
+
 # Canonical schema correction
+
+<div class="csl-study-header">
+  <div class="csl-study-header__item"><span>New generations</span><strong>150 control rows</strong></div>
+  <div class="csl-study-header__item"><span>Paired effect</span><strong>-6.7 pp</strong></div>
+  <div class="csl-study-header__item"><span>Manual audit</span><strong>22 / 22 discordances</strong></div>
+  <div class="csl-study-header__item"><span>Final decision</span><strong>Optimizer thesis closed</strong></div>
+</div>
 
 ## Purpose
 
@@ -76,8 +88,8 @@ rewrite is deployed.
 
 ## Primary records
 
-- [Preregistered protocol](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/canonical-schema-equivalence-correction/protocol.md)
-- [Source manifest](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/canonical-schema-equivalence-correction/source-manifest.json)
-- [Artifact validation](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/canonical-schema-equivalence-correction/artifact-validation.json)
-- [Complete failure attribution](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/canonical-schema-equivalence-correction/failure-attribution.jsonl)
-- [Decision report](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/canonical-schema-equivalence-correction/decision-report.md)
+- [Preregistered protocol](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/canonical-schema-equivalence-correction/protocol.md)
+- [Source manifest](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/canonical-schema-equivalence-correction/source-manifest.json)
+- [Artifact validation](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/canonical-schema-equivalence-correction/artifact-validation.json)
+- [Complete failure attribution](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/canonical-schema-equivalence-correction/failure-attribution.jsonl)
+- [Decision report](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/canonical-schema-equivalence-correction/decision-report.md)

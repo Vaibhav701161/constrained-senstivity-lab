@@ -1,109 +1,182 @@
 ---
-title: Contract Sensitivity Lab
+title: Constrained Sensitivity Lab
 description: Artifact-backed evaluation of how structured-output contracts change model behavior
 hide:
+  - navigation
   - toc
 ---
 
 <section class="csl-hero">
-  <p class="csl-eyebrow">Structured-output evaluation infrastructure</p>
-  <h1>Measure what a contract changes, not only whether it validates.</h1>
-  <p class="csl-hero__lede">
-    Contract Sensitivity Lab is an artifact-backed harness for testing how
-    model-facing schemas alter semantic correctness, output validity, and
-    executable outcomes. It treats a schema as part of the model input, then
-    measures its behavioral effect with paired experiments.
-  </p>
-  <div class="csl-actions">
-    <a class="csl-button csl-button--primary" href="getting-started/quickstart/">Run the evidence replay</a>
-    <a class="csl-button csl-button--secondary" href="studies/evidence-overview/">Inspect the results</a>
+  <div class="csl-hero__grid">
+    <div>
+      <p class="csl-eyebrow">Structured-output evaluation infrastructure</p>
+      <h1>Measure what a contract changes, not only whether it validates.</h1>
+      <p class="csl-hero__lede">
+        Constrained Sensitivity Lab measures how model-facing schemas alter
+        semantic correctness, structural validity, and executable outcomes. Every
+        conclusion is tied to paired rows, frozen protocols, source hashes, and
+        replayable analysis.
+      </p>
+      <div class="csl-actions">
+        <a class="csl-button csl-button--primary" href="getting-started/quickstart/">Run the evidence replay</a>
+        <a class="csl-button csl-button--secondary" href="studies/evidence-overview/">Inspect the research record</a>
+      </div>
+    </div>
+    <aside class="csl-signal" aria-label="Current evidence signal">
+      <div class="csl-signal__header">
+        <span>Confirmatory gate</span>
+        <span class="csl-signal__status">Closed</span>
+      </div>
+      <pre>model     Llama 3.2 3B
+holdout   150 unseen items
+control   canonical string
+treatment JSON integer
+
+control   92 / 150
+treatment 82 / 150
+effect    -6.7 pp
+CI        [-12.7, -0.7]</pre>
+      <p class="csl-signal__foot">The schema correction preserved the negative direction. No output was excluded after launch.</p>
+    </aside>
   </div>
 </section>
 
 <div class="csl-metrics">
   <div class="csl-metric"><strong>1,501</strong><span>property cases for deterministic integer stringification</span></div>
   <div class="csl-metric"><strong>464</strong><span>accepted experiment rows replayed by one command</span></div>
-  <div class="csl-metric"><strong>2</strong><span>independent model families evaluated</span></div>
-  <div class="csl-metric"><strong>0</strong><span>heuristic repairs allowed in scored paths</span></div>
+  <div class="csl-metric"><strong>150</strong><span>repository-unseen items in the confirmatory holdout</span></div>
+  <div class="csl-metric"><strong>22 / 22</strong><span>confirmatory discordances manually attributed</span></div>
 </div>
 
-## The engineering question
+## The problem
 
-Constrained decoding can guarantee that an output belongs to a grammar. That does
-not guarantee that the model preserves its semantic ability under that grammar.
-Even contract-preserving representation changes can alter the answer a model emits.
+<p class="csl-section-intro">
+Constrained decoding is commonly evaluated as a formatting mechanism. That is
+necessary but incomplete. A grammar changes the set of legal next tokens, and a
+schema changes the representation shown to the model. Either can change the answer,
+even when the final object is perfectly valid.
+</p>
 
-This project asks:
+The project separates three claims that are often conflated:
 
-> When two representations map to the same caller-facing contract, does choosing
-> one of them change correctness or execution success?
-
-The tested transform was intentionally narrow:
-
-<div class="csl-pipeline">External canonical signed string
-             ↓ compile
-Internal JSON integer
-             ↓ constrained generation
-Internal object
-             ↓ deterministic inverse transducer
-Original external object
-             ↓ strict validation
-Caller-facing result</div>
-
-The inverse transducer is safe for the supported language. The assumption that it
-improves model quality by default is not.
-
-## Current decision
+| Claim | Verification method | Current status |
+|---|---|---|
+| The generated object satisfies its internal schema | Backend and JSON Schema validation | Measured per row |
+| The inverse transform preserves the caller contract | Property tests and final external validation | Supported for canonical integer strings |
+| The transform preserves or improves model quality | Paired empirical evaluation | Not generally supported |
 
 <div class="csl-decision">
-  <strong>The general optimizer thesis is closed.</strong><br>
-  The supported direction is a contract-sensitivity evaluation harness, with a
-  fail-closed schema linter and conservative transduction utilities.
+  <strong>Current decision:</strong> the general optimizing-transform thesis is
+  closed. The supported product direction is contract-sensitivity measurement,
+  backed by conservative compilation and fail-closed schema analysis.
 </div>
 
-The corrected Qwen study estimated a positive effect. A preregistered Llama
-replication reversed it, and an exact canonical-schema correction preserved the
-negative direction. A bounded executable tool-call pilot also found no practical
-benefit. The negative results are retained as first-class evidence.
+## The complete evidence chain
 
-| Decision gate | Control | Treatment | Paired effect | Outcome |
-|---|---:|---:|---:|---|
-| Corrected Qwen2.5 7B, n=49 | 36.7% | 49.0% | +12.2 pp | Scoped positive signal |
-| Llama 3.2 3B canonical holdout, n=150 | 61.3% | 54.7% | -6.7 pp | Optimizer thesis closed |
-| Llama 3.2 3B executable pilot, n=30 | 86.7% | 80.0% | -6.7 pp | No practical benefit detected |
+<figure class="csl-figure">
+  <img src="assets/figures/cross-family-evidence.png" alt="Paired effects across the corrected Qwen, Llama, and executable decision gates">
+  <figcaption>All intervals, transition counts, and gate labels are generated from frozen machine-readable summaries.</figcaption>
+</figure>
 
-[Read the complete evidence chain](studies/evidence-overview.md){ .csl-button .csl-button--secondary }
+<div class="csl-timeline">
+  <div class="csl-step">
+    <h3>1. Baseline constraint study</h3>
+    <p>Schema compliance reached 100%, while recoverable GSM8K accuracy fell 18.4 points against matched prompt-only JSON.</p>
+  </div>
+  <div class="csl-step">
+    <h3>2. Qwen representation alignment</h3>
+    <p>A native integer plus deterministic stringification produced a positive scoped estimate after runner correction.</p>
+  </div>
+  <div class="csl-step">
+    <h3>3. Independent Llama replication</h3>
+    <p>The direction reversed on 150 randomly selected unseen items under one shared XGrammar runtime.</p>
+  </div>
+  <div class="csl-step">
+    <h3>4. Canonical correction and executable gate</h3>
+    <p>Exact schema equivalence did not rescue the result, and the bounded tool-call pilot found no execution benefit.</p>
+  </div>
+</div>
 
-## What the repository provides
+[Follow every gate and correction](studies/evidence-overview.md){ .csl-button .csl-button--secondary }
+
+## System boundary
+
+The compiler path is intentionally narrow and auditable:
+
+<div class="csl-pipeline">External JSON Schema
+        ↓
+ContractIR
+        ↓
+Alignment analysis and typed refusal
+        ↓
+Internal JSON Schema
+        ↓
+XGrammar or Outlines
+        ↓
+Internal object
+        ↓
+Deterministic inverse transducer
+        ↓
+Original external-schema validation
+        ↓
+Caller-facing object and paired metrics</div>
+
+Information must be preserved at every boundary. Unsupported references, ambiguous
+unions, or arbitrary regular-expression rewrites fail closed rather than being
+silently approximated.
+
+## Explore the project
 
 <div class="csl-card-grid">
   <div class="csl-card">
-    <h3>Paired evaluation runtime</h3>
-    <p>Matched prompts, decoding, model revisions, item order, metrics, and failure handling across representations.</p>
-    <a href="architecture/">Architecture</a>
+    <span class="csl-card__label">Learn</span>
+    <h3>Constrained decoding</h3>
+    <p>Understand token masking, schema enforcement, and why structural validity does not imply correctness.</p>
+    <a href="concepts/constrained-decoding/">Read the foundations</a>
   </div>
   <div class="csl-card">
-    <h3>Fail-closed contract analysis</h3>
-    <p>Explicit support boundaries for canonical numeric strings, aliases, ordering, whitespace, and refused features.</p>
-    <a href="supported-contracts/">Supported contracts</a>
+    <span class="csl-card__label">Evidence</span>
+    <h3>Paired research record</h3>
+    <p>Inspect each model family, dataset, confidence interval, transition matrix, and frozen decision.</p>
+    <a href="studies/evidence-overview/">Review the studies</a>
   </div>
   <div class="csl-card">
+    <span class="csl-card__label">System</span>
+    <h3>Fail-closed architecture</h3>
+    <p>Trace ContractIR, alignment plans, runtime parity, inverse transduction, and validation boundaries.</p>
+    <a href="architecture/">Inspect the architecture</a>
+  </div>
+  <div class="csl-card">
+    <span class="csl-card__label">Audit</span>
     <h3>Artifact replay</h3>
-    <p>Recompute scores and paired summaries from checked-in rows without downloading models or requiring a GPU.</p>
-    <a href="reproducibility/artifact-replay/">Reproduce the evidence</a>
+    <p>Recompute accepted row scores and paired summaries locally without a model download or GPU.</p>
+    <a href="reproducibility/artifact-replay/">Run the replay</a>
   </div>
   <div class="csl-card">
-    <h3>Auditable studies</h3>
-    <p>Protocols, manifests, raw JSONL, canary gates, hashes, discordance audits, and frozen decisions.</p>
-    <a href="reproducibility/evidence-map/">Evidence map</a>
+    <span class="csl-card__label">Reference</span>
+    <h3>Supported contracts</h3>
+    <p>See which schema features are supported, experimental, prototype-only, or explicitly refused.</p>
+    <a href="supported-contracts/">Open the support matrix</a>
+  </div>
+  <div class="csl-card">
+    <span class="csl-card__label">Provenance</span>
+    <h3>Evidence map</h3>
+    <p>Reach protocols, raw JSONL, manifests, canaries, validators, audits, and decision reports.</p>
+    <a href="reproducibility/evidence-map/">Trace the artifacts</a>
   </div>
 </div>
 
-## Start with the evidence, then the implementation
+## Engineering guarantees
 
-If you are new to constrained decoding, begin with
-[Constrained decoding](concepts/constrained-decoding.md) and
-[Contract sensitivity](concepts/contract-sensitivity.md). If you are evaluating
-the engineering quality of the repository, run the
-[lightweight replay](getting-started/quickstart.md) and then inspect the
-[canonical correction](studies/canonical-correction.md).
+- Frozen experiments remain immutable and are never overwritten by later runners.
+- Errors, cap hits, and invalid objects remain in the denominator.
+- Canary expansion depends on operational integrity, not early semantic success.
+- Model and tokenizer revisions, package environments, datasets, and run signatures
+  are recorded in manifests.
+- Every confirmatory discordance is retained and attributed.
+- Negative findings remain public and guide the current architecture.
+
+<div class="csl-callout">
+  <p><strong>Audit the conclusion yourself.</strong><br><span class="csl-caption">The lightweight path replays 464 accepted rows with no GPU dependency.</span></p>
+  <a class="csl-button csl-button--primary" href="getting-started/quickstart/">Open quickstart</a>
+</div>

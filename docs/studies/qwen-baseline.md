@@ -1,4 +1,16 @@
+---
+title: Qwen baseline
+description: Matched comparison of prompt-only JSON, Outlines, and XGrammar on Qwen2.5 7B
+---
+
 # Qwen baseline
+
+<div class="csl-study-header">
+  <div class="csl-study-header__item"><span>Model</span><strong>Qwen2.5 7B Instruct</strong></div>
+  <div class="csl-study-header__item"><span>Primary matrix</span><strong>300 generations</strong></div>
+  <div class="csl-study-header__item"><span>Clean analysis</span><strong>49 paired items</strong></div>
+  <div class="csl-study-header__item"><span>Key finding</span><strong>Validity and semantics diverged</strong></div>
+</div>
 
 ## Question
 
@@ -30,6 +42,8 @@ accepted cloud snapshots are preserved in the repository.
 | Prompted JSON, answer first | 11/49 (22.4%) | 8/49 (16.3%) | 65.3% |
 | Outlines, answer first | 8/49 (16.3%) | 8/49 (16.3%) | 100.0% |
 
+![Accuracy, strict correctness, and schema compliance across the complete baseline matrix](../assets/figures/accuracy-compliance-tradeoff.png)
+
 ![Paired semantic effects in the baseline study](../assets/figures/paired-effects.png)
 
 ## Interpretation
@@ -42,6 +56,8 @@ Field order produced an even larger effect. Requiring the answer before reasonin
 reduced recoverable accuracy by 57.1 points under prompting and 44.9 points under
 Outlines. Under Outlines, validity remained 100%, isolating generation order from
 schema-compliance effects.
+
+![Paired correctness transitions showing which exact items were lost or gained](../assets/figures/paired-transitions.png)
 
 ## Why this mattered
 

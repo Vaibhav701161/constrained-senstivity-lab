@@ -107,11 +107,11 @@ research question and requires its own frozen protocol.
 
 ## Canonical decisions
 
-- [Corrected Qwen decision](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/corrected-replication/results/qwen2.5-7b-corrected/decision-report.md)
-- [Second-family replication decision](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/second-family-replication/decision-report.md)
-- [Canonical schema-equivalence correction](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/canonical-schema-equivalence-correction/decision-report.md)
-- [Executable tool-call pilot decision](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/tool-call-gate/decision-report.md)
-- [Executable discordance audit](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/tool-call-gate/failure-attribution.jsonl)
+- [Corrected Qwen decision](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/corrected-replication/results/qwen2.5-7b-corrected/decision-report.md)
+- [Second-family replication decision](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/second-family-replication/decision-report.md)
+- [Canonical schema-equivalence correction](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/canonical-schema-equivalence-correction/decision-report.md)
+- [Executable tool-call pilot decision](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/tool-call-gate/decision-report.md)
+- [Executable discordance audit](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/tool-call-gate/failure-attribution.jsonl)
 
 The latest decision report takes precedence for product scope. Historical reports
 remain immutable evidence of what was known at each gate.

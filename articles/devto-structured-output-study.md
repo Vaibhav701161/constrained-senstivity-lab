@@ -3,7 +3,7 @@ title: Structured Output Fixed My JSON and Cut Math Accuracy by 18 Points
 published: true
 description: A controlled 300-generation study of prompt-only JSON, Outlines, XGrammar, and field order on GSM8K with Qwen2.5-7B.
 tags: ai, machinelearning, llm, opensource
-cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/master/assets/figures/accuracy-compliance-tradeoff.png
+cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/master/assets/figures/accuracy-compliance-tradeoff.png
 ---
 
 I expected constrained decoding to change formatting.
@@ -26,7 +26,7 @@ This article explains how I reached that result, why "valid JSON" turned out to 
 
 All source code, raw outputs, validation reports, and accepted cloud runs are public.
 
-{% github Vaibhav701161/constrained-decoding-lab %}
+{% github Vaibhav701161/constrained-senstivity-lab %}
 
 ## The engineering problem
 
@@ -128,7 +128,7 @@ If I had measured only JSON parse success, I would have called this condition pe
 
 ## The complete result
 
-![Grouped horizontal bar chart comparing recoverable accuracy, strict accuracy, and schema compliance across six Qwen2.5-7B conditions](https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/master/assets/figures/accuracy-compliance-tradeoff.png)
+![Grouped horizontal bar chart comparing recoverable accuracy, strict accuracy, and schema compliance across six Qwen2.5-7B conditions](https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/master/assets/figures/accuracy-compliance-tradeoff.png)
 
 | Condition | Recoverable accuracy | Strict accuracy | Schema compliance |
 |---|---:|---:|---:|
@@ -143,7 +143,7 @@ Constrained decoding clearly solved the output-contract problem. Every Outlines 
 
 But the recoverable view tells a second story. Relative to matched prompt-only JSON, Outlines and XGrammar each lost 18.4 percentage points of mathematical accuracy.
 
-![Forest plot of paired recoverable-accuracy effects with bootstrap confidence intervals](https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/master/assets/figures/paired-effects.png)
+![Forest plot of paired recoverable-accuracy effects with bootstrap confidence intervals](https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/master/assets/figures/paired-effects.png)
 
 For each constraint backend:
 
@@ -166,7 +166,7 @@ Schema compliance and semantic accuracy are separate outcomes. A structured-outp
 
 Because every condition used the same 49 questions, I could inspect correctness transitions item by item.
 
-![Three paired correctness contingency tables comparing prompt-only JSON, Outlines, and XGrammar](https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/master/assets/figures/paired-transitions.png)
+![Three paired correctness contingency tables comparing prompt-only JSON, Outlines, and XGrammar](https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/master/assets/figures/paired-transitions.png)
 
 Against prompt-only reasoning-first generation, both constraint backends produced the same contingency table:
 
@@ -213,7 +213,7 @@ The answer-first schema required:
 
 Within each paired comparison, only that order changed.
 
-![Two-panel line plot showing accuracy and schema compliance under reasoning-first and answer-first field order](https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/master/assets/figures/field-order-sensitivity.png)
+![Two-panel line plot showing accuracy and schema compliance under reasoning-first and answer-first field order](https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/master/assets/figures/field-order-sensitivity.png)
 
 For prompt-only JSON:
 
@@ -316,10 +316,10 @@ After that, I would replicate on another model family, increase the preregistere
 
 The repository contains the deterministic dataset, runners, raw JSONL outputs, summaries, item-level reports, figures, environment records, and validation manifests:
 
-- [Complete GitHub repository](https://github.com/Vaibhav701161/constrained-decoding-lab)
-- [Research report](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/docs/research-report.md)
-- [Methodology](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/docs/methodology.md)
-- [Per-item 7B evidence](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/results/qwen2.5-7b/primary/combined/items.md)
+- [Complete GitHub repository](https://github.com/Vaibhav701161/constrained-senstivity-lab)
+- [Research report](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/docs/research-report.md)
+- [Methodology](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/docs/methodology.md)
+- [Per-item 7B evidence](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/results/qwen2.5-7b/primary/combined/items.md)
 - [Reasoning-first Kaggle run](https://www.kaggle.com/code/vaibhav7011/constrained-decoding-qwen7b-evaluation?scriptVersionId=339899508)
 - [Answer-first Kaggle run](https://www.kaggle.com/code/vaibhav7011/constrained-decoding-qwen7b-evaluation?scriptVersionId=339962138)
 - [Frozen Kaggle source dataset](https://www.kaggle.com/datasets/vaibhav7011/constrained-decoding-day3-source)

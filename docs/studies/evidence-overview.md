@@ -1,4 +1,15 @@
+---
+title: Evidence overview
+description: The complete sequence of baseline, replication, correction, and executable decision gates
+---
+
 # Evidence overview
+
+<div class="csl-study-header">
+  <div class="csl-study-header__item"><span>Model families</span><strong>Qwen2.5 and Llama 3.2</strong></div>
+  <div class="csl-study-header__item"><span>Primary workloads</span><strong>GSM8K and BFCL-based calls</strong></div>
+  <div class="csl-study-header__item"><span>Final gate</span><strong>Optimizer thesis closed</strong></div>
+</div>
 
 The research followed a sequence of increasingly strict decision gates. Each gate
 was allowed to change the next question, but not to rewrite completed outcomes.

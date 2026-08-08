@@ -3,7 +3,7 @@ title: I Found a Runner Bug, Re-ran 200 Generations, and the Effect Survived
 published: true
 description: A corrected Qwen2.5-7B paired replication tests contract-preserving structured generation after fixing prompt templating, grammar policy, and measurement defects.
 tags: ai, machinelearning, llm, opensource
-cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/master/assets/figures/corrected-replication-effect.png
+cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/master/assets/figures/corrected-replication-effect.png
 ---
 
 > ## Update, 8 Aug 2026
@@ -14,7 +14,7 @@ cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-decodin
 > Llama control, I ran one preregistered exact canonical correction. The canonical
 > string control still scored 92/150 versus 82/150 for the immutable integer
 > treatment, with a paired interval of [-12.7, -0.7] points. See the [complete
-> correction decision](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/decision-report.md).
+> correction decision](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/decision-report.md).
 
 I had a result I wanted to believe.
 
@@ -45,7 +45,7 @@ a general solution.
 The complete code, protocol, raw rows, hashes, traces, validation report, and decision
 are public in the repository.
 
-{% github Vaibhav701161/constrained-decoding-lab %}
+{% github Vaibhav701161/constrained-senstivity-lab %}
 
 ## The system boundary I am testing
 
@@ -184,7 +184,7 @@ The cloud job produced all 200 expected rows:
 
 The clean paired analysis retained 49 items under the audit policy.
 
-![Corrected contract-valid accuracy with intervals and artifact integrity](https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/master/assets/figures/corrected-replication-effect.png)
+![Corrected contract-valid accuracy with intervals and artifact integrity](https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/master/assets/figures/corrected-replication-effect.png)
 
 | Representation | Correct | Contract-valid accuracy | Final external validity | Negative answers |
 |---|---:|---:|---:|---:|
@@ -204,7 +204,7 @@ both wrong:                      22
 exact two-sided McNemar p:        0.145996
 ```
 
-![Full paired correctness transition matrix](https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/master/assets/figures/corrected-replication-transitions.png)
+![Full paired correctness transition matrix](https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/master/assets/figures/corrected-replication-transitions.png)
 
 The intervention repaired three times as many items as it broke. It also preserved
 the external contract for every clean treatment output.
@@ -220,7 +220,7 @@ Aggregate accuracy can hide cherry-picked wins or a concentrated replacement
 failure. The item map below shows both outcomes for every clean-analysis item in the
 frozen dataset order.
 
-![Item-level correctness for the signed-string control and integer treatment](https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/master/assets/figures/corrected-replication-item-map.png)
+![Item-level correctness for the signed-string control and integer treatment](https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/master/assets/figures/corrected-replication-item-map.png)
 
 The nine repaired items were:
 
@@ -419,10 +419,10 @@ python -m pytest -q
 
 Read the exact artifacts:
 
-- [Frozen protocol](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/corrected-replication/protocol.md)
-- [Independent validation](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/corrected-replication/results/qwen2.5-7b-corrected/artifact-validation.json)
-- [Exact paired summary](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/corrected-replication/results/qwen2.5-7b-corrected/paired-summary-exact.md)
-- [Decision report](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/corrected-replication/results/qwen2.5-7b-corrected/decision-report.md)
+- [Frozen protocol](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/corrected-replication/protocol.md)
+- [Independent validation](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/corrected-replication/results/qwen2.5-7b-corrected/artifact-validation.json)
+- [Exact paired summary](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/corrected-replication/results/qwen2.5-7b-corrected/paired-summary-exact.md)
+- [Decision report](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/corrected-replication/results/qwen2.5-7b-corrected/decision-report.md)
 
 I am treating the correction as part of the result, not as an embarrassing footnote.
 The point of an evidence pipeline is not to protect a claim. It is to make the claim

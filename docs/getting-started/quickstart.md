@@ -6,8 +6,8 @@ language model and does not require CUDA.
 ## Install the lightweight environment
 
 ```bash
-git clone https://github.com/Vaibhav701161/constrained-decoding-lab.git
-cd constrained-decoding-lab
+git clone https://github.com/Vaibhav701161/constrained-senstivity-lab.git
+cd constrained-senstivity-lab
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e ".[dev]"

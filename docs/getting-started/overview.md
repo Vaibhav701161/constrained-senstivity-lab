@@ -1,6 +1,6 @@
 # Orientation
 
-Contract Sensitivity Lab is a research engineering repository, not a hosted model
+Constrained Sensitivity Lab is a research engineering repository, not a hosted model
 API. Its primary output is evidence about structured-output systems and reusable
 infrastructure for producing that evidence.
 

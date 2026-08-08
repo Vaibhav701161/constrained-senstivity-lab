@@ -3,7 +3,7 @@ title: I Fixed a Schema Mismatch. The Negative Result Survived.
 published: true
 description: A preregistered 150-generation correction tests exact schema equivalence after an external review found that my Llama control accepted a broader numeric-string language than the compiler.
 tags: ai, machinelearning, llm, opensource
-cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/a5fecda6f7724fed377ace3d59233265b60523c3/assets/figures/canonical-schema-correction.png
+cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/a5fecda6f7724fed377ace3d59233265b60523c3/assets/figures/canonical-schema-correction.png
 ---
 
 An external reviewer found a real mismatch in my experiment.
@@ -35,7 +35,7 @@ This closes the default optimizer thesis for this project. More importantly, it
 shows why model-facing schemas must be treated as semantic context, not transparent
 serialization wrappers.
 
-{% github Vaibhav701161/constrained-decoding-lab %}
+{% github Vaibhav701161/constrained-senstivity-lab %}
 
 ## The mismatch
 
@@ -144,7 +144,7 @@ failures.
 
 ## Result
 
-![Canonical schema-equivalence correction outcome, paired transitions, and complete discordance audit](https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/a5fecda6f7724fed377ace3d59233265b60523c3/assets/figures/canonical-schema-correction.png)
+![Canonical schema-equivalence correction outcome, paired transitions, and complete discordance audit](https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/a5fecda6f7724fed377ace3d59233265b60523c3/assets/figures/canonical-schema-correction.png)
 
 | Outcome | Canonical string control | Frozen integer treatment |
 |---|---:|---:|
@@ -328,8 +328,8 @@ Convert this string to an integer; accuracy will improve.
 The default replay path is intentionally lightweight:
 
 ```bash
-git clone https://github.com/Vaibhav701161/constrained-decoding-lab.git
-cd constrained-decoding-lab
+git clone https://github.com/Vaibhav701161/constrained-senstivity-lab.git
+cd constrained-senstivity-lab
 git checkout exp/canonical-schema-correction
 
 uv venv .venv --python 3.12
@@ -344,13 +344,13 @@ python scripts/replay_artifacts.py \
 
 The complete correction record includes:
 
-- [preregistered protocol](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/protocol.md);
-- [operational canary](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/canary-gate.json);
-- [raw 150-row control artifact](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/results/xgrammar_json_canonical_integer_string_reasoning_first.jsonl);
-- [artifact validation](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/artifact-validation.json);
-- [paired summary](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/paired-summary.md);
-- [complete 22-item audit](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/failure-attribution.jsonl);
-- [final decision report](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/decision-report.md).
+- [preregistered protocol](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/protocol.md);
+- [operational canary](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/canary-gate.json);
+- [raw 150-row control artifact](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/results/xgrammar_json_canonical_integer_string_reasoning_first.jsonl);
+- [artifact validation](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/artifact-validation.json);
+- [paired summary](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/paired-summary.md);
+- [complete 22-item audit](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/failure-attribution.jsonl);
+- [final decision report](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/decision-report.md).
 
 ## Final lesson
 

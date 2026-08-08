@@ -1,4 +1,15 @@
-# Supported Contracts and Refusal Policy
+---
+title: Supported contracts
+description: Evidence-backed support levels and explicit refusal policy for schema transformations
+---
+
+# Supported contracts and refusal policy
+
+<div class="csl-study-header">
+  <div class="csl-study-header__item"><span>Supported utility</span><strong>Canonical integer strings</strong></div>
+  <div class="csl-study-header__item"><span>Default optimization</span><strong>Rejected</strong></div>
+  <div class="csl-study-header__item"><span>Unknown semantics</span><strong>Refused</strong></div>
+</div>
 
 ## Status definitions
 

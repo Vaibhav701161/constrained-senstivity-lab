@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Constrained Sensitivity Lab mark</title>
+  <desc id="desc">A schema boundary containing paired control and treatment paths</desc>
+  <rect x="3" y="3" width="58" height="58" rx="13" fill="#102a43"/>
+  <path d="M22 16h-6v32h6M42 16h6v32h-6" fill="none" stroke="#9fb3c8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="29" cy="23" r="4" fill="#76a9ff"/>
+  <circle cx="35" cy="41" r="4" fill="#5cc8d1"/>
+  <path d="M29 27v6c0 4.4 2.2 8 6 8M35 37v-6c0-4.4-2.2-8-6-8" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

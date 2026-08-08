@@ -28,7 +28,7 @@ The accepted output is:
 ```
 
 The checked-in reference report is
-[`experiments/replay-validation.json`](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/replay-validation.json).
+[`experiments/replay-validation.json`](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/replay-validation.json).
 
 ## What is replayed
 

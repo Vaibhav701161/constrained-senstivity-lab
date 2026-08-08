@@ -3,7 +3,7 @@ title: Constraints Cost 18 Points. Compiling the Schema Recovered 14.
 published: true
 description: A 222-generation Qwen2.5-7B follow-up tests whether a model-aligned internal JSON representation can recover constrained-decoding accuracy without weakening the external contract.
 tags: ai, machinelearning, llm, opensource
-cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/master/assets/figures/representation-alignment-recovery.png
+cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/master/assets/figures/representation-alignment-recovery.png
 ---
 
 > ## Update, 8 Aug 2026
@@ -14,7 +14,7 @@ cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-decodin
 > compiler transform. I preregistered an exact canonical correction. The canonical
 > string control still scored 92/150 versus 82/150 for the frozen integer treatment,
 > with a paired interval of [-12.7, -0.7] points. The default optimizer thesis is
-> closed. See the [complete correction decision](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/decision-report.md).
+> closed. See the [complete correction decision](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/decision-report.md).
 
 My previous experiment ended with an uncomfortable result.
 
@@ -52,7 +52,7 @@ The first study is here:
 
 All new code, raw rows, manifests, hashes, traces, and reports are in the repository.
 
-{% github Vaibhav701161/constrained-decoding-lab %}
+{% github Vaibhav701161/constrained-senstivity-lab %}
 
 ## The failure was more specific than "constraints hurt reasoning"
 
@@ -137,7 +137,7 @@ Returned contract
 {"reasoning": "...", "answer": "18000"}
 ```
 
-![Engineering diagram of the implemented external contract, safe compiler, model-facing schema, constrained generation, and deterministic validation boundary](https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/master/assets/figures/contract-alignment-pipeline.png)
+![Engineering diagram of the implemented external contract, safe compiler, model-facing schema, constrained generation, and deterministic validation boundary](https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/master/assets/figures/contract-alignment-pipeline.png)
 
 This design has four important properties:
 
@@ -325,7 +325,7 @@ Independent validation accepted all 150 rows:
 | XGrammar signed-string baseline | 30/49 (61.2%) | 30/49 | 49/49 | 12/49 |
 | XGrammar integer + transducer | 37/49 (75.5%) | 37/49 | 49/49 | 0/49 |
 
-![Data-derived diagram showing the 14.3-point recovery for Outlines and XGrammar, paired repairs and regressions, and removal of 12 negative answers per backend](https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/master/assets/figures/representation-alignment-recovery.png)
+![Data-derived diagram showing the 14.3-point recovery for Outlines and XGrammar, paired repairs and regressions, and removal of 12 negative answers per backend](https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/master/assets/figures/representation-alignment-recovery.png)
 
 The architecture figure is generated from the implemented path. The recovery figure
 is generated directly from the accepted `paired-summary.json`; its counts and rates
@@ -493,12 +493,12 @@ The repository contains the protocol, failure catalogue, schema variants,
 transducer, tests, raw JSONL rows, manifests, compact traces, validation reports, and
 paired summary:
 
-- [Complete repository](https://github.com/Vaibhav701161/constrained-decoding-lab)
-- [Representation-alignment results](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/docs/representation-alignment-results.md)
-- [Frozen gate protocol](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/representation-alignment-gate/protocol.md)
-- [Full artifact validation](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/representation-alignment-gate/results/cloud-full/artifact-validation.json)
-- [Machine-readable paired summary](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/representation-alignment-gate/results/cloud-full/paired-summary.json)
-- [Compact XGrammar trace](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/representation-alignment-gate/results/cloud-full/results/representation-alignment-full/traces/xgrammar-integer-answer-boundary.jsonl)
+- [Complete repository](https://github.com/Vaibhav701161/constrained-senstivity-lab)
+- [Representation-alignment results](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/docs/representation-alignment-results.md)
+- [Frozen gate protocol](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/representation-alignment-gate/protocol.md)
+- [Full artifact validation](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/representation-alignment-gate/results/cloud-full/artifact-validation.json)
+- [Machine-readable paired summary](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/representation-alignment-gate/results/cloud-full/paired-summary.json)
+- [Compact XGrammar trace](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/representation-alignment-gate/results/cloud-full/results/representation-alignment-full/traces/xgrammar-integer-answer-boundary.jsonl)
 
 The practical lesson is simple:
 

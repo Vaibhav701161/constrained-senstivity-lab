@@ -1,4 +1,16 @@
+---
+title: Llama second-family replication
+description: Preregistered cross-family replication on 150 previously unseen GSM8K items
+---
+
 # Llama second-family replication
+
+<div class="csl-study-header">
+  <div class="csl-study-header__item"><span>Model</span><strong>Llama 3.2 3B Instruct</strong></div>
+  <div class="csl-study-header__item"><span>Fresh holdout</span><strong>150 unseen items</strong></div>
+  <div class="csl-study-header__item"><span>Backend</span><strong>XGrammar 0.2.3</strong></div>
+  <div class="csl-study-header__item"><span>Initial decision</span><strong>Red</strong></div>
+</div>
 
 ## Confirmatory question
 
@@ -46,7 +58,7 @@ therefore replaced only the control arm and reused the immutable treatment.
 
 ## Primary records
 
-- [Preregistered protocol](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/second-family-replication/protocol.md)
-- [Unseen-set manifest](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/data/gsm8k_unseen_150_seed20260815.manifest.json)
-- [Paired summary](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/second-family-replication/paired-summary.md)
-- [Decision report](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/second-family-replication/decision-report.md)
+- [Preregistered protocol](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/second-family-replication/protocol.md)
+- [Unseen-set manifest](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/data/gsm8k_unseen_150_seed20260815.manifest.json)
+- [Paired summary](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/second-family-replication/paired-summary.md)
+- [Decision report](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/second-family-replication/decision-report.md)

@@ -1,4 +1,15 @@
-# Contract Alignment Architecture
+---
+title: System architecture
+description: ContractIR, alignment plans, shared generation runtime, inverse transduction, and fail-closed validation
+---
+
+# System architecture
+
+<div class="csl-study-header">
+  <div class="csl-study-header__item"><span>Primary role</span><strong>Contract-sensitivity evaluation</strong></div>
+  <div class="csl-study-header__item"><span>Execution policy</span><strong>Fail closed</strong></div>
+  <div class="csl-study-header__item"><span>Final authority</span><strong>Original external schema</strong></div>
+</div>
 
 ## Purpose
 
@@ -14,6 +25,8 @@ a fail-closed path. Unsupported constructs are recorded and refused rather than
 silently weakened.
 
 ## Canonical pipeline
+
+![Contract-preserving model-facing schema transformation and final validation boundary](assets/figures/contract-alignment-pipeline.png)
 
 ```text
 External JSON Schema

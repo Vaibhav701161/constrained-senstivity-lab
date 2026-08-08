@@ -33,7 +33,7 @@ raw artifacts, exact protocols, and final decisions.
 ## Source retention
 
 The exact submitted Markdown for the experimental articles is retained under
-[`articles/`](https://github.com/Vaibhav701161/constrained-decoding-lab/tree/master/articles).
+[`articles/`](https://github.com/Vaibhav701161/constrained-senstivity-lab/tree/master/articles).
 Published articles are explanations of the record, not replacements for it.
 
 ## Presentation

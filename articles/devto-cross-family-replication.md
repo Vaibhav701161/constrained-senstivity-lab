@@ -3,7 +3,7 @@ title: The Optimization Worked on Qwen. It Failed on Llama and Tool Calls.
 published: true
 description: A preregistered cross-family replication and executable BFCL-based pilot overturn a promising structured-output optimization and define a more honest product direction.
 tags: ai, machinelearning, llm, opensource
-cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/f99b9f6975cd0e600003bb46ab02b524bbf8beb8/assets/figures/cross-family-evidence.png
+cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/f99b9f6975cd0e600003bb46ab02b524bbf8beb8/assets/figures/cross-family-evidence.png
 ---
 
 > ## Correction update, 8 Aug 2026
@@ -14,7 +14,7 @@ cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-decodin
 > control arm and reused the frozen treatment. The result remained negative: 92/150
 > versus 82/150, a -6.7 point paired effect with interval [-12.7, -0.7], 6 wins, and
 > 16 losses. This resolves the mismatch and closes the default optimizer thesis. See
-> the [complete correction decision](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/decision-report.md).
+> the [complete correction decision](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/decision-report.md).
 
 I had a promising compiler result.
 
@@ -51,7 +51,7 @@ The conclusion is more important:
 The code, protocols, raw generations, exact hashes, paired statistics, validators,
 and complete discordance audits are public.
 
-{% github Vaibhav701161/constrained-decoding-lab %}
+{% github Vaibhav701161/constrained-senstivity-lab %}
 
 ## What was being optimized?
 
@@ -244,7 +244,7 @@ wins : losses:               2 : 3
 The primary interval was entirely below zero. This was not a merely inconclusive
 replication. Under the frozen gate it was Red: no cross-family replication.
 
-![Paired effects across the corrected Qwen, unseen Llama, and executable gates](https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/f99b9f6975cd0e600003bb46ab02b524bbf8beb8/assets/figures/cross-family-evidence.png)
+![Paired effects across the corrected Qwen, unseen Llama, and executable gates](https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/f99b9f6975cd0e600003bb46ab02b524bbf8beb8/assets/figures/cross-family-evidence.png)
 
 ## The failure audit changed the mechanism story
 
@@ -357,7 +357,7 @@ That is excellent contract-boundary behavior.
 
 It still did not improve exact calls.
 
-![Executable pilot component outcomes and paired transition matrix](https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/f99b9f6975cd0e600003bb46ab02b524bbf8beb8/assets/figures/tool-call-pilot-result.png)
+![Executable pilot component outcomes and paired transition matrix](https://raw.githubusercontent.com/Vaibhav701161/constrained-senstivity-lab/f99b9f6975cd0e600003bb46ab02b524bbf8beb8/assets/figures/tool-call-pilot-result.png)
 
 | Primary metric | String control | Integer treatment |
 |---|---:|---:|
@@ -531,11 +531,11 @@ Modal billed cost:                 $0.00
 
 The canonical reports are:
 
-- [Llama replication decision](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/llama32-second-family/experiments/second-family-replication/decision-report.md)
-- [Llama paired summary](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/llama32-second-family/experiments/second-family-replication/paired-summary.md)
-- [Executable pilot decision](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/llama32-second-family/experiments/tool-call-gate/decision-report.md)
-- [Complete practical discordance audit](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/llama32-second-family/experiments/tool-call-gate/failure-attribution.jsonl)
-- [Current evidence and product status](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/llama32-second-family/docs/evidence-status.md)
+- [Llama replication decision](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/llama32-second-family/experiments/second-family-replication/decision-report.md)
+- [Llama paired summary](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/llama32-second-family/experiments/second-family-replication/paired-summary.md)
+- [Executable pilot decision](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/llama32-second-family/experiments/tool-call-gate/decision-report.md)
+- [Complete practical discordance audit](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/llama32-second-family/experiments/tool-call-gate/failure-attribution.jsonl)
+- [Current evidence and product status](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/llama32-second-family/docs/evidence-status.md)
 
 I started this stage trying to validate an optimizing compiler.
 

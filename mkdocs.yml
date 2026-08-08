@@ -1,0 +1,132 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+site_name: Contract Sensitivity Lab
+site_description: Artifact-backed evaluation of how structured-output contracts change model behavior
+site_url: https://vaibhav701161.github.io/constrained-decoding-lab/
+repo_url: https://github.com/Vaibhav701161/constrained-decoding-lab
+repo_name: Vaibhav701161/constrained-decoding-lab
+edit_uri: edit/master/docs/
+copyright: Copyright &copy; 2026 Vaibhav Mittal. Research artifacts released under the MIT License.
+
+theme:
+  name: material
+  language: en
+  icon:
+    logo: material/chart-timeline-variant-shimmer
+    repo: fontawesome/brands/github
+  font: false
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Vaibhav701161
+      name: Vaibhav Mittal on GitHub
+    - icon: fontawesome/brands/dev
+      link: https://dev.to/vaibhav_mittal_ac22a2c5d6
+      name: Vaibhav Mittal on DEV Community
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/vaibhavmittal701161
+      name: Vaibhav Mittal on LinkedIn
+
+validation:
+  nav:
+    omitted_files: info
+  links:
+    not_found: info
+    anchors: warn
+    unrecognized_links: info
+
+# Local-only research direction files are intentionally excluded from both the
+# public site and search index. The directory is also excluded from Git tracking.
+exclude_docs: |
+  /project-direction/
+  /end-to-end-context-transfer.md
+
+nav:
+  - Overview: index.md
+  - Start here:
+      - Orientation: getting-started/overview.md
+      - Quickstart: getting-started/quickstart.md
+  - Concepts:
+      - Constrained decoding: concepts/constrained-decoding.md
+      - Contract sensitivity: concepts/contract-sensitivity.md
+  - Research:
+      - Evidence overview: studies/evidence-overview.md
+      - Qwen baseline: studies/qwen-baseline.md
+      - Representation alignment: representation-alignment-results.md
+      - Corrected Qwen replication: studies/corrected-qwen.md
+      - Llama replication: studies/llama-replication.md
+      - Canonical correction: studies/canonical-correction.md
+      - Executable tool-call pilot: studies/tool-call-pilot.md
+      - Complete research report: research-report.md
+  - Engineering:
+      - Architecture: architecture.md
+      - Supported contracts: supported-contracts.md
+      - Evidence status: evidence-status.md
+      - Methodology: methodology.md
+      - Engineering observations: engineering-observations.md
+  - Reproduce:
+      - Artifact replay: reproducibility/artifact-replay.md
+      - Evidence map: reproducibility/evidence-map.md
+      - Environment: environment.md
+      - Run ledgers:
+          - Qwen2.5 0.5B: run-ledgers/qwen2.5-0.5b.md
+          - Qwen2.5 7B: run-ledgers/qwen2.5-7b.md
+  - Publications: publications.md
+  - Archive:
+      - Foundational probes: archive/foundational-probes.md
+      - Local pilot: archive/local-pilot.md
+      - Alignment pivot decision: decisions/contract-alignment-pivot.md

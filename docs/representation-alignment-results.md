@@ -21,11 +21,11 @@ The following artifacts passed independent validation with no warnings:
 
 - Targeted gate: 18 rows for each of four conditions and six required trace
   records. See
-  [`cloud-targeted/artifact-validation.json`](../experiments/representation-alignment-gate/results/cloud-targeted/artifact-validation.json).
+  [`cloud-targeted/artifact-validation.json`](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/representation-alignment-gate/results/cloud-targeted/artifact-validation.json).
 - Full confirmation: 50 raw rows for each of three conditions, with the
   predeclared contradictory GSM8K item excluded only from the cleaned 49-item
   analysis. See
-  [`cloud-full/artifact-validation.json`](../experiments/representation-alignment-gate/results/cloud-full/artifact-validation.json).
+  [`cloud-full/artifact-validation.json`](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/representation-alignment-gate/results/cloud-full/artifact-validation.json).
 
 Every accepted full-confirmation row had a known source hash, a unique item ID,
 no generation error, no token-cap hit, and a valid final external object.
@@ -89,7 +89,7 @@ hypothesis, but they do not prove a universal causal account of all signed
 numeric-string behavior.
 
 See the compact raw trace at
-[`xgrammar-integer-answer-boundary.jsonl`](../experiments/representation-alignment-gate/results/cloud-full/results/representation-alignment-full/traces/xgrammar-integer-answer-boundary.jsonl).
+[`xgrammar-integer-answer-boundary.jsonl`](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/representation-alignment-gate/results/cloud-full/results/representation-alignment-full/traces/xgrammar-integer-answer-boundary.jsonl).
 
 ## Operational observations
 
@@ -113,4 +113,4 @@ schemas. Cross-model and tool-call replication remain required before making a
 general product or research claim.
 
 The machine-readable paired summary is
-[`cloud-full/paired-summary.json`](../experiments/representation-alignment-gate/results/cloud-full/paired-summary.json).
+[`cloud-full/paired-summary.json`](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/master/experiments/representation-alignment-gate/results/cloud-full/paired-summary.json).

@@ -1,0 +1,228 @@
+:root {
+  --csl-ink: #132238;
+  --csl-muted: #52647a;
+  --csl-line: #d9e2ec;
+  --csl-panel: #f6f8fb;
+  --csl-blue: #155eef;
+  --csl-blue-deep: #073b9a;
+  --csl-teal: #087f8c;
+  --csl-green: #087a55;
+  --csl-red: #b42318;
+  --md-primary-fg-color: #102a43;
+  --md-primary-fg-color--light: #243b53;
+  --md-primary-fg-color--dark: #071b2d;
+  --md-accent-fg-color: #155eef;
+}
+
+[data-md-color-scheme="slate"] {
+  --csl-ink: #edf2f7;
+  --csl-muted: #a8b7c8;
+  --csl-line: #30445a;
+  --csl-panel: #142334;
+  --csl-blue: #76a9ff;
+  --csl-blue-deep: #a9c7ff;
+  --csl-teal: #5cc8d1;
+  --csl-green: #62d3a5;
+  --csl-red: #ff8a80;
+  --md-primary-fg-color: #0b1f33;
+  --md-accent-fg-color: #76a9ff;
+}
+
+body,
+input {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+code,
+kbd,
+pre {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.md-grid {
+  max-width: 88rem;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  color: var(--csl-ink);
+  font-weight: 680;
+  letter-spacing: -0.02em;
+}
+
+.md-typeset h1 {
+  margin-bottom: 0.7em;
+}
+
+.md-typeset a {
+  text-underline-offset: 0.16em;
+}
+
+.csl-hero {
+  border: 1px solid var(--csl-line);
+  border-radius: 1rem;
+  padding: clamp(1.6rem, 4vw, 3.4rem);
+  margin: 0 0 2rem;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--csl-blue) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(color-mix(in srgb, var(--csl-blue) 7%, transparent) 1px, transparent 1px),
+    var(--csl-panel);
+  background-size: 32px 32px;
+}
+
+.csl-eyebrow {
+  color: var(--csl-blue);
+  font-size: 0.73rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.8rem;
+  text-transform: uppercase;
+}
+
+.csl-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1.06;
+  margin: 0;
+  max-width: 18ch;
+}
+
+.csl-hero__lede {
+  color: var(--csl-muted);
+  font-size: clamp(1rem, 2vw, 1.22rem);
+  line-height: 1.65;
+  margin: 1.2rem 0 0;
+  max-width: 66ch;
+}
+
+.csl-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.6rem;
+}
+
+.csl-button {
+  align-items: center;
+  border: 1px solid var(--csl-blue);
+  border-radius: 0.48rem;
+  display: inline-flex;
+  font-weight: 700;
+  padding: 0.62rem 0.9rem;
+  text-decoration: none !important;
+}
+
+.csl-button--primary {
+  background: var(--csl-blue);
+  color: #fff !important;
+}
+
+.csl-button--secondary {
+  background: transparent;
+  color: var(--csl-blue) !important;
+}
+
+.csl-metrics,
+.csl-card-grid {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  margin: 1.25rem 0 2rem;
+}
+
+.csl-metric,
+.csl-card {
+  background: var(--csl-panel);
+  border: 1px solid var(--csl-line);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.csl-metric strong {
+  color: var(--csl-ink);
+  display: block;
+  font-size: 1.45rem;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+.csl-metric span {
+  color: var(--csl-muted);
+  display: block;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  margin-top: 0.35rem;
+}
+
+.csl-card h3 {
+  font-size: 1rem;
+  margin: 0 0 0.4rem;
+}
+
+.csl-card p {
+  color: var(--csl-muted);
+  font-size: 0.88rem;
+  margin: 0 0 0.75rem;
+}
+
+.csl-card a {
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.csl-decision {
+  border-left: 0.24rem solid var(--csl-red);
+  padding: 0.15rem 0 0.15rem 1rem;
+  margin: 1.5rem 0;
+}
+
+.csl-decision strong {
+  color: var(--csl-red);
+}
+
+.csl-pipeline {
+  background: #0b1726;
+  border: 1px solid #26384c;
+  border-radius: 0.8rem;
+  color: #e7eef8;
+  overflow-x: auto;
+  padding: 1rem 1.2rem;
+  white-space: pre;
+}
+
+.csl-caption {
+  color: var(--csl-muted);
+  font-size: 0.76rem;
+  margin-top: 0.45rem;
+  text-align: center;
+}
+
+.md-typeset table:not([class]) {
+  border: 1px solid var(--csl-line);
+  border-radius: 0.6rem;
+  box-shadow: none;
+}
+
+.md-typeset table:not([class]) th {
+  background: var(--csl-panel);
+  color: var(--csl-ink);
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 0.6rem;
+  box-shadow: none;
+}
+
+@media screen and (max-width: 44rem) {
+  .csl-hero {
+    border-radius: 0.7rem;
+    padding: 1.25rem;
+  }
+
+  .csl-button {
+    justify-content: center;
+    width: 100%;
+  }
+}

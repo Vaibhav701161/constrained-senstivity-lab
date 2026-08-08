@@ -6,6 +6,16 @@ tags: ai, machinelearning, llm, opensource
 cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/master/assets/figures/representation-alignment-recovery.png
 ---
 
+> ## Update, 8 Aug 2026
+>
+> This Qwen result remains valid for its frozen setup, but it did not generalize.
+> A fresh Llama replication was negative, and an external review later found that
+> the first Llama string control accepted a broader numeric language than the safe
+> compiler transform. I preregistered an exact canonical correction. The canonical
+> string control still scored 92/150 versus 82/150 for the frozen integer treatment,
+> with a paired interval of [-12.7, -0.7] points. The default optimizer thesis is
+> closed. See the [complete correction decision](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/decision-report.md).
+
 My previous experiment ended with an uncomfortable result.
 
 On the same 49 audited GSM8K questions, Qwen2.5-7B-Instruct answered 39 correctly

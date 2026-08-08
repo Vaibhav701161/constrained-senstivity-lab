@@ -6,6 +6,16 @@ tags: ai, machinelearning, llm, opensource
 cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/f99b9f6975cd0e600003bb46ab02b524bbf8beb8/assets/figures/cross-family-evidence.png
 ---
 
+> ## Correction update, 8 Aug 2026
+>
+> An external review found that the Llama string control described below accepted
+> decimals, fractions, comma grouping, and leading zeros, while the safe compiler
+> supported only canonical signed integers. I preregistered one exact canonical
+> control arm and reused the frozen treatment. The result remained negative: 92/150
+> versus 82/150, a -6.7 point paired effect with interval [-12.7, -0.7], 6 wins, and
+> 16 losses. This resolves the mismatch and closes the default optimizer thesis. See
+> the [complete correction decision](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/decision-report.md).
+
 I had a promising compiler result.
 
 On Qwen2.5-7B, changing one model-facing JSON field from a signed numeric string to a

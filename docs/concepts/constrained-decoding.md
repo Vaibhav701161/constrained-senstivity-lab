@@ -1,3 +1,8 @@
+---
+title: Constrained decoding
+description: How grammar-guided token masking enforces structure and where its guarantees stop
+---
+
 # Constrained decoding
 
 ## The basic idea
@@ -50,6 +55,17 @@ The studies use Outlines and XGrammar as structured-generation implementations.
 When their matched outputs are byte-identical, that supports implementation parity
 for the tested subset. It does not create two independent model replications because
 both backends constrain the same underlying model and prompt.
+
+## Primary references
+
+- [XGrammar paper](https://arxiv.org/abs/2411.15100) for grammar execution and
+  token-mask implementation context
+- [Outlines JSON generation reference](https://dottxt-ai.github.io/outlines/reference/generation/json/)
+  for its JSON Schema generation interface
+- [JSON Schema 2020-12 specification](https://json-schema.org/specification) for the
+  caller-facing validation language
+- [JSONSchemaBench paper](https://arxiv.org/abs/2501.10868) for broader evaluation
+  of constrained-decoding coverage, efficiency, and output quality
 
 ## Continue learning
 

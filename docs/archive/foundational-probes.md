@@ -1,4 +1,11 @@
-# Foundational Probes
+---
+title: Foundational probes
+description: Historical tokenizer, masking, and schema-enforcement probes preserved for provenance
+search:
+  exclude: true
+---
+
+# Foundational probes
 
 ## What I ran
 

@@ -1,4 +1,17 @@
-# Analysis Protocol
+---
+title: Baseline analysis protocol
+description: Frozen Qwen baseline protocol from 3 August 2026, preserved as historical evidence
+search:
+  exclude: true
+---
+
+# Baseline analysis protocol
+
+!!! warning "Document status: frozen historical protocol"
+
+    This page defines the original Qwen baseline only. Use the
+    [current cross-study methodology](methods/index.md) for the methodology shared
+    across the completed program.
 
 Frozen on 3 Aug 2026 before the final prompt and backend matrix was observed.
 The explicit five-item technical gate below was added on 3 Aug while Kaggle version

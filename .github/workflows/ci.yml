@@ -23,7 +23,11 @@ jobs:
         run: python -m pip install -e ".[dev]"
       - name: Compile Python sources
         run: python -m compileall -q src scripts tests
-      - name: Replay accepted artifacts
+      - name: Verify documentation facts and figure synchronization
+        run: |
+          python scripts/verify_docs_facts.py
+          python scripts/sync_docs_figures.py --check
+      - name: Replay stored artifact scopes
         run: >-
           python scripts/replay_artifacts.py
           --scope all

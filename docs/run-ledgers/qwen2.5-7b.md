@@ -1,4 +1,15 @@
-# Qwen2.5-7B Kaggle Run Ledger
+---
+title: Qwen2.5 7B Kaggle run ledger
+description: Frozen operational ledger for diagnostic and accepted Qwen2.5 7B Kaggle runs
+search:
+  exclude: true
+---
+
+# Qwen2.5 7B Kaggle run ledger
+
+!!! info "Document status: frozen operational record"
+
+    This ledger is preserved for provenance and excluded from normal search.
 
 Status (4 Aug 2026): **experimental versions 1–23 documented; final v8 matrix
 complete and validated; public artifacts available; no worker running.**

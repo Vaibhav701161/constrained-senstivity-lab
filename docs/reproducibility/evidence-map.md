@@ -1,3 +1,8 @@
+---
+title: Evidence map
+description: Direct routes to protocols, manifests, raw rows, validators, audits, summaries, and frozen decisions
+---
+
 # Evidence map
 
 Every principal claim should resolve to a protocol, raw output, analysis, validation

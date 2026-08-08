@@ -1,4 +1,11 @@
-# Contract-Alignment Pivot Decision
+---
+title: Contract alignment pivot
+description: Historical architecture decision that authorized the narrow representation-alignment prototype
+search:
+  exclude: true
+---
+
+# Contract-alignment pivot decision
 
 ## Decision
 

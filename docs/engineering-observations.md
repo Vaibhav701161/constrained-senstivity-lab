@@ -1,13 +1,27 @@
-# Engineering Observations
+---
+title: Engineering observations
+description: Historical working notes from early tokenizer, masking, prompting, and backend probes
+search:
+  exclude: true
+---
+
+# Engineering observations
+
+!!! warning "Document status: historical working notes"
+
+    This page preserves early observations and unanswered probe questions. It is
+    not the current methodology or final evidence summary. See
+    [system architecture](architecture.md) and
+    [cross-study methodology](methods/index.md) for curated conclusions.
 
 ## Tokenizer observations
 
-1. Did "0.46" tokenize differently from " 0.46"? -- yes , space was tokenized as a seperate token
-2. Did JSON context change tokenization? -- 
-3. Are `"answer"` and `answer` different token sequences? -- yes  
-4. Are `{`, `{"`, and `":` single tokens or multiple tokens? -- yes
-5. If a grammar says the next character must be "0", which tokens could satisfy that? -- only this one : "0.46"
-6. What surprised me? -- multiple special char where tokenized as single token , in sentences , tokenization happens as gpt-2 paper describes , while in digits tokenization was different then i expected . this is strange !
+1. Did `"0.46"` tokenize differently from `" 0.46"`? Yes. The leading space changed the token sequence.
+2. Did JSON context change tokenization? This was not recorded in the early probe.
+3. Are `"answer"` and `answer` different token sequences? Yes.
+4. Are `{`, `{"`, and `":` single tokens or multiple tokens? Their boundaries depended on the tokenizer vocabulary.
+5. If a grammar says the next character must be `"0"`, which tokens could satisfy it? The probe found a narrow allowed token set rather than every digit-containing token.
+6. What was surprising? Several punctuation sequences were single tokens, while numeric token boundaries differed from the initial expectation.
 
 ## LogitsProcessor observations
 

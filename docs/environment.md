@@ -1,4 +1,14 @@
-# Environment and Hardware
+---
+title: Frozen local environment
+description: Hardware and package snapshot for the original local Qwen2.5 0.5B environment
+---
+
+# Frozen local environment
+
+!!! info "Scope"
+
+    This is a machine-specific snapshot from the original local run. Cloud studies
+    record their own package and hardware environments in run manifests.
 
 Verified on 2 Aug 2026.
 

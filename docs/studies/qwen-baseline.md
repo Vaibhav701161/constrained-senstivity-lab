@@ -42,9 +42,15 @@ accepted cloud snapshots are preserved in the repository.
 | Prompted JSON, answer first | 11/49 (22.4%) | 8/49 (16.3%) | 65.3% |
 | Outlines, answer first | 8/49 (16.3%) | 8/49 (16.3%) | 100.0% |
 
-![Accuracy, strict correctness, and schema compliance across the complete baseline matrix](../assets/figures/accuracy-compliance-tradeoff.png)
+<figure class="csl-figure">
+  <img src="../../assets/figures/accuracy-compliance-tradeoff.svg" alt="Accuracy, strict correctness, and schema compliance across the complete baseline matrix">
+  <figcaption>Group metrics from the frozen clean 49-item Qwen2.5 7B summary. Recoverable and strict correctness are shown separately.</figcaption>
+</figure>
 
-![Paired semantic effects in the baseline study](../assets/figures/paired-effects.png)
+<figure class="csl-figure">
+  <img src="../../assets/figures/paired-effects.svg" alt="Paired semantic effects in the baseline study">
+  <figcaption>Paired percentage-point effects with frozen bootstrap intervals. Comparisons share item IDs and are not treated as independent samples.</figcaption>
+</figure>
 
 ## Interpretation
 
@@ -57,13 +63,29 @@ reduced recoverable accuracy by 57.1 points under prompting and 44.9 points unde
 Outlines. Under Outlines, validity remained 100%, isolating generation order from
 schema-compliance effects.
 
-![Paired correctness transitions showing which exact items were lost or gained](../assets/figures/paired-transitions.png)
+<figure class="csl-figure">
+  <img src="../../assets/figures/field-order-sensitivity.svg" alt="Recoverable accuracy and schema compliance under reasoning-first and answer-first field order">
+  <figcaption>Under Outlines, schema compliance remained 100% while recoverable accuracy fell by 44.9 percentage points.</figcaption>
+</figure>
+
+<figure class="csl-figure">
+  <img src="../../assets/figures/paired-transitions.svg" alt="Paired correctness transitions showing which exact items were lost or gained">
+  <figcaption>Exact paired contingency tables show that constrained and field-order effects came from asymmetric item-level transitions.</figcaption>
+</figure>
 
 ## Why this mattered
 
 The baseline established that structured-output evaluation cannot stop at parsing
 or validation. It motivated the narrower hypothesis that one model-facing lexical
 boundary, a signed numeric string, might be avoidably difficult.
+
+## Limitations
+
+- One model family and a small deterministic GSM8K subset
+- One predeclared contradictory-reference exclusion in the clean analysis
+- Greedy decoding only
+- No independent practical execution oracle at this stage
+- Historical latency from Kaggle hardware is descriptive
 
 ## Primary records
 

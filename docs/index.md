@@ -1,8 +1,7 @@
 ---
-title: Constrained Sensitivity Lab
+title: Overview
 description: Artifact-backed evaluation of how structured-output contracts change model behavior
 hide:
-  - navigation
   - toc
 ---
 
@@ -18,8 +17,8 @@ hide:
         replayable analysis.
       </p>
       <div class="csl-actions">
-        <a class="csl-button csl-button--primary" href="getting-started/quickstart/">Run the evidence replay</a>
-        <a class="csl-button csl-button--secondary" href="studies/evidence-overview/">Inspect the research record</a>
+        <a class="csl-button csl-button--primary" href="results/">Inspect the final results</a>
+        <a class="csl-button csl-button--secondary" href="getting-started/quickstart/">Replay the evidence</a>
       </div>
     </div>
     <aside class="csl-signal" aria-label="Current evidence signal">
@@ -42,10 +41,10 @@ CI        [-12.7, -0.7]</pre>
 </section>
 
 <div class="csl-metrics">
-  <div class="csl-metric"><strong>1,501</strong><span>property cases for deterministic integer stringification</span></div>
-  <div class="csl-metric"><strong>464</strong><span>accepted experiment rows replayed by one command</span></div>
-  <div class="csl-metric"><strong>150</strong><span>repository-unseen items in the confirmatory holdout</span></div>
-  <div class="csl-metric"><strong>22 / 22</strong><span>confirmatory discordances manually attributed</span></div>
+  <dl class="csl-metric"><dt>1,501</dt><dd>property cases for deterministic integer stringification</dd></dl>
+  <dl class="csl-metric"><dt>464</dt><dd>rows in the general raw-output replay scope</dd></dl>
+  <dl class="csl-metric"><dt>150</dt><dd>repository-unseen items in the confirmatory holdout</dd></dl>
+  <dl class="csl-metric"><dt>22 / 22</dt><dd>canonical holdout discordances manually attributed</dd></dl>
 </div>
 
 ## The problem
@@ -71,11 +70,45 @@ The project separates three claims that are often conflated:
   backed by conservative compilation and fail-closed schema analysis.
 </div>
 
+<figure class="csl-figure">
+  <img src="assets/figures/validity-semantics-separation.svg" alt="Structural validity and task correctness separated across baseline and representation studies">
+  <figcaption>Structural success and task correctness are measured independently. Arrows connect matched conditions only; task domains are not pooled.</figcaption>
+</figure>
+
+## Choose your path
+
+<div class="csl-card-grid csl-card-grid--paths">
+  <a class="csl-card csl-card--link" href="getting-started/overview/">
+    <span class="csl-card__label">New to the topic</span>
+    <h3>Learn the foundations</h3>
+    <p>Start with constrained decoding, model-facing contracts, and the difference between valid and correct.</p>
+    <span class="csl-card__cta">Start learning</span>
+  </a>
+  <a class="csl-card csl-card--link" href="results/">
+    <span class="csl-card__label">Review the claim</span>
+    <h3>Audit the final results</h3>
+    <p>Inspect effects, confidence intervals, all paired transitions, and the complete mechanism audit.</p>
+    <span class="csl-card__cta">Open results</span>
+  </a>
+  <a class="csl-card csl-card--link" href="system/">
+    <span class="csl-card__label">Build on the work</span>
+    <h3>Understand the system</h3>
+    <p>Trace ContractIR, typed refusal, runtime parity, inverse transduction, and paired evaluation.</p>
+    <span class="csl-card__cta">Inspect architecture</span>
+  </a>
+  <a class="csl-card csl-card--link" href="reproducibility/">
+    <span class="csl-card__label">Verify locally</span>
+    <h3>Replay the artifacts</h3>
+    <p>Recompute row scores and summaries without a GPU, model download, or hosted service.</p>
+    <span class="csl-card__cta">Choose an audit path</span>
+  </a>
+</div>
+
 ## The complete evidence chain
 
 <figure class="csl-figure">
-  <img src="assets/figures/cross-family-evidence.png" alt="Paired effects across the corrected Qwen, Llama, and executable decision gates">
-  <figcaption>All intervals, transition counts, and gate labels are generated from frozen machine-readable summaries.</figcaption>
+  <img src="assets/figures/cross-family-evidence.svg" alt="Paired effects across corrected Qwen, canonical Llama, and executable decision gates">
+  <figcaption>The current forest plot uses the final canonical Llama correction. All intervals and transition counts are generated from frozen machine-readable summaries.</figcaption>
 </figure>
 
 <div class="csl-timeline">
@@ -88,7 +121,7 @@ The project separates three claims that are often conflated:
     <p>A native integer plus deterministic stringification produced a positive scoped estimate after runner correction.</p>
   </div>
   <div class="csl-step">
-    <h3>3. Independent Llama replication</h3>
+    <h3>3. Cross-family Llama test</h3>
     <p>The direction reversed on 150 randomly selected unseen items under one shared XGrammar runtime.</p>
   </div>
   <div class="csl-step">
@@ -98,6 +131,26 @@ The project separates three claims that are often conflated:
 </div>
 
 [Follow every gate and correction](studies/evidence-overview.md){ .csl-button .csl-button--secondary }
+
+## What the negative result enabled
+
+The supported direction is not an optimizer that silently rewrites schemas. It is a
+measurement system that tells an engineer when a valid contract change alters model
+behavior.
+
+| System capability | Why it exists |
+|---|---|
+| Static contract analysis | Prove a narrow inverse mapping or refuse the transform |
+| Shared paired runtime | Keep model, prompt, template, backend, and decoding aligned |
+| Structural and semantic scoring | Expose valid-but-wrong outputs instead of hiding them |
+| Executable wrappers | Test whether a valid call actually causes the correct state |
+| Transition and uncertainty analysis | Show repairs, regressions, intervals, and discordant cases |
+| Artifact replay | Let reviewers recompute results without cloud inference |
+
+<figure class="csl-figure">
+  <img src="assets/figures/research-system-architecture.svg" alt="Contract-sensitivity evaluation pipeline">
+  <figcaption>The caller contract remains authoritative. Unsupported transforms stop before generation, and empirical quality remains a separate decision gate.</figcaption>
+</figure>
 
 ## System boundary
 
@@ -135,10 +188,22 @@ silently approximated.
     <a href="concepts/constrained-decoding/">Read the foundations</a>
   </div>
   <div class="csl-card">
+    <span class="csl-card__label">Results</span>
+    <h3>Technical dashboard</h3>
+    <p>Review accepted effects, validity gaps, transition balance, item maps, and artifact scope.</p>
+    <a href="results/">Open the dashboard</a>
+  </div>
+  <div class="csl-card">
     <span class="csl-card__label">Evidence</span>
     <h3>Paired research record</h3>
     <p>Inspect each model family, dataset, confidence interval, transition matrix, and frozen decision.</p>
     <a href="studies/evidence-overview/">Review the studies</a>
+  </div>
+  <div class="csl-card">
+    <span class="csl-card__label">Methods</span>
+    <h3>Cross-study methodology</h3>
+    <p>Understand frozen comparison surfaces, denominator policy, paired statistics, and corrections.</p>
+    <a href="methods/">Read the methodology</a>
   </div>
   <div class="csl-card">
     <span class="csl-card__label">System</span>
@@ -177,6 +242,6 @@ silently approximated.
 - Negative findings remain public and guide the current architecture.
 
 <div class="csl-callout">
-  <p><strong>Audit the conclusion yourself.</strong><br><span class="csl-caption">The lightweight path replays 464 accepted rows with no GPU dependency.</span></p>
+  <p><strong>Audit the conclusion yourself.</strong><br><span class="csl-caption">The lightweight path replays 464 raw-output rows from its declared scopes with no GPU dependency.</span></p>
   <a class="csl-button csl-button--primary" href="getting-started/quickstart/">Open quickstart</a>
 </div>

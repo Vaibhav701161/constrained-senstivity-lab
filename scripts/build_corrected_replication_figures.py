@@ -267,7 +267,7 @@ def build_effect_figure(evidence: dict[str, Any], output_dir: Path) -> None:
         ("Final external validity", 49, 49, COLORS["teal"]),
         ("Internal/schema validity", 49, 49, COLORS["blue"]),
         ("Nonblank outputs", 50, 50, COLORS["green"]),
-        ("Rows independently validated", 200, 200, COLORS["navy"]),
+        ("Rows checked by artifact validator", 200, 200, COLORS["navy"]),
     ]
     for index, (label, value, total, color) in enumerate(metrics[::-1]):
         validity_axis.barh(index, 100 * value / total, color=color, height=0.52)

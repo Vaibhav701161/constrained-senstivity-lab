@@ -1,9 +1,24 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+  {{ super() }}
+  {% set csl_page_title = page.title if page and page.title else config.site_name %}
+  {% set csl_description = page.meta.description if page and page.meta and page.meta.description else config.site_description %}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Constrained Sensitivity Lab">
+  <meta property="og:title" content="{{ csl_page_title }} | Constrained Sensitivity Lab">
+  <meta property="og:description" content="{{ csl_description }}">
+  <meta property="og:image" content="{{ config.site_url }}assets/figures/cross-family-evidence.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ csl_page_title }} | Constrained Sensitivity Lab">
+  <meta name="twitter:description" content="{{ csl_description }}">
+  <meta name="twitter:image" content="{{ config.site_url }}assets/figures/cross-family-evidence.png">
+{% endblock %}
+
 {% block announce %}
   <div class="csl-announcement">
-    <span class="csl-announcement__label">Evidence status</span>
-    <span>Canonical correction complete. The default optimizer thesis is closed.</span>
-    <a href="{{ 'studies/canonical-correction/' | url }}">Read the decision</a>
+    <span class="csl-announcement__label">Final evidence</span>
+    <span>The tested schema rewrite did not preserve model quality across families.</span>
+    <a href="{{ 'results/' | url }}">Inspect the result</a>
   </div>
 {% endblock %}

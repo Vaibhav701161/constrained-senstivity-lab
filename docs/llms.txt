@@ -1,0 +1,32 @@
+# Constrained Sensitivity Lab
+
+Artifact-backed research on how model-facing structured-output contracts change
+semantic correctness, structural validity, and executable outcomes.
+
+## Canonical routes
+
+- Overview: https://vaibhav701161.github.io/constrained-senstivity-lab/
+- Final results: https://vaibhav701161.github.io/constrained-senstivity-lab/results/
+- Evidence sequence: https://vaibhav701161.github.io/constrained-senstivity-lab/studies/evidence-overview/
+- Current status: https://vaibhav701161.github.io/constrained-senstivity-lab/evidence-status/
+- Architecture: https://vaibhav701161.github.io/constrained-senstivity-lab/architecture/
+- Supported contracts: https://vaibhav701161.github.io/constrained-senstivity-lab/supported-contracts/
+- Methodology: https://vaibhav701161.github.io/constrained-senstivity-lab/methods/
+- Metric definitions: https://vaibhav701161.github.io/constrained-senstivity-lab/methods/metrics/
+- Reproduction: https://vaibhav701161.github.io/constrained-senstivity-lab/reproducibility/
+- Evidence map: https://vaibhav701161.github.io/constrained-senstivity-lab/reproducibility/evidence-map/
+- Publications: https://vaibhav701161.github.io/constrained-senstivity-lab/publications/
+
+## Final claim boundary
+
+The tested signed-string to internal-integer rewrite produced a positive but
+uncertain Qwen estimate and a negative canonical Llama estimate. A bounded
+executable tool-call pilot detected no benefit. The project therefore supports
+contract-sensitivity measurement and conservative fail-closed analysis, not a
+general automatic schema optimizer.
+
+## Evidence policy
+
+Raw JSONL, manifests, validators, paired summaries, complete audits, and frozen
+decision reports are authoritative. Documentation pages are a living interpretation
+layer. Effects from different models and tasks are not pooled.

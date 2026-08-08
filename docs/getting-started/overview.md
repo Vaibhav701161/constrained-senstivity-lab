@@ -1,3 +1,8 @@
+---
+title: Orientation
+description: Choose a learning, results, architecture, or reproducibility path through the research
+---
+
 # Orientation
 
 Constrained Sensitivity Lab is a research engineering repository, not a hosted model
@@ -14,9 +19,10 @@ infrastructure for producing that evidence.
 
 === "I want the result"
 
-    Read the [Evidence overview](../studies/evidence-overview.md). It separates the
-    positive Qwen result, the negative Llama replication, the schema correction,
-    and the executable pilot.
+    Start with the [results dashboard](../results/index.md), then follow the
+    [evidence overview](../studies/evidence-overview.md). Together they separate the
+    positive Qwen estimate, the corrected negative Llama result, and the executable
+    pilot.
 
 === "I want to audit the work"
 
@@ -26,7 +32,8 @@ infrastructure for producing that evidence.
 
 === "I want to extend the system"
 
-    Start with the [architecture](../architecture.md) and
+    Start with the [system overview](../system/index.md),
+    [architecture](../architecture.md), and
     [supported contracts](../supported-contracts.md). Unsupported schema features
     are deliberately refused rather than silently approximated.
 

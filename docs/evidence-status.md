@@ -1,4 +1,9 @@
-# Evidence Status and Product Direction
+---
+title: Current evidence status
+description: The final claim boundary and implementation direction after every completed decision gate
+---
+
+# Current evidence status
 
 ## Status
 
@@ -6,12 +11,20 @@ The completed evidence closes the general contract-alignment quality-optimizer
 thesis. The supported direction is primarily a contract-sensitivity analyzer and
 reproducible measurement harness, with a secondary fail-closed schema linter.
 
-This document is the post-experiment status layer. The earlier
+This document is the current interpretation layer. The public
 [`architecture.md`](architecture.md) and
-[`supported-contracts.md`](supported-contracts.md) remain byte-identical to the
-versions hashed into the frozen second-family source manifest. They describe the
-accepted prototype boundary at launch; this file records what the completed gates
-authorize now.
+[`supported-contracts.md`](supported-contracts.md) are living documentation and
+have evolved after the second-family launch. The exact versions used by that run
+remain recoverable through its
+[source manifest](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/second-family-replication/source-manifest.json)
+and the `llama32-second-family-replication-v1` tag. Frozen artifacts, not the current
+documentation pages, define the executed environment.
+
+!!! info "Document status: current"
+
+    This page reflects the final canonical correction and executable pilot. When a
+    historical report disagrees with it about current direction, this page and the
+    latest frozen decision report take precedence.
 
 ## Evidence sequence
 

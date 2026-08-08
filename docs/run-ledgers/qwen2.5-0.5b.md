@@ -1,4 +1,15 @@
-# Qwen2.5-0.5B Run Ledger
+---
+title: Qwen2.5 0.5B run ledger
+description: Frozen operational ledger for local pilot and primary Qwen2.5 0.5B runs
+search:
+  exclude: true
+---
+
+# Qwen2.5 0.5B run ledger
+
+!!! info "Document status: frozen operational record"
+
+    This ledger is preserved for provenance and excluded from normal search.
 
 This ledger keeps prompt probes separate from the frozen primary matrix. Raw JSONL
 rows are never overwritten or pooled across prompt versions.

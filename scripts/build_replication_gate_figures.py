@@ -81,15 +81,17 @@ def load_evidence() -> dict[str, Any]:
         ROOT
         / "experiments/corrected-replication/results/qwen2.5-7b-corrected/decision.json"
     )
-    llama = read_json(ROOT / "experiments/second-family-replication/paired-summary.json")
+    llama = read_json(
+        ROOT / "experiments/canonical-schema-equivalence-correction/paired-summary.json"
+    )
     tool = read_json(ROOT / "experiments/tool-call-gate/paired-summary.json")
     tool_validation = read_json(
         ROOT / "experiments/tool-call-gate/artifact-validation.json"
     )
     if qwen.get("clean_paired_examples") != 49:
         raise ValueError("unexpected corrected Qwen sample size")
-    if llama.get("datasets", {}).get("fresh", {}).get("paired_examples") != 150:
-        raise ValueError("unexpected Llama fresh sample size")
+    if llama.get("control", {}).get("examples") != 150:
+        raise ValueError("unexpected canonical Llama sample size")
     if tool.get("subsets", {}).get("primary", {}).get("paired_examples") != 30:
         raise ValueError("unexpected tool-call primary sample size")
     if tool.get("manual_audit_complete") is not True:
@@ -101,7 +103,7 @@ def load_evidence() -> dict[str, Any]:
 
 def build_cross_family_figure(evidence: dict[str, Any], output_dir: Path) -> None:
     qwen = evidence["qwen"]
-    llama = evidence["llama"]["datasets"]["fresh"]
+    llama = evidence["llama"]
     tool = evidence["tool"]["subsets"]["primary"]
     effects = [
         {
@@ -113,7 +115,7 @@ def build_cross_family_figure(evidence: dict[str, Any], output_dir: Path) -> Non
             "color": COLORS["teal"],
         },
         {
-            "label": "Llama 3.2 3B\nUnseen GSM8K, n=150",
+            "label": "Llama 3.2 3B\nCanonical GSM8K, n=150",
             "estimate": llama["primary_contract_valid_effect"]["paired_difference"],
             "interval": llama["primary_contract_valid_effect"][
                 "exact_paired_bootstrap_ci95"

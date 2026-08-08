@@ -14,7 +14,7 @@ cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-senstiv
 > control arm and reused the frozen treatment. The result remained negative: 92/150
 > versus 82/150, a -6.7 point paired effect with interval [-12.7, -0.7], 6 wins, and
 > 16 losses. This resolves the mismatch and closes the default optimizer thesis. See
-> the [complete correction decision](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/decision-report.md).
+> the [complete correction decision](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/canonical-schema-equivalence-correction/decision-report.md).
 
 I had a promising compiler result.
 
@@ -531,11 +531,11 @@ Modal billed cost:                 $0.00
 
 The canonical reports are:
 
-- [Llama replication decision](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/llama32-second-family/experiments/second-family-replication/decision-report.md)
-- [Llama paired summary](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/llama32-second-family/experiments/second-family-replication/paired-summary.md)
-- [Executable pilot decision](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/llama32-second-family/experiments/tool-call-gate/decision-report.md)
-- [Complete practical discordance audit](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/llama32-second-family/experiments/tool-call-gate/failure-attribution.jsonl)
-- [Current evidence and product status](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/llama32-second-family/docs/evidence-status.md)
+- [Llama replication decision](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/second-family-replication/decision-report.md)
+- [Llama paired summary](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/second-family-replication/paired-summary.md)
+- [Executable pilot decision](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/tool-call-gate/decision-report.md)
+- [Complete practical discordance audit](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/tool-call-gate/failure-attribution.jsonl)
+- [Current evidence and product status](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/docs/evidence-status.md)
 
 I started this stage trying to validate an optimizing compiler.
 

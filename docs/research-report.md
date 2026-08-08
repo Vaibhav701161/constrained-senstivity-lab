@@ -1,4 +1,18 @@
-# Constrained Decoding Under Matched Conditions
+---
+title: Baseline research report
+description: Historical 2-4 August Qwen baseline report, preserved with its original interpretation
+search:
+  exclude: true
+---
+
+# Constrained decoding under matched conditions
+
+!!! warning "Document status: historical baseline report"
+
+    This report predates the corrected Qwen replication, cross-family Llama test,
+    canonical correction, and executable pilot. Its baseline results remain valid,
+    but its recommendations are superseded by the
+    [current results dashboard](results/index.md).
 
 Status: **Primary evaluation matrix complete; all accepted artifacts validated**
 Experiment dates: 2 to 4 Aug 2026

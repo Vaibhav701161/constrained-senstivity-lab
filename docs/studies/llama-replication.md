@@ -5,6 +5,13 @@ description: Preregistered cross-family replication on 150 previously unseen GSM
 
 # Llama second-family replication
 
+!!! warning "Document status: corrected intermediate result"
+
+    This page records the preregistered broad-string run. The control language was
+    later found broader than the compiler's equivalence proof. The
+    [canonical correction](canonical-correction.md) is the final decision-bearing
+    comparison.
+
 <div class="csl-study-header">
   <div class="csl-study-header__item"><span>Model</span><strong>Llama 3.2 3B Instruct</strong></div>
   <div class="csl-study-header__item"><span>Fresh holdout</span><strong>150 unseen items</strong></div>
@@ -55,6 +62,17 @@ whereas the transformation proved equivalence only for canonical signed integers
 That was a legitimate experimental mismatch. It required one bounded correction,
 not an attempt to tune the result. The [canonical correction](canonical-correction.md)
 therefore replaced only the control arm and reused the immutable treatment.
+
+<figure class="csl-figure">
+  <img src="../../assets/figures/canonical-correction-delta.svg" alt="Broad and canonical Llama controls compared across raw output, normalized answer, and correctness changes">
+  <figcaption>The later canonical grammar removed six noncanonical values. Aggregate control accuracy remained 92/150.</figcaption>
+</figure>
+
+## Limitations
+
+- The broad control language was not exactly equivalent to the compiler domain
+- The result therefore triggered a correction rather than carrying the final claim
+- The model, dataset, prompt, backend, and greedy policy remain one bounded setting
 
 ## Primary records
 

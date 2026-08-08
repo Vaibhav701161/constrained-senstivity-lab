@@ -1,3 +1,8 @@
+---
+title: Contract sensitivity
+description: Why equivalent caller information can create different model generation paths and outcomes
+---
+
 # Contract sensitivity
 
 Contract sensitivity is the degree to which a model's semantic behavior changes
@@ -72,3 +77,11 @@ model change:
 3. validate the reconstructed object against the original contract;
 4. run paired task and execution evaluations;
 5. ship only when the workload-specific evidence clears a predefined gate.
+
+## Related evaluation work
+
+The [JSONSchemaBench study](https://arxiv.org/abs/2501.10868) evaluates structured
+generation across schema coverage, efficiency, and output quality. Constrained
+Sensitivity Lab focuses more narrowly on paired semantic and executable transitions
+caused by changing the model-facing contract while the caller-facing contract stays
+fixed.

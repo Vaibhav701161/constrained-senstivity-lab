@@ -1,9 +1,23 @@
-# Representation Alignment Results
+---
+title: Representation alignment gate
+description: Historical Qwen Green gate preserved before corrected and cross-family replication
+search:
+  exclude: true
+---
+
+# Representation alignment gate
+
+!!! warning "Document status: historical gate outcome"
+
+    Green was the correct decision at this gate. Later corrected Qwen evidence
+    narrowed the claim, and canonical Llama evidence reversed the direction. Use
+    the [evidence overview](studies/evidence-overview.md) for the completed decision
+    chain.
 
 ## Decision
 
-**Green, continue the contract-alignment compiler for the supported schema
-subset.**
+**Historical decision: Green, continue the contract-alignment compiler for the
+supported schema subset.**
 
 On the frozen, cleaned 49-item Qwen2.5-7B-Instruct GSM8K evaluation, replacing
 the hard-constrained model-facing signed numeric string with a native JSON

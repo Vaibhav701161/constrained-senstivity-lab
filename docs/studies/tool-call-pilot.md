@@ -56,7 +56,10 @@ repair was permitted.
 The paired effect was **-6.7 percentage points**, interval **[-20.0, 6.7]**, with
 one treatment-only win and three control-only losses. Exact McNemar `p = 0.625`.
 
-![Executable pilot outcomes and paired transitions](../assets/figures/tool-call-pilot-result.png)
+<figure class="csl-figure">
+  <img src="../../assets/figures/tool-call-pilot-result.svg" alt="Executable pilot outcomes and paired transitions">
+  <figcaption>All primary outputs validated and executed. Exact argument semantics and resulting state determined the paired failures.</figcaption>
+</figure>
 
 All structural and dispatch checks succeeded. The observed differences came from
 argument semantics, not transduction or validation. The separate three-case sign
@@ -67,6 +70,13 @@ stress set was too small and did not show a direct sign repair.
 The practical pilot did not rescue the optimizer hypothesis. It supports the same
 product pivot as the cross-family study: provide a harness that detects schema-driven
 regressions before deployment rather than promising an intrinsically better schema.
+
+## Limitations
+
+- Thirty primary calls and a separate three-case sign stress set
+- Single-turn, single-function local wrappers only
+- Adapted BFCL foundation, not an official leaderboard submission
+- The interval crosses zero, so no harmful causal effect is claimed
 
 ## Primary records
 

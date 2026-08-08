@@ -1,3 +1,8 @@
+---
+title: Publications
+description: Eight public technical articles covering foundations, baseline evidence, replication, correction, and final scope
+---
+
 # Publications
 
 The public article series records how the research question changed as evidence and

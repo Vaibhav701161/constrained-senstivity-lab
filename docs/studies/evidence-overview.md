@@ -25,7 +25,10 @@ was allowed to change the next question, but not to rewrite completed outcomes.
 | Canonical correction | Llama 3.2 3B, same 150 items | Canonical integer string vs integer | -6.7 pp, interval [-12.7, -0.7] | Close optimizer thesis |
 | Executable pilot | Llama 3.2 3B, BFCL-based calls | External strings vs internal integers | -6.7 pp, interval [-20.0, 6.7] | Continue as measurement infrastructure |
 
-![Paired effects across the principal decision gates](../assets/figures/cross-family-evidence.png)
+<figure class="csl-figure">
+  <img src="../../assets/figures/cross-family-evidence.svg" alt="Accepted paired effects across corrected Qwen, canonical Llama, and executable decision gates">
+  <figcaption>The final plot uses the canonical Llama control, not the superseded broad-string control. Effects are displayed together but not pooled.</figcaption>
+</figure>
 
 ## What survived every correction
 
@@ -56,6 +59,8 @@ contract-sensitivity measurement.
     Earlier positive results remain visible as model-specific historical evidence.
 
 ## Navigate the studies
+
+- [Results dashboard](../results/index.md)
 
 - [Qwen baseline](qwen-baseline.md)
 - [Representation alignment](../representation-alignment-results.md)

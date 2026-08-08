@@ -1,4 +1,11 @@
-# Local Pilot: Trustworthy Evaluation Pipeline
+---
+title: Local pilot
+description: Historical Qwen2.5 0.5B local pilot and early constrained-generation observations
+search:
+  exclude: true
+---
+
+# Local pilot: trustworthy evaluation pipeline
 
 Date: 2 Aug 2026
 

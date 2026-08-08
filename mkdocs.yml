@@ -3,7 +3,7 @@ site_name: Constrained Sensitivity Lab
 site_description: Artifact-backed evaluation of how structured-output contracts change model behavior
 site_url: https://vaibhav701161.github.io/constrained-senstivity-lab/
 repo_url: https://github.com/Vaibhav701161/constrained-senstivity-lab
-repo_name: Vaibhav701161/constrained-senstivity-lab
+repo_name: Source on GitHub
 edit_uri: edit/master/docs/
 copyright: Copyright &copy; 2026 Vaibhav Mittal. Research artifacts released under the MIT License.
 
@@ -41,13 +41,16 @@ theme:
     - navigation.footer
     - navigation.instant
     - navigation.instant.prefetch
+    - navigation.instant.progress
     - navigation.tracking
     - search.suggest
     - search.highlight
     - search.share
     - content.code.copy
     - content.code.annotate
+    - content.action.view
     - content.tabs.link
+    - content.tooltips
     - toc.follow
 
 plugins:
@@ -91,47 +94,55 @@ validation:
   nav:
     omitted_files: info
   links:
-    not_found: info
+    not_found: warn
     anchors: warn
-    unrecognized_links: info
+    unrecognized_links: warn
 
 # Local-only research direction files are intentionally excluded from both the
 # public site and search index. The directory is also excluded from Git tracking.
 exclude_docs: |
   /project-direction/
   /end-to-end-context-transfer.md
+  /overrides/
 
 nav:
   - Overview: index.md
-  - Learn:
+  - Start:
       - Orientation: getting-started/overview.md
+      - Quickstart: getting-started/quickstart.md
       - Constrained decoding: concepts/constrained-decoding.md
       - Contract sensitivity: concepts/contract-sensitivity.md
-  - Evidence:
+  - Findings:
+      - Results dashboard: results/index.md
       - Evidence overview: studies/evidence-overview.md
+      - Current evidence status: evidence-status.md
+  - Studies:
       - Qwen baseline: studies/qwen-baseline.md
-      - Representation alignment: representation-alignment-results.md
       - Corrected Qwen replication: studies/corrected-qwen.md
       - Llama replication: studies/llama-replication.md
       - Canonical correction: studies/canonical-correction.md
       - Executable tool-call pilot: studies/tool-call-pilot.md
   - System:
+      - System overview: system/index.md
       - Architecture: architecture.md
       - Supported contracts: supported-contracts.md
-      - Evidence status: evidence-status.md
+  - Methods:
+      - Cross-study methodology: methods/index.md
+      - Metric definitions: methods/metrics.md
   - Reproduce:
-      - Quickstart: getting-started/quickstart.md
+      - Reproduce and audit: reproducibility/index.md
       - Artifact replay: reproducibility/artifact-replay.md
       - Evidence map: reproducibility/evidence-map.md
-      - Environment: environment.md
-      - Run ledgers:
+      - Frozen local environment: environment.md
+  - Archive:
+      - Historical record: archive/index.md
+      - Baseline methodology: methodology.md
+      - Baseline research report: research-report.md
+      - Representation alignment gate: representation-alignment-results.md
+      - Engineering observations: engineering-observations.md
+      - Earlier records:
           - Qwen2.5 0.5B: run-ledgers/qwen2.5-0.5b.md
           - Qwen2.5 7B: run-ledgers/qwen2.5-7b.md
-  - Reference:
-      - Methodology: methodology.md
-      - Complete research report: research-report.md
-      - Engineering observations: engineering-observations.md
-      - Historical archive:
           - Foundational probes: archive/foundational-probes.md
           - Local pilot: archive/local-pilot.md
           - Alignment pivot decision: decisions/contract-alignment-pivot.md

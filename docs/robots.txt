@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vaibhav701161.github.io/constrained-senstivity-lab/sitemap.xml

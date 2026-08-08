@@ -1,8 +1,13 @@
+---
+title: Artifact replay
+description: Recompute second-family and tool-call row scores and paired summaries from checked-in raw outputs
+---
+
 # Artifact replay
 
 The repository distinguishes **generation reproduction** from **artifact replay**.
 Generation reproduction requires model weights, backend packages, GPU resources,
-and access to pinned model revisions. Artifact replay recomputes accepted metrics
+and access to pinned model revisions. Artifact replay recomputes stored metrics
 from the immutable JSONL rows already stored in the repository.
 
 Artifact replay is the default audit path because it is fast, deterministic, and
@@ -19,7 +24,7 @@ python scripts/replay_artifacts.py \
   --out /tmp/replay-validation.json
 ```
 
-The accepted output is:
+The expected output is:
 
 ```text
 464 rows replayed
@@ -42,7 +47,7 @@ The canonical correction validator separately binds its new control to the origi
 immutable treatment and verifies source hashes, item order, prompt parity, model
 revision, scoring, and complete discordance attribution.
 
-## Independent validators
+## Dedicated artifact validators
 
 ```bash
 python scripts/validate_second_family_artifacts.py \

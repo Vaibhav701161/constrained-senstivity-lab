@@ -1,3 +1,8 @@
+---
+title: Quickstart
+description: Run the lightweight tests and replay published raw-output scores without a GPU
+---
+
 # Quickstart
 
 The fastest trustworthy check requires Python 3.11 or 3.12. It does not download a
@@ -19,7 +24,7 @@ On Windows PowerShell, activate the environment with:
 .venv\Scripts\Activate.ps1
 ```
 
-## Replay the accepted artifacts
+## Replay the general score scopes
 
 ```bash
 python scripts/replay_artifacts.py \
@@ -36,7 +41,9 @@ Expected terminal result:
 ```
 
 The command recomputes metrics from the checked-in raw rows. It does not trust the
-published summaries as input evidence.
+published summaries as input evidence. Its 464 rows are the broad second-family
+matrix plus tool-call matrix. Corrected Qwen and canonical correction use dedicated
+validators described in the [artifact replay guide](../reproducibility/artifact-replay.md).
 
 ## Run the tests
 

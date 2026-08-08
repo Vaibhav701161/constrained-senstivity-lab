@@ -26,7 +26,10 @@ silently weakened.
 
 ## Canonical pipeline
 
-![Contract-preserving model-facing schema transformation and final validation boundary](assets/figures/contract-alignment-pipeline.png)
+<figure class="csl-figure">
+  <img src="../assets/figures/research-system-architecture.svg" alt="Model-agnostic contract-sensitivity evaluation pipeline">
+  <figcaption>The contract path proves or refuses a representation transform. The evaluation path measures quality rather than assuming it.</figcaption>
+</figure>
 
 ```text
 External JSON Schema

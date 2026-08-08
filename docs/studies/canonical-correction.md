@@ -59,7 +59,10 @@ The paired effect was **-6.7 percentage points**, with exact paired bootstrap
 interval **[-12.7, -0.7]**, six treatment-only wins, sixteen control-only losses,
 and exact McNemar `p = 0.05248`.
 
-![Canonical correction result and complete discordance attribution](../assets/figures/canonical-schema-correction.png)
+<figure class="csl-figure">
+  <img src="../../assets/figures/canonical-schema-correction.svg" alt="Canonical correction result and complete discordance attribution">
+  <figcaption>Final paired result, transition matrix, and all 22 manual engineering attributions from the canonical holdout.</figcaption>
+</figure>
 
 ## Complete discordance audit
 
@@ -79,12 +82,24 @@ The schema mismatch was real, but it was not the cause of the negative direction
 Compared with the original broad control, 134/150 raw outputs were byte-identical
 and aggregate correctness remained 92/150.
 
+<figure class="csl-figure">
+  <img src="../../assets/figures/llama-paired-item-map.svg" alt="All 150 canonical Llama paired outcomes in frozen dataset order">
+  <figcaption>Every holdout item appears once. Green and red discordant cells show the original GSM8K source index.</figcaption>
+</figure>
+
 ## Final decision
 
 The safe transducer remains supported. The claim that this representation should be
 selected as a default model-quality optimization is closed. Future work targets a
 contract-sensitivity analyzer that measures workload-specific effects before a
 rewrite is deployed.
+
+## Limitations
+
+- One non-Qwen model family and one 150-item reasoning workload
+- One retained treatment token-cap failure
+- Greedy decoding does not measure sampling variance
+- Manual mechanism labels are reviewable judgments, not causal proof
 
 ## Primary records
 

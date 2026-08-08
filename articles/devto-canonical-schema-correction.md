@@ -344,13 +344,13 @@ python scripts/replay_artifacts.py \
 
 The complete correction record includes:
 
-- [preregistered protocol](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/protocol.md);
-- [operational canary](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/canary-gate.json);
-- [raw 150-row control artifact](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/results/xgrammar_json_canonical_integer_string_reasoning_first.jsonl);
-- [artifact validation](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/artifact-validation.json);
-- [paired summary](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/paired-summary.md);
-- [complete 22-item audit](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/failure-attribution.jsonl);
-- [final decision report](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/decision-report.md).
+- [preregistered protocol](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/canonical-schema-equivalence-correction/protocol.md);
+- [operational canary](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/canonical-schema-equivalence-correction/canary-gate.json);
+- [raw 150-row control artifact](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/canonical-schema-equivalence-correction/results/xgrammar_json_canonical_integer_string_reasoning_first.jsonl);
+- [artifact validation](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/canonical-schema-equivalence-correction/artifact-validation.json);
+- [paired summary](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/canonical-schema-equivalence-correction/paired-summary.md);
+- [complete 22-item audit](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/canonical-schema-equivalence-correction/failure-attribution.jsonl);
+- [final decision report](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/canonical-schema-equivalence-correction/decision-report.md).
 
 ## Final lesson
 

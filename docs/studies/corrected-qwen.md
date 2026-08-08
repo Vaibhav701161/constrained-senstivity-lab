@@ -31,7 +31,10 @@ JSON, fixed FP32 greedy decoding, and a frozen four-condition matrix.
 | Signed numeric string | 18/49 (36.7%) | 49/49 (100.0%) | 2 |
 | Integer plus deterministic stringification | 24/49 (49.0%) | 49/49 (100.0%) | 0 |
 
-![Corrected paired effect, final validity, and artifact-integrity checks](../assets/figures/corrected-replication-effect.png)
+<figure class="csl-figure">
+  <img src="../../assets/figures/corrected-replication-effect.svg" alt="Corrected paired effect, final validity, and artifact-integrity checks">
+  <figcaption>Exact corrected Qwen summary and artifact-validator coverage. The validator is separate code, not an external model replication.</figcaption>
+</figure>
 
 The paired estimate was **+12.2 percentage points** with an exact deterministic
 bootstrap interval of **[0.0, 26.5]**. There were nine treatment-only wins and three
@@ -41,7 +44,15 @@ Outlines and XGrammar were byte-identical for all 200 accepted outputs across bo
 representations. This ruled out backend implementation divergence for this run, but
 did not count as an independent model replication.
 
-![Item-level paired transition matrix for the corrected string and integer representations](../assets/figures/corrected-replication-transitions.png)
+<figure class="csl-figure">
+  <img src="../../assets/figures/corrected-replication-transitions.svg" alt="Item-level paired transition matrix for the corrected string and integer representations">
+  <figcaption>Fifteen items were correct in both arms, nine were treatment-only wins, three were control-only wins, and 22 were wrong in both.</figcaption>
+</figure>
+
+<figure class="csl-figure">
+  <img src="../../assets/figures/corrected-replication-item-map.svg" alt="All corrected Qwen paired item outcomes in frozen source order">
+  <figcaption>Item-level correctness for the accepted 49-item clean analysis after verified backend byte parity.</figcaption>
+</figure>
 
 ## Decision at the time
 
@@ -52,6 +63,13 @@ so the result supported a scoped continuation, not a universal claim.
 This gate authorized a new model family and unseen holdout. The later Llama results
 supersede the general optimizer decision while preserving this as valid Qwen-specific
 evidence.
+
+## Limitations
+
+- The interval touched zero and exact McNemar `p = 0.145996`
+- One model, prompt, schema pair, dataset, and greedy decoding policy
+- Backend byte parity is implementation evidence, not independent semantic evidence
+- The cleaned 49 items had already been inspected in earlier work
 
 ## Primary records
 

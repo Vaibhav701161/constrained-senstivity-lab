@@ -14,7 +14,7 @@ cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-senstiv
 > compiler transform. I preregistered an exact canonical correction. The canonical
 > string control still scored 92/150 versus 82/150 for the frozen integer treatment,
 > with a paired interval of [-12.7, -0.7] points. The default optimizer thesis is
-> closed. See the [complete correction decision](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/decision-report.md).
+> closed. See the [complete correction decision](https://github.com/Vaibhav701161/constrained-senstivity-lab/blob/master/experiments/canonical-schema-equivalence-correction/decision-report.md).
 
 My previous experiment ended with an uncomfortable result.
 

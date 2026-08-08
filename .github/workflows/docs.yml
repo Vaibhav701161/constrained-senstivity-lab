@@ -6,12 +6,34 @@ on:
     paths:
       - ".github/workflows/docs.yml"
       - "docs/**"
+      - "assets/figures/**"
+      - "scripts/build_evidence_dashboard_figures.py"
+      - "scripts/build_replication_gate_figures.py"
+      - "scripts/sync_docs_figures.py"
+      - "scripts/verify_docs_facts.py"
+      - "experiments/corrected-replication/**"
+      - "experiments/canonical-schema-equivalence-correction/**"
+      - "experiments/second-family-replication/paired-summary.json"
+      - "experiments/tool-call-gate/paired-summary.json"
+      - "results/qwen2.5-7b/primary/combined/summary_clean.json"
+      - "README.md"
       - "mkdocs.yml"
       - "requirements-docs.txt"
   pull_request:
     paths:
       - ".github/workflows/docs.yml"
       - "docs/**"
+      - "assets/figures/**"
+      - "scripts/build_evidence_dashboard_figures.py"
+      - "scripts/build_replication_gate_figures.py"
+      - "scripts/sync_docs_figures.py"
+      - "scripts/verify_docs_facts.py"
+      - "experiments/corrected-replication/**"
+      - "experiments/canonical-schema-equivalence-correction/**"
+      - "experiments/second-family-replication/paired-summary.json"
+      - "experiments/tool-call-gate/paired-summary.json"
+      - "results/qwen2.5-7b/primary/combined/summary_clean.json"
+      - "README.md"
       - "mkdocs.yml"
       - "requirements-docs.txt"
   workflow_dispatch:
@@ -34,8 +56,20 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-      - name: Install documentation dependencies
-        run: python -m pip install -r requirements-docs.txt
+      - name: Install documentation and figure dependencies
+        run: |
+          python -m pip install -r requirements-docs.txt
+          python -m pip install -r requirements-analysis.txt
+      - name: Verify facts and deterministic technical figures
+        run: |
+          python scripts/verify_docs_facts.py
+          python scripts/build_replication_gate_figures.py --output-dir /tmp/generated-figures
+          python scripts/build_evidence_dashboard_figures.py --output-dir /tmp/generated-figures
+          for stem in cross-family-evidence tool-call-pilot-result validity-semantics-separation paired-outcome-composition llama-paired-item-map canonical-correction-delta research-system-architecture; do
+            cmp "/tmp/generated-figures/${stem}.png" "assets/figures/${stem}.png"
+            cmp "/tmp/generated-figures/${stem}.svg" "assets/figures/${stem}.svg"
+          done
+          python scripts/sync_docs_figures.py --check
       - name: Build documentation
         run: mkdocs build --strict
       - name: Configure GitHub Pages

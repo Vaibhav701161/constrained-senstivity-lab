@@ -16,13 +16,26 @@ from enum import StrEnum
 from pathlib import Path
 from typing import Any, Iterable
 
-import torch
-from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer, LogitsProcessor
+try:
+    import torch
+except ModuleNotFoundError:  # Lightweight artifact replay does not require Torch.
+    torch = None  # type: ignore[assignment]
+
+try:
+    from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer, LogitsProcessor
+except ModuleNotFoundError:  # Lightweight artifact replay does not require Transformers.
+    AutoConfig = AutoModelForCausalLM = AutoTokenizer = None  # type: ignore[assignment]
+
+    class LogitsProcessor:  # type: ignore[no-redef]
+        """Import-time placeholder; generation requires the optional dependency."""
+
+        pass
 
 from .metrics import score_alignment_output
 from .schema_variants import (
     AnswerRepresentation,
     ConditionSpec,
+    canonical_external_schema,
     external_schema,
     schema_for_spec,
     schema_sha256,
@@ -50,6 +63,7 @@ class RuntimeRepresentation(StrEnum):
     """The only experimental switch in the unified runtime."""
 
     SIGNED_NUMERIC_STRING = "signed-numeric-string"
+    CANONICAL_SIGNED_INTEGER_STRING = "canonical-signed-integer-string"
     INTEGER = "integer"
 
 
@@ -83,16 +97,15 @@ def representation_spec(
     representation: RuntimeRepresentation,
     backend: RuntimeBackend,
 ) -> ConditionSpec:
-    answer_representation = (
-        AnswerRepresentation.INTEGER
-        if representation is RuntimeRepresentation.INTEGER
-        else AnswerRepresentation.SIGNED_NUMERIC_STRING
-    )
-    suffix = (
-        "integer_reasoning_first"
-        if representation is RuntimeRepresentation.INTEGER
-        else "reasoning_first"
-    )
+    if representation is RuntimeRepresentation.INTEGER:
+        answer_representation = AnswerRepresentation.INTEGER
+        suffix = "integer_reasoning_first"
+    elif representation is RuntimeRepresentation.CANONICAL_SIGNED_INTEGER_STRING:
+        answer_representation = AnswerRepresentation.CANONICAL_SIGNED_INTEGER_STRING
+        suffix = "canonical_integer_string_reasoning_first"
+    else:
+        answer_representation = AnswerRepresentation.SIGNED_NUMERIC_STRING
+        suffix = "reasoning_first"
     return ConditionSpec(
         name=f"{backend.value}_json_{suffix}",
         backend=backend.value,
@@ -191,6 +204,8 @@ def select_examples(
 
 def set_seed(seed: int) -> None:
     random.seed(seed)
+    if torch is None:
+        raise RuntimeError("generation requires the optional generation dependencies")
     torch.manual_seed(seed)
     if torch.cuda.is_available():
         torch.cuda.manual_seed_all(seed)
@@ -219,6 +234,8 @@ def load_model(
     device_map_auto: bool,
     dtype: str,
 ) -> LoadedModel:
+    if torch is None or AutoTokenizer is None or AutoConfig is None or AutoModelForCausalLM is None:
+        raise RuntimeError("model loading requires the optional generation dependencies")
     use_cuda = torch.cuda.is_available() and not force_cpu
     if device_map_auto and not use_cuda:
         raise RuntimeError("device_map=auto requires an available CUDA GPU")
@@ -467,7 +484,11 @@ def run_config(
 ) -> dict[str, Any]:
     spec = representation_spec(representation, backend)
     internal = schema_for_spec(spec)
-    external = external_schema(spec.field_order)
+    external = (
+        canonical_external_schema(spec.field_order)
+        if representation is RuntimeRepresentation.CANONICAL_SIGNED_INTEGER_STRING
+        else external_schema(spec.field_order)
+    )
     return {
         "runtime_version": RUNTIME_VERSION,
         "model": model,
@@ -502,9 +523,13 @@ def run_config(
             if representation is RuntimeRepresentation.INTEGER
             else None
         ),
-        "plan_id": "integer-string-representation-v1"
-        if representation is RuntimeRepresentation.INTEGER
-        else "external-signed-string-control-v1",
+        "plan_id": (
+            "integer-string-representation-v1"
+            if representation is RuntimeRepresentation.INTEGER
+            else "canonical-signed-integer-string-control-v1"
+            if representation is RuntimeRepresentation.CANONICAL_SIGNED_INTEGER_STRING
+            else "external-broad-numeric-string-control-v1"
+        ),
         "runner_sha256": runner_sha256,
         "runtime_sha256": runtime_sha256,
     }
@@ -592,10 +617,15 @@ def score_output(
     gold_answer: str,
 ) -> dict[str, Any]:
     spec = representation_spec(representation, backend)
+    external = (
+        canonical_external_schema(spec.field_order)
+        if representation is RuntimeRepresentation.CANONICAL_SIGNED_INTEGER_STRING
+        else external_schema(spec.field_order)
+    )
     return score_alignment_output(
         raw_output,
         schema_for_spec(spec),
-        external_schema(spec.field_order),
+        external,
         spec.field_order,
         gold_answer,
         spec.answer_representation,

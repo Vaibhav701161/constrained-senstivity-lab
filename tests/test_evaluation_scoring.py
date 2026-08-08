@@ -7,6 +7,11 @@ import unittest
 from pathlib import Path
 from types import SimpleNamespace
 
+import pytest
+
+pytest.importorskip("torch")
+pytest.importorskip("transformers")
+
 RUNNER_PATH = Path(__file__).parents[1] / "scripts" / "run_evaluation.py"
 SPEC = importlib.util.spec_from_file_location("run_baseline", RUNNER_PATH)
 assert SPEC is not None and SPEC.loader is not None

@@ -6,6 +6,16 @@ tags: ai, machinelearning, llm, opensource
 cover_image: https://raw.githubusercontent.com/Vaibhav701161/constrained-decoding-lab/master/assets/figures/corrected-replication-effect.png
 ---
 
+> ## Update, 8 Aug 2026
+>
+> The corrected Qwen estimate below remains valid for this frozen model and workload,
+> but it is not a portable optimizer result. A fresh Llama replication reversed
+> direction. After an external review found a numeric-language mismatch in that
+> Llama control, I ran one preregistered exact canonical correction. The canonical
+> string control still scored 92/150 versus 82/150 for the immutable integer
+> treatment, with a paired interval of [-12.7, -0.7] points. See the [complete
+> correction decision](https://github.com/Vaibhav701161/constrained-decoding-lab/blob/exp/canonical-schema-correction/experiments/canonical-schema-equivalence-correction/decision-report.md).
+
 I had a result I wanted to believe.
 
 Changing the model-facing JSON answer from a signed numeric string to a native

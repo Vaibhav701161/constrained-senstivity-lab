@@ -1,0 +1,9 @@
+--extra-index-url https://download.pytorch.org/whl/cu124
+
+-r requirements-core.txt
+
+accelerate==1.6.0
+datasets==3.6.0
+torch==2.6.0+cu124
+transformers==4.51.3
+

@@ -13,9 +13,11 @@
 
 | Feature | Current status | Evidence |
 |---|---|---|
-| Canonical signed integer string | Supported | Corrected Qwen2.5-7B experiment, exact transducer tests, and adversarial lexical tests |
+| Canonical signed integer string | Supported utility | One canonical regex source, exact correction arm, transducer tests, and adversarial lexical tests |
 | Integer to canonical string transduction | Supported | 1,501 property cases, boolean rejection, arbitrary-precision cases, and original-schema validation |
-| Final validation against original schema | Supported | Transducer tests, compiler acceptance probes, and 200-row corrected replication |
+| Final validation against original schema | Supported | Transducer tests, compiler probes, corrected Qwen evidence, 150-row canonical correction, and 66 tool-dispatch generations |
+| Native integer as a quality optimization | Rejected | Exact canonical Llama correction produced -6.7 points, interval [-12.7, -0.7] |
+| Integer rewrite with `enum`, `const`, bounds, or `multipleOf` | Refused | Current mapper fails closed instead of dropping externally visible constraints |
 | Stable contract IR and hashing | Prototype | Canonical serialization, round-trip, unsupported-keyword, and stable-hash tests |
 | Deterministic alignment plans | Prototype | Serialization, transform-order, backend-requirement, refusal, and replay tests |
 | Field ordering | Prototype | Strong Qwen experimental motivation and unit-tested buffered restoration; no independent quality validation |

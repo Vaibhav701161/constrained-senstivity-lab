@@ -1,0 +1,20 @@
+{
+  "validation_version": "canonical-schema-correction-artifacts-v1",
+  "valid": true,
+  "model": "meta-llama/Llama-3.2-3B-Instruct",
+  "model_revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+  "source_commit": "1c9826e3a2e83d73fbc8ab0c7f1238f561097ed3",
+  "source_manifest_sha256": "67b875d066a8a4520cbcb8f388d60730d15b94162166ba073fc282f5a16094d2",
+  "dataset_sha256": "70e7af8691a4b8273dc14fcb825140573fe5dcc570723b9d58e755dc3b36e154",
+  "expected_new_rows": 150,
+  "validated_new_rows": 150,
+  "canonical_result_sha256": "f8de4460973cf641a95ab09fad7ce51e67b0760196d10e6cd462dcc9c102cebe",
+  "canonical_manifest_sha256": "d9691390708e627c522447ba6ed03b3ddeff3ff5b5acbf6ab2e2f53bf15444c7",
+  "frozen_treatment_sha256": "298d1a38ad8d95d89ca97ab1f98d14bef4853342bf388d080f57f06de9c47342",
+  "score_replay_mismatches": 0,
+  "errors": 0,
+  "cap_hits": 0,
+  "internal_invalid": 0,
+  "external_invalid": 0,
+  "failures": []
+}

@@ -2,9 +2,9 @@
 
 ## Status
 
-The completed evidence does not support a general contract-alignment quality
-optimizer. The supported direction is a schema-risk linter, contract-sensitivity
-analyzer, and reproducible measurement harness.
+The completed evidence closes the general contract-alignment quality-optimizer
+thesis. The supported direction is primarily a contract-sensitivity analyzer and
+reproducible measurement harness, with a secondary fail-closed schema linter.
 
 This document is the post-experiment status layer. The earlier
 [`architecture.md`](architecture.md) and
@@ -18,11 +18,15 @@ authorize now.
 | Gate | Paired treatment effect | Wins : losses | Decision |
 |---|---:|---:|---|
 | Corrected Qwen2.5-7B GSM8K, 49 items | +12.2 pp, interval [0.0, 26.5] | 9 : 3 | Scoped continuation at that gate |
-| Llama 3.2 3B unseen GSM8K, 150 items | -6.7 pp, interval [-12.7, -1.3] | 5 : 15 | Red |
-| Llama 3.2 3B executable primary pilot, 30 calls | -6.7 pp, interval [-20.0, 6.7] | 1 : 3 | Red |
+| Llama 3.2 3B broad-string GSM8K, 150 items | -6.7 pp, interval [-12.7, -1.3] | 5 : 15 | Negative, later corrected for schema equivalence |
+| Llama 3.2 3B canonical-string correction, 150 items | -6.7 pp, interval [-12.7, -0.7] | 6 : 16 | Optimizer thesis closed |
+| Llama 3.2 3B tool-dispatch primary pilot, 30 calls | -6.7 pp, interval [-20.0, 6.7] | 1 : 3 | No evidence of practical benefit |
 
 The Qwen observation remains valid for its frozen model, dataset, prompt, precision,
-and runner. It did not reproduce on a different model family and unseen items. The
+and runner. It did not reproduce on a different model family and unseen items. An
+external review found that the first Llama control accepted a broader numeric-string
+language than the compiler. A preregistered one-arm correction reused the immutable
+integer treatment and exact canonical schema. The negative estimate survived. The
 bounded practical pilot also failed its directional gate.
 
 ## Current contract status
@@ -32,7 +36,7 @@ bounded practical pilot also failed its directional gate.
 | Parse canonical signed integer strings | Supported utility | Adversarial lexical tests and exact parser behavior |
 | Integer to canonical string transduction | Supported utility | 1,501 property cases, arbitrary-precision cases, boolean refusal, and original-schema validation |
 | Validate against the unchanged external schema | Supported utility | Property tests, compiler probes, Llama matrix, and 66 executable pilot generations |
-| Deterministic executable-call harness | Supported measurement capability | Exact dispatch, strict typed arguments, state receipts, and zero heuristic repairs |
+| Deterministic tool-dispatch harness | Supported measurement capability | Exact dispatch, strict typed arguments, state receipts, and zero heuristic repairs |
 | Cross-family paired evaluation | Supported measurement capability | Frozen unseen dataset, unified runner, source manifests, exact paired statistics, and complete discordance audit |
 | Native integer as a default quality optimization | Rejected by current evidence | Positive Qwen estimate did not reproduce; both later primary gates were negative |
 | Field ordering as a quality optimization | Prototype only | Strong historical sensitivity evidence, but no independent quality validation |
@@ -95,7 +99,8 @@ The current evidence closes these claims:
 - perfect schema validity implies preserved call semantics; and
 - the bounded BFCL-based result supports broad optimizing-compiler expansion.
 
-No more copies of the same Qwen or Llama matrices are needed to decide those claims.
+The exact canonical correction resolves the prior schema mismatch, so no more copies
+of the same Qwen or Llama matrices are needed to decide those claims.
 Future research should evaluate the analyzer itself: whether its warnings and paired
 measurements predict deployment regressions across real workloads. That is a new
 research question and requires its own frozen protocol.
@@ -104,6 +109,7 @@ research question and requires its own frozen protocol.
 
 - [Corrected Qwen decision](../experiments/corrected-replication/results/qwen2.5-7b-corrected/decision-report.md)
 - [Second-family replication decision](../experiments/second-family-replication/decision-report.md)
+- [Canonical schema-equivalence correction](../experiments/canonical-schema-equivalence-correction/decision-report.md)
 - [Executable tool-call pilot decision](../experiments/tool-call-gate/decision-report.md)
 - [Executable discordance audit](../experiments/tool-call-gate/failure-attribution.jsonl)
 

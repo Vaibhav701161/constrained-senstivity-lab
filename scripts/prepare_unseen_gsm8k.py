@@ -11,8 +11,6 @@ import sys
 from pathlib import Path
 from typing import Any, Iterable
 
-from datasets import load_dataset
-
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
 if str(SRC) not in sys.path:
@@ -230,6 +228,8 @@ def write_bytes(path: Path, payload: bytes) -> None:
 
 
 def main() -> None:
+    from datasets import load_dataset
+
     args = parse_args()
     scan_roots = tuple(args.scan_roots or DEFAULT_SCAN_ROOTS)
     output_paths = (args.out, args.manifest, args.experiment_manifest)

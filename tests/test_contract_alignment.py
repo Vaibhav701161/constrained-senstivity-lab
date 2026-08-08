@@ -11,6 +11,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from project_a.metrics import score_alignment_output
 from project_a.schema_variants import (
     AnswerRepresentation,
+    canonical_schema_pair,
     external_schema,
     make_prompt,
     schema_for_spec,
@@ -21,6 +22,17 @@ from project_a.transducer import canonical_integer_string, transduce_and_validat
 
 
 class SchemaVariantTests(unittest.TestCase):
+    def test_canonical_schema_pair_has_one_exact_language(self) -> None:
+        external, internal = canonical_schema_pair()
+        self.assertEqual(
+            external["properties"]["answer"],
+            {
+                "type": "string",
+                "pattern": r"^-?(?:0|[1-9][0-9]*)$",
+            },
+        )
+        self.assertEqual(internal["properties"]["answer"], {"type": "integer"})
+
     def test_integer_schema_and_template_are_unquoted(self) -> None:
         spec = spec_for_condition("outlines_json_integer_reasoning_first")
         schema = schema_for_spec(spec)

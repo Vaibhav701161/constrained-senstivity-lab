@@ -2,10 +2,11 @@
 
 ## Purpose
 
-The system preserves a caller's external JSON contract while allowing a model to
-generate through a narrower, explicitly justified internal representation. It is a
-contract compiler and validation boundary, not a grammar engine and not a semantic
-repair system.
+The system measures how alternative model-facing representations affect a caller's
+external JSON contract and workload outcomes. It contains a narrow contract compiler
+and validation boundary, but its primary role is a contract-sensitivity evaluation
+harness, not an automatic quality optimizer, grammar engine, or semantic repair
+system.
 
 The original external schema remains authoritative. Every transformation must have
 a deterministic inverse, an explicit applicability proof, versioned provenance, and
@@ -43,6 +44,27 @@ Original external-schema validation
         |
         v
 Caller-facing object
+```
+
+This compiler pipeline is evaluated inside a larger evidence loop:
+
+```text
+External contract and workload
+        |
+        v
+Candidate model-facing representations
+        |
+        v
+Frozen paired generations
+        |
+        v
+External validation and deterministic dispatch
+        |
+        v
+Paired correctness, uncertainty, and complete audit
+        |
+        v
+Workload-scoped recommendation or refusal
 ```
 
 ## Boundary guarantees
@@ -103,7 +125,7 @@ The canonical experiment runtime has one generation path. Representation is data
 not a separate runner:
 
 ```text
-representation = signed-numeric-string | integer
+representation = signed-numeric-string | canonical-signed-integer-string | integer
 ```
 
 Model loading, tokenizer loading, chat-template application, XGrammar compilation,
@@ -125,4 +147,6 @@ the symbolic prompt placeholder, and integer inverse transduction may differ.
 Architecture expansion requires a preregistered empirical gate. Unit tests establish
 determinism and contract safety; they do not establish model-quality benefit. A new
 transform remains prototype or experimental until a matched task shows practical
-value without violating the external contract.
+value without violating the external contract. The completed canonical Llama
+correction closes default quality activation for the integer rewrite. The transform
+remains available only as an explicit, workload-measured variant.

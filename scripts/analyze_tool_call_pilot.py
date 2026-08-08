@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import statistics
 import sys
 from pathlib import Path
@@ -86,7 +87,7 @@ def summarize_condition(rows: list[dict[str, Any]]) -> dict[str, Any]:
             "median": statistics.median(tokens),
         },
         "latency_ms_descriptive": {
-            "total": sum(latencies),
+            "total": math.fsum(latencies),
             "mean": statistics.fmean(latencies),
             "median": statistics.median(latencies),
         },

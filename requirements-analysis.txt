@@ -1,0 +1,5 @@
+-r requirements-core.txt
+
+matplotlib==3.10.5
+numpy>=2.0,<3
+

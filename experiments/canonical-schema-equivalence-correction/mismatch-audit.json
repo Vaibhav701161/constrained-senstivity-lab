@@ -1,0 +1,89 @@
+{
+  "audit_version": "canonical-schema-mismatch-audit-v1",
+  "discovery_status": "post_second_family_decision_pre_correction_generation",
+  "broad_control_pattern": "^-?(?:(?:\\d+|\\d{1,3}(?:,\\d{3})+)(?:\\.\\d+)?|(?:\\d+|\\d{1,3}(?:,\\d{3})+)/(?:\\d+|\\d{1,3}(?:,\\d{3})+))$",
+  "compiler_canonical_pattern": "^-?(?:0|[1-9][0-9]*)$",
+  "fresh_control": {
+    "path": "experiments/second-family-replication/results/fresh/xgrammar_json_reasoning_first.jsonl",
+    "sha256": "618ec529babec4ba9f3c72c0e8f229c45123869fe20efda8c2f21ad434218e1a",
+    "rows": 150,
+    "noncanonical_outputs": 6
+  },
+  "bridge_control": {
+    "path": "experiments/second-family-replication/results/bridge/xgrammar_json_reasoning_first.jsonl",
+    "sha256": "eab6d51ca261e448f179208ba228414277ed19c708f4610947b38c59b578a24d",
+    "rows": 49,
+    "noncanonical_outputs": 2
+  },
+  "frozen_treatment": {
+    "path": "experiments/second-family-replication/results/fresh/xgrammar_json_integer_reasoning_first.jsonl",
+    "sha256": "298d1a38ad8d95d89ca97ab1f98d14bef4853342bf388d080f57f06de9c47342",
+    "rows": 150,
+    "regenerate": false
+  },
+  "items": [
+    {
+      "dataset_role": "fresh",
+      "item_id": "gsm8k_test_38",
+      "answer": "13.33",
+      "broad_control_correct": false,
+      "frozen_treatment_correct": false
+    },
+    {
+      "dataset_role": "fresh",
+      "item_id": "gsm8k_test_556",
+      "answer": "53.33",
+      "broad_control_correct": false,
+      "frozen_treatment_correct": false
+    },
+    {
+      "dataset_role": "fresh",
+      "item_id": "gsm8k_test_1105",
+      "answer": "33.33",
+      "broad_control_correct": false,
+      "frozen_treatment_correct": false
+    },
+    {
+      "dataset_role": "fresh",
+      "item_id": "gsm8k_test_928",
+      "answer": "55.5",
+      "broad_control_correct": false,
+      "frozen_treatment_correct": false
+    },
+    {
+      "dataset_role": "fresh",
+      "item_id": "gsm8k_test_999",
+      "answer": "66.67",
+      "broad_control_correct": false,
+      "frozen_treatment_correct": false
+    },
+    {
+      "dataset_role": "fresh",
+      "item_id": "gsm8k_test_174",
+      "answer": "94.98",
+      "broad_control_correct": false,
+      "frozen_treatment_correct": false
+    },
+    {
+      "dataset_role": "bridge",
+      "item_id": "gsm8k_test_586",
+      "answer": "5.5",
+      "broad_control_correct": false,
+      "frozen_treatment_correct": false
+    },
+    {
+      "dataset_role": "bridge",
+      "item_id": "gsm8k_test_1292",
+      "answer": "36/2",
+      "broad_control_correct": false,
+      "frozen_treatment_correct": false
+    }
+  ],
+  "counts": {
+    "noncanonical_outputs": 8,
+    "fresh": 6,
+    "bridge": 2,
+    "both_arms_incorrect": 8
+  },
+  "claim_effect": "The mismatch does not directly explain the ten-net-answer fresh loss, but the exact canonical transform was not isolated."
+}

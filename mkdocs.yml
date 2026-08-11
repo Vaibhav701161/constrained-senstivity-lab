@@ -124,6 +124,7 @@ nav:
       - Executable tool-call pilot: studies/tool-call-pilot.md
   - System:
       - System overview: system/index.md
+      - From research to StructTrace: system/structtrace-productization.md
       - Architecture: architecture.md
       - Supported contracts: supported-contracts.md
   - Methods:

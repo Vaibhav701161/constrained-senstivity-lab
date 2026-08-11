@@ -19,6 +19,7 @@ hide:
       <div class="csl-actions">
         <a class="csl-button csl-button--primary" href="results/">Inspect the final results</a>
         <a class="csl-button csl-button--secondary" href="getting-started/quickstart/">Replay the evidence</a>
+        <a class="csl-button csl-button--secondary" href="https://github.com/Vaibhav701161/structtrace">Open StructTrace</a>
       </div>
     </div>
     <aside class="csl-signal" aria-label="Current evidence signal">
@@ -137,6 +138,13 @@ The project separates three claims that are often conflated:
 The supported direction is not an optimizer that silently rewrites schemas. It is a
 measurement system that tells an engineer when a valid contract change alters model
 behavior.
+
+That product is now implemented as
+[StructTrace](https://github.com/Vaibhav701161/structtrace). The lab remains the frozen research
+authority; StructTrace provides the reusable paired runner, deterministic evaluation, evidence
+replay, recurring regression cases, and release workflow derived from the findings.
+
+[Trace the research-to-product lineage](system/structtrace-productization.md){ .csl-button .csl-button--secondary }
 
 | System capability | Why it exists |
 |---|---|

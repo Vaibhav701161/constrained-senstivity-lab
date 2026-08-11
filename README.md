@@ -16,6 +16,7 @@ validity, semantic correctness, and executable success under constrained decodin
 [**Documentation**](https://vaibhav701161.github.io/constrained-senstivity-lab/) ·
 [Results](#the-result-in-30-seconds) ·
 [Evidence](#accepted-evidence-chain) ·
+[StructTrace](#from-research-to-structtrace) ·
 [Architecture](#system-architecture) ·
 [Reproduce](#reproduce-the-evidence) ·
 [Publications](#technical-publications)
@@ -93,6 +94,33 @@ the rewrite.
 
 [Read the full decision chain](https://vaibhav701161.github.io/constrained-senstivity-lab/studies/evidence-overview/) ·
 [Open the results dashboard](https://vaibhav701161.github.io/constrained-senstivity-lab/results/)
+
+## From research to StructTrace
+
+The product implementation of this conclusion is
+[StructTrace](https://github.com/Vaibhav701161/structtrace), a local-first paired regression system
+for structured extraction outputs. It did not begin from a generic dashboard template. Its core
+requirements follow from this repository's accepted evidence:
+
+| Research conclusion | StructTrace capability |
+|---|---|
+| Valid JSON can still be semantically wrong | Separate parsing, schema, semantic, executable, and deployment outcomes |
+| Contract representation can change paired answers | Matched baseline/candidate cases with repair and regression transitions |
+| The Qwen gain reversed on canonical Llama | No universal schema optimizer or automatic rewrite claim |
+| Evidence and evaluator failures must stay visible | Complete denominators, fail-closed evaluator errors, and multi-state gates |
+| One study is not a deployment decision | Workload-specific release thresholds, immutable artifacts, and replay |
+| Regressions recur across iterations | Accepted baselines, pinned critical cases, and project-bound CI export |
+
+The repositories have deliberately different authority. This lab owns frozen model experiments,
+raw generations, protocol corrections, paired statistics, and mechanism audits. StructTrace owns
+the reusable Rust engine and local product workflow. Its
+[`research-foundation.json`](https://github.com/Vaibhav701161/structtrace/blob/main/provenance/research-foundation.json)
+pins this repository's source revision and hashes of the three accepted summaries. The
+`structtrace demo research` command reproduces their transition matrices as normalized offline
+fixtures; it does not claim to replay the original GPU generations.
+
+[Read the complete research-to-product bridge](docs/system/structtrace-productization.md) ·
+[Open StructTrace](https://github.com/Vaibhav701161/structtrace)
 
 ## Measurement model
 

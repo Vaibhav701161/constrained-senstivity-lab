@@ -14,6 +14,7 @@ validity, semantic correctness, and executable success under constrained decodin
 [![License: MIT](https://img.shields.io/badge/license-MIT-52647a)](LICENSE)
 
 [**Documentation**](https://vaibhav701161.github.io/constrained-senstivity-lab/) ·
+[Research walkthrough](#research-walkthrough) ·
 [Results](#the-result-in-30-seconds) ·
 [Evidence](#accepted-evidence-chain) ·
 [StructTrace](#from-research-to-structtrace) ·
@@ -24,6 +25,16 @@ validity, semantic correctness, and executable success under constrained decodin
 </div>
 
 ---
+
+## Research walkthrough
+
+[![Watch the 17-minute research walkthrough: 100% Valid JSON, Worse Answers: The Hidden Cost of Constrained Decoding](https://img.youtube.com/vi/82-3grLsO2M/maxresdefault.jpg)](https://youtu.be/82-3grLsO2M)
+
+**[Watch: 100% Valid JSON, Worse Answers: The Hidden Cost of Constrained Decoding](https://youtu.be/82-3grLsO2M)**
+
+This 17-minute presentation explains the project’s motivation, experimental progression, evidence,
+and engineering lessons. The video is an accessible walkthrough; the frozen protocols, raw
+artifacts, validators, and decision reports below remain the authoritative research record.
 
 ## The problem
 
